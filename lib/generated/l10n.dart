@@ -1,11 +1,16 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// Flutter Intl / Filmoly l10n
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:filmoly/generated/intl/messages_all.dart';
+import 'intl/messages_all.dart';
+
+// **************************************************************************
+// Generator: Flutter Intl IDE plugin
+// Made by Localizely
+// **************************************************************************
 
 // ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
+// ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
+// ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
 
 class S {
   S();
@@ -31,6 +36,7 @@ class S {
       Intl.defaultLocale = localeName;
       final instance = S();
       S._current = instance;
+
       return instance;
     });
   }
@@ -48,151 +54,737 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  String get appName =>
-      Intl.message('Filmoly', name: 'appName', desc: '', args: []);
-  String get signIn =>
-      Intl.message('Sign in', name: 'signIn', desc: '', args: []);
-  String get signUp =>
-      Intl.message('Sign up', name: 'signUp', desc: '', args: []);
-  String get userOrEmail =>
-      Intl.message('Username or email', name: 'userOrEmail', desc: '', args: []);
-  String get password =>
-      Intl.message('Password', name: 'password', desc: '', args: []);
-  String get keepSession =>
-      Intl.message('Keep me signed in', name: 'keepSession', desc: '', args: []);
-  String get forgotPassword =>
-      Intl.message('Forgot password?', name: 'forgotPassword', desc: '', args: []);
-  String get username =>
-      Intl.message('Username', name: 'username', desc: '', args: []);
-  String get email =>
-      Intl.message('Email', name: 'email', desc: '', args: []);
-  String get confirmPassword =>
-      Intl.message('Confirm password', name: 'confirmPassword', desc: '', args: []);
-  String get displayName =>
-      Intl.message('Display name (optional)', name: 'displayName', desc: '', args: []);
-  String get sendCode =>
-      Intl.message('Send code', name: 'sendCode', desc: '', args: []);
-  String get verificationCode =>
-      Intl.message('Verification code (6 digits)', name: 'verificationCode', desc: '', args: []);
-  String get newPassword =>
-      Intl.message('New password', name: 'newPassword', desc: '', args: []);
-  String get confirm =>
-      Intl.message('Confirm', name: 'confirm', desc: '', args: []);
-  String get back =>
-      Intl.message('Back', name: 'back', desc: '', args: []);
-  String get theme =>
-      Intl.message('Theme', name: 'theme', desc: '', args: []);
-  String get language =>
-      Intl.message('Language', name: 'language', desc: '', args: []);
-  String get version =>
-      Intl.message('Version', name: 'version', desc: '', args: []);
-  String get currentAppVersionText =>
-      Intl.message('Current version', name: 'currentAppVersionText', desc: '', args: []);
-  String get close =>
-      Intl.message('Close', name: 'close', desc: '', args: []);
-  String get error =>
-      Intl.message('Error', name: 'error', desc: '', args: []);
-  String get success =>
-      Intl.message('Success', name: 'success', desc: '', args: []);
-  String get fieldRequired =>
-      Intl.message('This field is required', name: 'fieldRequired', desc: '', args: []);
-  String get invalidEmail =>
-      Intl.message('Invalid email', name: 'invalidEmail', desc: '', args: []);
-  String get passwordMinLength =>
-      Intl.message('At least 8 characters', name: 'passwordMinLength', desc: '', args: []);
-  String get passwordMismatch =>
-      Intl.message('Passwords do not match', name: 'passwordMismatch', desc: '', args: []);
-  String get usernameMinLength =>
-      Intl.message('At least 3 characters', name: 'usernameMinLength', desc: '', args: []);
-  String get code6Digits =>
-      Intl.message('Code must be 6 digits', name: 'code6Digits', desc: '', args: []);
-  String get welcome =>
-      Intl.message('Welcome', name: 'welcome', desc: '', args: []);
-  String get codeSent =>
-      Intl.message('If the account exists, a code has been sent to the email.', name: 'codeSent', desc: '', args: []);
-  String get passwordChanged =>
-      Intl.message('Password reset successfully.', name: 'passwordChanged', desc: '', args: []);
-  String get logout =>
-      Intl.message('Log out', name: 'logout', desc: '', args: []);
-  String get appVersionChangeLogTitle =>
-      Intl.message('Changelog', name: 'appVersionChangeLogTitle', desc: '', args: []);
-  String get appVersion10Code =>
-      Intl.message('v1.0.0', name: 'appVersion10Code', desc: '', args: []);
-  String get appVersion10Description =>
-      Intl.message('· Initial release of Filmoly.\n· Login, register and password recovery.\n· Connection with La Retroteca (WordPress).', name: 'appVersion10Description', desc: '', args: []);
-  String get languageArabic =>
-      Intl.message('Arabic', name: 'languageArabic', desc: '', args: []);
-  String get languageCatalan =>
-      Intl.message('Catalan', name: 'languageCatalan', desc: '', args: []);
-  String get languageChinese =>
-      Intl.message('Chinese', name: 'languageChinese', desc: '', args: []);
-  String get languageDutch =>
-      Intl.message('Dutch', name: 'languageDutch', desc: '', args: []);
-  String get languageEnglish =>
-      Intl.message('English', name: 'languageEnglish', desc: '', args: []);
-  String get languageFrench =>
-      Intl.message('French', name: 'languageFrench', desc: '', args: []);
-  String get languageGerman =>
-      Intl.message('German', name: 'languageGerman', desc: '', args: []);
-  String get languageHindi =>
-      Intl.message('Hindi', name: 'languageHindi', desc: '', args: []);
-  String get languageItalian =>
-      Intl.message('Italian', name: 'languageItalian', desc: '', args: []);
-  String get languageJapanese =>
-      Intl.message('Japanese', name: 'languageJapanese', desc: '', args: []);
-  String get languageKorean =>
-      Intl.message('Korean', name: 'languageKorean', desc: '', args: []);
-  String get languagePolish =>
-      Intl.message('Polish', name: 'languagePolish', desc: '', args: []);
-  String get languagePortuguese =>
-      Intl.message('Portuguese', name: 'languagePortuguese', desc: '', args: []);
-  String get languageRomanian =>
-      Intl.message('Romanian', name: 'languageRomanian', desc: '', args: []);
-  String get languageRussian =>
-      Intl.message('Russian', name: 'languageRussian', desc: '', args: []);
-  String get languageSpanish =>
-      Intl.message('Spanish', name: 'languageSpanish', desc: '', args: []);
-  String get languageSwedish =>
-      Intl.message('Swedish', name: 'languageSwedish', desc: '', args: []);
-  String get languageTurkish =>
-      Intl.message('Turkish', name: 'languageTurkish', desc: '', args: []);
-  String get languageUkrainian =>
-      Intl.message('Ukrainian', name: 'languageUkrainian', desc: '', args: []);
+  /// `Filmoly`
+  String get appName {
+    return Intl.message('Filmoly', name: 'appName', desc: '', args: []);
+  }
+
+  /// `Sign in`
+  String get signIn {
+    return Intl.message('Sign in', name: 'signIn', desc: '', args: []);
+  }
+
+  /// `Sign up`
+  String get signUp {
+    return Intl.message('Sign up', name: 'signUp', desc: '', args: []);
+  }
+
+  /// `Username or email`
+  String get userOrEmail {
+    return Intl.message(
+      'Username or email',
+      name: 'userOrEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Keep session started`
+  String get keepSession {
+    return Intl.message(
+      'Keep session started',
+      name: 'keepSession',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username`
+  String get username {
+    return Intl.message('Username', name: 'username', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Confirm password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Display name (optional)`
+  String get displayName {
+    return Intl.message(
+      'Display name (optional)',
+      name: 'displayName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send code`
+  String get sendCode {
+    return Intl.message('Send code', name: 'sendCode', desc: '', args: []);
+  }
+
+  /// `Verification code (6 digits)`
+  String get verificationCode {
+    return Intl.message(
+      'Verification code (6 digits)',
+      name: 'verificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New password`
+  String get newPassword {
+    return Intl.message(
+      'New password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
+
+  /// `Back`
+  String get back {
+    return Intl.message('Back', name: 'back', desc: '', args: []);
+  }
+
+  /// `Theme`
+  String get theme {
+    return Intl.message('Theme', name: 'theme', desc: '', args: []);
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
+  /// `Version`
+  String get version {
+    return Intl.message('Version', name: 'version', desc: '', args: []);
+  }
+
+  /// `Current version`
+  String get currentAppVersionText {
+    return Intl.message(
+      'Current version',
+      name: 'currentAppVersionText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message('Close', name: 'close', desc: '', args: []);
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message('Error', name: 'error', desc: '', args: []);
+  }
+
+  /// `Success`
+  String get success {
+    return Intl.message('Success', name: 'success', desc: '', args: []);
+  }
+
+  /// `This field is required`
+  String get fieldRequired {
+    return Intl.message(
+      'This field is required',
+      name: 'fieldRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email`
+  String get invalidEmail {
+    return Intl.message(
+      'Invalid email',
+      name: 'invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 8 characters`
+  String get passwordMinLength {
+    return Intl.message(
+      'At least 8 characters',
+      name: 'passwordMinLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get passwordMismatch {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'passwordMismatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `At least 3 characters`
+  String get usernameMinLength {
+    return Intl.message(
+      'At least 3 characters',
+      name: 'usernameMinLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code must be 6 digits`
+  String get code6Digits {
+    return Intl.message(
+      'Code must be 6 digits',
+      name: 'code6Digits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome`
+  String get welcome {
+    return Intl.message('Welcome', name: 'welcome', desc: '', args: []);
+  }
+
+  /// `If the account exists, a code has been sent to the email.`
+  String get codeSent {
+    return Intl.message(
+      'If the account exists, a code has been sent to the email.',
+      name: 'codeSent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password reset successfully.`
+  String get passwordChanged {
+    return Intl.message(
+      'Password reset successfully.',
+      name: 'passwordChanged',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log out`
+  String get logout {
+    return Intl.message('Log out', name: 'logout', desc: '', args: []);
+  }
+
+  /// `Changelog`
+  String get appVersionChangeLogTitle {
+    return Intl.message(
+      'Changelog',
+      name: 'appVersionChangeLogTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `v1.0.0`
+  String get appVersion10Code {
+    return Intl.message('v1.0.0', name: 'appVersion10Code', desc: '', args: []);
+  }
+
+  /// `· Initial release of Filmoly.\n· Login, register and password recovery.\n· Connection with La Retroteca (WordPress).`
+  String get appVersion10Description {
+    return Intl.message(
+      '· Initial release of Filmoly.\n· Login, register and password recovery.\n· Connection with La Retroteca (WordPress).',
+      name: 'appVersion10Description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get languageArabic {
+    return Intl.message('Arabic', name: 'languageArabic', desc: '', args: []);
+  }
+
+  /// `Catalan`
+  String get languageCatalan {
+    return Intl.message('Catalan', name: 'languageCatalan', desc: '', args: []);
+  }
+
+  /// `Chinese`
+  String get languageChinese {
+    return Intl.message('Chinese', name: 'languageChinese', desc: '', args: []);
+  }
+
+  /// `Dutch`
+  String get languageDutch {
+    return Intl.message('Dutch', name: 'languageDutch', desc: '', args: []);
+  }
+
+  /// `English`
+  String get languageEnglish {
+    return Intl.message('English', name: 'languageEnglish', desc: '', args: []);
+  }
+
+  /// `French`
+  String get languageFrench {
+    return Intl.message('French', name: 'languageFrench', desc: '', args: []);
+  }
+
+  /// `German`
+  String get languageGerman {
+    return Intl.message('German', name: 'languageGerman', desc: '', args: []);
+  }
+
+  /// `Hindi`
+  String get languageHindi {
+    return Intl.message('Hindi', name: 'languageHindi', desc: '', args: []);
+  }
+
+  /// `Italian`
+  String get languageItalian {
+    return Intl.message('Italian', name: 'languageItalian', desc: '', args: []);
+  }
+
+  /// `Japanese`
+  String get languageJapanese {
+    return Intl.message(
+      'Japanese',
+      name: 'languageJapanese',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Korean`
+  String get languageKorean {
+    return Intl.message('Korean', name: 'languageKorean', desc: '', args: []);
+  }
+
+  /// `Polish`
+  String get languagePolish {
+    return Intl.message('Polish', name: 'languagePolish', desc: '', args: []);
+  }
+
+  /// `Portuguese`
+  String get languagePortuguese {
+    return Intl.message(
+      'Portuguese',
+      name: 'languagePortuguese',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Romanian`
+  String get languageRomanian {
+    return Intl.message(
+      'Romanian',
+      name: 'languageRomanian',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Russian`
+  String get languageRussian {
+    return Intl.message('Russian', name: 'languageRussian', desc: '', args: []);
+  }
+
+  /// `Spanish`
+  String get languageSpanish {
+    return Intl.message('Spanish', name: 'languageSpanish', desc: '', args: []);
+  }
+
+  /// `Swedish`
+  String get languageSwedish {
+    return Intl.message('Swedish', name: 'languageSwedish', desc: '', args: []);
+  }
+
+  /// `Turkish`
+  String get languageTurkish {
+    return Intl.message('Turkish', name: 'languageTurkish', desc: '', args: []);
+  }
+
+  /// `Ukrainian`
+  String get languageUkrainian {
+    return Intl.message(
+      'Ukrainian',
+      name: 'languageUkrainian',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Private messages`
+  String get privateMessages {
+    return Intl.message(
+      'Private messages',
+      name: 'privateMessages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notificationsLabel {
+    return Intl.message(
+      'Notifications',
+      name: 'notificationsLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settingsLabel {
+    return Intl.message('Settings', name: 'settingsLabel', desc: '', args: []);
+  }
+
+  /// `View my profile`
+  String get showMyProfile {
+    return Intl.message(
+      'View my profile',
+      name: 'showMyProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account and profile`
+  String get accountAndProfile {
+    return Intl.message(
+      'Account and profile',
+      name: 'accountAndProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `FAQs`
+  String get userSectionFAQs {
+    return Intl.message('FAQs', name: 'userSectionFAQs', desc: '', args: []);
+  }
+
+  /// `Contact`
+  String get userSectionContact {
+    return Intl.message(
+      'Contact',
+      name: 'userSectionContact',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log out`
+  String get userSectionSessionClose {
+    return Intl.message(
+      'Log out',
+      name: 'userSectionSessionClose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exit application`
+  String get dialogCloseAppTitle {
+    return Intl.message(
+      'Exit application',
+      name: 'dialogCloseAppTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get buttonClose {
+    return Intl.message('Close', name: 'buttonClose', desc: '', args: []);
+  }
+
+  /// `Close session?`
+  String get dialogCloseSessionContent {
+    return Intl.message(
+      'Close session?',
+      name: 'dialogCloseSessionContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get actionNo {
+    return Intl.message('No', name: 'actionNo', desc: '', args: []);
+  }
+
+  /// `Yes`
+  String get actionYes {
+    return Intl.message('Yes', name: 'actionYes', desc: '', args: []);
+  }
+
+  /// `Home`
+  String get menuHome {
+    return Intl.message('Home', name: 'menuHome', desc: '', args: []);
+  }
+
+  /// `Collapse`
+  String get collapseMenu {
+    return Intl.message('Collapse', name: 'collapseMenu', desc: '', args: []);
+  }
+
+  /// `Expand`
+  String get expandMenu {
+    return Intl.message('Expand', name: 'expandMenu', desc: '', args: []);
+  }
+
+  /// `Go to home`
+  String get goToHome {
+    return Intl.message('Go to home', name: 'goToHome', desc: '', args: []);
+  }
+
+  /// `Loading...`
+  String get loading {
+    return Intl.message('Loading...', name: 'loading', desc: '', args: []);
+  }
+
+  /// `Wrong credentials`
+  String get wrongCredentials {
+    return Intl.message(
+      'Wrong credentials',
+      name: 'wrongCredentials',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registration error`
+  String get registerError {
+    return Intl.message(
+      'Registration error',
+      name: 'registerError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Need help? Email us or visit our website.`
+  String get textUserSupportDescription {
+    return Intl.message(
+      'Need help? Email us or visit our website.',
+      name: 'textUserSupportDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not open the link.`
+  String get socialWebError {
+    return Intl.message(
+      'Could not open the link.',
+      name: 'socialWebError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Social networks`
+  String get menuBarSectionSocial {
+    return Intl.message(
+      'Social networks',
+      name: 'menuBarSectionSocial',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Follow us on social media.`
+  String get socialNetworksText {
+    return Intl.message(
+      'Follow us on social media.',
+      name: 'socialNetworksText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy policy`
+  String get privacyPoliciesLabel {
+    return Intl.message(
+      'Privacy policy',
+      name: 'privacyPoliciesLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms and conditions`
+  String get termsAndConditionsLabel {
+    return Intl.message(
+      'Terms and conditions',
+      name: 'termsAndConditionsLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cookie policy`
+  String get cookiePolicyLabel {
+    return Intl.message(
+      'Cookie policy',
+      name: 'cookiePolicyLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Legal notice`
+  String get legalNoticeLabel {
+    return Intl.message(
+      'Legal notice',
+      name: 'legalNoticeLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get socialMailLabel {
+    return Intl.message('Email', name: 'socialMailLabel', desc: '', args: []);
+  }
+
+  /// `Filmoly contact`
+  String get subjectSupport {
+    return Intl.message(
+      'Filmoly contact',
+      name: 'subjectSupport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What is Filmoly?`
+  String get faq1Question {
+    return Intl.message(
+      'What is Filmoly?',
+      name: 'faq1Question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `It is an app with a database of films and TV series, with a set of tools that let users interact with other members, create lists, add ratings and reviews, among other features.`
+  String get faq1Answer {
+    return Intl.message(
+      'It is an app with a database of films and TV series, with a set of tools that let users interact with other members, create lists, add ratings and reviews, among other features.',
+      name: 'faq1Answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Can I watch films and series?`
+  String get faq2Question {
+    return Intl.message(
+      'Can I watch films and series?',
+      name: 'faq2Question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No, Filmoly is not a streaming app; it only works as a database with various features around that data.`
+  String get faq2Answer {
+    return Intl.message(
+      'No, Filmoly is not a streaming app; it only works as a database with various features around that data.',
+      name: 'faq2Answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How do I delete my account?`
+  String get faq3Question {
+    return Intl.message(
+      'How do I delete my account?',
+      name: 'faq3Question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can delete your account from your account settings in the app. This removes everything related to your user. This action is irreversible.`
+  String get faq3Answer {
+    return Intl.message(
+      'You can delete your account from your account settings in the app. This removes everything related to your user. This action is irreversible.',
+      name: 'faq3Answer',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();
 
-  /// Inglés primero para fallback; resto en orden alfabético por clave.
-  List<Locale> get supportedLocales => const <Locale>[
-        Locale('en'),
-        Locale('ar'),
-        Locale('ca'),
-        Locale('de'),
-        Locale('es'),
-        Locale('fr'),
-        Locale('hi'),
-        Locale('it'),
-        Locale('ja'),
-        Locale('ko'),
-        Locale('nl'),
-        Locale('pl'),
-        Locale('pt'),
-        Locale('ro'),
-        Locale('ru'),
-        Locale('sv'),
-        Locale('tr'),
-        Locale('uk'),
-        Locale('zh'),
-      ];
+  List<Locale> get supportedLocales {
+    return const <Locale>[
+      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
+      Locale.fromSubtags(languageCode: 'ca'),
+      Locale.fromSubtags(languageCode: 'de'),
+      Locale.fromSubtags(languageCode: 'es'),
+      Locale.fromSubtags(languageCode: 'fr'),
+      Locale.fromSubtags(languageCode: 'hi'),
+      Locale.fromSubtags(languageCode: 'it'),
+      Locale.fromSubtags(languageCode: 'ja'),
+      Locale.fromSubtags(languageCode: 'ko'),
+      Locale.fromSubtags(languageCode: 'nl'),
+      Locale.fromSubtags(languageCode: 'pl'),
+      Locale.fromSubtags(languageCode: 'pt'),
+      Locale.fromSubtags(languageCode: 'ro'),
+      Locale.fromSubtags(languageCode: 'ru'),
+      Locale.fromSubtags(languageCode: 'sv'),
+      Locale.fromSubtags(languageCode: 'tr'),
+      Locale.fromSubtags(languageCode: 'uk'),
+      Locale.fromSubtags(languageCode: 'zh'),
+    ];
+  }
 
   @override
-  bool isSupported(Locale locale) =>
-      supportedLocales.any((l) => l.languageCode == locale.languageCode);
-
+  bool isSupported(Locale locale) => _isSupported(locale);
   @override
   Future<S> load(Locale locale) => S.load(locale);
-
   @override
   bool shouldReload(AppLocalizationDelegate old) => false;
+
+  bool _isSupported(Locale locale) {
+    for (var supportedLocale in supportedLocales) {
+      if (supportedLocale.languageCode == locale.languageCode) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

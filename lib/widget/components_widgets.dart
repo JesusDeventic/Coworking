@@ -16,10 +16,19 @@ void showCustomSnackBar(String message, {int? type}) {
     backgroundColor = Colors.green[700];
   }
   final snack = SnackBar(
-    content: Text(message),
+    content: Text(
+      message,
+      style: TextStyle(fontSize: 16, color: Colors.white),
+    ),
     backgroundColor: backgroundColor,
-    behavior: SnackBarBehavior.floating,
+    behavior: SnackBarBehavior.fixed,
     duration: const Duration(seconds: 3),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(12),
+        topRight: Radius.circular(12),
+      ),
+    ),
   );
   final messenger = scaffoldMessengerKey.currentState;
   if (messenger != null) {
@@ -132,7 +141,7 @@ Widget rowSettingsAppAndVersion(BuildContext context) {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const VersionChangeLogPage(),
+                  builder: (context) => VersionChangeLogPage(),
                 ),
               );
             },

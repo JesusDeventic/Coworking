@@ -71,9 +71,31 @@ ThemeData themeFromColorScheme(ColorScheme colorScheme) {
       ),
     ),
     cardTheme: CardThemeData(
-      color: colorScheme.surface,
+      color: colorScheme.brightness == Brightness.dark
+          ? colorScheme.onSurface.withValues(alpha: 0.05)
+          : colorScheme.surface,
+      surfaceTintColor: colorScheme.tertiary,
+      margin: const EdgeInsets.all(4),
       elevation: 1,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+        side: BorderSide(
+          color: colorScheme.inverseSurface.withValues(alpha: 0.2),
+        ),
+      ),
+    ),
+    expansionTileTheme: ExpansionTileThemeData(
+      iconColor: colorScheme.secondary,
+      collapsedIconColor: colorScheme.onSurface,
+      shape: const Border(),
+    ),
+    listTileTheme: ListTileThemeData(
+      mouseCursor: WidgetStateProperty.all<MouseCursor>(SystemMouseCursors.click),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        mouseCursor: WidgetStateProperty.all<MouseCursor>(SystemMouseCursors.click),
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(

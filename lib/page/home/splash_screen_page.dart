@@ -1,5 +1,6 @@
 import 'package:filmoly/core/global_functions.dart';
 import 'package:filmoly/core/global_variables.dart';
+import 'package:filmoly/generated/l10n.dart';
 import 'package:filmoly/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -36,7 +37,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
 
   Future<void> _startApp() async {
     await loadAppVersion();
-    setState(() => _info = 'Cargando...');
+    setState(() => _info = S.current.loading);
     await Future<void>.delayed(const Duration(milliseconds: 800));
     if (!mounted) return;
     _navigate();
@@ -121,8 +122,8 @@ class _SplashScreenPageState extends State<SplashScreenPage>
       'assets/logo.png',
       height: MediaQuery.of(context).size.height / 3,
       fit: BoxFit.contain,
-      errorBuilder: (_, __, ___) => const Text(
-        'Filmoly',
+      errorBuilder: (_, __, ___) => Text(
+        S.current.appName,
         style: TextStyle(
           color: Colors.white,
           fontSize: 48,

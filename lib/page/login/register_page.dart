@@ -61,7 +61,7 @@ class _RegisterPageState extends State<RegisterPage> {
           return;
         }
       }
-      final message = result['message'] as String? ?? 'Error en el registro';
+      final message = result['message'] as String? ?? S.current.registerError;
       showCustomSnackBar(message, type: -1);
     } finally {
       if (mounted) setState(() => _isLoading = false);

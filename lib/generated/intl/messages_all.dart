@@ -1,10 +1,13 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// This is a library that looks up messages for specific locales by
+// delegating to the appropriate library.
 
-// ignore_for_file: implementation_imports, file_names, unnecessary_new
-// ignore_for_file: unnecessary_brace_in_string_interps, directives_ordering
-// ignore_for_file: argument_type_not_assignable, invalid_assignment
-// ignore_for_file: prefer_single_quotes, prefer_generic_function_type_aliases
-// ignore_for_file: comment_references
+// Ignore issues from commonly used lints in this file.
+// ignore_for_file:implementation_imports, file_names, unnecessary_new
+// ignore_for_file:unnecessary_brace_in_string_interps, directives_ordering
+// ignore_for_file:argument_type_not_assignable, invalid_assignment
+// ignore_for_file:prefer_single_quotes, prefer_generic_function_type_aliases
+// ignore_for_file:comment_references
 
 import 'dart:async';
 
@@ -35,25 +38,25 @@ import 'messages_zh.dart' as messages_zh;
 
 typedef Future<dynamic> LibraryLoader();
 Map<String, LibraryLoader> _deferredLibraries = {
-  'ar': () => SynchronousFuture(null),
-  'ca': () => SynchronousFuture(null),
-  'de': () => SynchronousFuture(null),
-  'en': () => SynchronousFuture(null),
-  'es': () => SynchronousFuture(null),
-  'fr': () => SynchronousFuture(null),
-  'hi': () => SynchronousFuture(null),
-  'it': () => SynchronousFuture(null),
-  'ja': () => SynchronousFuture(null),
-  'ko': () => SynchronousFuture(null),
-  'nl': () => SynchronousFuture(null),
-  'pl': () => SynchronousFuture(null),
-  'pt': () => SynchronousFuture(null),
-  'ro': () => SynchronousFuture(null),
-  'ru': () => SynchronousFuture(null),
-  'sv': () => SynchronousFuture(null),
-  'tr': () => SynchronousFuture(null),
-  'uk': () => SynchronousFuture(null),
-  'zh': () => SynchronousFuture(null),
+  'ar': () => new SynchronousFuture(null),
+  'ca': () => new SynchronousFuture(null),
+  'de': () => new SynchronousFuture(null),
+  'en': () => new SynchronousFuture(null),
+  'es': () => new SynchronousFuture(null),
+  'fr': () => new SynchronousFuture(null),
+  'hi': () => new SynchronousFuture(null),
+  'it': () => new SynchronousFuture(null),
+  'ja': () => new SynchronousFuture(null),
+  'ko': () => new SynchronousFuture(null),
+  'nl': () => new SynchronousFuture(null),
+  'pl': () => new SynchronousFuture(null),
+  'pt': () => new SynchronousFuture(null),
+  'ro': () => new SynchronousFuture(null),
+  'ru': () => new SynchronousFuture(null),
+  'sv': () => new SynchronousFuture(null),
+  'tr': () => new SynchronousFuture(null),
+  'uk': () => new SynchronousFuture(null),
+  'zh': () => new SynchronousFuture(null),
 };
 
 MessageLookupByLibrary? _findExact(String localeName) {
@@ -109,13 +112,13 @@ Future<bool> initializeMessages(String localeName) {
     onFailure: (_) => null,
   );
   if (availableLocale == null) {
-    return SynchronousFuture(false);
+    return new SynchronousFuture(false);
   }
   var lib = _deferredLibraries[availableLocale];
-  lib == null ? SynchronousFuture(false) : lib();
-  initializeInternalMessageLookup(() => CompositeMessageLookup());
+  lib == null ? new SynchronousFuture(false) : lib();
+  initializeInternalMessageLookup(() => new CompositeMessageLookup());
   messageLookup.addLocale(availableLocale, _findGeneratedMessagesFor);
-  return SynchronousFuture(true);
+  return new SynchronousFuture(true);
 }
 
 bool _messagesExistFor(String locale) {

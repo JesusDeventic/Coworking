@@ -43,7 +43,7 @@ class _FilmolyAppState extends State<FilmolyApp> {
           routerConfig: _router,
           scaffoldMessengerKey: scaffoldMessengerKey,
           debugShowCheckedModeBanner: false,
-          title: 'Filmoly',
+          title: S.current.appName,
           theme: themeProvider.isDarkMode ? darkTheme : lightTheme,
           locale: Locale(languageProvider.currentLanguage),
           localizationsDelegates: const [

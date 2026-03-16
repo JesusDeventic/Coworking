@@ -1,14 +1,14 @@
 import 'package:filmoly/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-/// Página de registro de versiones (como en Fitcron: mapa arriba, una línea por versión).
+/// Página de registro de versiones (mismo diseño que Fitcron).
 class VersionChangeLogPage extends StatelessWidget {
-  const VersionChangeLogPage({super.key});
+  VersionChangeLogPage({super.key});
 
-  /// Cada versión nueva ponerla en primer lugar. Usa S.current para el idioma actual.
-  static Map<String, String> get versions => {
-        S.current.appVersion10Code: S.current.appVersion10Description,
-      };
+  /// Cada versión nueva ponerla en primer lugar.
+  final Map<String, String> versions = {
+    S.current.appVersion10Code: S.current.appVersion10Description,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +32,13 @@ class VersionChangeLogPage extends StatelessWidget {
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 800),
                 child: Card(
+                  margin: const EdgeInsets.only(bottom: 8),
                   child: ExpansionTile(
                     title: Text(
                       key,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
                       overflow: TextOverflow.ellipsis,
                     ),
                     initiallyExpanded: index == 0,
@@ -48,7 +51,9 @@ class VersionChangeLogPage extends StatelessWidget {
                             value,
                             textAlign: TextAlign.justify,
                             overflow: TextOverflow.visible,
-                            style: const TextStyle(fontSize: 16),
+                            style: const TextStyle(
+                              fontSize: 16,
+                            ),
                           ),
                         ),
                       ),

@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
           return;
         }
       }
-      final message = result['message'] as String? ?? 'Credenciales incorrectas';
+      final message = result['message'] as String? ?? S.current.wrongCredentials;
       showCustomSnackBar(message, type: -1);
     } finally {
       if (mounted) setState(() => _isLoading = false);
@@ -170,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
       'assets/logo.png',
       width: 160,
       errorBuilder: (_, __, ___) => Text(
-        'Filmoly',
+        S.current.appName,
         style: Theme.of(context).textTheme.headlineSmall,
       ),
     );

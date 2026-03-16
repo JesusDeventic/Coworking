@@ -45,7 +45,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         setState(() => _showCodeAndPassword = true);
         showCustomSnackBar(S.current.codeSent, type: 1);
       } else {
-        showCustomSnackBar(result['message'] as String? ?? 'Error', type: -1);
+        showCustomSnackBar(result['message'] as String? ?? S.current.error, type: -1);
       }
     } finally {
       if (mounted) setState(() => _isLoadingSend = false);
@@ -72,7 +72,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         showCustomSnackBar(S.current.passwordChanged, type: 1);
         context.go(AppRoutes.login);
       } else {
-        showCustomSnackBar(result['message'] as String? ?? 'Error', type: -1);
+        showCustomSnackBar(result['message'] as String? ?? S.current.error, type: -1);
       }
     } finally {
       if (mounted) setState(() => _isLoadingConfirm = false);

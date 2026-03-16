@@ -1,97 +1,187 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a ca locale.
+// This is a library that provides messages for a ca locale. All the
+// messages from the main program should be duplicated here with the same
+// function name.
 
-// ignore_for_file: unnecessary_brace_in_string_interps, unnecessary_new
-// ignore_for_file: prefer_single_quotes, comment_references, directives_ordering
-// ignore_for_file: annotate_overrides, prefer_generic_function_type_aliases
-// ignore_for_file: unused_import, file_names, avoid_escaping_inner_quotes
+// Ignore issues from commonly used lints in this file.
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
+// ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
+// ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
+// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
 
 import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
 
-final messages = MessageLookup();
+final messages = new MessageLookup();
 
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  @override
   String get localeName => 'ca';
 
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        'appName': MessageLookupByLibrary.simpleMessage('Filmoly'),
-        'signIn': MessageLookupByLibrary.simpleMessage('Iniciar sessió'),
-        'signUp': MessageLookupByLibrary.simpleMessage('Registrar-se'),
-        'userOrEmail':
-            MessageLookupByLibrary.simpleMessage('Usuari o email'),
-        'password': MessageLookupByLibrary.simpleMessage('Contrasenya'),
-        'keepSession':
-            MessageLookupByLibrary.simpleMessage('Mantenir sessió'),
-        'forgotPassword':
-            MessageLookupByLibrary.simpleMessage('Has oblidat la contrasenya?'),
-        'username': MessageLookupByLibrary.simpleMessage('Nom d\'usuari'),
-        'email': MessageLookupByLibrary.simpleMessage('Correu electrònic'),
-        'confirmPassword':
-            MessageLookupByLibrary.simpleMessage('Confirmar contrasenya'),
-        'displayName': MessageLookupByLibrary.simpleMessage(
-            'Nom a mostrar (opcional)'),
-        'sendCode': MessageLookupByLibrary.simpleMessage('Enviar codi'),
-        'verificationCode': MessageLookupByLibrary.simpleMessage(
-            'Codi de verificació (6 dígits)'),
-        'newPassword':
-            MessageLookupByLibrary.simpleMessage('Nova contrasenya'),
-        'confirm': MessageLookupByLibrary.simpleMessage('Confirmar'),
-        'back': MessageLookupByLibrary.simpleMessage('Enrere'),
-        'theme': MessageLookupByLibrary.simpleMessage('Tema'),
-        'language': MessageLookupByLibrary.simpleMessage('Idioma'),
-        'version': MessageLookupByLibrary.simpleMessage('Versió'),
-        'currentAppVersionText':
-            MessageLookupByLibrary.simpleMessage('Versió actual'),
-        'close': MessageLookupByLibrary.simpleMessage('Tancar'),
-        'error': MessageLookupByLibrary.simpleMessage('Error'),
-        'success': MessageLookupByLibrary.simpleMessage('Èxit'),
-        'fieldRequired':
-            MessageLookupByLibrary.simpleMessage('Aquest camp és obligatori'),
-        'invalidEmail':
-            MessageLookupByLibrary.simpleMessage('Email no vàlid'),
-        'passwordMinLength':
-            MessageLookupByLibrary.simpleMessage('Mínim 8 caràcters'),
-        'passwordMismatch': MessageLookupByLibrary.simpleMessage(
-            'Les contrasenyes no coincideixen'),
-        'usernameMinLength':
-            MessageLookupByLibrary.simpleMessage('Mínim 3 caràcters'),
-        'code6Digits': MessageLookupByLibrary.simpleMessage(
-            'El codi ha de tenir 6 dígits'),
-        'welcome': MessageLookupByLibrary.simpleMessage('Benvingut'),
-        'codeSent': MessageLookupByLibrary.simpleMessage(
-            'Si el compte existeix, s\'ha enviat un codi al correu.'),
-        'passwordChanged': MessageLookupByLibrary.simpleMessage(
-            'Contrasenya restablerta correctament.'),
-        'logout': MessageLookupByLibrary.simpleMessage('Tancar sessió'),
-        'appVersionChangeLogTitle':
-            MessageLookupByLibrary.simpleMessage('Registre de canvis'),
-        'appVersion10Code': MessageLookupByLibrary.simpleMessage('v1.0.0'),
-        'appVersion10Description': MessageLookupByLibrary.simpleMessage(
-            '· Versió inicial de Filmoly.\n· Login, registre i recuperació de contrasenya.\n· Connexió amb La Retroteca (WordPress).'),
-        'languageArabic': MessageLookupByLibrary.simpleMessage('Àrab'),
-        'languageCatalan': MessageLookupByLibrary.simpleMessage('Català'),
-        'languageChinese': MessageLookupByLibrary.simpleMessage('Xinès'),
-        'languageDutch': MessageLookupByLibrary.simpleMessage('Neerlandès'),
-        'languageEnglish': MessageLookupByLibrary.simpleMessage('Anglès'),
-        'languageFrench': MessageLookupByLibrary.simpleMessage('Francès'),
-        'languageGerman': MessageLookupByLibrary.simpleMessage('Alemany'),
-        'languageHindi': MessageLookupByLibrary.simpleMessage('Hindi'),
-        'languageItalian': MessageLookupByLibrary.simpleMessage('Italià'),
-        'languageJapanese': MessageLookupByLibrary.simpleMessage('Japonès'),
-        'languageKorean': MessageLookupByLibrary.simpleMessage('Coreà'),
-        'languagePolish': MessageLookupByLibrary.simpleMessage('Polonès'),
-        'languagePortuguese': MessageLookupByLibrary.simpleMessage('Portuguès'),
-        'languageRomanian': MessageLookupByLibrary.simpleMessage('Romanès'),
-        'languageRussian': MessageLookupByLibrary.simpleMessage('Rus'),
-        'languageSpanish': MessageLookupByLibrary.simpleMessage('Espanyol'),
-        'languageSwedish': MessageLookupByLibrary.simpleMessage('Suec'),
-        'languageTurkish': MessageLookupByLibrary.simpleMessage('Turc'),
-        'languageUkrainian': MessageLookupByLibrary.simpleMessage('Ucraïnès'),
-      };
-
   final messages = _notInlinedMessages(_notInlinedMessages);
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "accountAndProfile": MessageLookupByLibrary.simpleMessage(
+      "Compte i perfil",
+    ),
+    "actionNo": MessageLookupByLibrary.simpleMessage("No"),
+    "actionYes": MessageLookupByLibrary.simpleMessage("Sí"),
+    "appName": MessageLookupByLibrary.simpleMessage("Filmoly"),
+    "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
+    "appVersion10Description": MessageLookupByLibrary.simpleMessage(
+      "· Versió inicial de Filmoly.\n· Login, registre i recuperació de contrasenya.\n· Connexió amb La Retroteca (WordPress).",
+    ),
+    "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
+      "Registre de canvis",
+    ),
+    "back": MessageLookupByLibrary.simpleMessage("Enrere"),
+    "buttonClose": MessageLookupByLibrary.simpleMessage("Tancar"),
+    "close": MessageLookupByLibrary.simpleMessage("Tancar"),
+    "code6Digits": MessageLookupByLibrary.simpleMessage(
+      "El codi ha de tenir 6 dígits",
+    ),
+    "codeSent": MessageLookupByLibrary.simpleMessage(
+      "Si el compte existeix, s\'ha enviat un codi al correu.",
+    ),
+    "collapseMenu": MessageLookupByLibrary.simpleMessage("Contraure"),
+    "confirm": MessageLookupByLibrary.simpleMessage("Confirmar"),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage(
+      "Confirmar contrasenya",
+    ),
+    "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
+      "Política de galetes",
+    ),
+    "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
+      "Versió actual",
+    ),
+    "dialogCloseAppTitle": MessageLookupByLibrary.simpleMessage(
+      "Sortir de l\'aplicació",
+    ),
+    "dialogCloseSessionContent": MessageLookupByLibrary.simpleMessage(
+      "Tancar la sessió?",
+    ),
+    "displayName": MessageLookupByLibrary.simpleMessage(
+      "Nom a mostrar (opcional)",
+    ),
+    "email": MessageLookupByLibrary.simpleMessage("Correu electrònic"),
+    "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "expandMenu": MessageLookupByLibrary.simpleMessage("Expandir"),
+    "faq1Answer": MessageLookupByLibrary.simpleMessage(
+      "És una aplicació amb una base de dades de cinema i sèries, amb una sèrie d\'eines que permeten als usuaris interactuar amb altres membres, crear llistes, afegir valoracions i ressenyes entre altres funcionalitats.",
+    ),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("Què és Filmoly?"),
+    "faq2Answer": MessageLookupByLibrary.simpleMessage(
+      "No, Filmoly no és una aplicació de streaming, només funciona com a base de dades amb funcionalitats diverses sobre aquestes dades.",
+    ),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "Es poden veure pel·lícules i sèries?",
+    ),
+    "faq3Answer": MessageLookupByLibrary.simpleMessage(
+      "Pots eliminar el teu compte des dels ajustos del teu compte a la pròpia App. Això elimina tot el relacionat amb el teu usuari. Aquesta acció és irreversible.",
+    ),
+    "faq3Question": MessageLookupByLibrary.simpleMessage(
+      "Com elimino el meu compte?",
+    ),
+    "fieldRequired": MessageLookupByLibrary.simpleMessage(
+      "Aquest camp és obligatori",
+    ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage(
+      "Has oblidat la contrasenya?",
+    ),
+    "goToHome": MessageLookupByLibrary.simpleMessage("Anar a l\'inici"),
+    "invalidEmail": MessageLookupByLibrary.simpleMessage("Email no vàlid"),
+    "keepSession": MessageLookupByLibrary.simpleMessage(
+      "Mantenir sessió iniciada",
+    ),
+    "language": MessageLookupByLibrary.simpleMessage("Idioma"),
+    "languageArabic": MessageLookupByLibrary.simpleMessage("Àrab"),
+    "languageCatalan": MessageLookupByLibrary.simpleMessage("Català"),
+    "languageChinese": MessageLookupByLibrary.simpleMessage("Xinès"),
+    "languageDutch": MessageLookupByLibrary.simpleMessage("Neerlandès"),
+    "languageEnglish": MessageLookupByLibrary.simpleMessage("Anglès"),
+    "languageFrench": MessageLookupByLibrary.simpleMessage("Francès"),
+    "languageGerman": MessageLookupByLibrary.simpleMessage("Alemany"),
+    "languageHindi": MessageLookupByLibrary.simpleMessage("Hindi"),
+    "languageItalian": MessageLookupByLibrary.simpleMessage("Italià"),
+    "languageJapanese": MessageLookupByLibrary.simpleMessage("Japonès"),
+    "languageKorean": MessageLookupByLibrary.simpleMessage("Coreà"),
+    "languagePolish": MessageLookupByLibrary.simpleMessage("Polonès"),
+    "languagePortuguese": MessageLookupByLibrary.simpleMessage("Portuguès"),
+    "languageRomanian": MessageLookupByLibrary.simpleMessage("Romanès"),
+    "languageRussian": MessageLookupByLibrary.simpleMessage("Rus"),
+    "languageSpanish": MessageLookupByLibrary.simpleMessage("Espanyol"),
+    "languageSwedish": MessageLookupByLibrary.simpleMessage("Suec"),
+    "languageTurkish": MessageLookupByLibrary.simpleMessage("Turc"),
+    "languageUkrainian": MessageLookupByLibrary.simpleMessage("Ucraïnès"),
+    "legalNoticeLabel": MessageLookupByLibrary.simpleMessage("Avís legal"),
+    "loading": MessageLookupByLibrary.simpleMessage("Carregant..."),
+    "logout": MessageLookupByLibrary.simpleMessage("Tancar sessió"),
+    "menuBarSectionSocial": MessageLookupByLibrary.simpleMessage(
+      "Xarxes socials",
+    ),
+    "menuHome": MessageLookupByLibrary.simpleMessage("Inici"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("Nova contrasenya"),
+    "notificationsLabel": MessageLookupByLibrary.simpleMessage("Notificacions"),
+    "password": MessageLookupByLibrary.simpleMessage("Contrasenya"),
+    "passwordChanged": MessageLookupByLibrary.simpleMessage(
+      "Contrasenya restablerta correctament.",
+    ),
+    "passwordMinLength": MessageLookupByLibrary.simpleMessage(
+      "Mínim 8 caràcters",
+    ),
+    "passwordMismatch": MessageLookupByLibrary.simpleMessage(
+      "Les contrasenyes no coincideixen",
+    ),
+    "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
+      "Política de privacitat",
+    ),
+    "privateMessages": MessageLookupByLibrary.simpleMessage(
+      "Missatges privats",
+    ),
+    "registerError": MessageLookupByLibrary.simpleMessage(
+      "Error en el registre",
+    ),
+    "sendCode": MessageLookupByLibrary.simpleMessage("Enviar codi"),
+    "settingsLabel": MessageLookupByLibrary.simpleMessage("Configuració"),
+    "showMyProfile": MessageLookupByLibrary.simpleMessage(
+      "Veure el meu perfil",
+    ),
+    "signIn": MessageLookupByLibrary.simpleMessage("Iniciar sessió"),
+    "signUp": MessageLookupByLibrary.simpleMessage("Registrar-se"),
+    "socialMailLabel": MessageLookupByLibrary.simpleMessage("Email"),
+    "socialNetworksText": MessageLookupByLibrary.simpleMessage(
+      "Segueix-nos a les xarxes socials.",
+    ),
+    "socialWebError": MessageLookupByLibrary.simpleMessage(
+      "No s\'ha pogut obrir l\'enllaç.",
+    ),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage("Contacte Filmoly"),
+    "success": MessageLookupByLibrary.simpleMessage("Èxit"),
+    "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
+      "Termes i condicions",
+    ),
+    "textUserSupportDescription": MessageLookupByLibrary.simpleMessage(
+      "Necessites ajuda? Escriu-nos per correu o visita la nostra web.",
+    ),
+    "theme": MessageLookupByLibrary.simpleMessage("Tema"),
+    "userOrEmail": MessageLookupByLibrary.simpleMessage("Usuari o email"),
+    "userSectionContact": MessageLookupByLibrary.simpleMessage("Contacte"),
+    "userSectionFAQs": MessageLookupByLibrary.simpleMessage("FAQs"),
+    "userSectionSessionClose": MessageLookupByLibrary.simpleMessage(
+      "Tancar sessió",
+    ),
+    "username": MessageLookupByLibrary.simpleMessage("Nom d\'usuari"),
+    "usernameMinLength": MessageLookupByLibrary.simpleMessage(
+      "Mínim 3 caràcters",
+    ),
+    "verificationCode": MessageLookupByLibrary.simpleMessage(
+      "Codi de verificació (6 dígits)",
+    ),
+    "version": MessageLookupByLibrary.simpleMessage("Versió"),
+    "welcome": MessageLookupByLibrary.simpleMessage("Benvingut"),
+    "wrongCredentials": MessageLookupByLibrary.simpleMessage(
+      "Credencials incorrectes",
+    ),
+  };
 }

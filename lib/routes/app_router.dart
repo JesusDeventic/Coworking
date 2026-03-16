@@ -1,5 +1,6 @@
 import 'package:filmoly/core/global_functions.dart';
 import 'package:filmoly/core/global_variables.dart';
+import 'package:filmoly/generated/l10n.dart';
 import 'package:filmoly/page/home/home_placeholder_page.dart';
 import 'package:filmoly/page/home/splash_screen_page.dart';
 import 'package:filmoly/page/login/forgot_password_page.dart';
@@ -63,7 +64,7 @@ GoRouter createAppRouter(GlobalKey<NavigatorState> navigatorKey) {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () => context.go(AppRoutes.home),
-              child: const Text('Ir a inicio'),
+              child: Text(S.current.goToHome),
             ),
           ],
         ),
