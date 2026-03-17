@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:filmoly/core/global_variables.dart';
 import 'package:filmoly/core/secure_storage.dart';
 import 'package:filmoly/model/user_model.dart';
+import 'package:filmoly/model/app_status_model.dart';
 import 'package:http/http.dart' as http;
 
 /// Base URL del WordPress (La Retroteca).
@@ -150,5 +151,30 @@ class FilmolyApi {
     globalUserToken = '';
     globalCurrentUser = FilmolyUser();
     await _secureStorage.removeToken();
+  }
+
+  /// Verifica un token de reCAPTCHA v3 contra el endpoint de WordPress.
+  static Future<Map<String, dynamic>> verifyRecaptcha(String token) async {
+    final url = Uri.parse('$filmolyBaseUrl/verify-recaptcha');
+    final response = await http.post(
+      url,
+      headers: _headers(),
+      body: jsonEncode({'token': token}),
+    );
+    final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+    return data;
+  }
+
+  /// GET /status — devuelve versión mínima y estado (mantenimiento).
+  static Future<FilmolyAppStatus?> getStatus() async {
+    final url = Uri.parse('$filmolyBaseUrl/status');
+    try {
+      final response = await http.get(url, headers: _headers());
+      if (response.statusCode != 200) return null;
+      final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+      return FilmolyAppStatus.fromJson(data);
+    } catch (_) {
+      return null;
+    }
   }
 }

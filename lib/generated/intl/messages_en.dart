@@ -51,12 +51,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Current version",
     ),
+    "currentServerVersionText": MessageLookupByLibrary.simpleMessage(
+      "Available version",
+    ),
+    "dateFormat": MessageLookupByLibrary.simpleMessage("Date format"),
     "dialogCloseAppTitle": MessageLookupByLibrary.simpleMessage(
       "Exit application",
     ),
     "dialogCloseSessionContent": MessageLookupByLibrary.simpleMessage(
       "Close session?",
     ),
+    "dialogConfirmSave": MessageLookupByLibrary.simpleMessage(
+      "Do you want to save the changes made?",
+    ),
+    "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
+      "A new version of Filmoly is available.\nPlease update the app to continue.",
+    ),
+    "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
+      "Could not connect to the Filmoly server.",
+    ),
+    "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
+      "The application is currently in maintenance mode. Please try again later.",
+    ),
+    "dialogErrorTitle": MessageLookupByLibrary.simpleMessage("Error"),
+    "dialogWarningTitle": MessageLookupByLibrary.simpleMessage("Attention"),
     "displayName": MessageLookupByLibrary.simpleMessage(
       "Display name (optional)",
     ),
@@ -83,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "This field is required",
     ),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot password?"),
+    "generalSettings": MessageLookupByLibrary.simpleMessage("General settings"),
     "goToHome": MessageLookupByLibrary.simpleMessage("Go to home"),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Keep session started"),
@@ -139,6 +158,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "socialNetworksText": MessageLookupByLibrary.simpleMessage(
       "Follow us on social media.",
     ),
+    "socialTelegramLabel": MessageLookupByLibrary.simpleMessage("Telegram"),
     "socialWebError": MessageLookupByLibrary.simpleMessage(
       "Could not open the link.",
     ),
@@ -151,6 +171,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Need help? Email us or visit our website.",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("Theme"),
+    "themeDark": MessageLookupByLibrary.simpleMessage("Dark mode"),
+    "themeLight": MessageLookupByLibrary.simpleMessage("Light mode"),
     "userOrEmail": MessageLookupByLibrary.simpleMessage("Username or email"),
     "userSectionContact": MessageLookupByLibrary.simpleMessage("Contact"),
     "userSectionFAQs": MessageLookupByLibrary.simpleMessage("FAQs"),
@@ -163,6 +185,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Verification code (6 digits)",
     ),
     "version": MessageLookupByLibrary.simpleMessage("Version"),
+    "weekStart": MessageLookupByLibrary.simpleMessage("Start of week"),
+    "weekStartMonday": MessageLookupByLibrary.simpleMessage("Monday"),
+    "weekStartSunday": MessageLookupByLibrary.simpleMessage("Sunday"),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
     "wrongCredentials": MessageLookupByLibrary.simpleMessage(
       "Wrong credentials",

@@ -55,12 +55,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Versión actual",
     ),
+    "currentServerVersionText": MessageLookupByLibrary.simpleMessage(
+      "Versión disponible",
+    ),
+    "dateFormat": MessageLookupByLibrary.simpleMessage("Formato de fecha"),
     "dialogCloseAppTitle": MessageLookupByLibrary.simpleMessage(
       "Salir de la aplicación",
     ),
     "dialogCloseSessionContent": MessageLookupByLibrary.simpleMessage(
       "¿Cerrar sesión?",
     ),
+    "dialogConfirmSave": MessageLookupByLibrary.simpleMessage(
+      "¿Quieres guardar los cambios realizados?",
+    ),
+    "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
+      "Hay una nueva versión de Filmoly disponible.\nActualiza la app para continuar.",
+    ),
+    "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
+      "No se ha podido conectar con el servidor de Filmoly.",
+    ),
+    "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
+      "La aplicación está en mantenimiento en este momento. Vuelve a intentarlo más tarde.",
+    ),
+    "dialogErrorTitle": MessageLookupByLibrary.simpleMessage("Error"),
+    "dialogWarningTitle": MessageLookupByLibrary.simpleMessage("Atención"),
     "displayName": MessageLookupByLibrary.simpleMessage(
       "Nombre para mostrar (opcional)",
     ),
@@ -75,7 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "No, Filmoly no es una aplicación de streaming, tan solo funciona como base de datos con funcionalidades diversas sobre dichos datos.",
     ),
     "faq2Question": MessageLookupByLibrary.simpleMessage(
-      "¿Se puede ver películas y series?",
+      "¿Se pueden ver películas y series?",
     ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
       "Puedes eliminar tu cuenta desde los ajustes de tu cuenta en la propia App. Esto elimina todo lo relacionado con tu usuario. Esta acción es irreversible.",
@@ -88,6 +106,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "forgotPassword": MessageLookupByLibrary.simpleMessage(
       "¿Olvidaste tu contraseña?",
+    ),
+    "generalSettings": MessageLookupByLibrary.simpleMessage(
+      "Ajustes generales",
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("Ir a inicio"),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Email no válido"),
@@ -153,6 +174,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "socialNetworksText": MessageLookupByLibrary.simpleMessage(
       "Síguenos en redes sociales.",
     ),
+    "socialTelegramLabel": MessageLookupByLibrary.simpleMessage("Telegram"),
     "socialWebError": MessageLookupByLibrary.simpleMessage(
       "No se pudo abrir el enlace.",
     ),
@@ -165,6 +187,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "¿Necesitas ayuda? Escríbenos por email o visita nuestra web.",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("Tema"),
+    "themeDark": MessageLookupByLibrary.simpleMessage("Modo oscuro"),
+    "themeLight": MessageLookupByLibrary.simpleMessage("Modo claro"),
     "userOrEmail": MessageLookupByLibrary.simpleMessage("Usuario o email"),
     "userSectionContact": MessageLookupByLibrary.simpleMessage("Contacto"),
     "userSectionFAQs": MessageLookupByLibrary.simpleMessage("FAQs"),
@@ -179,6 +203,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Código de verificación (6 dígitos)",
     ),
     "version": MessageLookupByLibrary.simpleMessage("Versión"),
+    "weekStart": MessageLookupByLibrary.simpleMessage(
+      "Día de inicio de semana",
+    ),
+    "weekStartMonday": MessageLookupByLibrary.simpleMessage("Lunes"),
+    "weekStartSunday": MessageLookupByLibrary.simpleMessage("Domingo"),
     "welcome": MessageLookupByLibrary.simpleMessage("Bienvenido"),
     "wrongCredentials": MessageLookupByLibrary.simpleMessage(
       "Credenciales incorrectas",

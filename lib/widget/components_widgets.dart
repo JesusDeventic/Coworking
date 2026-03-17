@@ -47,68 +47,71 @@ Widget rowSettingsAppAndVersion(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
       Expanded(
-        child: PopupMenuButton<String>(
-          tooltip: S.current.language,
-          onOpened: () => unFocusGlobal(),
-          onSelected: (value) => lang.changeLanguage(value),
-          itemBuilder: (ctx) => languageKeys.map((code) {
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: PopupMenuButton<String>(
+            tooltip: S.current.language,
+            onOpened: () => unFocusGlobal(),
+            onSelected: (value) => lang.changeLanguage(value),
+            itemBuilder: (ctx) => languageKeys.map((code) {
             final isSelected = code == lang.currentLanguage;
-            return PopupMenuItem<String>(
-              value: code,
-              child: Row(
-                children: [
-                  if (isSelected)
-                    Icon(
-                      Icons.check_rounded,
-                      size: 18,
-                      color: Theme.of(ctx).colorScheme.secondary,
-                    ),
-                  if (isSelected) const SizedBox(width: 8),
-                  Text(
-                    getLanguageFlag(code),
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: isSelected
-                          ? Theme.of(ctx).colorScheme.secondary
-                          : null,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      getLanguageName(code),
+              return PopupMenuItem<String>(
+                value: code,
+                child: Row(
+                  children: [
+                    if (isSelected)
+                      Icon(
+                        Icons.check_rounded,
+                        size: 18,
+                        color: Theme.of(ctx).colorScheme.secondary,
+                      ),
+                    if (isSelected) const SizedBox(width: 8),
+                    Text(
+                      getLanguageFlag(code),
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 18,
                         color: isSelected
                             ? Theme.of(ctx).colorScheme.secondary
                             : null,
                       ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        getLanguageName(code),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: isSelected
+                              ? Theme.of(ctx).colorScheme.secondary
+                              : null,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    getLanguageFlag(lang.currentLanguage),
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  const SizedBox(width: 8),
+                  Flexible(
+                    child: Text(
+                      getNativeLanguageName(lang.currentLanguage),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),
                   ),
                 ],
               ),
-            );
-          }).toList(),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  getLanguageFlag(lang.currentLanguage),
-                  style: TextStyle(fontSize: 20),
-                ),
-                const SizedBox(width: 8),
-                Flexible(
-                  child: Text(
-                    getNativeLanguageName(lang.currentLanguage),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                  ),
-                ),
-              ],
             ),
           ),
         ),
@@ -152,6 +155,97 @@ Widget rowSettingsAppAndVersion(BuildContext context) {
             ),
           ),
         ),
+      ),
+    ],
+  );
+}
+
+Widget customToggleButtons({
+  required BuildContext context,
+  required List<String> options,
+  required List<bool> isSelected,
+  required Function(int) onPressed,
+  required String title,
+  required IconData icon,
+  List<Widget>? customChildren,
+  Widget? infoButton,
+  double height = 56,
+  bool isEditing = true,
+  Color? selectedColor,
+  Color? fillColor,
+  Color? borderColor,
+  Color? selectedBorderColor,
+  double borderWidth = 2,
+  BorderRadius borderRadius = const BorderRadius.all(Radius.circular(12)),
+}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Row(
+        children: [
+          Icon(
+            icon,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              title,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          if (infoButton != null) infoButton,
+        ],
+      ),
+      const SizedBox(height: 8),
+      LayoutBuilder(
+        builder: (context, constraints) {
+          return ToggleButtons(
+            constraints: BoxConstraints.expand(
+              width: (constraints.maxWidth - 10) / options.length,
+              height: height,
+            ),
+            isSelected: isSelected,
+            onPressed: onPressed,
+            selectedColor:
+                selectedColor ?? Theme.of(context).colorScheme.onSurface,
+            fillColor: fillColor ??
+                (isEditing
+                    ? Theme.of(context).colorScheme.secondary
+                    : Theme.of(context).focusColor),
+            borderColor: borderColor ??
+                (isEditing
+                    ? Theme.of(context).colorScheme.onSurface
+                    : Theme.of(context).focusColor),
+            selectedBorderColor: selectedBorderColor ??
+                (isEditing
+                    ? Theme.of(context).colorScheme.onSurface
+                    : Theme.of(context).focusColor),
+            borderWidth: borderWidth,
+            borderRadius: borderRadius,
+            children: customChildren ??
+                options
+                    .map(
+                      (option) => Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 4.0, horizontal: 8.0),
+                        child: Text(
+                          option,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                      ),
+                    )
+                    .toList(),
+          );
+        },
       ),
     ],
   );

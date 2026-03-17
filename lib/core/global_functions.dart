@@ -31,6 +31,18 @@ Future<bool> loginUser() async {
   return true;
 }
 
+/// Compara dos versiones tipo "1.0.1" devolviendo:
+/// -1 si v1 < v2, 0 si iguales, 1 si v1 > v2.
+int compareVersions(String version1, String version2) {
+  int extractNumber(String version) {
+    return int.tryParse(version.replaceAll(RegExp(r'\D'), '')) ?? 0;
+  }
+
+  final num1 = extractNumber(version1);
+  final num2 = extractNumber(version2);
+  return num1.compareTo(num2);
+}
+
 /// Nombre del idioma según el locale actual (para el desplegable).
 String getLanguageName(String code) {
   switch (code) {

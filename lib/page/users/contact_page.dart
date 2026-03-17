@@ -1,10 +1,7 @@
 import 'package:filmoly/generated/l10n.dart';
 import 'package:filmoly/widget/components_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'package:filmoly/providers/language_provider.dart';
 
 /// Página de contacto/soporte (misma estructura que Fitcron UserSettingsSupport).
 class ContactPage extends StatefulWidget {
@@ -18,8 +15,6 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     final isDesktop = MediaQuery.of(context).size.width > 800;
-    final languageProvider = context.watch<LanguageProvider>();
-    final isSpanish = languageProvider.currentLanguage == 'es';
 
     return Scaffold(
       appBar: AppBar(
@@ -43,7 +38,7 @@ class _ContactPageState extends State<ContactPage> {
                             children: [
                               InkResponse(
                                 onTap: () async {
-                                  const url = 'https://filmoly.com';
+                                  const url = 'https://deventic.com';
                                   if (await canLaunchUrl(Uri.parse(url))) {
                                     await launchUrl(Uri.parse(url),
                                         mode: LaunchMode.externalApplication);
@@ -101,61 +96,14 @@ class _ContactPageState extends State<ContactPage> {
                       ),
                     ),
                     const SizedBox(width: 24),
-                    // Panel derecho - Redes (solo español) o solo legal
-                    if (isSpanish)
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Card(
-                              child: Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
-                                  children: [
-                                    Text(
-                                      S.current.menuBarSectionSocial,
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onSurface,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    const SizedBox(height: 16),
-                                    Text(
-                                      S.current.socialNetworksText,
-                                      textAlign: TextAlign.justify,
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onSurface,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 24),
-                                    _contactButtons(context),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            _privacyButtons(context),
-                          ],
-                        ),
+                    // Panel derecho - solo botones legales (ocultamos RRSS de momento)
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [_privacyButtons(context)],
                       ),
-                    if (!isSpanish)
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [_privacyButtons(context)],
-                        ),
-                      ),
+                    ),
                   ],
                 )
               : Column(
@@ -168,7 +116,7 @@ class _ContactPageState extends State<ContactPage> {
                           children: [
                             InkResponse(
                               onTap: () async {
-                                const url = 'https://filmoly.com';
+                                const url = 'https://deventic.com';
                                 if (await canLaunchUrl(Uri.parse(url))) {
                                   await launchUrl(Uri.parse(url),
                                       mode: LaunchMode.externalApplication);
@@ -235,42 +183,7 @@ class _ContactPageState extends State<ContactPage> {
                         ),
                       ),
                     ),
-                    if (isSpanish) ...[
-                      const SizedBox(height: 8),
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                S.current.menuBarSectionSocial,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSurface,
-                                ),
-                              ),
-                              const SizedBox(height: 16),
-                              Text(
-                                S.current.socialNetworksText,
-                                textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSurface,
-                                ),
-                              ),
-                              const SizedBox(height: 24),
-                              _contactButtons(context),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+                    // RRSS ocultas de momento
                     const SizedBox(height: 8),
                     _privacyButtons(context),
                   ],
@@ -295,7 +208,7 @@ class _ContactPageState extends State<ContactPage> {
             final subject = S.current.subjectSupport;
             final uri = Uri(
               scheme: 'mailto',
-              path: 'info@filmoly.com',
+              path: 'info@deventic.com',
               queryParameters: {'subject': subject},
             );
             if (await canLaunchUrl(uri)) {
@@ -311,11 +224,38 @@ class _ContactPageState extends State<ContactPage> {
           color: Colors.green,
           label: 'Web',
           onTap: () async {
-            const url = 'https://filmoly.com';
+            const url = 'https://deventic.com';
             if (await canLaunchUrl(Uri.parse(url))) {
               await launchUrl(Uri.parse(url),
                   mode: LaunchMode.externalApplication);
             } else {
+              showCustomSnackBar(S.current.socialWebError, type: -1);
+            }
+          },
+        ),
+        _contactButton(
+          context: context,
+          icon: Icons.telegram_rounded,
+          color: Colors.lightBlueAccent,
+          label: S.current.socialTelegramLabel,
+          onTap: () async {
+            try {
+              const telegramUrl = 'tg://resolve?domain=deventic';
+              final telegramUri = Uri.parse(telegramUrl);
+
+              if (await canLaunchUrl(telegramUri)) {
+                await launchUrl(telegramUri);
+              } else {
+                const webUrl = 'https://t.me/deventic';
+                final webUri = Uri.parse(webUrl);
+
+                if (await canLaunchUrl(webUri)) {
+                  await launchUrl(webUri, mode: LaunchMode.externalApplication);
+                } else {
+                  showCustomSnackBar(S.current.socialWebError, type: -1);
+                }
+              }
+            } catch (_) {
               showCustomSnackBar(S.current.socialWebError, type: -1);
             }
           },
@@ -369,7 +309,7 @@ class _ContactPageState extends State<ContactPage> {
   }
 
   Widget _privacyButtons(BuildContext context) {
-    const baseUrl = 'https://filmoly.com';
+    const baseUrl = 'https://deventic.com';
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(

@@ -2,6 +2,10 @@ import 'package:filmoly/core/global_functions.dart';
 import 'package:filmoly/core/global_variables.dart';
 import 'package:filmoly/generated/l10n.dart';
 import 'package:filmoly/routes/app_routes.dart';
+import 'package:filmoly/controller/recaptcha_controller.dart';
+import 'dart:io';
+import 'package:filmoly/api/filmoly_api.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -37,10 +41,62 @@ class _SplashScreenPageState extends State<SplashScreenPage>
 
   Future<void> _startApp() async {
     await loadAppVersion();
+    if (kIsWeb) {
+      await RecaptchaService.initiate();
+    }
     setState(() => _info = S.current.loading);
-    await Future<void>.delayed(const Duration(milliseconds: 800));
-    if (!mounted) return;
-    _navigate();
+    await _checkServerStatusAndNavigate();
+  }
+
+  Future<void> _checkServerStatusAndNavigate() async {
+    try {
+      final status = await FilmolyApi.getStatus();
+      if (!mounted) return;
+
+      if (status == null) {
+        await _showErrorDialog(
+          S.current.dialogErrorTitle,
+          S.current.dialogErrorServerConnection,
+          false,
+        );
+        return;
+      }
+
+      globalServerAppStatus = status;
+
+      // Comparar versión app (si la app es más antigua que la requerida en servidor)
+      if (status.version.isNotEmpty &&
+          compareVersions(globalCurrentVersionApp, status.version) < 0) {
+        await _showErrorDialog(
+          S.current.dialogErrorTitle,
+          '${S.current.dialogErrorAppVersion}\n\n'
+          '${S.current.currentAppVersionText}: $globalCurrentVersionApp\n'
+          '${S.current.currentServerVersionText}: ${status.version}',
+          true,
+        );
+        return;
+      }
+
+      // Comprobar mantenimiento (status == 0 => mantenimiento)
+      if (status.status == 0) {
+        await _showErrorDialog(
+          S.current.dialogErrorTitle,
+          S.current.dialogErrorServerMaintenance,
+          false,
+        );
+        return;
+      }
+
+      // Todo OK: continuar flujo normal
+      _navigate();
+    } catch (_) {
+      if (!mounted) return;
+      await _showErrorDialog(
+        S.current.dialogErrorTitle,
+        S.current.dialogErrorServerConnection,
+        false,
+      );
+    }
   }
 
   void _navigate() {
@@ -49,6 +105,42 @@ class _SplashScreenPageState extends State<SplashScreenPage>
     } else {
       context.go(AppRoutes.home);
     }
+  }
+
+  Future<void> _showErrorDialog(
+    String title,
+    String message,
+    bool isBlockingUpdate,
+  ) async {
+    await showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (ctx) => AlertDialog(
+        title: Text(title),
+        content: Text(
+          message,
+          textAlign: TextAlign.justify,
+          style: const TextStyle(fontSize: 16),
+        ),
+        actionsAlignment: MainAxisAlignment.center,
+        actions: [
+          Row(
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(ctx).pop();
+                    // Cerrar la app como en Fitcron / menú principal
+                    exit(0);
+                  },
+                  child: Text(S.current.close),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   @override

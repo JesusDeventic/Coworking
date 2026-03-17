@@ -5,6 +5,7 @@ import 'package:filmoly/core/global_variables.dart';
 import 'package:filmoly/generated/l10n.dart';
 import 'package:filmoly/page/home/placeholder_section_page.dart';
 import 'package:filmoly/page/users/contact_page.dart';
+import 'package:filmoly/page/users/general_settings_page.dart';
 import 'package:filmoly/page/users/faq_page.dart';
 import 'package:filmoly/routes/app_routes.dart';
 import 'package:filmoly/widget/components_widgets.dart';
@@ -338,10 +339,21 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
                 const SizedBox(height: 4),
                 const Divider(),
                 ListTile(
+                  leading: const Icon(Icons.settings_applications_rounded),
+                  title: Text(S.current.generalSettings),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const GeneralSettingsPage(),
+                      ),
+                    );
+                  },
+                ),
+                ListTile(
                   leading: const Icon(Icons.person_rounded),
                   title: Text(S.current.accountAndProfile),
                   onTap: () {
-                    Navigator.pop(dialogContext);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -352,11 +364,11 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
                     );
                   },
                 ),
+                const Divider(),
                 ListTile(
                   leading: const Icon(Icons.help_outline_rounded),
                   title: Text(S.current.userSectionFAQs),
                   onTap: () {
-                    Navigator.pop(dialogContext);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -369,7 +381,6 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
                   leading: const Icon(Icons.support_agent_rounded),
                   title: Text(S.current.userSectionContact),
                   onTap: () {
-                    Navigator.pop(dialogContext);
                     Navigator.push(
                       context,
                       MaterialPageRoute(

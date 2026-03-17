@@ -1,4 +1,5 @@
 import 'package:filmoly/model/user_model.dart';
+import 'package:filmoly/model/app_status_model.dart';
 
 /// Token en memoria (se persiste en secure storage).
 String globalUserToken = '';
@@ -8,6 +9,9 @@ FilmolyUser globalCurrentUser = FilmolyUser();
 
 /// Versión de la app (se carga en el splash).
 String globalCurrentVersionApp = '';
+
+/// Estado de la app en el servidor (versión mínima, mantenimiento, etc.).
+FilmolyAppStatus? globalServerAppStatus;
 
 /// Idiomas soportados (claves para el selector), orden alfabético por clave como en Fitcron.
 const List<String> languageKeys = [

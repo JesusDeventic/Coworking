@@ -98,21 +98,31 @@ ThemeData themeFromColorScheme(ColorScheme colorScheme) {
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: colorScheme.primary,
-        foregroundColor: colorScheme.onPrimary,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+      style: ButtonStyle(
+        mouseCursor: WidgetStateProperty.all<MouseCursor>(SystemMouseCursors.click),
+        backgroundColor: WidgetStateProperty.all<Color>(colorScheme.primary),
+        foregroundColor: WidgetStateProperty.all<Color>(colorScheme.onPrimary),
+        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+          const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        ),
+        shape: WidgetStateProperty.all<OutlinedBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
         ),
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
-      style: OutlinedButton.styleFrom(
-        foregroundColor: colorScheme.onSurface,
-        side: BorderSide(color: colorScheme.primary),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+      style: ButtonStyle(
+        mouseCursor: WidgetStateProperty.all<MouseCursor>(SystemMouseCursors.click),
+        foregroundColor: WidgetStateProperty.all<Color>(colorScheme.onSurface),
+        side: WidgetStateProperty.all<BorderSide>(
+          BorderSide(color: colorScheme.primary),
+        ),
+        shape: WidgetStateProperty.all<OutlinedBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
         ),
       ),
     ),

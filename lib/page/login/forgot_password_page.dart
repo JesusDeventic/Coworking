@@ -1,5 +1,6 @@
 import 'package:filmoly/api/filmoly_api.dart';
 import 'package:filmoly/core/global_functions.dart';
+import 'package:filmoly/controller/recaptcha_controller.dart';
 import 'package:filmoly/generated/l10n.dart';
 import 'package:filmoly/routes/app_routes.dart';
 import 'package:filmoly/widget/components_widgets.dart';
@@ -26,6 +27,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   bool _isLoadingConfirm = false;
 
   @override
+  void initState() {
+    super.initState();
+    RecaptchaService.showBadge();
+  }
+
+  @override
   void dispose() {
     _loginController.dispose();
     _codeController.dispose();
@@ -39,11 +46,17 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     unFocusGlobal();
     setState(() => _isLoadingSend = true);
     try {
+      final isNotBot = await RecaptchaService.isNotABot();
+      if (!isNotBot) {
+        showCustomSnackBar(S.current.error, type: -1);
+        return;
+      }
       final result = await FilmolyApi.forgotPassword(_loginController.text.trim());
       if (!mounted) return;
       if (result['success'] == true) {
         setState(() => _showCodeAndPassword = true);
         showCustomSnackBar(S.current.codeSent, type: 1);
+        RecaptchaService.hideBadge();
       } else {
         showCustomSnackBar(result['message'] as String? ?? S.current.error, type: -1);
       }
@@ -105,7 +118,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             TextFormField(
                               controller: _loginController,
                               decoration: InputDecoration(
-                                labelText: '${S.current.userOrEmail} / ${S.current.email}',
+                                labelText: S.current.userOrEmail,
                                 prefixIcon: const Icon(Icons.person_outline),
                                 border: const OutlineInputBorder(),
                               ),

@@ -1,6 +1,7 @@
 import 'package:filmoly/api/filmoly_api.dart';
 import 'package:filmoly/core/global_functions.dart';
 import 'package:filmoly/core/global_variables.dart';
+import 'package:filmoly/controller/recaptcha_controller.dart';
 import 'package:filmoly/generated/l10n.dart';
 import 'package:filmoly/model/user_model.dart';
 import 'package:filmoly/routes/app_routes.dart';
@@ -27,6 +28,12 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _isLoading = false;
 
   @override
+  void initState() {
+    super.initState();
+    RecaptchaService.showBadge();
+  }
+
+  @override
   void dispose() {
     _usernameController.dispose();
     _emailController.dispose();
@@ -39,6 +46,11 @@ class _RegisterPageState extends State<RegisterPage> {
   Future<void> _submitRegister() async {
     if (!_formKey.currentState!.validate()) return;
     unFocusGlobal();
+    final isNotBot = await RecaptchaService.isNotABot();
+    if (!isNotBot) {
+      showCustomSnackBar(S.current.error, type: -1);
+      return;
+    }
     setState(() => _isLoading = true);
     try {
       final result = await FilmolyApi.register(
@@ -57,6 +69,7 @@ class _RegisterPageState extends State<RegisterPage> {
           await FilmolyApi.saveToken(token);
           globalCurrentUser = FilmolyUser.fromJson(userJson);
           showCustomSnackBar(S.current.welcome, type: 1);
+          RecaptchaService.hideBadge();
           context.go(AppRoutes.home);
           return;
         }
@@ -126,16 +139,17 @@ class _RegisterPageState extends State<RegisterPage> {
                           },
                         ),
                         const SizedBox(height: 16),
-                        TextFormField(
-                          controller: _displayNameController,
-                          decoration: InputDecoration(
-                            labelText: S.current.displayName,
-                            prefixIcon: const Icon(Icons.badge_outlined),
-                            border: const OutlineInputBorder(),
-                          ),
-                          textInputAction: TextInputAction.next,
-                        ),
-                        const SizedBox(height: 16),
+                        // Campo de nombre para mostrar (opcional) oculto de momento.
+                        // TextFormField(
+                        //   controller: _displayNameController,
+                        //   decoration: InputDecoration(
+                        //     labelText: S.current.displayName,
+                        //     prefixIcon: const Icon(Icons.badge_outlined),
+                        //     border: const OutlineInputBorder(),
+                        //   ),
+                        //   textInputAction: TextInputAction.next,
+                        // ),
+                        // const SizedBox(height: 16),
                         TextFormField(
                           controller: _passwordController,
                           obscureText: _obscureText,

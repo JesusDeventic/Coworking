@@ -1,6 +1,7 @@
 import 'package:filmoly/api/filmoly_api.dart';
 import 'package:filmoly/core/global_functions.dart';
 import 'package:filmoly/core/global_variables.dart';
+import 'package:filmoly/controller/recaptcha_controller.dart';
 import 'package:filmoly/generated/l10n.dart';
 import 'package:filmoly/model/user_model.dart';
 import 'package:filmoly/routes/app_routes.dart';
@@ -24,6 +25,12 @@ class _LoginPageState extends State<LoginPage> {
   bool _obscureText = true;
 
   @override
+  void initState() {
+    super.initState();
+    RecaptchaService.showBadge();
+  }
+
+  @override
   void dispose() {
     _loginController.dispose();
     _passwordController.dispose();
@@ -33,6 +40,11 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _submitLogin() async {
     if (!_formKey.currentState!.validate()) return;
     unFocusGlobal();
+    final isNotBot = await RecaptchaService.isNotABot();
+    if (!isNotBot) {
+      showCustomSnackBar(S.current.error, type: -1);
+      return;
+    }
     setState(() => _isLoading = true);
     try {
       final result = await FilmolyApi.login(
@@ -49,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
           if (_keepSession) {
             // Token ya guardado en saveToken
           }
+          RecaptchaService.hideBadge();
           showCustomSnackBar(S.current.welcome, type: 1);
           context.go(AppRoutes.home);
           return;

@@ -55,12 +55,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Versió actual",
     ),
+    "currentServerVersionText": MessageLookupByLibrary.simpleMessage(
+      "Versió disponible",
+    ),
+    "dateFormat": MessageLookupByLibrary.simpleMessage("Format de data"),
     "dialogCloseAppTitle": MessageLookupByLibrary.simpleMessage(
       "Sortir de l\'aplicació",
     ),
     "dialogCloseSessionContent": MessageLookupByLibrary.simpleMessage(
       "Tancar la sessió?",
     ),
+    "dialogConfirmSave": MessageLookupByLibrary.simpleMessage(
+      "Vols desar els canvis realitzats?",
+    ),
+    "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
+      "Hi ha una nova versió de Filmoly disponible.\nActualitza l\'app per continuar.",
+    ),
+    "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
+      "No s\'ha pogut connectar amb el servidor de Filmoly.",
+    ),
+    "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
+      "L\'aplicació està en manteniment en aquest moment. Torna-ho a provar més tard.",
+    ),
+    "dialogErrorTitle": MessageLookupByLibrary.simpleMessage("Error"),
+    "dialogWarningTitle": MessageLookupByLibrary.simpleMessage("Atenció"),
     "displayName": MessageLookupByLibrary.simpleMessage(
       "Nom a mostrar (opcional)",
     ),
@@ -89,6 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgotPassword": MessageLookupByLibrary.simpleMessage(
       "Has oblidat la contrasenya?",
     ),
+    "generalSettings": MessageLookupByLibrary.simpleMessage("Ajustos generals"),
     "goToHome": MessageLookupByLibrary.simpleMessage("Anar a l\'inici"),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Email no vàlid"),
     "keepSession": MessageLookupByLibrary.simpleMessage(
@@ -153,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "socialNetworksText": MessageLookupByLibrary.simpleMessage(
       "Segueix-nos a les xarxes socials.",
     ),
+    "socialTelegramLabel": MessageLookupByLibrary.simpleMessage("Telegram"),
     "socialWebError": MessageLookupByLibrary.simpleMessage(
       "No s\'ha pogut obrir l\'enllaç.",
     ),
@@ -165,6 +185,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Necessites ajuda? Escriu-nos per correu o visita la nostra web.",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("Tema"),
+    "themeDark": MessageLookupByLibrary.simpleMessage("Mode fosc"),
+    "themeLight": MessageLookupByLibrary.simpleMessage("Mode clar"),
     "userOrEmail": MessageLookupByLibrary.simpleMessage("Usuari o email"),
     "userSectionContact": MessageLookupByLibrary.simpleMessage("Contacte"),
     "userSectionFAQs": MessageLookupByLibrary.simpleMessage("FAQs"),
@@ -179,6 +201,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Codi de verificació (6 dígits)",
     ),
     "version": MessageLookupByLibrary.simpleMessage("Versió"),
+    "weekStart": MessageLookupByLibrary.simpleMessage(
+      "Dia d\'inici de setmana",
+    ),
+    "weekStartMonday": MessageLookupByLibrary.simpleMessage("Dilluns"),
+    "weekStartSunday": MessageLookupByLibrary.simpleMessage("Diumenge"),
     "welcome": MessageLookupByLibrary.simpleMessage("Benvingut"),
     "wrongCredentials": MessageLookupByLibrary.simpleMessage(
       "Credencials incorrectes",

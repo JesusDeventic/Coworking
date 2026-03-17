@@ -174,6 +174,16 @@ class S {
     return Intl.message('Theme', name: 'theme', desc: '', args: []);
   }
 
+  /// `Light mode`
+  String get themeLight {
+    return Intl.message('Light mode', name: 'themeLight', desc: '', args: []);
+  }
+
+  /// `Dark mode`
+  String get themeDark {
+    return Intl.message('Dark mode', name: 'themeDark', desc: '', args: []);
+  }
+
   /// `Language`
   String get language {
     return Intl.message('Language', name: 'language', desc: '', args: []);
@@ -464,6 +474,36 @@ class S {
     return Intl.message('Settings', name: 'settingsLabel', desc: '', args: []);
   }
 
+  /// `General settings`
+  String get generalSettings {
+    return Intl.message(
+      'General settings',
+      name: 'generalSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start of week`
+  String get weekStart {
+    return Intl.message('Start of week', name: 'weekStart', desc: '', args: []);
+  }
+
+  /// `Monday`
+  String get weekStartMonday {
+    return Intl.message('Monday', name: 'weekStartMonday', desc: '', args: []);
+  }
+
+  /// `Sunday`
+  String get weekStartSunday {
+    return Intl.message('Sunday', name: 'weekStartSunday', desc: '', args: []);
+  }
+
+  /// `Date format`
+  String get dateFormat {
+    return Intl.message('Date format', name: 'dateFormat', desc: '', args: []);
+  }
+
   /// `View my profile`
   String get showMyProfile {
     return Intl.message(
@@ -589,6 +629,71 @@ class S {
     );
   }
 
+  /// `Error`
+  String get dialogErrorTitle {
+    return Intl.message('Error', name: 'dialogErrorTitle', desc: '', args: []);
+  }
+
+  /// `Could not connect to the Filmoly server.`
+  String get dialogErrorServerConnection {
+    return Intl.message(
+      'Could not connect to the Filmoly server.',
+      name: 'dialogErrorServerConnection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A new version of Filmoly is available.\nPlease update the app to continue.`
+  String get dialogErrorAppVersion {
+    return Intl.message(
+      'A new version of Filmoly is available.\nPlease update the app to continue.',
+      name: 'dialogErrorAppVersion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The application is currently in maintenance mode. Please try again later.`
+  String get dialogErrorServerMaintenance {
+    return Intl.message(
+      'The application is currently in maintenance mode. Please try again later.',
+      name: 'dialogErrorServerMaintenance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Available version`
+  String get currentServerVersionText {
+    return Intl.message(
+      'Available version',
+      name: 'currentServerVersionText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attention`
+  String get dialogWarningTitle {
+    return Intl.message(
+      'Attention',
+      name: 'dialogWarningTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to save the changes made?`
+  String get dialogConfirmSave {
+    return Intl.message(
+      'Do you want to save the changes made?',
+      name: 'dialogConfirmSave',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Need help? Email us or visit our website.`
   String get textUserSupportDescription {
     return Intl.message(
@@ -672,6 +777,16 @@ class S {
   /// `Email`
   String get socialMailLabel {
     return Intl.message('Email', name: 'socialMailLabel', desc: '', args: []);
+  }
+
+  /// `Telegram`
+  String get socialTelegramLabel {
+    return Intl.message(
+      'Telegram',
+      name: 'socialTelegramLabel',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Filmoly contact`
