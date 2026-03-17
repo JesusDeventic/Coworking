@@ -81,6 +81,7 @@
   "goToHome": "Go to home",
   "loading": "Loading...",
   "wrongCredentials": "Wrong credentials",
+  "loginCountdownMessage": "Incorrect username or password. Please wait {seconds} seconds before trying again",
   "registerError": "Registration error",
   "dialogErrorTitle": "Error",
   "dialogErrorServerConnection": "Could not connect to the Filmoly server.",

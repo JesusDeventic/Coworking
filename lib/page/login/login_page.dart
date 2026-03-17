@@ -8,6 +8,7 @@ import 'package:filmoly/routes/app_routes.dart';
 import 'package:filmoly/widget/components_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'dart:async';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,6 +23,8 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
   bool _keepSession = true;
   bool _isLoading = false;
+  bool _isButtonDisabled = false;
+  int _countDown = 0;
   bool _obscureText = true;
 
   @override
@@ -37,7 +40,30 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
+  void _startCountDown() {
+    setState(() {
+      _countDown = 5;
+      _isButtonDisabled = true;
+    });
+
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (!mounted) {
+        timer.cancel();
+        return;
+      }
+      setState(() {
+        if (_countDown > 0) {
+          _countDown--;
+        } else {
+          _isButtonDisabled = false;
+          timer.cancel();
+        }
+      });
+    });
+  }
+
   Future<void> _submitLogin() async {
+    if (_isButtonDisabled) return;
     if (!_formKey.currentState!.validate()) return;
     unFocusGlobal();
     final isNotBot = await RecaptchaService.isNotABot();
@@ -45,7 +71,10 @@ class _LoginPageState extends State<LoginPage> {
       showCustomSnackBar(S.current.error, type: -1);
       return;
     }
-    setState(() => _isLoading = true);
+    setState(() {
+      _isLoading = true;
+      _isButtonDisabled = true;
+    });
     try {
       final result = await FilmolyApi.login(
         login: _loginController.text.trim(),
@@ -67,10 +96,14 @@ class _LoginPageState extends State<LoginPage> {
           return;
         }
       }
-      final message = result['message'] as String? ?? S.current.wrongCredentials;
-      showCustomSnackBar(message, type: -1);
+      _startCountDown();
     } finally {
-      if (mounted) setState(() => _isLoading = false);
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+          if (_countDown == 0) _isButtonDisabled = false;
+        });
+      }
     }
   }
 
@@ -98,6 +131,17 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             _buildLogo(context),
                             const SizedBox(height: 24),
+                            if (_countDown > 0)
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 16),
+                                child: Text(
+                                  S.current.loginCountdownMessage(_countDown),
+                                  style: TextStyle(
+                                    color: Theme.of(context).colorScheme.error,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
                             TextFormField(
                               controller: _loginController,
                               decoration: InputDecoration(
@@ -135,14 +179,19 @@ class _LoginPageState extends State<LoginPage> {
                             CheckboxListTile(
                               title: Text(S.current.keepSession),
                               value: _keepSession,
-                              onChanged: (v) => setState(() => _keepSession = v ?? true),
+                              onChanged: (_isLoading || _isButtonDisabled)
+                                  ? null
+                                  : (v) =>
+                                      setState(() => _keepSession = v ?? true),
                               controlAffinity: ListTileControlAffinity.leading,
                             ),
                             const SizedBox(height: 16),
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: _isLoading ? null : _submitLogin,
+                                onPressed: (_isLoading || _isButtonDisabled)
+                                    ? null
+                                    : _submitLogin,
                                 child: _isLoading
                                     ? const SizedBox(
                                         height: 24,
@@ -156,12 +205,16 @@ class _LoginPageState extends State<LoginPage> {
                             SizedBox(
                               width: double.infinity,
                               child: OutlinedButton(
-                                onPressed: () => context.go(AppRoutes.register),
+                                onPressed: (_isLoading || _isButtonDisabled)
+                                    ? null
+                                    : () => context.go(AppRoutes.register),
                                 child: Text(S.current.signUp),
                               ),
                             ),
                             TextButton(
-                              onPressed: () => context.go(AppRoutes.forgotPassword),
+                              onPressed: (_isLoading || _isButtonDisabled)
+                                  ? null
+                                  : () => context.go(AppRoutes.forgotPassword),
                               child: Text(S.current.forgotPassword),
                             ),
                           ],

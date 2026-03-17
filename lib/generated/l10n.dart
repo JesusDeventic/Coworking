@@ -619,6 +619,16 @@ class S {
     );
   }
 
+  /// `Incorrect username or password. Please wait {seconds} seconds before trying again`
+  String loginCountdownMessage(Object seconds) {
+    return Intl.message(
+      'Incorrect username or password. Please wait $seconds seconds before trying again',
+      name: 'loginCountdownMessage',
+      desc: '',
+      args: [seconds],
+    );
+  }
+
   /// `Registration error`
   String get registerError {
     return Intl.message(

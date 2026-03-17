@@ -81,6 +81,7 @@
   "goToHome": "Ir a inicio",
   "loading": "Cargando...",
   "wrongCredentials": "Credenciales incorrectas",
+  "loginCountdownMessage": "Usuario o contraseña incorrectos.\nPor favor espera {seconds} segundos para intentarlo nuevamente",
   "registerError": "Error en el registro",
   "dialogErrorTitle": "Error",
   "dialogErrorServerConnection": "No se ha podido conectar con el servidor de Filmoly.",

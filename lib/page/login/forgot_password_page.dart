@@ -115,6 +115,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         key: _formKey,
                         child: Column(
                           children: [
+                            _buildLogo(context),
+                            const SizedBox(height: 24),
                             TextFormField(
                               controller: _loginController,
                               decoration: InputDecoration(
@@ -244,6 +246,17 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildLogo(BuildContext context) {
+    return Image.asset(
+      'assets/logo.png',
+      width: 160,
+      errorBuilder: (_, __, ___) => Text(
+        S.current.appName,
+        style: Theme.of(context).textTheme.headlineSmall,
       ),
     );
   }

@@ -8,7 +8,7 @@
 PRODUCT_NAME = filmoly
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = app.filmoly.filmoly
+PRODUCT_BUNDLE_IDENTIFIER = com.deventic.filmoly
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 app.filmoly. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 com.deventic. All rights reserved.

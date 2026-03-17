@@ -104,6 +104,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         key: _formKey,
                         child: Column(
                           children: [
+                            _buildLogo(context),
+                            const SizedBox(height: 24),
                             TextFormField(
                           controller: _usernameController,
                           decoration: InputDecoration(
@@ -220,6 +222,17 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildLogo(BuildContext context) {
+    return Image.asset(
+      'assets/logo.png',
+      width: 160,
+      errorBuilder: (_, __, ___) => Text(
+        S.current.appName,
+        style: Theme.of(context).textTheme.headlineSmall,
       ),
     );
   }
