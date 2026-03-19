@@ -113,6 +113,7 @@
   "faq2Answer": "No, Filmoly no és una aplicació de streaming, només funciona com a base de dades amb funcionalitats diverses sobre aquestes dades.",
   "faq3Question": "Com elimino el meu compte?",
   "faq3Answer": "Pots eliminar el teu compte des dels ajustos del teu compte a la pròpia App. Això elimina tot el relacionat amb el teu usuari. Aquesta acció és irreversible.",
+  "buttonDeleteAvatar": "Esborrar avatar",
   "errorAuthInvalidUsername": "El nom d'usuari ha de tenir entre 4 i 20 caràcters i només pot contenir lletres, números, guions i guions baixos.",
   "errorAuthInvalidEmail": "El correu electrònic no és vàlid.",
   "errorAuthInvalidPassword": "La contrasenya ha de tenir almenys 6 caràcters.",
@@ -127,5 +128,7 @@
   "errorAuthInvalidCode": "El codi no és vàlid.",
   "errorAuthTooManyAttempts": "Has superat el nombre màxim d'intents.",
   "errorAuthExpiredCode": "El codi ha caducat.",
-  "errorAuthGeneric": "S'ha produït un error. Torna-ho a provar."
+  "errorAuthGeneric": "S'ha produït un error. Torna-ho a provar.",
+  "buttonChangePassword": "Canviar contrasenya",
+  "messageChangePasswordSuccess": "Contrasenya canviada correctament."
 }

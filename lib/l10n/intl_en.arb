@@ -10,6 +10,7 @@
   "username": "Username",
   "email": "Email",
   "confirmPassword": "Confirm password",
+  "currentPassword": "Current password",
   "displayName": "Display name (optional)",
   "sendCode": "Send code",
   "verificationCode": "Verification code (6 digits)",
@@ -128,9 +129,11 @@
   "errorAuthTooManyAttempts": "You have exceeded the maximum number of attempts.",
   "errorAuthExpiredCode": "The code has expired.",
   "errorAuthGeneric": "An error occurred. Please try again.",
+  "errorAuthWrongPassword": "Incorrect password.",
   "errorAuthDeleteAccountFailed": "Could not delete account. Please try again.",
   "userSectionAccount": "Account and profile",
   "userAvatar": "Avatar",
+  "buttonDeleteAvatar": "Delete avatar",
   "userDescription": "Description",
   "userEmail": "Email",
   "textfieldUserCountryLabel": "Country",
@@ -149,5 +152,7 @@
   "messageDeleteAccountError": "Error deleting account",
   "errorProcessingImage": "Error processing image",
   "buttonConfirm": "Confirm",
-  "buttonCancel": "Cancel"
+  "buttonCancel": "Cancel",
+  "buttonChangePassword": "Change password",
+  "messageChangePasswordSuccess": "Password changed successfully."
 }

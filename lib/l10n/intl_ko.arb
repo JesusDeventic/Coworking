@@ -58,5 +58,6 @@
   "languageSpanish": "Spanish",
   "languageSwedish": "Swedish",
   "languageTurkish": "Turkish",
-  "languageUkrainian": "Ukrainian"
+  "languageUkrainian": "Ukrainian",
+  "buttonChangePassword": "비밀번호 변경"
 }

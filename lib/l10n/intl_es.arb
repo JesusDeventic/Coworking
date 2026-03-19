@@ -10,6 +10,7 @@
   "username": "Nombre de usuario",
   "email": "Correo electrónico",
   "confirmPassword": "Confirmar contraseña",
+  "currentPassword": "Contraseña actual",
   "displayName": "Nombre para mostrar (opcional)",
   "sendCode": "Enviar código",
   "verificationCode": "Código de verificación (6 dígitos)",
@@ -128,9 +129,11 @@
   "errorAuthTooManyAttempts": "Has superado el número máximo de intentos.",
   "errorAuthExpiredCode": "El código ha expirado.",
   "errorAuthGeneric": "Ha ocurrido un error. Inténtalo de nuevo.",
+  "errorAuthWrongPassword": "Contraseña incorrecta.",
   "errorAuthDeleteAccountFailed": "No se pudo eliminar la cuenta. Inténtalo de nuevo.",
   "userSectionAccount": "Cuenta y perfil",
   "userAvatar": "Avatar",
+  "buttonDeleteAvatar": "Borrar avatar",
   "userDescription": "Descripción",
   "userEmail": "Correo electrónico",
   "textfieldUserCountryLabel": "País",
@@ -149,5 +152,7 @@
   "messageDeleteAccountError": "Error al eliminar la cuenta",
   "errorProcessingImage": "Error al procesar la imagen",
   "buttonConfirm": "Confirmar",
-  "buttonCancel": "Cancelar"
+  "buttonCancel": "Cancelar",
+  "buttonChangePassword": "Cambiar contraseña",
+  "messageChangePasswordSuccess": "Contraseña cambiada correctamente."
 }

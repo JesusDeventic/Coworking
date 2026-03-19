@@ -226,12 +226,20 @@ class _GeneralSettingsPageState extends State<GeneralSettingsPage> {
             const SizedBox(width: 8),
           ],
         ),
-      body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 800),
-          child: ListView(
-            padding: const EdgeInsets.all(16),
-            children: [
+      // Importante: el scroll debe ocupar todo el ancho. El contenido sí se limita.
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 800),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
               // Idioma (fila como en Fitcron)
               Row(
                 children: [
@@ -246,126 +254,130 @@ class _GeneralSettingsPageState extends State<GeneralSettingsPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
-              _LanguageSelectorSettings(isEditing: _isEditing),
-              const SizedBox(height: 16),
+                      const SizedBox(height: 8),
+                      _LanguageSelectorSettings(isEditing: _isEditing),
+                      const SizedBox(height: 16),
 
               // Tema (toggle grande como Fitcron)
-              Consumer<ThemeProvider>(
-                builder: (context, themeProvider, _) {
-                  return customToggleButtons(
-                    context: context,
-                    isEditing: _isEditing,
-                    options: [l10n.themeLight, l10n.themeDark],
-                    isSelected: [
-                      !themeProvider.isDarkMode,
-                      themeProvider.isDarkMode,
-                    ],
-                    onPressed: _isEditing
-                        ? (_) => themeProvider.toggleTheme()
-                        : (_) {},
-                    title: l10n.theme,
-                    icon: Icons.settings_display_rounded,
-                    customChildren: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 4.0, horizontal: 8.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(Icons.wb_sunny_rounded, size: 24),
-                            const SizedBox(height: 4),
-                            Text(
-                              l10n.themeLight,
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(fontSize: 14),
-                            ),
-                          ],
-                        ),
+                      Consumer<ThemeProvider>(
+                        builder: (context, themeProvider, _) {
+                          return customToggleButtons(
+                            context: context,
+                            isEditing: _isEditing,
+                            options: [l10n.themeLight, l10n.themeDark],
+                            isSelected: [
+                              !themeProvider.isDarkMode,
+                              themeProvider.isDarkMode,
+                            ],
+                            onPressed: _isEditing
+                                ? (_) => themeProvider.toggleTheme()
+                                : (_) {},
+                            title: l10n.theme,
+                            icon: Icons.settings_display_rounded,
+                            customChildren: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 4.0, horizontal: 8.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Icon(Icons.wb_sunny_rounded, size: 24),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      l10n.themeLight,
+                                      textAlign: TextAlign.center,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(fontSize: 14),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 4.0, horizontal: 8.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Icon(Icons.nightlight_round, size: 24),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      l10n.themeDark,
+                                      textAlign: TextAlign.center,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(fontSize: 14),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        },
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 4.0, horizontal: 8.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(Icons.nightlight_round, size: 24),
-                            const SizedBox(height: 4),
-                            Text(
-                              l10n.themeDark,
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(fontSize: 14),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  );
-                },
-              ),
 
-              const SizedBox(height: 16),
+                      const SizedBox(height: 16),
 
               // Día de inicio de la semana (toggle como Fitcron)
-              customToggleButtons(
-                context: context,
-                isEditing: _isEditing,
-                options: [l10n.weekStartSunday, l10n.weekStartMonday],
-                isSelected: [
-                  _weekStart == 'sunday',
-                  _weekStart == 'monday',
-                ],
-                onPressed: (index) {
-                  if (!_isEditing) return;
-                  setState(() {
-                    _weekStart = index == 0 ? 'sunday' : 'monday';
-                  });
-                },
-                title: l10n.weekStart,
-                icon: Icons.filter_1_rounded,
-              ),
+                      customToggleButtons(
+                        context: context,
+                        isEditing: _isEditing,
+                        options: [l10n.weekStartSunday, l10n.weekStartMonday],
+                        isSelected: [
+                          _weekStart == 'sunday',
+                          _weekStart == 'monday',
+                        ],
+                        onPressed: (index) {
+                          if (!_isEditing) return;
+                          setState(() {
+                            _weekStart = index == 0 ? 'sunday' : 'monday';
+                          });
+                        },
+                        title: l10n.weekStart,
+                        icon: Icons.filter_1_rounded,
+                      ),
 
-              const SizedBox(height: 16),
+                      const SizedBox(height: 16),
 
               // Formato de fecha (etiqueta + ejemplo + desplegable sencillo)
-              Row(
-                children: [
-                  const Icon(Icons.date_range_rounded),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      '${l10n.dateFormat} (${formatExample(_dateFormat)})',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                      Row(
+                        children: [
+                          const Icon(Icons.date_range_rounded),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              '${l10n.dateFormat} (${formatExample(_dateFormat)})',
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                            ),
+                          ),
+                        ],
                       ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                    ),
+                      const SizedBox(height: 8),
+                      DropdownButton<String>(
+                        value: _dateFormat,
+                        isExpanded: true,
+                        onChanged: _isEditing
+                            ? (v) {
+                                if (v == null) return;
+                                setState(() => _dateFormat = v);
+                              }
+                            : null,
+                        items: dateFormatsList.map((pattern) {
+                          return DropdownMenuItem<String>(
+                            value: pattern,
+                            child: Text('$pattern   (${formatExample(pattern)})'),
+                          );
+                        }).toList(),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-              const SizedBox(height: 8),
-              DropdownButton<String>(
-                value: _dateFormat,
-                isExpanded: true,
-                onChanged: _isEditing
-                    ? (v) {
-                        if (v == null) return;
-                        setState(() => _dateFormat = v);
-                      }
-                    : null,
-                items: dateFormatsList.map((pattern) {
-                  return DropdownMenuItem<String>(
-                    value: pattern,
-                    child: Text('$pattern   (${formatExample(pattern)})'),
-                  );
-                }).toList(),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     ),

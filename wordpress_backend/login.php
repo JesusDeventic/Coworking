@@ -9,6 +9,35 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+/**
+ * =========================================================
+ * AVATAR HELPERS (fallback a Gravatar si no hay avatar propio)
+ * =========================================================
+ */
+if (!function_exists('filmoly_avatar_path')) {
+    function filmoly_avatar_path($user_id) {
+        $upload_dir = wp_upload_dir();
+        return $upload_dir['basedir'] . '/app_avatars/' . (int) $user_id . '.webp';
+    }
+}
+
+if (!function_exists('filmoly_avatar_url')) {
+    function filmoly_avatar_url($user_id) {
+        $upload_dir = wp_upload_dir();
+        return $upload_dir['baseurl'] . '/app_avatars/' . (int) $user_id . '.webp';
+    }
+}
+
+if (!function_exists('filmoly_get_user_avatar_url')) {
+    function filmoly_get_user_avatar_url($user_id) {
+        $path = filmoly_avatar_path($user_id);
+        if (file_exists($path)) {
+            return add_query_arg('v', (string) filemtime($path), filmoly_avatar_url($user_id));
+        }
+        return get_avatar_url($user_id);
+    }
+}
+
 // require_once __DIR__ . '/filmoly_translations.php'; // No hace falta porque estan en otro snippet
 
 /**
@@ -428,6 +457,12 @@ add_action('rest_api_init', function () {
         'callback' => 'filmoly_auth_delete_account',
         'permission_callback' => '__return_true',
     ]);
+
+    register_rest_route(FILMOLY_AUTH_NAMESPACE, '/auth/change-password', [
+        'methods' => 'POST',
+        'callback' => 'filmoly_auth_change_password',
+        'permission_callback' => '__return_true',
+    ]);
 });
 
 /**
@@ -728,7 +763,7 @@ function filmoly_auth_delete_account(WP_REST_Request $request) {
 
     // Confirmar contraseña actual
     if (!wp_check_password($password, $user->user_pass, $user->ID)) {
-        return filmoly_auth_error('invalid_password', 'La contraseña actual no es correcta.', 401);
+        return filmoly_auth_error('wrong_password', 'La contraseña actual no es correcta.', 401);
     }
 
     // Limpiar sesiones
@@ -761,6 +796,11 @@ function filmoly_auth_delete_account(WP_REST_Request $request) {
 	  }
   }
 
+    // Borrar avatar del disco si existe
+    if (function_exists('filmoly_delete_old_avatar_if_exists')) {
+        filmoly_delete_old_avatar_if_exists($user->ID);
+    }
+
     // Cargar función de borrado de usuarios
     if (!function_exists('wp_delete_user')) {
         require_once ABSPATH . 'wp-admin/includes/user.php';
@@ -775,5 +815,42 @@ function filmoly_auth_delete_account(WP_REST_Request $request) {
     return new WP_REST_Response([
         'success' => true,
         'message' => 'La cuenta ha sido eliminada correctamente.',
+    ], 200);
+}
+
+function filmoly_auth_change_password(WP_REST_Request $request) {
+    $user_id = filmoly_auth_validate_token($request);
+
+    if (is_wp_error($user_id)) {
+        return $user_id;
+    }
+
+    $params = filmoly_auth_get_json_params($request);
+    $current_password = isset($params['current_password']) ? (string) $params['current_password'] : '';
+    $new_password     = isset($params['new_password'])     ? (string) $params['new_password']     : '';
+
+    if ($current_password === '' || $new_password === '') {
+        return filmoly_auth_error('missing_fields', 'Faltan campos obligatorios.', 400);
+    }
+
+    if (strlen($new_password) < 6) {
+        return filmoly_auth_error('invalid_password', 'La contraseña debe tener al menos 6 caracteres.', 400);
+    }
+
+    $user = get_user_by('id', $user_id);
+
+    if (!$user) {
+        return filmoly_auth_error('invalid_user', 'Usuario no válido.', 404);
+    }
+
+    if (!wp_check_password($current_password, $user->user_pass, $user->ID)) {
+        return filmoly_auth_error('wrong_password', 'La contraseña actual no es correcta.', 401);
+    }
+
+    wp_set_password($new_password, $user->ID);
+
+    return new WP_REST_Response([
+        'success' => true,
+        'message' => 'Contraseña cambiada correctamente.',
     ], 200);
 }

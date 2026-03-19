@@ -7,10 +7,56 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Importante para subida de archivos y attachments
+// Necesario para wp_handle_upload y wp_get_image_editor
 require_once ABSPATH . 'wp-admin/includes/file.php';
 require_once ABSPATH . 'wp-admin/includes/image.php';
-require_once ABSPATH . 'wp-admin/includes/media.php';
+
+/**
+ * =========================================================
+ * AVATAR HELPERS (fallback a Gravatar si no hay avatar propio)
+ * =========================================================
+ */
+if (!function_exists('filmoly_avatar_path')) {
+    function filmoly_avatar_path($user_id) {
+        $upload_dir = wp_upload_dir();
+        return $upload_dir['basedir'] . '/app_avatars/' . (int) $user_id . '.webp';
+    }
+}
+
+if (!function_exists('filmoly_avatar_url')) {
+    function filmoly_avatar_url($user_id) {
+        $upload_dir = wp_upload_dir();
+        return $upload_dir['baseurl'] . '/app_avatars/' . (int) $user_id . '.webp';
+    }
+}
+
+if (!function_exists('filmoly_get_user_avatar_url')) {
+    function filmoly_get_user_avatar_url($user_id) {
+        $path = filmoly_avatar_path($user_id);
+        if (file_exists($path)) {
+            // Cache-buster automático usando la fecha de modificación del archivo
+            return add_query_arg('v', (string) filemtime($path), filmoly_avatar_url($user_id));
+        }
+        return get_avatar_url($user_id);
+    }
+}
+
+if (!function_exists('filmoly_delete_old_avatar_if_exists')) {
+    function filmoly_delete_old_avatar_if_exists($user_id) {
+        $path = filmoly_avatar_path($user_id);
+        if (file_exists($path)) {
+            @unlink($path);
+        }
+    }
+}
+
+function filmoly_upload_dir_app_avatars($dirs) {
+    // Directorio plano sin subcarpetas por año/mes
+    $dirs['subdir'] = '/app_avatars';
+    $dirs['path']   = $dirs['basedir'] . '/app_avatars';
+    $dirs['url']    = $dirs['baseurl'] . '/app_avatars';
+    return $dirs;
+}
 
 /**
  * =========================================================
@@ -223,13 +269,7 @@ function filmoly_update_user(WP_REST_Request $request) {
     }
 
     if ($delete_avatar) {
-        $old_avatar_id = (int) get_user_meta($user_id, 'filmoly_avatar_id', true);
-
-        if ($old_avatar_id) {
-            wp_delete_attachment($old_avatar_id, true);
-        }
-
-        delete_user_meta($user_id, 'filmoly_avatar_id');
+        filmoly_delete_old_avatar_if_exists($user_id);
     }
 
     if (!empty($_FILES['avatar']) && !empty($_FILES['avatar']['tmp_name'])) {
@@ -250,34 +290,36 @@ function filmoly_update_user(WP_REST_Request $request) {
             'mimes' => $allowed_mimes,
         ];
 
+        // Asegurarse de que wp-content/uploads/app_avatars/ existe
+        $upload_dir = wp_upload_dir();
+        wp_mkdir_p($upload_dir['basedir'] . '/app_avatars');
+
+        add_filter('upload_dir', 'filmoly_upload_dir_app_avatars');
         $uploaded = wp_handle_upload($file, $overrides);
+        remove_filter('upload_dir', 'filmoly_upload_dir_app_avatars');
 
         if (isset($uploaded['error'])) {
             return new WP_Error('upload_failed', $uploaded['error'], ['status' => 400]);
         }
 
-        $title = 'Filmoly Avatar - ' . $user->user_login;
+        $final_path = filmoly_avatar_path($user_id);
 
-        $attachment_id = wp_insert_attachment([
-            'guid'           => $uploaded['url'],
-            'post_mime_type' => $uploaded['type'],
-            'post_title'     => $title,
-            'post_content'   => '',
-            'post_status'    => 'inherit',
-        ], $uploaded['file']);
-
-        if (is_wp_error($attachment_id) || !$attachment_id) {
-            return new WP_Error('attachment_failed', 'No se pudo crear el adjunto del avatar.', ['status' => 500]);
+        // Convertir a WebP si viene png/jpg; si falla se usa el archivo original
+        $src_file = $uploaded['file'];
+        $src_type = $uploaded['type'];
+        if (in_array($src_type, ['image/png', 'image/jpeg'], true)) {
+            $editor = wp_get_image_editor($src_file);
+            if (!is_wp_error($editor)) {
+                $saved = $editor->save($src_file . '_tmp.webp', 'image/webp');
+                if (!is_wp_error($saved) && isset($saved['path'])) {
+                    @unlink($src_file);
+                    $src_file = $saved['path'];
+                }
+            }
         }
 
-        $attachment_data = wp_generate_attachment_metadata($attachment_id, $uploaded['file']);
-        wp_update_attachment_metadata($attachment_id, $attachment_data);
-
-        if (function_exists('filmoly_delete_old_avatar_if_exists')) {
-            filmoly_delete_old_avatar_if_exists($user_id, $attachment_id);
-        }
-
-        update_user_meta($user_id, 'filmoly_avatar_id', (int) $attachment_id);
+        // Renombrar al nombre definitivo: {user_id}.webp (sobreescribe el avatar anterior si existe)
+        rename($src_file, $final_path);
     }
 
     return new WP_REST_Response([

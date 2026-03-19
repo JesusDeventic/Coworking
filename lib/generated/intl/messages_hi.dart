@@ -32,6 +32,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Changelog",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
+    "buttonChangePassword": MessageLookupByLibrary.simpleMessage(
+      "पासवर्ड बदलें",
+    ),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "Code must be 6 digits",

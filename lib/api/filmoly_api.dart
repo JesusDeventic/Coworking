@@ -314,6 +314,30 @@ class FilmolyApi {
     return {'success': false, 'message': message, 'code': code, 'data': data};
   }
 
+  /// POST /auth/change-password — cambia la contraseña del usuario autenticado.
+  static Future<Map<String, dynamic>> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    final token = globalUserToken;
+    if (token.isEmpty) return {'success': false, 'code': 'missing_token'};
+
+    final url = Uri.parse('$_baseUrl/auth/change-password');
+    try {
+      final response = await http.post(
+        url,
+        headers: _headers(token: token),
+        body: jsonEncode({'current_password': currentPassword, 'new_password': newPassword}),
+      );
+      final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+      if (response.statusCode == 200 && data['success'] == true) return data;
+      final code = data['code'] as String?;
+      return {'success': false, 'code': code, 'message': data['message']};
+    } catch (e) {
+      return {'success': false, 'code': 'network_error', 'message': e.toString()};
+    }
+  }
+
   /// POST /push/unregister-token — marca un token (o deviceId) como inactivo.
   static Future<bool> unregisterPushToken({
     required String token,

@@ -40,7 +40,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Registre de canvis",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Enrere"),
+    "buttonChangePassword": MessageLookupByLibrary.simpleMessage(
+      "Canviar contrasenya",
+    ),
     "buttonClose": MessageLookupByLibrary.simpleMessage("Tancar"),
+    "buttonDeleteAvatar": MessageLookupByLibrary.simpleMessage(
+      "Esborrar avatar",
+    ),
     "close": MessageLookupByLibrary.simpleMessage("Tancar"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "El codi ha de tenir 6 dígits",
@@ -190,6 +196,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Xarxes socials",
     ),
     "menuHome": MessageLookupByLibrary.simpleMessage("Inici"),
+    "messageChangePasswordSuccess": MessageLookupByLibrary.simpleMessage(
+      "Contrasenya canviada correctament.",
+    ),
     "newPassword": MessageLookupByLibrary.simpleMessage("Nova contrasenya"),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("Notificacions"),
     "password": MessageLookupByLibrary.simpleMessage("Contrasenya"),

@@ -26,6 +26,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
   String? _avatarUrl;
   Uint8List? _newAvatarBytes;
   String _newAvatarFilename = 'avatar.jpg';
+  bool _deleteAvatarRequested = false;
 
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _displayNameController = TextEditingController();
@@ -55,6 +56,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
     _birthdateController.text = u.birthdate;
     _countryCode = u.country.isNotEmpty ? u.country : null;
     _marketingConsent = u.marketingConsent;
+    _deleteAvatarRequested = false;
     _updateCountryDisplayName();
     setState(() {});
   }
@@ -205,7 +207,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
       country: _countryCode,
       birthdate: _birthdateController.text.trim().isEmpty ? null : _birthdateController.text.trim(),
       marketingConsent: _marketingConsent,
-      deleteAvatar: false,
+      deleteAvatar: _deleteAvatarRequested,
       avatarBytes: _newAvatarBytes,
       avatarFilename: _newAvatarFilename,
     );
@@ -245,11 +247,17 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
     } else {
       avatarWidget = userAvatar(
         context,
-        avatarUrl: _avatarUrl ?? '',
+        avatarUrl: _deleteAvatarRequested ? '' : (_avatarUrl ?? ''),
         username: globalCurrentUser.username,
         size: 120,
       );
     }
+
+    final hasExistingAvatar = (_avatarUrl ?? '').contains('avatars');
+    final canDeleteAvatar = _isEditing &&
+        hasExistingAvatar &&
+        !_deleteAvatarRequested &&
+        _newAvatarBytes == null;
 
     return Form(
       key: _formKey,
@@ -297,6 +305,39 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                               ),
                               padding: const EdgeInsets.all(6),
                               child: const Icon(Icons.edit_rounded, color: Colors.white, size: 16),
+                            ),
+                          ),
+                        // Botón X para borrar avatar (como Fitcron)
+                        if (canDeleteAvatar)
+                          Positioned(
+                            top: 0,
+                            right: 0,
+                            child: GestureDetector(
+                              onTap: () {
+                                unFocusGlobal();
+                                setState(() {
+                                  _deleteAvatarRequested = true;
+                                  _newAvatarBytes = null;
+                                });
+                              },
+                              child: Tooltip(
+                                message: S.current.buttonDeleteAvatar,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).colorScheme.error,
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: Theme.of(context).colorScheme.secondary,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  child: const Icon(
+                                    Icons.close,
+                                    color: Colors.white,
+                                    size: 30,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                       ],
@@ -431,26 +472,37 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                 : null,
             title: Text(S.current.registerMarketingConsentAccept, style: const TextStyle(fontSize: 14)),
           ),
+          if (!_isEditing) ...[
+          const SizedBox(height: 16),
+          const Divider(),
           const SizedBox(height: 8),
-
-          if (_isEditing) ...[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all<Color>(Theme.of(context).colorScheme.error),
-                ),
-                onPressed: _showDeleteAccountDialog,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.delete_rounded),
-                    const SizedBox(width: 10),
-                    Text(S.current.buttonDeleteAccount),
-                  ],
-                ),
-              ),
+          OutlinedButton(
+            onPressed: _showChangePasswordDialog,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.lock_outline_rounded),
+                const SizedBox(width: 10),
+                Text(S.current.buttonChangePassword),
+              ],
             ),
+          ),
+          const SizedBox(height: 8),
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: WidgetStateProperty.all<Color>(Theme.of(context).colorScheme.error),
+            ),
+            onPressed: _showDeleteAccountDialog,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.delete_rounded),
+                const SizedBox(width: 10),
+                Text(S.current.buttonDeleteAccount),
+              ],
+            ),
+          ),
+          const SizedBox(height: 8),
           ],
         ],
       ),
@@ -479,18 +531,157 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
     }
   }
 
-  void _showDeleteAccountDialog() {
-    final passwordController = TextEditingController();
+  void _showChangePasswordDialog() {
+    final currentPwdController = TextEditingController();
+    final newPwdController = TextEditingController();
+    final confirmPwdController = TextEditingController();
+    final newPwdFocus = FocusNode();
+    final confirmPwdFocus = FocusNode();
+    bool obscureCurrent = true;
+    bool obscureNew = true;
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final dialogHInset = ((screenWidth - 800) / 2).clamp(16.0, double.infinity);
+
     showDialog(
       context: context,
-      builder: (ctx) => PopScope(
-        canPop: false,
-        child: AlertDialog(
+      builder: (ctx) => StatefulBuilder(
+        builder: (ctx, setStateDialog) => AlertDialog(
+          insetPadding: EdgeInsets.symmetric(horizontal: dialogHInset, vertical: 24),
+          title: Text(S.current.buttonChangePassword),
+          content: SizedBox(
+            width: double.maxFinite,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+              TextField(
+                controller: currentPwdController,
+                obscureText: obscureCurrent,
+                textInputAction: TextInputAction.next,
+                onSubmitted: (_) => newPwdFocus.requestFocus(),
+                decoration: InputDecoration(
+                  labelText: S.current.currentPassword,
+                  prefixIcon: const Icon(Icons.lock_outline_rounded),
+                  suffixIcon: IconButton(
+                    icon: Icon(obscureCurrent ? Icons.visibility_off : Icons.visibility),
+                    onPressed: () => setStateDialog(() => obscureCurrent = !obscureCurrent),
+                  ),
+                ),
+                autofocus: true,
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                controller: newPwdController,
+                focusNode: newPwdFocus,
+                obscureText: obscureNew,
+                textInputAction: TextInputAction.next,
+                onSubmitted: (_) => confirmPwdFocus.requestFocus(),
+                decoration: InputDecoration(
+                  labelText: S.current.newPassword,
+                  prefixIcon: const Icon(Icons.lock_rounded),
+                  suffixIcon: IconButton(
+                    icon: Icon(obscureNew ? Icons.visibility_off : Icons.visibility),
+                    onPressed: () => setStateDialog(() => obscureNew = !obscureNew),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                controller: confirmPwdController,
+                focusNode: confirmPwdFocus,
+                obscureText: obscureNew,
+                textInputAction: TextInputAction.done,
+                decoration: InputDecoration(
+                  labelText: S.current.confirmPassword,
+                  prefixIcon: const Icon(Icons.lock_rounded),
+                ),
+              ),
+            ],
+              ),
+            ),
+          ),
+          actions: [
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () => Navigator.of(ctx).pop(),
+                    child: Text(S.current.buttonCancel),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      final current = currentPwdController.text;
+                      final newPwd = newPwdController.text;
+                      final confirm = confirmPwdController.text;
+
+                      if (current.isEmpty || newPwd.isEmpty || confirm.isEmpty) {
+                        showCustomSnackBar(S.current.errorAuthMissingFields, type: -1);
+                        return;
+                      }
+                      if (newPwd.length < 6) {
+                        showCustomSnackBar(S.current.errorAuthInvalidPassword, type: -1);
+                        return;
+                      }
+                      if (newPwd != confirm) {
+                        showCustomSnackBar(S.current.passwordMismatch, type: -1);
+                        return;
+                      }
+
+                      Navigator.of(ctx).pop();
+                      final navigator = Navigator.of(context);
+
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (_) => const PopScope(
+                          canPop: false,
+                          child: Center(child: CircularProgressIndicator()),
+                        ),
+                      );
+
+                      final result = await FilmolyApi.changePassword(
+                        currentPassword: current,
+                        newPassword: newPwd,
+                      );
+
+                      navigator.pop();
+
+                      if (result['success'] == true) {
+                        showCustomSnackBar(S.current.passwordChanged, type: 1);
+                      } else {
+                        showCustomSnackBar(getAuthErrorMessage(result['code'] as String?), type: -1);
+                      }
+                    },
+                    child: Text(S.current.buttonConfirm),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showDeleteAccountDialog() {
+    final passwordController = TextEditingController();
+    final screenWidth = MediaQuery.of(context).size.width;
+    final dialogHInset = ((screenWidth - 800) / 2).clamp(16.0, double.infinity);
+
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+          insetPadding: EdgeInsets.symmetric(horizontal: dialogHInset, vertical: 24),
           title: Text(S.current.buttonDeleteAccount),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
               Text(
                 S.current.dialogDeleteAccount,
                 textAlign: TextAlign.justify,
@@ -506,6 +697,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                 autofocus: true,
               ),
             ],
+            ),
           ),
           actions: [
             Row(
@@ -525,7 +717,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                     onPressed: () async {
                       final pwd = passwordController.text;
                       if (pwd.isEmpty) {
-                        showCustomSnackBar(S.current.errorAuthInvalidPassword, type: -1);
+                        showCustomSnackBar(S.current.fieldRequired, type: -1);
                         return;
                       }
                       Navigator.of(ctx).pop();
@@ -562,7 +754,6 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
             ),
           ],
         ),
-      ),
     );
   }
 }

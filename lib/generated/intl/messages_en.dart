@@ -41,11 +41,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "buttonChangePassword": MessageLookupByLibrary.simpleMessage(
+      "Change password",
+    ),
     "buttonClose": MessageLookupByLibrary.simpleMessage("Close"),
     "buttonConfirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "buttonDeleteAccount": MessageLookupByLibrary.simpleMessage(
       "Delete account",
     ),
+    "buttonDeleteAvatar": MessageLookupByLibrary.simpleMessage("Delete avatar"),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "Code must be 6 digits",
@@ -60,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Current version",
     ),
+    "currentPassword": MessageLookupByLibrary.simpleMessage("Current password"),
     "currentServerVersionText": MessageLookupByLibrary.simpleMessage(
       "Available version",
     ),
@@ -143,6 +148,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorAuthUsernameExists": MessageLookupByLibrary.simpleMessage(
       "That username already exists.",
     ),
+    "errorAuthWrongPassword": MessageLookupByLibrary.simpleMessage(
+      "Incorrect password.",
+    ),
     "errorProcessingImage": MessageLookupByLibrary.simpleMessage(
       "Error processing image",
     ),
@@ -199,6 +207,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Social networks",
     ),
     "menuHome": MessageLookupByLibrary.simpleMessage("Home"),
+    "messageChangePasswordSuccess": MessageLookupByLibrary.simpleMessage(
+      "Password changed successfully.",
+    ),
     "messageDeleteAccountError": MessageLookupByLibrary.simpleMessage(
       "Error deleting account",
     ),

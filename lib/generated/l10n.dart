@@ -124,6 +124,16 @@ class S {
     );
   }
 
+  /// `Current password`
+  String get currentPassword {
+    return Intl.message(
+      'Current password',
+      name: 'currentPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Display name (optional)`
   String get displayName {
     return Intl.message(
@@ -1074,6 +1084,16 @@ class S {
     );
   }
 
+  /// `Incorrect password.`
+  String get errorAuthWrongPassword {
+    return Intl.message(
+      'Incorrect password.',
+      name: 'errorAuthWrongPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Could not delete account. Please try again.`
   String get errorAuthDeleteAccountFailed {
     return Intl.message(
@@ -1097,6 +1117,16 @@ class S {
   /// `Avatar`
   String get userAvatar {
     return Intl.message('Avatar', name: 'userAvatar', desc: '', args: []);
+  }
+
+  /// `Delete avatar`
+  String get buttonDeleteAvatar {
+    return Intl.message(
+      'Delete avatar',
+      name: 'buttonDeleteAvatar',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Description`
@@ -1267,6 +1297,26 @@ class S {
   /// `Cancel`
   String get buttonCancel {
     return Intl.message('Cancel', name: 'buttonCancel', desc: '', args: []);
+  }
+
+  /// `Change password`
+  String get buttonChangePassword {
+    return Intl.message(
+      'Change password',
+      name: 'buttonChangePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password changed successfully.`
+  String get messageChangePasswordSuccess {
+    return Intl.message(
+      'Password changed successfully.',
+      name: 'messageChangePasswordSuccess',
+      desc: '',
+      args: [],
+    );
   }
 }
 
