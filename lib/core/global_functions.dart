@@ -213,10 +213,43 @@ String getLanguageFlag(String code) {
   }
 }
 
+/// Convierte una fecha del servidor (UTC) a la hora local del dispositivo.
+///
+/// Se diseñó para replicar el comportamiento de Fitcron:
+/// - Si viene con zona horaria (`Z`, `+00:00`, `-00:00`), respeta esa zona.
+/// - Si viene ISO sin zona (`...T...`), asume que es UTC y añade `Z`.
+/// - Si viene MySQL `yyyy-MM-dd HH:mm:ss`, la convierte a ISO y asume UTC.
+String? convertUtcToLocal(String? dateString) {
+  if (dateString == null || dateString.isEmpty) return dateString;
+
+  try {
+    DateTime utcDate;
+    String dateToParse = dateString;
+
+    if (dateString.endsWith('Z') ||
+        dateString.contains('+00:00') ||
+        dateString.contains('-00:00')) {
+      utcDate = DateTime.parse(dateString).toUtc();
+    } else {
+      if (dateString.contains('T')) {
+        dateToParse = '${dateString}Z';
+      } else {
+        dateToParse = '${dateString.replaceAll(' ', 'T')}Z';
+      }
+      utcDate = DateTime.parse(dateToParse).toUtc();
+    }
+
+    final localDate = utcDate.toLocal();
+    return localDate.toIso8601String();
+  } catch (_) {
+    return dateString;
+  }
+}
+
 /// Formatea una fecha al formato del usuario (dd/MM/yyyy, dd-MM-yyyy, etc.).
 String formatDate(String inputDate, {bool showTime = false}) {
   if (inputDate.isEmpty) return '';
-  final pattern = globalCurrentUser.dateFormat;
+  final pattern = '${globalCurrentUser.dateFormat}${showTime ? ' HH:mm' : ''}';
   try {
     DateTime date;
     if (RegExp(r'^\d{4}-\d{2}-\d{2}').hasMatch(inputDate)) {
@@ -230,16 +263,39 @@ String formatDate(String inputDate, {bool showTime = false}) {
   }
 }
 
+/// Formatea un `DateTime` a:
+/// - `HH:mm` si es hoy
+/// - `fecha + HH:mm` (según `globalCurrentUser.dateFormat`) si no es hoy
+///
+/// Comportamiento tipo Fitcron para mensajes privados.
+String formatMessageTimestamp(DateTime dt) {
+  final localDt = dt.toLocal();
+  final now = DateTime.now();
+
+  final isToday = localDt.year == now.year &&
+      localDt.month == now.month &&
+      localDt.day == now.day;
+
+  final timeStr = DateFormat.Hm().format(localDt);
+  if (isToday) return timeStr;
+
+  final datePattern = globalCurrentUser.dateFormat;
+  final dateStr = DateFormat(datePattern).format(localDt);
+  return '$dateStr $timeStr';
+}
+
 /// Calcula la edad desde una fecha de nacimiento (YYYY-MM-DD o dd-MM-yyyy).
 String formatAgeFromBirthday(String inputDate, {String? inputFormat}) {
   if (inputDate.isEmpty) return '?';
   try {
-    DateTime birthDate;
-    if (inputFormat != null) {
-      birthDate = DateFormat(inputFormat).parse(inputDate);
-    } else {
-      birthDate = DateTime.parse(inputDate); // yyyy-MM-dd
-    }
+    // Réplica de Fitcron:
+    // - Si hay `inputFormat`, parseamos con parseLoose.
+    // - Si no, asumimos ISO (yyyy-MM-dd).
+    final raw = inputDate.trim();
+    final DateTime birthDate = inputFormat != null
+        ? DateFormat(inputFormat).parseLoose(raw)
+        : DateTime.parse(raw);
+
     final now = DateTime.now();
     int age = now.year - birthDate.year;
     if (now.month < birthDate.month ||

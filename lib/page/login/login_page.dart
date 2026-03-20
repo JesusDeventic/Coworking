@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
     unFocusGlobal();
     final isNotBot = await RecaptchaService.isNotABot();
     if (!isNotBot) {
-      showCustomSnackBar(S.current.error, type: -1);
+      showCustomSnackBar(S.current.recaptchaError, type: -1);
       return;
     }
     setState(() {
@@ -139,6 +139,8 @@ class _LoginPageState extends State<LoginPage> {
             tooltip: S.current.userSectionContact,
             child: const Icon(Icons.support_agent_rounded, size: 30),
           ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.startFloat,
           body: SafeArea(
             child: SingleChildScrollView(
               child: Center(

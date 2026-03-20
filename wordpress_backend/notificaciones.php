@@ -643,9 +643,16 @@ function filmoly_send_push_to_user($user_id, $title, $message) {
  * FUNCIÓN PRÁCTICA: CREA NOTIFICACIÓN + ENVÍA PUSH
  * =========================================================
  */
-function filmoly_notify_user($user_id, $title, $message) {
+function filmoly_notify_user($user_id, $title, $message, $send_push = true) {
     $notification_id = filmoly_create_notification($user_id, $title, $message);
-    $push_result = filmoly_send_push_to_user($user_id, $title, $message);
+    $push_result = $send_push
+        ? filmoly_send_push_to_user($user_id, $title, $message)
+        : [
+            'success' => true,
+            'sent' => 0,
+            'failed' => 0,
+            'results' => [],
+        ];
 
     return [
         'notification_id' => $notification_id,
@@ -658,9 +665,9 @@ function filmoly_notify_user($user_id, $title, $message) {
  * Usa claves de filmoly_translations.php. Ejemplo:
  *   filmoly_notify_user_translated($user_id, 'notif_new_msg_title', 'notif_new_msg_body', ['name' => 'Juan']);
  */
-function filmoly_notify_user_translated($user_id, $title_key, $message_key, $replacements = []) {
+function filmoly_notify_user_translated($user_id, $title_key, $message_key, $replacements = [], $send_push = true) {
     $locale = function_exists('filmoly_get_user_language') ? filmoly_get_user_language($user_id) : 'en';
     $title = filmoly_t($title_key, $locale, $replacements);
     $message = filmoly_t($message_key, $locale, $replacements);
-    return filmoly_notify_user($user_id, $title, $message);
+    return filmoly_notify_user($user_id, $title, $message, $send_push);
 }

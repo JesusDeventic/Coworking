@@ -6,6 +6,7 @@ import 'package:filmoly/providers/language_provider.dart';
 import 'package:filmoly/providers/theme_provider.dart';
 import 'package:filmoly/routes/app_router.dart';
 import 'package:filmoly/styles/colors.dart';
+import 'package:app_links/app_links.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -50,6 +51,45 @@ class FilmolyApp extends StatefulWidget {
 
 class _FilmolyAppState extends State<FilmolyApp> {
   late final GoRouter _router = createAppRouter(navigatorKey);
+  final AppLinks _appLinks = AppLinks();
+
+  Uri? _lastHandledUri;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // `app_links` no está implementado en Windows.
+    // Para deep links nativos solo lo activamos en Android/iOS.
+    if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
+      _handleInitialUri();
+      _appLinks.uriLinkStream.listen((uri) {
+        _handleIncomingUri(uri);
+      });
+    }
+  }
+
+  Future<void> _handleInitialUri() async {
+    try {
+      final uri = await _appLinks.getInitialLink();
+      if (uri != null) _handleIncomingUri(uri);
+    } catch (_) {
+      // Ignoramos errores de deep link silenciosamente para no romper el arranque.
+    }
+  }
+
+  void _handleIncomingUri(Uri uri) {
+    if (!mounted) return;
+    if (_lastHandledUri == uri) return;
+    _lastHandledUri = uri;
+
+    final path = uri.path;
+    if (path.startsWith('/user/')) {
+      final ctx = navigatorKey.currentContext;
+      if (ctx == null) return;
+      ctx.go(path);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

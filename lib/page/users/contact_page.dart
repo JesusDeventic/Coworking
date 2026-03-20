@@ -21,11 +21,12 @@ class _ContactPageState extends State<ContactPage> {
       appBar: AppBar(
         title: Text(S.current.userSectionContact),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: isDesktop
-              ? Row(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: isDesktop
+                ? Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Panel izquierdo - Contacto
@@ -107,7 +108,7 @@ class _ContactPageState extends State<ContactPage> {
                     ),
                   ],
                 )
-              : Column(
+                : Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Card(
@@ -189,6 +190,7 @@ class _ContactPageState extends State<ContactPage> {
                     _privacyButtons(context),
                   ],
                 ),
+          ),
         ),
       ),
     );
@@ -202,7 +204,12 @@ class _ContactPageState extends State<ContactPage> {
       children: [
         _contactButton(
           context: context,
-          icon: Icon(Icons.email_rounded, size: 40, color: Colors.indigo),
+          icon: SvgPicture.asset(
+            'assets/svg/email.svg',
+            color: Colors.indigo,
+            height: 40,
+            fit: BoxFit.contain,
+          ),
           color: Colors.indigo,
           label: S.current.socialMailLabel,
           onTap: () async {
@@ -223,8 +230,8 @@ class _ContactPageState extends State<ContactPage> {
           context: context,
           icon: SvgPicture.asset(
             'assets/svg/whatsapp.svg',
-            colorFilter: const ColorFilter.mode(Colors.green, BlendMode.srcIn),
-            width: 40,
+            color: Colors.green,
+            fit: BoxFit.contain,
             height: 40,
           ),
           color: Colors.green,
@@ -251,7 +258,12 @@ class _ContactPageState extends State<ContactPage> {
         ),
         _contactButton(
           context: context,
-          icon: Icon(Icons.telegram_rounded, size: 40, color: Colors.lightBlueAccent),
+          icon: SvgPicture.asset(
+            'assets/svg/telegram.svg',
+            color: Colors.lightBlueAccent,
+            height: 40,
+            fit: BoxFit.contain,
+          ),
           color: Colors.lightBlueAccent,
           label: S.current.socialTelegramLabel,
           onTap: () async {
@@ -304,7 +316,7 @@ class _ContactPageState extends State<ContactPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(width: 40, height: 40, child: icon),
+              icon,
               const SizedBox(height: 8),
               Text(
                 label,

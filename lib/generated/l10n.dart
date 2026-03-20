@@ -224,6 +224,16 @@ class S {
     return Intl.message('Error', name: 'error', desc: '', args: []);
   }
 
+  /// `Could not validate captcha. Please try again.`
+  String get recaptchaError {
+    return Intl.message(
+      'Could not validate captcha. Please try again.',
+      name: 'recaptchaError',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Success`
   String get success {
     return Intl.message('Success', name: 'success', desc: '', args: []);
@@ -509,6 +519,126 @@ class S {
     return Intl.message(
       'Notifications',
       name: 'notificationsLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have no notifications.`
+  String get notificationsEmptyText {
+    return Intl.message(
+      'You have no notifications.',
+      name: 'notificationsEmptyText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reload`
+  String get buttonReloadNotifications {
+    return Intl.message(
+      'Reload',
+      name: 'buttonReloadNotifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mark all as read`
+  String get markAllAsRead {
+    return Intl.message(
+      'Mark all as read',
+      name: 'markAllAsRead',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to mark all notifications as read?`
+  String get notificationMarkAllAsk {
+    return Intl.message(
+      'Do you want to mark all notifications as read?',
+      name: 'notificationMarkAllAsk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notification marked as read.`
+  String get notificationMarkedRead {
+    return Intl.message(
+      'Notification marked as read.',
+      name: 'notificationMarkedRead',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All notifications marked as read.`
+  String get notificationsAllMarkedRead {
+    return Intl.message(
+      'All notifications marked as read.',
+      name: 'notificationsAllMarkedRead',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not mark the notification as read.`
+  String get notificationMarkReadError {
+    return Intl.message(
+      'Could not mark the notification as read.',
+      name: 'notificationMarkReadError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete all notifications`
+  String get deleteAllNotifications {
+    return Intl.message(
+      'Delete all notifications',
+      name: 'deleteAllNotifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to delete all notifications?`
+  String get notificationDeleteAllAsk {
+    return Intl.message(
+      'Do you want to delete all notifications?',
+      name: 'notificationDeleteAllAsk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications deleted.`
+  String get notificationsDeletedOk {
+    return Intl.message(
+      'Notifications deleted.',
+      name: 'notificationsDeletedOk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not delete notifications.`
+  String get notificationsDeletedError {
+    return Intl.message(
+      'Could not delete notifications.',
+      name: 'notificationsDeletedError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No more records.`
+  String get noMoreRecords {
+    return Intl.message(
+      'No more records.',
+      name: 'noMoreRecords',
       desc: '',
       args: [],
     );
@@ -1424,6 +1554,181 @@ class S {
     return Intl.message(
       'Password changed successfully.',
       name: 'messageChangePasswordSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User profile`
+  String get publicProfileAppBarTitle {
+    return Intl.message(
+      'User profile',
+      name: 'publicProfileAppBarTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We couldn't find this user.`
+  String get userNotFoundPublicProfileText {
+    return Intl.message(
+      'We couldn\'t find this user.',
+      name: 'userNotFoundPublicProfileText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Retry`
+  String get retryPublicProfile {
+    return Intl.message(
+      'Retry',
+      name: 'retryPublicProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send message`
+  String get sendMessageTooltip {
+    return Intl.message(
+      'Send message',
+      name: 'sendMessageTooltip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share`
+  String get shareTooltip {
+    return Intl.message('Share', name: 'shareTooltip', desc: '', args: []);
+  }
+
+  /// `Copy profile link`
+  String get copyProfileLink {
+    return Intl.message(
+      'Copy profile link',
+      name: 'copyProfileLink',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Link copied`
+  String get copiedProfileLinkSnackbar {
+    return Intl.message(
+      'Link copied',
+      name: 'copiedProfileLinkSnackbar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show QR`
+  String get showQrOption {
+    return Intl.message('Show QR', name: 'showQrOption', desc: '', args: []);
+  }
+
+  /// `Share`
+  String get shareOption {
+    return Intl.message('Share', name: 'shareOption', desc: '', args: []);
+  }
+
+  /// `QR for @{username}`
+  String qrTitle(Object username) {
+    return Intl.message(
+      'QR for @$username',
+      name: 'qrTitle',
+      desc: '',
+      args: [username],
+    );
+  }
+
+  /// `Profile of @{username} on Filmoly`
+  String profileShareSubject(Object username) {
+    return Intl.message(
+      'Profile of @$username on Filmoly',
+      name: 'profileShareSubject',
+      desc: '',
+      args: [username],
+    );
+  }
+
+  /// `Age: `
+  String get ageChipPrefix {
+    return Intl.message('Age: ', name: 'ageChipPrefix', desc: '', args: []);
+  }
+
+  /// `Last access: `
+  String get lastAccessChipPrefix {
+    return Intl.message(
+      'Last access: ',
+      name: 'lastAccessChipPrefix',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status: `
+  String get statusChipPrefix {
+    return Intl.message(
+      'Status: ',
+      name: 'statusChipPrefix',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Retroteca VIP`
+  String get vipChipLabel {
+    return Intl.message(
+      'Retroteca VIP',
+      name: 'vipChipLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bio`
+  String get bioLabel {
+    return Intl.message('Bio', name: 'bioLabel', desc: '', args: []);
+  }
+
+  /// `Website / blog`
+  String get webBlogLabel {
+    return Intl.message(
+      'Website / blog',
+      name: 'webBlogLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `https://yourwebsite.com`
+  String get webBlogHint {
+    return Intl.message(
+      'https://yourwebsite.com',
+      name: 'webBlogHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove country`
+  String get removeCountryTooltip {
+    return Intl.message(
+      'Remove country',
+      name: 'removeCountryTooltip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove birthdate`
+  String get removeBirthdateTooltip {
+    return Intl.message(
+      'Remove birthdate',
+      name: 'removeBirthdateTooltip',
       desc: '',
       args: [],
     );

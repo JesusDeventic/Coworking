@@ -37,7 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!$user) {
                 $message_output = '<p style="color:red;">❌ Usuario no encontrado: ' . esc_html($username) . '</p>';
             } else {
-                $result = filmoly_notify_user((int)$user->ID, $title, $body);
+                // Admin tool: siempre crea notificación + manda push.
+                $result = filmoly_notify_user((int)$user->ID, $title, $body, true);
 
                 $push = $result['push'] ?? [];
                 $sent = (int)($push['sent'] ?? 0);

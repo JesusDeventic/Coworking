@@ -5,7 +5,10 @@ class FilmolyUser {
   int id;
   String username;
   String email;
+  String websiteUrl;
   String displayName;
+  String firstName;
+  String lastName;
   String registeredAt;
   String description;
   String avatarUrl;
@@ -25,7 +28,10 @@ class FilmolyUser {
     this.id = 0,
     this.username = '',
     this.email = '',
+    this.websiteUrl = '',
     this.displayName = '',
+    this.firstName = '',
+    this.lastName = '',
     this.registeredAt = '',
     this.description = '',
     this.avatarUrl = '',
@@ -52,7 +58,10 @@ class FilmolyUser {
       email: (json['user_email'] as String?) ??
           (json['email'] as String?) ??
           '',
+      websiteUrl: (json['user_url'] as String?) ?? '',
       displayName: (json['display_name'] as String?) ?? '',
+      firstName: (json['first_name'] as String?) ?? '',
+      lastName: (json['last_name'] as String?) ?? '',
       registeredAt: (json['user_registered'] as String?) ?? '',
       description: (json['description'] as String?) ?? '',
       avatarUrl: (json['avatar_url'] as String?) ?? '',
@@ -79,7 +88,10 @@ class FilmolyUser {
         'username': username,
         // El endpoint /user/update espera `user_email`
         'user_email': email,
+        'user_url': websiteUrl,
         'display_name': displayName,
+        'first_name': firstName,
+        'last_name': lastName,
         'description': description,
         'language': language,
         'date_format': dateFormat,

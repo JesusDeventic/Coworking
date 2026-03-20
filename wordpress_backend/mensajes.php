@@ -8,8 +8,6 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-require_once ABSPATH . 'wp-admin/includes/user.php';
-
 /**
  * =========================================================
  * INSTALACIÓN DE TABLA
@@ -419,20 +417,39 @@ function filmoly_msg_send_push(int $recipient_id, int $sender_id, string $messag
     if (!$sender) return;
 
     $tokens_meta = get_user_meta($recipient_id, 'filmoly_fcm_tokens', true);
-    if (empty($tokens_meta) || !is_array($tokens_meta)) return;
+    // Nota: el envío PUSH real está implementado en `notificaciones.php`.
+    // Para mensajes privados NO queremos crear registro DB por cada mensaje:
+    // solo el push (tipo Fitcron).
 
-    $title = $sender->user_login;
-    $body  = mb_strlen($message_text) > 100 ? mb_substr($message_text, 0, 97) . '...' : $message_text;
+    $locale = function_exists('filmoly_get_user_language') ? filmoly_get_user_language($recipient_id) : 'en';
+    $senderName = (string) $sender->user_login;
 
-    foreach ($tokens_meta as $token_data) {
-        $fcm_token = is_array($token_data) ? ($token_data['token'] ?? '') : (string) $token_data;
-        if (empty($fcm_token)) continue;
+    $bodyText = mb_strlen($message_text) > 100
+        ? mb_substr($message_text, 0, 97) . '...'
+        : $message_text;
 
-        if (function_exists('filmoly_send_fcm_notification')) {
-            filmoly_send_fcm_notification($fcm_token, $title, $body, [
-                'type'      => 'private_message',
-                'sender_id' => (string) $sender_id,
-            ]);
+    // Título traducido según idioma del destinatario.
+    $title = function_exists('filmoly_t')
+        ? filmoly_t('new_private_message_title', $locale, ['name' => $senderName])
+        : "Nuevo mensaje de " . $senderName;
+
+    // Body por sistema de traducciones (aunque sea "{message}").
+    $body = $bodyText;
+
+    if (function_exists('filmoly_send_push_to_user')) {
+        filmoly_send_push_to_user($recipient_id, $title, $body);
+        return;
+    }
+
+    // Fallback: si por orden de carga no existe lo anterior, intentamos usar
+    // la función de token (también definida en `notificaciones.php`).
+    if (function_exists('filmoly_send_push_to_token')) {
+        if (is_array($tokens_meta)) {
+            foreach ($tokens_meta as $token_data) {
+                $fcm_token = is_array($token_data) ? ($token_data['token'] ?? '') : (string) $token_data;
+                if (empty($fcm_token)) continue;
+                filmoly_send_push_to_token($fcm_token, $title, $body);
+            }
         }
     }
 }

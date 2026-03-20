@@ -58,6 +58,54 @@ void showCustomSnackBar(String message, {int? type}) {
   }
 }
 
+/// Diálogo de confirmación reutilizable con estilo consistente en toda la app.
+Future<bool> showConfirmDialogGlobal(
+  BuildContext context, {
+  required String title,
+  required String message,
+  bool destructive = false,
+}) async {
+  final screenWidth = MediaQuery.of(context).size.width;
+  final dialogHInset = ((screenWidth - 800) / 2).clamp(16.0, double.infinity);
+
+  final result = await showDialog<bool>(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      insetPadding: EdgeInsets.symmetric(horizontal: dialogHInset, vertical: 24),
+      title: Text(title),
+      content: Text(message),
+      actions: [
+        Row(
+          children: [
+            Expanded(
+              child: OutlinedButton(
+                onPressed: () => Navigator.of(ctx).pop(false),
+                child: Text(S.current.buttonCancel),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: ElevatedButton(
+                style: destructive
+                    ? ButtonStyle(
+                        backgroundColor: WidgetStateProperty.all<Color>(
+                          Theme.of(ctx).colorScheme.error,
+                        ),
+                      )
+                    : null,
+                onPressed: () => Navigator.of(ctx).pop(true),
+                child: Text(S.current.buttonConfirm),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+
+  return result == true;
+}
+
 /// Avatar del usuario: usa [avatarUrl] si existe (Gravatar/MonsterID/etc. de WP),
 /// o la inicial del username como fallback.
 Widget userAvatar(
@@ -90,6 +138,148 @@ Widget userAvatar(
   );
 }
 
+/// Avatar reutilizable inspirado en Fitcron.
+///
+/// - Si `disableOnTap` es `true` (o no hay `avatarUrl/username`), solo muestra el avatar.
+/// - Si permite tap, abre un modal inferior con la imagen del avatar en grande.
+Widget avatarWidget(
+  String avatarUrl,
+  BuildContext context,
+  String username, {
+  bool disableOnTap = false,
+  double size = 40,
+}) {
+  final cleanUsername = username.trim();
+  final cleanAvatarUrl = avatarUrl.trim();
+
+  if (disableOnTap || cleanAvatarUrl.isEmpty || cleanUsername.isEmpty) {
+    return userAvatar(
+      context,
+      avatarUrl: cleanAvatarUrl,
+      username: cleanUsername,
+      size: size,
+    );
+  }
+
+  return GestureDetector(
+    onTap: () => _showAvatarModal(context, cleanAvatarUrl, cleanUsername),
+    child: userAvatar(
+      context,
+      avatarUrl: cleanAvatarUrl,
+      username: cleanUsername,
+      size: size,
+    ),
+  );
+}
+
+void _showAvatarModal(BuildContext context, String imageUrl, String name) {
+  unFocusGlobal();
+
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (BuildContext sheetCtx) {
+      return SafeArea(
+        child: DraggableScrollableSheet(
+          initialChildSize: 0.9,
+          minChildSize: 0.5,
+          maxChildSize: 0.9,
+          builder: (context, scrollController) {
+            final theme = Theme.of(context);
+            return Center(
+              child: Container(
+                constraints: BoxConstraints(
+                  maxWidth: 600,
+                  maxHeight: MediaQuery.of(context).size.height * 0.95,
+                ),
+                decoration: BoxDecoration(
+                  color: theme.scaffoldBackgroundColor,
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(12)),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Barra de arrastre
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      width: 40,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.inverseSurface
+                            .withValues(alpha: 0.5),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                    // Encabezado
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.primary,
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              name,
+                              style: TextStyle(
+                                color: theme.colorScheme.onPrimary,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.close_rounded,
+                              color: theme.colorScheme.onPrimary,
+                              size: 30,
+                            ),
+                            onPressed: () => Navigator.of(context).pop(),
+                            padding: const EdgeInsets.all(8),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Contenido
+                    Expanded(
+                      child: SingleChildScrollView(
+                        controller: scrollController,
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: SizedBox(
+                              width: 280,
+                              height: 280,
+                              child: imageUrl.isEmpty
+                                  ? _buildInitialAvatar(
+                                      context, name, 280)
+                                  : Image.network(
+                                      imageUrl,
+                                      fit: BoxFit.contain,
+                                      errorBuilder: (_, __, ___) => _buildInitialAvatar(
+                                        context,
+                                        name,
+                                        280,
+                                      ),
+                                    ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
+      );
+    },
+  );
+}
+
 Widget _buildInitialAvatar(
     BuildContext context, String username, double size) {
   return CircleAvatar(
@@ -103,6 +293,49 @@ Widget _buildInitialAvatar(
       ),
     ),
   );
+}
+
+/// Estado vacío reutilizable (inspirado en Fitcron `emptyDataWidget`).
+///
+/// Ideal para pantallas como conversaciones, listas, etc.
+Widget emptyDataWidget(
+  BuildContext context,
+  IconData icon,
+  String message1,
+  String message2,
+) {
+  final theme = Theme.of(context);
+  final content = Column(
+    mainAxisSize: MainAxisSize.min,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Icon(
+        icon,
+        size: 64,
+        color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+      ),
+      const SizedBox(height: 16),
+      Text(
+        message1,
+        style: theme.textTheme.titleMedium?.copyWith(
+          color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+        ),
+        textAlign: TextAlign.center,
+      ),
+      if (message2.trim().isNotEmpty) ...[
+        const SizedBox(height: 8),
+        Text(
+          message2,
+          style: theme.textTheme.bodyMedium?.copyWith(
+            color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    ],
+  );
+
+  return Center(child: content);
 }
 
 Widget rowSettingsAppAndVersion(BuildContext context) {

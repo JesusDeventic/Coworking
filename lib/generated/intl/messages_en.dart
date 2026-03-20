@@ -23,6 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "Incorrect username or password. Please wait ${seconds} seconds before trying again";
 
+  static String m1(username) => "Profile of @${username} on Filmoly";
+
+  static String m2(username) => "QR for @${username}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "accountAndProfile": MessageLookupByLibrary.simpleMessage(
@@ -30,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "actionNo": MessageLookupByLibrary.simpleMessage("No"),
     "actionYes": MessageLookupByLibrary.simpleMessage("Yes"),
+    "ageChipPrefix": MessageLookupByLibrary.simpleMessage("Age: "),
     "andLabel": MessageLookupByLibrary.simpleMessage("and"),
     "appName": MessageLookupByLibrary.simpleMessage("Filmoly"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
@@ -40,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Changelog",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
+    "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "buttonChangePassword": MessageLookupByLibrary.simpleMessage(
       "Change password",
@@ -50,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Delete account",
     ),
     "buttonDeleteAvatar": MessageLookupByLibrary.simpleMessage("Delete avatar"),
+    "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage("Reload"),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "Code must be 6 digits",
@@ -61,6 +68,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm password"),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage("Cookie policy"),
+    "copiedProfileLinkSnackbar": MessageLookupByLibrary.simpleMessage(
+      "Link copied",
+    ),
+    "copyProfileLink": MessageLookupByLibrary.simpleMessage(
+      "Copy profile link",
+    ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Current version",
     ),
@@ -69,6 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Available version",
     ),
     "dateFormat": MessageLookupByLibrary.simpleMessage("Date format"),
+    "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
+      "Delete all notifications",
+    ),
     "dialogCloseAppTitle": MessageLookupByLibrary.simpleMessage(
       "Exit application",
     ),
@@ -199,10 +215,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "languageSwedish": MessageLookupByLibrary.simpleMessage("Swedish"),
     "languageTurkish": MessageLookupByLibrary.simpleMessage("Turkish"),
     "languageUkrainian": MessageLookupByLibrary.simpleMessage("Ukrainian"),
+    "lastAccessChipPrefix": MessageLookupByLibrary.simpleMessage(
+      "Last access: ",
+    ),
     "legalNoticeLabel": MessageLookupByLibrary.simpleMessage("Legal notice"),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Log out"),
+    "markAllAsRead": MessageLookupByLibrary.simpleMessage("Mark all as read"),
     "menuBarSectionSocial": MessageLookupByLibrary.simpleMessage(
       "Social networks",
     ),
@@ -254,6 +274,31 @@ class MessageLookup extends MessageLookupByLibrary {
       "Write a message...",
     ),
     "newPassword": MessageLookupByLibrary.simpleMessage("New password"),
+    "noMoreRecords": MessageLookupByLibrary.simpleMessage("No more records."),
+    "notificationDeleteAllAsk": MessageLookupByLibrary.simpleMessage(
+      "Do you want to delete all notifications?",
+    ),
+    "notificationMarkAllAsk": MessageLookupByLibrary.simpleMessage(
+      "Do you want to mark all notifications as read?",
+    ),
+    "notificationMarkReadError": MessageLookupByLibrary.simpleMessage(
+      "Could not mark the notification as read.",
+    ),
+    "notificationMarkedRead": MessageLookupByLibrary.simpleMessage(
+      "Notification marked as read.",
+    ),
+    "notificationsAllMarkedRead": MessageLookupByLibrary.simpleMessage(
+      "All notifications marked as read.",
+    ),
+    "notificationsDeletedError": MessageLookupByLibrary.simpleMessage(
+      "Could not delete notifications.",
+    ),
+    "notificationsDeletedOk": MessageLookupByLibrary.simpleMessage(
+      "Notifications deleted.",
+    ),
+    "notificationsEmptyText": MessageLookupByLibrary.simpleMessage(
+      "You have no notifications.",
+    ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("Notifications"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordChanged": MessageLookupByLibrary.simpleMessage(
@@ -269,6 +314,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "Privacy policy",
     ),
     "privateMessages": MessageLookupByLibrary.simpleMessage("Private messages"),
+    "profileShareSubject": m1,
+    "publicProfileAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "User profile",
+    ),
+    "qrTitle": m2,
+    "recaptchaError": MessageLookupByLibrary.simpleMessage(
+      "Could not validate captcha. Please try again.",
+    ),
     "registerError": MessageLookupByLibrary.simpleMessage("Registration error"),
     "registerMarketingConsentAccept": MessageLookupByLibrary.simpleMessage(
       "I agree to receive promotions and marketing communications",
@@ -279,9 +332,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerTermsAndConditionsError": MessageLookupByLibrary.simpleMessage(
       "You must accept the terms and conditions and privacy policy",
     ),
+    "removeBirthdateTooltip": MessageLookupByLibrary.simpleMessage(
+      "Remove birthdate",
+    ),
+    "removeCountryTooltip": MessageLookupByLibrary.simpleMessage(
+      "Remove country",
+    ),
+    "retryPublicProfile": MessageLookupByLibrary.simpleMessage("Retry"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send code"),
+    "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("Send message"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Settings"),
+    "shareOption": MessageLookupByLibrary.simpleMessage("Share"),
+    "shareTooltip": MessageLookupByLibrary.simpleMessage("Share"),
     "showMyProfile": MessageLookupByLibrary.simpleMessage("View my profile"),
+    "showQrOption": MessageLookupByLibrary.simpleMessage("Show QR"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
     "socialMailLabel": MessageLookupByLibrary.simpleMessage("Email"),
@@ -296,6 +360,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Could not open WhatsApp.",
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
+    "statusChipPrefix": MessageLookupByLibrary.simpleMessage("Status: "),
     "subjectSupport": MessageLookupByLibrary.simpleMessage("Filmoly contact"),
     "success": MessageLookupByLibrary.simpleMessage("Success"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
@@ -323,6 +388,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "userAvatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Description"),
     "userEmail": MessageLookupByLibrary.simpleMessage("Email"),
+    "userNotFoundPublicProfileText": MessageLookupByLibrary.simpleMessage(
+      "We couldn\'t find this user.",
+    ),
     "userOrEmail": MessageLookupByLibrary.simpleMessage("Username or email"),
     "userSectionAccount": MessageLookupByLibrary.simpleMessage(
       "Account and profile",
@@ -339,6 +407,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Verification code (6 digits)",
     ),
     "version": MessageLookupByLibrary.simpleMessage("Version"),
+    "vipChipLabel": MessageLookupByLibrary.simpleMessage("Retroteca VIP"),
+    "webBlogHint": MessageLookupByLibrary.simpleMessage(
+      "https://yourwebsite.com",
+    ),
+    "webBlogLabel": MessageLookupByLibrary.simpleMessage("Website / blog"),
     "weekStart": MessageLookupByLibrary.simpleMessage("Start of week"),
     "weekStartMonday": MessageLookupByLibrary.simpleMessage("Monday"),
     "weekStartSunday": MessageLookupByLibrary.simpleMessage("Sunday"),

@@ -1,12 +1,16 @@
 import 'dart:async';
-
+import 'dart:io';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:filmoly/api/filmoly_api.dart';
 import 'package:filmoly/core/global_variables.dart';
+import 'package:filmoly/core/global_functions.dart';
 import 'package:filmoly/generated/l10n.dart';
 import 'package:filmoly/model/private_message_model.dart';
 import 'package:filmoly/widget/components_widgets.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter/services.dart' show LogicalKeyboardKey, KeyDownEvent;
+// Intl se usa a través de helpers en `global_functions.dart`.
 
 class PrivateChatPage extends StatefulWidget {
   final int recipientId;
@@ -28,13 +32,14 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
   final List<PrivateMessage> _messages = [];
   final TextEditingController _inputController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
+  final FocusNode _inputFocus = FocusNode();
   Timer? _refreshTimer;
 
   bool _loading = true;
   bool _loadingMore = false;
   bool _hasMore = true;
   bool _sending = false;
-  bool? _lastMsgRead;
+  bool _showEmoji = false;
 
   // Cursor para el polling delta
   String? _lastCreatedAt;
@@ -54,6 +59,7 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
     _refreshTimer?.cancel();
     _inputController.dispose();
     _scrollController.dispose();
+    _inputFocus.dispose();
     super.dispose();
   }
 
@@ -72,7 +78,8 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
       _updateCursor();
       _loading = false;
     });
-    _refreshReadStatus();
+    // Sincronizar "checks" iniciales (read receipts) sin esperar al siguiente tick.
+    _updateReadStatus();
   }
 
   Future<void> _loadMore() async {
@@ -94,10 +101,18 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
   // =========================================================
 
   void _startPolling() {
-    _refreshTimer = Timer.periodic(const Duration(seconds: 5), (_) {
-      if (mounted) {
-        _pollDelta();
-        _refreshReadStatus();
+    _refreshTimer =
+        Timer.periodic(const Duration(seconds: 5), (_) async {
+      if (!mounted) return;
+      try {
+        await _pollDelta();
+      } catch (_) {
+        // Si falla el polling por red/parseo, no cortamos el timer.
+      }
+      try {
+        await _updateReadStatus();
+      } catch (_) {
+        // Igual: no romper el ciclo de refresco.
       }
     });
   }
@@ -121,12 +136,6 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
     });
   }
 
-  Future<void> _refreshReadStatus() async {
-    final isRead = await FilmolyApi.getMessageReadStatus(widget.recipientId);
-    if (!mounted) return;
-    setState(() => _lastMsgRead = isRead);
-  }
-
   void _updateCursor() {
     if (_messages.isEmpty) return;
     DateTime latest = _messages.first.latestTimestamp;
@@ -134,6 +143,38 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
       if (m.latestTimestamp.isAfter(latest)) latest = m.latestTimestamp;
     }
     _lastCreatedAt = latest.toUtc().toIso8601String();
+  }
+
+  // =========================================================
+  // CHECKS / READ RECEIPTS
+  // =========================================================
+  //
+  // Fitcron hace esto: aunque no lleguen mensajes nuevos, si el destinatario
+  // ya ha leído el último mensaje, entonces marca como leídos (is_read=1)
+  // todos tus mensajes pendientes para que aparezcan los checks sin recargar.
+  Future<void> _updateReadStatus() async {
+    if (_messages.isEmpty) return;
+
+    // Solo tiene sentido si hay al menos un mensaje tuyo aún no leído.
+    final hasUnreadMine = _messages.any(
+      (m) => m.senderId == globalCurrentUser.id && !m.isRead,
+    );
+    if (!hasUnreadMine) return;
+
+    final isRead = await FilmolyApi.getMessageReadStatus(widget.recipientId);
+    if (!mounted) return;
+    if (isRead != true) return;
+
+    bool changed = false;
+    for (int i = 0; i < _messages.length; i++) {
+      final m = _messages[i];
+      if (m.senderId == globalCurrentUser.id && !m.isRead) {
+        _messages[i] = m.copyWith(isRead: true);
+        changed = true;
+      }
+    }
+
+    if (changed) setState(() {});
   }
 
   // =========================================================
@@ -160,7 +201,13 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
     setState(() {
       _sending = false;
       if (msg != null) {
-        _messages.insert(0, msg);
+        // Evitar duplicados en la UI (por polling / respuestas).
+        final idx = _messages.indexWhere((m) => m.id == msg.id);
+        if (idx >= 0) {
+          _messages[idx] = msg;
+        } else {
+          _messages.insert(0, msg);
+        }
         _updateCursor();
       } else {
         showCustomSnackBar(S.current.messagesErrorSend, type: -1);
@@ -204,96 +251,129 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        titleSpacing: 0,
-        title: Row(
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        // Emula Fitcron: si el picker está desplegado, tocando fuera se cierra.
+        if (_showEmoji) {
+          setState(() => _showEmoji = false);
+        } else {
+          unFocusGlobal();
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          titleSpacing: 0,
+          title: Row(
+            children: [
+              userAvatar(
+                context,
+                avatarUrl: widget.recipientAvatarUrl,
+                username: widget.recipientUsername,
+                size: 36,
+              ),
+              const SizedBox(width: 10),
+              Text(widget.recipientUsername),
+            ],
+          ),
+        ),
+        body: Column(
           children: [
-            userAvatar(
-              context,
-              avatarUrl: widget.recipientAvatarUrl,
-              username: widget.recipientUsername,
-              size: 36,
+            Expanded(
+              child: _loading
+                  ? const Center(child: CircularProgressIndicator())
+                  : _messages.isEmpty
+                      ? Center(child: Text(S.current.messagesNoMessages))
+                      : NotificationListener<ScrollNotification>(
+                          onNotification: (n) {
+                            if (n.metrics.pixels >=
+                                n.metrics.maxScrollExtent - 200) {
+                              _loadMore();
+                            }
+                            return false;
+                          },
+                          child: ListView.builder(
+                            controller: _scrollController,
+                            reverse: true,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 8),
+                            itemCount:
+                                _messages.length + (_loadingMore ? 1 : 0),
+                            itemBuilder: (ctx, i) {
+                              if (i == _messages.length) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(16),
+                                  child: Center(
+                                      child: CircularProgressIndicator()),
+                                );
+                              }
+                              final msg = _messages[i];
+                              final isMe = msg.senderId == globalCurrentUser.id;
+                              return _MessageBubble(
+                                msg: msg,
+                                isMe: isMe,
+                                // Fitcron: mostrar checks en todos los mensajes tuyos.
+                                showReadStatus: isMe,
+                                isRead: msg.isRead,
+                                onLongPress: isMe && !msg.isDeleted
+                                    ? () => _showMessageMenu(ctx, msg)
+                                    : null,
+                              );
+                            },
+                          ),
+                        ),
             ),
-            const SizedBox(width: 10),
-            Text(widget.recipientUsername),
+            _buildInput(),
           ],
         ),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: _loading
-                ? const Center(child: CircularProgressIndicator())
-                : _messages.isEmpty
-                    ? Center(child: Text(S.current.messagesNoMessages))
-                    : NotificationListener<ScrollNotification>(
-                        onNotification: (n) {
-                          if (n.metrics.pixels >= n.metrics.maxScrollExtent - 200) {
-                            _loadMore();
-                          }
-                          return false;
-                        },
-                        child: ListView.builder(
-                          controller: _scrollController,
-                          reverse: true,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 8),
-                          itemCount: _messages.length + (_loadingMore ? 1 : 0),
-                          itemBuilder: (ctx, i) {
-                            if (i == _messages.length) {
-                              return const Padding(
-                                padding: EdgeInsets.all(16),
-                                child: Center(child: CircularProgressIndicator()),
-                              );
-                            }
-                            final msg = _messages[i];
-                            final isMe = msg.senderId == globalCurrentUser.id;
-                            final isLast = i == 0;
-                            return _MessageBubble(
-                              msg: msg,
-                              isMe: isMe,
-                              showReadStatus: isMe && isLast && _lastMsgRead != null,
-                              isRead: _lastMsgRead,
-                              onLongPress: isMe && !msg.isDeleted
-                                  ? () => _showMessageMenu(ctx, msg)
-                                  : null,
-                            );
-                          },
-                        ),
-                      ),
-          ),
-          _buildInput(),
-        ],
       ),
     );
   }
 
+  void _toggleEmoji() {
+    setState(() => _showEmoji = !_showEmoji);
+    if (_showEmoji) {
+      _inputFocus.unfocus();
+    } else {
+      _inputFocus.requestFocus();
+    }
+  }
+
+  void _insertEmoji(String emoji) {
+    final ctrl = _inputController;
+    final sel = ctrl.selection;
+    final text = ctrl.text;
+    final newText = sel.isValid
+        ? text.replaceRange(sel.start, sel.end, emoji)
+        : text + emoji;
+    final newOffset = sel.isValid ? sel.start + emoji.length : newText.length;
+    ctrl.value = TextEditingValue(
+      text: newText,
+      selection: TextSelection.collapsed(offset: newOffset),
+    );
+  }
+
   Widget _buildInput() {
+    final scheme = Theme.of(context).colorScheme;
+
     return SafeArea(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
+          color: scheme.surface,
           border: Border(
-            top: BorderSide(
-              color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.3),
-            ),
+            top: BorderSide(color: scheme.outline.withValues(alpha: 0.3)),
           ),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            // Banner de edición
             if (_editingMessage != null)
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                margin: const EdgeInsets.only(bottom: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                margin: const EdgeInsets.fromLTRB(8, 6, 8, 0),
                 decoration: BoxDecoration(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .primaryContainer
-                      .withValues(alpha: 0.4),
+                  color: scheme.primaryContainer.withValues(alpha: 0.4),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -317,41 +397,106 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
                   ],
                 ),
               ),
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _inputController,
-                    minLines: 1,
-                    maxLines: 5,
-                    textInputAction: TextInputAction.newline,
-                    decoration: InputDecoration(
-                      hintText: S.current.messagesTypeHint,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24),
-                        borderSide: BorderSide.none,
+
+            // Fila de input
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+              child: Row(
+                children: [
+                  // Botón emoji
+                  IconButton(
+                      icon: Icon(
+                        _showEmoji ? Icons.keyboard_rounded : Icons.emoji_emotions_outlined,
+                        color: scheme.secondary,
                       ),
-                      filled: true,
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 10),
+                      onPressed: _toggleEmoji,
+                    ),
+                  Expanded(
+                    child: Focus(
+                      canRequestFocus: true,
+                      onKeyEvent: (node, event) {
+                        // En desktop: ENTER envia, SHIFT+ENTER mete salto de línea.
+                        final isDesktop = kIsWeb || Platform.isWindows || Platform.isMacOS || Platform.isLinux;
+                        if (!isDesktop) return KeyEventResult.ignored;
+
+                        if (event is KeyDownEvent &&
+                            event.logicalKey == LogicalKeyboardKey.enter) {
+                          // Si el emoji picker está abierto, lo cerramos
+                          // (y no enviamos para evitar clicks raros).
+                          if (_showEmoji) {
+                            setState(() => _showEmoji = false);
+                            return KeyEventResult.handled;
+                          }
+
+                          unawaited(_submit());
+                          return KeyEventResult.handled;
+                        }
+                        return KeyEventResult.ignored;
+                      },
+                      child: TextField(
+                        controller: _inputController,
+                        focusNode: _inputFocus,
+                        minLines: 1,
+                        maxLines: 5,
+                        textInputAction: TextInputAction.newline,
+                        textCapitalization: TextCapitalization.sentences,
+                        onTap: () {
+                          if (_showEmoji) setState(() => _showEmoji = false);
+                        },
+                        decoration: InputDecoration(
+                          hintText: S.current.messagesTypeHint,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(24),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 10),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 8),
-                _sending
-                    ? const SizedBox(
-                        width: 42,
-                        height: 42,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      )
-                    : IconButton.filled(
-                        icon: Icon(_editingMessage != null
-                            ? Icons.check_rounded
-                            : Icons.send_rounded),
-                        onPressed: _submit,
-                      ),
-              ],
+                  const SizedBox(width: 8),
+                  _sending
+                      ? const SizedBox(
+                          width: 42,
+                          height: 42,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : IconButton.filled(
+                          icon: Icon(_editingMessage != null
+                              ? Icons.check_rounded
+                              : Icons.send_rounded),
+                          onPressed: _submit,
+                        ),
+                ],
+              ),
             ),
+
+            // Emoji picker
+            if (_showEmoji)
+              EmojiPicker(
+                onEmojiSelected: (_, emoji) => _insertEmoji(emoji.emoji),
+                config: Config(
+                  height: 280,
+                  checkPlatformCompatibility: true,
+                  emojiViewConfig: EmojiViewConfig(
+                    columns: MediaQuery.of(context).size.width > 800 ? 16 : 9,
+                    emojiSizeMax: 32,
+                    backgroundColor: Colors.transparent,
+                  ),
+                  categoryViewConfig: CategoryViewConfig(
+                    backgroundColor: scheme.primary,
+                    // Igual que Fitcron: iconos de categorías usando `primaryFixed`.
+                    iconColor: scheme.onPrimary,
+                    iconColorSelected: scheme.secondary,
+                    indicatorColor: scheme.secondary,
+                  ),
+                  bottomActionBarConfig: const BottomActionBarConfig(
+                    enabled: false,
+                  ),
+                ),
+              ),
           ],
         ),
       ),
@@ -359,35 +504,57 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
   }
 
   void _showMessageMenu(BuildContext ctx, PrivateMessage msg) {
-    showModalBottomSheet(
-      context: context,
-      builder: (_) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              leading: const Icon(Icons.edit_outlined),
-              title: Text(S.current.messagesEdit),
-              onTap: () {
-                Navigator.pop(context);
-                _startEdit(msg);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.delete_outline,
-                  color: Theme.of(context).colorScheme.error),
-              title: Text(S.current.messagesDelete,
-                  style:
-                      TextStyle(color: Theme.of(context).colorScheme.error)),
-              onTap: () {
-                Navigator.pop(context);
-                _confirmDelete(msg);
-              },
-            ),
-          ],
-        ),
+    // Mismo estilo que Fitcron: PopupMenu arriba/derecha y cerrar al pinchar fuera.
+    showMenu<String>(
+      context: ctx,
+      position: RelativeRect.fromLTRB(
+        MediaQuery.of(ctx).size.width - 200,
+        0,
+        0,
+        0,
       ),
-    );
+      items: [
+        PopupMenuItem(
+          value: 'edit',
+          child: Row(
+            children: [
+              const Icon(Icons.edit_rounded, size: 20),
+              const SizedBox(width: 8),
+              Text(
+                S.current.messagesEdit,
+                style: const TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
+        ),
+        PopupMenuItem(
+          value: 'delete',
+          child: Row(
+            children: [
+              Icon(
+                Icons.delete_rounded,
+                size: 20,
+                color: Theme.of(ctx).colorScheme.error,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                S.current.messagesDelete,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Theme.of(ctx).colorScheme.error,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ).then((value) {
+      if (value == 'edit') {
+        _startEdit(msg);
+      } else if (value == 'delete') {
+        _confirmDelete(msg);
+      }
+    });
   }
 
   void _confirmDelete(PrivateMessage msg) {
@@ -449,8 +616,19 @@ class _MessageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final bgColor = isMe ? scheme.primary : scheme.surfaceContainerHighest;
-    final fgColor = isMe ? scheme.onPrimary : scheme.onSurface;
+    final isDeleted = msg.isDeleted;
+    // En algunos temas `surfaceContainerHighest` puede coincidir con el
+    // fondo. Para que se distingan, usamos un tinte basado en `onSurface`.
+    final bgColor = isMe
+        ? scheme.primary
+        : scheme.onSurface.withValues(alpha: scheme.brightness == Brightness.dark ? 0.08 : 0.06);
+    final deletedBgColor = scheme.onSurface.withValues(
+      alpha: scheme.brightness == Brightness.dark ? 0.06 : 0.03,
+    );
+    final fgColor = isDeleted ? scheme.onSurface : (isMe ? scheme.onPrimary : scheme.onSurface);
+
+    final showEditedTime = msg.isEdited && !msg.isDeleted && msg.editedAt != null;
+    final timestamp = showEditedTime ? msg.editedAt! : msg.createdAt;
 
     return Align(
       alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
@@ -464,7 +642,7 @@ class _MessageBubble extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
             color: msg.isDeleted
-                ? scheme.surfaceContainerHighest.withValues(alpha: 0.5)
+                ? deletedBgColor
                 : bgColor,
             borderRadius: BorderRadius.only(
               topLeft: const Radius.circular(16),
@@ -497,7 +675,7 @@ class _MessageBubble extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    DateFormat.Hm().format(msg.createdAt.toLocal()),
+                    formatMessageTimestamp(timestamp),
                     style: TextStyle(
                       fontSize: 11,
                       color: fgColor.withValues(alpha: 0.6),
@@ -514,14 +692,14 @@ class _MessageBubble extends StatelessWidget {
                       ),
                     ),
                   ],
-                  if (showReadStatus && isRead != null) ...[
+                  if (showReadStatus && !msg.isDeleted && isRead != null) ...[
                     const SizedBox(width: 4),
                     Icon(
-                      isRead! ? Icons.done_all_rounded : Icons.done_rounded,
-                      size: 14,
+                      isRead! ? Icons.done_all : Icons.done,
+                      size: 18,
                       color: isRead!
-                          ? Colors.lightBlueAccent
-                          : fgColor.withValues(alpha: 0.6),
+                          ? scheme.secondary
+                          : fgColor.withValues(alpha: 0.55),
                     ),
                   ],
                 ],

@@ -69,6 +69,12 @@ add_action('rest_api_init', function () {
         'callback' => 'filmoly_update_user',
         'permission_callback' => '__return_true',
     ]);
+
+    register_rest_route('filmoly/v1', '/user/public/(?P<username>[A-Za-z0-9._-]+)', [
+        'methods' => 'GET',
+        'callback' => 'filmoly_get_public_user_by_username',
+        'permission_callback' => '__return_true',
+    ]);
 });
 
 /**
@@ -99,7 +105,10 @@ function filmoly_get_full_user_data($user_id) {
         'id' => (int) $user->ID,
         'username' => $user->user_login,
         'user_email' => $user->user_email,
+        'user_url' => $user->user_url ?: '',
         'display_name' => $user->display_name,
+        'first_name' => get_user_meta($user->ID, 'first_name', true) ?: '',
+        'last_name' => get_user_meta($user->ID, 'last_name', true) ?: '',
         'user_registered' => $user->user_registered,
         'description' => $user->description ?: '',
         'avatar_url' => function_exists('filmoly_get_user_avatar_url')
@@ -117,6 +126,53 @@ function filmoly_get_full_user_data($user_id) {
         'filmoly_review_status' => get_user_meta($user->ID, 'filmoly_review_status', true) ?: 'none',
         'filmoly_review_prompted_at' => get_user_meta($user->ID, 'filmoly_review_prompted_at', true) ?: '',
     ];
+}
+
+function filmoly_sanitize_profile_url($raw_url) {
+    $raw_url = trim((string) $raw_url);
+    if ($raw_url === '') {
+        return '';
+    }
+
+    if (!preg_match('#^https?://#i', $raw_url)) {
+        $raw_url = 'https://' . $raw_url;
+    }
+
+    $url = esc_url_raw($raw_url, ['http', 'https']);
+    if (empty($url)) {
+        return false;
+    }
+
+    return $url;
+}
+
+function filmoly_get_public_user_by_username(WP_REST_Request $request) {
+    $raw_username = (string) $request->get_param('username');
+    $username = sanitize_user(wp_unslash($raw_username), true);
+
+    if ($username === '') {
+        return new WP_Error('invalid_username', 'Nombre de usuario no válido.', ['status' => 400]);
+    }
+
+    $user = get_user_by('login', $username);
+    if (!$user) {
+        return new WP_Error('user_not_found', 'Usuario no encontrado.', ['status' => 404]);
+    }
+
+    $account_status = get_user_meta($user->ID, 'filmoly_account_status', true) ?: 'active';
+    if ($account_status !== 'active') {
+        return new WP_Error('user_not_available', 'Perfil no disponible.', ['status' => 404]);
+    }
+
+    $data = filmoly_get_full_user_data($user->ID);
+    if (!$data) {
+        return new WP_Error('user_not_found', 'Usuario no encontrado.', ['status' => 404]);
+    }
+
+    return new WP_REST_Response([
+        'success' => true,
+        'user' => $data,
+    ], 200);
 }
 
 function filmoly_normalize_birthdate($raw_date) {
@@ -198,6 +254,22 @@ function filmoly_update_user(WP_REST_Request $request) {
 
     if (isset($_POST['display_name'])) {
         $updated_user_data['display_name'] = sanitize_text_field(wp_unslash($_POST['display_name']));
+    }
+
+    if (isset($_POST['first_name'])) {
+        $updated_user_data['first_name'] = sanitize_text_field(wp_unslash($_POST['first_name']));
+    }
+
+    if (isset($_POST['last_name'])) {
+        $updated_user_data['last_name'] = sanitize_text_field(wp_unslash($_POST['last_name']));
+    }
+
+    if (isset($_POST['user_url'])) {
+        $user_url = filmoly_sanitize_profile_url(wp_unslash($_POST['user_url']));
+        if ($user_url === false) {
+            return new WP_Error('invalid_url', 'La URL de la web/blog no es válida.', ['status' => 400]);
+        }
+        $updated_user_data['user_url'] = $user_url;
     }
 
     if (isset($_POST['description'])) {

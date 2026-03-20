@@ -2,9 +2,10 @@ import 'package:filmoly/api/filmoly_api.dart';
 import 'package:filmoly/generated/l10n.dart';
 import 'package:filmoly/model/private_message_model.dart';
 import 'package:filmoly/page/messages/private_chat_page.dart';
+import 'package:filmoly/core/global_functions.dart';
+import 'package:filmoly/core/global_variables.dart';
 import 'package:filmoly/widget/components_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class PrivateConversationsPage extends StatefulWidget {
   const PrivateConversationsPage({super.key});
@@ -72,29 +73,37 @@ class _PrivateConversationsPageState extends State<PrivateConversationsPage> {
         title: Text(S.current.privateMessages),
         centerTitle: false,
       ),
-      body: _loading
-          ? const Center(child: CircularProgressIndicator())
-          : _conversations.isEmpty
-              ? Center(child: Text(S.current.messagesEmpty))
-              : RefreshIndicator(
-                  onRefresh: () => _load(),
-                  child: ListView.builder(
-                    itemCount: _conversations.length + (_hasMore ? 1 : 0),
-                    itemBuilder: (ctx, i) {
-                      if (i == _conversations.length) {
-                        _loadMore();
-                        return const Padding(
-                          padding: EdgeInsets.all(16),
-                          child: Center(child: CircularProgressIndicator()),
+      body: SafeArea(
+        child: _loading
+            ? const Center(child: CircularProgressIndicator())
+            : _conversations.isEmpty
+                ? emptyDataWidget(
+                    context,
+                    Icons.mail_outline_rounded,
+                    S.current.messagesEmpty,
+                    '',
+                  )
+                : RefreshIndicator(
+                    onRefresh: () => _load(),
+                    child: ListView.builder(
+                      padding: const EdgeInsets.all(8),
+                      itemCount: _conversations.length + (_hasMore ? 1 : 0),
+                      itemBuilder: (ctx, i) {
+                        if (i == _conversations.length) {
+                          _loadMore();
+                          return const Padding(
+                            padding: EdgeInsets.all(16),
+                            child: Center(child: CircularProgressIndicator()),
+                          );
+                        }
+                        return _ConversationTile(
+                          conv: _conversations[i],
+                          onTap: () => _openChat(_conversations[i]),
                         );
-                      }
-                      return _ConversationTile(
-                        conv: _conversations[i],
-                        onTap: () => _openChat(_conversations[i]),
-                      );
-                    },
+                      },
+                    ),
                   ),
-                ),
+      ),
     );
   }
 }
@@ -105,74 +114,123 @@ class _ConversationTile extends StatelessWidget {
 
   const _ConversationTile({required this.conv, required this.onTap});
 
-  String _formatTime(DateTime dt) {
-    final now = DateTime.now();
-    final diff = now.difference(dt);
-    if (diff.inDays == 0) return DateFormat.Hm().format(dt);
-    if (diff.inDays == 1) return 'Ayer';
-    if (diff.inDays < 7) return DateFormat.E().format(dt);
-    return DateFormat.yMd().format(dt);
-  }
-
   @override
   Widget build(BuildContext context) {
     final last = conv.lastMessage;
-    final preview = last.isDeleted
+
+    final timestamp = last.editedAt ?? last.createdAt;
+    final isMessageDeleted = last.isDeleted;
+    final preview = isMessageDeleted
         ? S.current.messagesDeleted
         : (last.content ?? '');
 
-    return ListTile(
-      leading: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          userAvatar(
-            context,
-            avatarUrl: conv.otherUser.avatarUrl,
-            username: conv.otherUser.username,
-            size: 48,
-          ),
-          if (conv.hasUnread)
-            Positioned(
-              right: -2,
-              top: -2,
-              child: Container(
-                width: 12,
-                height: 12,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Theme.of(context).colorScheme.surface,
-                    width: 2,
+    final isOurMessage = last.senderId == globalCurrentUser.id;
+    final showSentReadIcons = isOurMessage && !isMessageDeleted;
+
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 800),
+        child: Card(
+          margin: const EdgeInsets.only(bottom: 8),
+          color: conv.hasUnread
+              ? Theme.of(context)
+                  .colorScheme
+                  .primaryContainer
+                  .withValues(alpha: 0.3)
+              : null,
+          elevation: conv.hasUnread ? 2 : 1,
+          child: ListTile(
+            leading: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: userAvatar(
+                    context,
+                    avatarUrl: conv.otherUser.avatarUrl,
+                    username: conv.otherUser.username,
+                    size: 50,
                   ),
                 ),
-              ),
+                if (conv.hasUnread)
+                  Positioned(
+                    right: -2,
+                    top: -2,
+                    child: Container(
+                      width: 12,
+                      height: 12,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primary,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Theme.of(context).colorScheme.surface,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             ),
-        ],
-      ),
-      title: Text(
-        conv.otherUser.username,
-        style: TextStyle(
-          fontWeight: conv.hasUnread ? FontWeight.bold : FontWeight.normal,
+            title: Text(
+              conv.otherUser.username ,
+              style: TextStyle(
+                fontWeight: conv.hasUnread ? FontWeight.bold : FontWeight.normal,
+                
+              ),maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  preview ,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontStyle:
+                        isMessageDeleted ? FontStyle.italic : FontStyle.normal,
+                    color: Theme.of(context)
+                        .colorScheme
+                        .onSurface
+                        .withValues(alpha: 0.6),
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Row(
+                  children: [
+                    if (showSentReadIcons) ...[
+                      Icon(
+                        last.isRead ? Icons.done_all : Icons.done,
+                        size: 16,
+                        color: last.isRead
+                            ? Theme.of(context).colorScheme.tertiary
+                            : Colors.grey,
+                      ),
+                      const SizedBox(width: 4),
+                    ],
+                    Expanded(
+                      child: Text(
+                        formatMessageTimestamp(timestamp),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onSurface
+                              .withValues(alpha: 0.55),
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            onTap: onTap,
+          ),
         ),
       ),
-      subtitle: Text(
-        preview,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          fontStyle: last.isDeleted ? FontStyle.italic : FontStyle.normal,
-          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
-        ),
-      ),
-      trailing: Text(
-        _formatTime(last.createdAt),
-        style: TextStyle(
-          fontSize: 12,
-          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
-        ),
-      ),
-      onTap: onTap,
     );
   }
 }

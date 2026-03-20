@@ -1,16 +1,16 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:filmoly/api/filmoly_api.dart';
 import 'package:filmoly/core/global_functions.dart';
 import 'package:filmoly/core/global_variables.dart';
 import 'package:filmoly/generated/l10n.dart';
-import 'package:filmoly/page/home/placeholder_section_page.dart';
 import 'package:filmoly/page/messages/private_conversations_page.dart';
 import 'package:filmoly/page/users/account_profile_page.dart';
+import 'package:filmoly/page/users/public_user_profile_page.dart';
 import 'package:filmoly/page/users/contact_page.dart';
 import 'package:filmoly/page/users/general_settings_page.dart';
 import 'package:filmoly/page/users/faq_page.dart';
+import 'package:filmoly/page/users/notifications_page.dart';
 import 'package:filmoly/routes/app_routes.dart';
 import 'package:filmoly/widget/components_widgets.dart';
 import 'package:flutter/material.dart';
@@ -32,9 +32,12 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
   @override
   void initState() {
     super.initState();
+    _refreshUnreadNotifications();
     _refreshUnreadMessages();
     _unreadTimer = Timer.periodic(const Duration(seconds: 30), (_) {
-      if (mounted) _refreshUnreadMessages();
+      if (!mounted) return;
+      _refreshUnreadMessages();
+      _refreshUnreadNotifications();
     });
   }
 
@@ -47,6 +50,11 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
   Future<void> _refreshUnreadMessages() async {
     final count = await FilmolyApi.getUnreadMessagesCount();
     if (mounted) setState(() => _unreadMessagesCount = count);
+  }
+
+  Future<void> _refreshUnreadNotifications() async {
+    final count = await FilmolyApi.getUnreadNotificationsCount();
+    if (mounted) setState(() => _unreadNotificationsCount = count);
   }
 
   Widget _buildDesktopAppBarDivider() {
@@ -140,11 +148,9 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PlaceholderSectionPage(
-                title: S.current.notificationsLabel,
-              ),
+              builder: (context) => const NotificationsPage(),
             ),
-          );
+          ).then((_) => _refreshUnreadNotifications());
         },
         child: Padding(
           padding: isDesktop ? const EdgeInsets.all(8) : const EdgeInsets.all(2),
@@ -274,7 +280,10 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const AccountProfilePage(),
+                          builder: (context) => PublicUserProfilePage(
+                            username: globalCurrentUser.username,
+                            initialUser: globalCurrentUser,
+                          ),
                         ),
                       );
                     },
@@ -791,6 +800,18 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
           Text(
             S.current.appName,
             style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          const SizedBox(height: 32),
+          // TODO: botón de prueba — eliminar en producción
+          OutlinedButton.icon(
+            icon: const Icon(Icons.person_search_rounded),
+            label: const Text('Ver perfil de puzzleman'),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const PublicUserProfilePage(username: 'puzzleman'),
+              ),
+            ),
           ),
         ],
       ),

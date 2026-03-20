@@ -10,7 +10,7 @@ class MessageUser {
   });
 
   factory MessageUser.fromJson(Map<String, dynamic> json) => MessageUser(
-        id: (json['id'] as num?)?.toInt() ?? 0,
+        id: _parseInt(json['id']),
         username: (json['username'] as String?) ?? '',
         avatarUrl: (json['avatar_url'] as String?) ?? '',
       );
@@ -42,9 +42,9 @@ class PrivateMessage {
 
   factory PrivateMessage.fromJson(Map<String, dynamic> json) {
     return PrivateMessage(
-      id: (json['id'] as num?)?.toInt() ?? 0,
-      senderId: (json['sender_id'] as num?)?.toInt() ?? 0,
-      recipientId: (json['recipient_id'] as num?)?.toInt() ?? 0,
+      id: _parseInt(json['id']),
+      senderId: _parseInt(json['sender_id']),
+      recipientId: _parseInt(json['recipient_id']),
       message: json['message'] as String?,
       isRead: _parseBool(json['is_read']),
       createdAt: _parseDate(json['created_at']) ?? DateTime.now(),
@@ -116,8 +116,8 @@ class ConversationLastMessage {
 
   factory ConversationLastMessage.fromJson(Map<String, dynamic> json) =>
       ConversationLastMessage(
-        id: (json['id'] as num?)?.toInt() ?? 0,
-        senderId: (json['sender_id'] as num?)?.toInt() ?? 0,
+        id: _parseInt(json['id']),
+        senderId: _parseInt(json['sender_id']),
         content: json['content'] as String?,
         isRead: _parseBool(json['is_read']),
         createdAt: _parseDate(json['created_at']) ?? DateTime.now(),
@@ -134,10 +134,37 @@ bool _parseBool(dynamic v) {
   return false;
 }
 
+int _parseInt(dynamic v) {
+  if (v == null) return 0;
+  if (v is num) return v.toInt();
+  return int.tryParse(v.toString()) ?? 0;
+}
+
 DateTime? _parseDate(dynamic v) {
-  if (v == null || v == '') return null;
+  if (v == null) return null;
+  if (v is! String) return null;
+  final s = v.trim();
+  if (s.isEmpty) return null;
+
+  // WordPress devuelve DATETIME en MySQL típicamente como: 'YYYY-MM-DD HH:mm:ss'
+  // (sin timezone). Interpretarlo como UTC evita que la hora cambie según el
+  // timezone del cliente.
+  final mysqlMatch = RegExp(
+    r'^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2}):(\d{2})(\.\d+)?$',
+  ).firstMatch(s);
+  if (mysqlMatch != null) {
+    final year = int.parse(mysqlMatch.group(1)!);
+    final month = int.parse(mysqlMatch.group(2)!);
+    final day = int.parse(mysqlMatch.group(3)!);
+    final hour = int.parse(mysqlMatch.group(4)!);
+    final minute = int.parse(mysqlMatch.group(5)!);
+    final second = int.parse(mysqlMatch.group(6)!);
+    return DateTime.utc(year, month, day, hour, minute, second);
+  }
+
+  // ISO/RFC3339 (si ya incluye timezone, DateTime.parse lo respeta).
   try {
-    return DateTime.parse(v as String);
+    return DateTime.parse(s);
   } catch (_) {
     return null;
   }

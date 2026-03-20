@@ -5,6 +5,7 @@ import 'package:filmoly/page/home/home_placeholder_page.dart';
 import 'package:filmoly/page/messages/private_conversations_page.dart';
 import 'package:filmoly/page/messages/private_chat_page.dart';
 import 'package:filmoly/page/users/account_profile_page.dart';
+import 'package:filmoly/page/users/public_user_profile_page.dart';
 import 'package:filmoly/page/home/splash_screen_page.dart';
 import 'package:filmoly/page/login/forgot_password_page.dart';
 import 'package:filmoly/page/login/login_page.dart';
@@ -25,7 +26,10 @@ GoRouter createAppRouter(GlobalKey<NavigatorState> navigatorKey) {
         AppRoutes.register,
         AppRoutes.forgotPassword,
       };
-      if (globalCurrentUser.username.isEmpty && !authRoutes.contains(location)) {
+      final isPublicProfileRoute = location.startsWith('/user/');
+      if (globalCurrentUser.username.isEmpty &&
+          !authRoutes.contains(location) &&
+          !isPublicProfileRoute) {
         final ok = await loginUser();
         if (!ok && location == AppRoutes.splash) return null;
       }
@@ -58,6 +62,13 @@ GoRouter createAppRouter(GlobalKey<NavigatorState> navigatorKey) {
       GoRoute(
         path: AppRoutes.accountProfile,
         builder: (_, __) => const AccountProfilePage(),
+      ),
+      GoRoute(
+        path: AppRoutes.publicProfile,
+        builder: (_, state) {
+          final username = state.pathParameters['username'] ?? '';
+          return PublicUserProfilePage(username: username);
+        },
       ),
       GoRoute(
         path: AppRoutes.conversations,

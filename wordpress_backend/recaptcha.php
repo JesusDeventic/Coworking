@@ -22,7 +22,20 @@ function filmoly_verify_recaptcha(WP_REST_Request $request) {
         );
     }
 
-    $secret_key = '6Lck98IfAAAAAE7w_rxLlr58eHUjYi1vXWSjFZmo'; // Clave secreta de reCAPTCHA
+    // Rellena en `wp-config.php`:
+    // define('FILMOLY_RECAPTCHA_SECRET_KEY', 'tu_secret_key');
+    $secret_key = defined('FILMOLY_RECAPTCHA_SECRET_KEY')
+        ? (string) FILMOLY_RECAPTCHA_SECRET_KEY
+        : '';
+
+    if ($secret_key === '') {
+        return new WP_Error(
+            'recaptcha_secret_missing',
+            'Falta FILMOLY_RECAPTCHA_SECRET_KEY en wp-config.php',
+            array('status' => 500)
+        );
+    }
+
     $verify_url = 'https://www.google.com/recaptcha/api/siteverify';
 
     $response = wp_remote_post($verify_url, array(

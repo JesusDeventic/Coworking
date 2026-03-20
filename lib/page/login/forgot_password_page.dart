@@ -64,7 +64,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     try {
       final isNotBot = await RecaptchaService.isNotABot();
       if (!isNotBot) {
-        showCustomSnackBar(S.current.error, type: -1);
+        showCustomSnackBar(S.current.recaptchaError, type: -1);
         return;
       }
       final result = await FilmolyApi.forgotPassword(_loginController.text.trim());
@@ -131,6 +131,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             tooltip: S.current.userSectionContact,
             child: const Icon(Icons.support_agent_rounded, size: 30),
           ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.startFloat,
           body: SafeArea(
             child: SingleChildScrollView(
               child: Center(

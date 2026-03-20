@@ -11,6 +11,9 @@ import 'package:http/http.dart' as http;
 
 /// Base URL del WordPress (La Retroteca).
 const String filmolyBaseUrl = 'https://retroteca.org/wp-json/filmoly/v1';
+/// Base pública de la app Flutter Web para enlaces compartibles de perfil.
+/// Ajusta este valor al dominio real donde publiques la app web.
+const String filmolyAppPublicBaseUrl = 'https://app.filmoly.com';
 
 final FilmolySecureStorage _secureStorage = FilmolySecureStorage();
 
@@ -36,6 +39,14 @@ String _getFilmolyUserAgent() {
 
 class FilmolyApi {
   static const String _baseUrl = filmolyBaseUrl;
+
+  static String buildPublicProfileUrl(String username) {
+    final clean = username.trim();
+    if (clean.isEmpty) return '';
+    // Deep link para navegación dentro de la app web (y que también se puede
+    // mapear a la app nativa con App Links / Universal Links).
+    return '$filmolyAppPublicBaseUrl/user/${Uri.encodeComponent(clean)}';
+  }
 
   static Map<String, String> _headers({String? token}) {
     final map = <String, String>{
@@ -194,8 +205,16 @@ class FilmolyApi {
       headers: _headers(),
       body: jsonEncode({'token': token}),
     );
-    final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
-    return data;
+
+    try {
+      return jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+    } catch (_) {
+      return <String, dynamic>{
+        // En caso de respuesta inesperada, fuerza un fallo "silencioso"
+        // dejando que el score caiga a 0.0.
+        'success': false,
+      };
+    }
   }
 
   /// GET /status — devuelve versión mínima y estado (mantenimiento).
@@ -239,7 +258,10 @@ class FilmolyApi {
   /// [avatarBytes] permite subir avatar en web y móvil (usa bytes de file_picker).
   static Future<Map<String, dynamic>> updateUser({
     required String userEmail,
+    String? websiteUrl,
     String? displayName,
+    String? firstName,
+    String? lastName,
     String? description,
     String? language,
     String? dateFormat,
@@ -261,7 +283,10 @@ class FilmolyApi {
     request.headers['Accept'] = 'application/json';
 
     request.fields['user_email'] = userEmail;
+    if (websiteUrl != null) request.fields['user_url'] = websiteUrl;
     if (displayName != null) request.fields['display_name'] = displayName;
+    if (firstName != null) request.fields['first_name'] = firstName;
+    if (lastName != null) request.fields['last_name'] = lastName;
     if (description != null) request.fields['description'] = description;
     if (language != null) request.fields['language'] = language;
     if (dateFormat != null) request.fields['date_format'] = dateFormat;
@@ -292,6 +317,28 @@ class FilmolyApi {
       return {'success': false, 'message': message, 'code': code, 'data': data};
     } catch (e) {
       return {'success': false, 'message': e.toString(), 'code': 'network_error'};
+    }
+  }
+
+  /// GET /user/public/{username}
+  static Future<FilmolyUser?> getPublicUserByUsername(String username) async {
+    final clean = username.trim();
+    if (clean.isEmpty) return null;
+
+    final url = Uri.parse('$_baseUrl/user/public/${Uri.encodeComponent(clean)}');
+    try {
+      final response = await http.get(
+        url,
+        headers: _headers(),
+      );
+      if (response.statusCode != 200) return null;
+      final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+      if (data['success'] != true) return null;
+      final userJson = data['user'];
+      if (userJson is! Map<String, dynamic>) return null;
+      return FilmolyUser.fromJson(userJson);
+    } catch (_) {
+      return null;
     }
   }
 
@@ -356,6 +403,97 @@ class FilmolyApi {
       if (response.statusCode != 200) return false;
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       return data['success'] == true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// GET /notifications/unread-count
+  static Future<int> getUnreadNotificationsCount() async {
+    final token = globalUserToken;
+    if (token.isEmpty) return 0;
+    try {
+      final url = Uri.parse('$_baseUrl/notifications/unread-count');
+      final response = await http.get(url, headers: _headers(token: token));
+      final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+      return (data['unread_count'] as num?)?.toInt() ?? 0;
+    } catch (_) {
+      return 0;
+    }
+  }
+
+  /// GET /notifications?page=X&per_page=Y
+  static Future<Map<String, dynamic>> getNotifications({
+    int page = 1,
+    int perPage = 20,
+  }) async {
+    final token = globalUserToken;
+    if (token.isEmpty) {
+      return {
+        'notifications': <Map<String, dynamic>>[],
+        'total': 0,
+        'page': page,
+        'per_page': perPage,
+        'total_pages': 0,
+      };
+    }
+    try {
+      final url =
+          Uri.parse('$_baseUrl/notifications?page=$page&per_page=$perPage');
+      final response = await http.get(url, headers: _headers(token: token));
+      final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+      final list = data['notifications'] as List<dynamic>? ?? [];
+      return {
+        'notifications': list
+            .map((e) => Map<String, dynamic>.from(e as Map))
+            .toList(),
+        'total': (data['total'] as num?)?.toInt() ?? 0,
+        'page': (data['page'] as num?)?.toInt() ?? page,
+        'per_page': (data['per_page'] as num?)?.toInt() ?? perPage,
+        'total_pages': (data['total_pages'] as num?)?.toInt() ?? 0,
+      };
+    } catch (_) {
+      return {
+        'notifications': <Map<String, dynamic>>[],
+        'total': 0,
+        'page': page,
+        'per_page': perPage,
+        'total_pages': 0,
+      };
+    }
+  }
+
+  /// POST /notifications/mark-read
+  /// notificationId = 0 => marcar todas como leídas.
+  static Future<bool> markNotificationAsRead(int notificationId) async {
+    final token = globalUserToken;
+    if (token.isEmpty) return false;
+    try {
+      final url = Uri.parse('$_baseUrl/notifications/mark-read');
+      final response = await http.post(
+        url,
+        headers: _headers(token: token),
+        body: jsonEncode({'notification_id': notificationId}),
+      );
+      final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+      return response.statusCode == 200 && data['success'] == true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// DELETE /notifications?notification_id=X
+  /// notificationId = 0 => borrar todas.
+  static Future<bool> deleteNotifications({int notificationId = 0}) async {
+    final token = globalUserToken;
+    if (token.isEmpty) return false;
+    try {
+      final url = Uri.parse('$_baseUrl/notifications').replace(
+        queryParameters: {'notification_id': '$notificationId'},
+      );
+      final response = await http.delete(url, headers: _headers(token: token));
+      final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+      return response.statusCode == 200 && data['success'] == true;
     } catch (_) {
       return false;
     }

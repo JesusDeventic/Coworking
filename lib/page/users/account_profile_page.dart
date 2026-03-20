@@ -12,6 +12,7 @@ import 'package:filmoly/model/user_model.dart';
 import 'package:filmoly/routes/app_routes.dart';
 import 'package:filmoly/widget/components_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 class AccountProfilePage extends StatefulWidget {
@@ -32,6 +33,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
   final TextEditingController _displayNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _websiteController = TextEditingController();
   final TextEditingController _countryController = TextEditingController();
   final TextEditingController _birthdateController = TextEditingController();
 
@@ -53,6 +55,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
     _displayNameController.text = u.displayName;
     _emailController.text = u.email;
     _descriptionController.text = u.description;
+    _websiteController.text = u.websiteUrl;
     _birthdateController.text = u.birthdate;
     _countryCode = u.country.isNotEmpty ? u.country : null;
     _marketingConsent = u.marketingConsent;
@@ -80,6 +83,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
     _displayNameController.dispose();
     _emailController.dispose();
     _descriptionController.dispose();
+    _websiteController.dispose();
     _countryController.dispose();
     _birthdateController.dispose();
     super.dispose();
@@ -202,10 +206,12 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
 
     final result = await FilmolyApi.updateUser(
       userEmail: _emailController.text.trim(),
+      websiteUrl: _websiteController.text.trim(),
       displayName: _displayNameController.text.trim().isEmpty ? null : _displayNameController.text.trim(),
       description: _descriptionController.text.trim().isEmpty ? null : _descriptionController.text.trim(),
-      country: _countryCode,
-      birthdate: _birthdateController.text.trim().isEmpty ? null : _birthdateController.text.trim(),
+      // Envío string vacío para poder "borrar" valores.
+      country: _countryCode ?? '',
+      birthdate: _birthdateController.text.trim().isEmpty ? '' : _birthdateController.text.trim(),
       marketingConsent: _marketingConsent,
       deleteAvatar: _deleteAvatarRequested,
       avatarBytes: _newAvatarBytes,
@@ -358,6 +364,9 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                       ),
                     ),
                     const SizedBox(height: 8),
+                    /*
+                    // Ocultamos el campo "Nombre para mostrar" (sin borrarlo).
+                    // Se mantiene el controller y el guardado por si luego lo reactivamos.
                     TextFormField(
                       enabled: _isEditing,
                       controller: _displayNameController,
@@ -366,6 +375,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                         labelText: S.current.textfieldDisplayNameLabel,
                       ),
                     ),
+                    */
                     const SizedBox(height: 8),
                     TextFormField(
                       enabled: _isEditing,
@@ -391,11 +401,61 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
 
           TextFormField(
             enabled: _isEditing,
+            minLines: 1,
+            maxLines: 5,
+            maxLength: 500,
+            textCapitalization: TextCapitalization.sentences,
+            decoration: InputDecoration(
+              prefixIcon: const Icon(Icons.description_rounded),
+              labelText: S.current.userDescription,
+            ),
+            controller: _descriptionController,
+          ),
+          const SizedBox(height: 8),
+
+
+          TextFormField(
+            enabled: _isEditing,
+            controller: _websiteController,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.link_rounded),
+              labelText: S.current.webBlogLabel,
+              hintText: S.current.webBlogHint,
+            ),
+            keyboardType: TextInputType.url,
+          ),
+          const SizedBox(height: 16),
+
+          TextFormField(
+            enabled: _isEditing,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.public_rounded),
               labelText: S.current.textfieldUserCountryLabel,
               suffixIcon: _countryCode != null
-                  ? Text(Country.parse(_countryCode!).flagEmoji, style: const TextStyle(fontSize: 24))
+                  ? _isEditing
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              Country.parse(_countryCode!).flagEmoji,
+                              style: const TextStyle(fontSize: 24),
+                            ),
+                            IconButton(
+                              tooltip: S.current.removeCountryTooltip,
+                              icon: const Icon(Icons.close_rounded, size: 20),
+                              onPressed: () {
+                                setState(() {
+                                  _countryCode = null;
+                                  _countryController.text = '';
+                                });
+                              },
+                            ),
+                          ],
+                        )
+                      : Text(
+                          Country.parse(_countryCode!).flagEmoji,
+                          style: const TextStyle(fontSize: 24),
+                        )
                   : null,
             ),
             controller: _countryController,
@@ -418,19 +478,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
           ),
           const SizedBox(height: 16),
 
-          TextFormField(
-            enabled: _isEditing,
-            minLines: 1,
-            maxLines: 5,
-            maxLength: 500,
-            textCapitalization: TextCapitalization.sentences,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.description_rounded),
-              labelText: S.current.userDescription,
-            ),
-            controller: _descriptionController,
-          ),
-          const SizedBox(height: 8),
+          
 
           TextFormField(
             enabled: _isEditing,
@@ -439,9 +487,23 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
               labelText: S.current.textfieldUserBirthdayLabel,
               prefixIcon: const Icon(Icons.cake_rounded),
               prefixText: formatDate(_birthdateController.text),
+              suffixIcon: _isEditing && _birthdateController.text.trim().isNotEmpty
+                  ? IconButton(
+                      tooltip: S.current.removeBirthdateTooltip,
+                      icon: const Icon(Icons.close_rounded, size: 20),
+                      onPressed: () {
+                        setState(() {
+                          _birthdateController.text = '';
+                        });
+                      },
+                    )
+                  : null,
               suffixText: _birthdateController.text.isEmpty
                   ? ''
-                  : '${formatAgeFromBirthday(_birthdateController.text, inputFormat: globalCurrentUser.dateFormat)} ${S.current.userYears}',
+                  : '${formatAgeFromBirthday(
+                    formatDate(_birthdateController.text),
+                    inputFormat: globalCurrentUser.dateFormat,
+                  )} ${S.current.userYears}',
             ),
             controller: _birthdateController,
             readOnly: true,
@@ -470,7 +532,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
             onChanged: _isEditing
                 ? (v) => setState(() => _marketingConsent = v)
                 : null,
-            title: Text(S.current.registerMarketingConsentAccept, style: const TextStyle(fontSize: 14)),
+            title: Text(S.current.registerMarketingConsentAccept, style: const TextStyle(fontSize: 14)),          
           ),
           if (!_isEditing) ...[
           const SizedBox(height: 16),

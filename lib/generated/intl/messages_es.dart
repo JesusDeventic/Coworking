@@ -23,6 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "Usuario o contraseña incorrectos.\nPor favor espera ${seconds} segundos para intentarlo nuevamente";
 
+  static String m1(username) => "Perfil de @${username} en Filmoly";
+
+  static String m2(username) => "QR de @${username}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "accountAndProfile": MessageLookupByLibrary.simpleMessage(
@@ -30,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "actionNo": MessageLookupByLibrary.simpleMessage("No"),
     "actionYes": MessageLookupByLibrary.simpleMessage("Sí"),
+    "ageChipPrefix": MessageLookupByLibrary.simpleMessage("Edad: "),
     "andLabel": MessageLookupByLibrary.simpleMessage("y"),
     "appName": MessageLookupByLibrary.simpleMessage("Filmoly"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
@@ -40,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Registro de cambios",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Volver"),
+    "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
     "buttonChangePassword": MessageLookupByLibrary.simpleMessage(
       "Cambiar contraseña",
@@ -50,6 +56,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Eliminar cuenta",
     ),
     "buttonDeleteAvatar": MessageLookupByLibrary.simpleMessage("Borrar avatar"),
+    "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage(
+      "Recargar",
+    ),
     "close": MessageLookupByLibrary.simpleMessage("Cerrar"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "El código debe tener 6 dígitos",
@@ -65,6 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
       "Política de cookies",
     ),
+    "copiedProfileLinkSnackbar": MessageLookupByLibrary.simpleMessage(
+      "Enlace copiado",
+    ),
+    "copyProfileLink": MessageLookupByLibrary.simpleMessage("Copiar enlace"),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Versión actual",
     ),
@@ -75,6 +88,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Versión disponible",
     ),
     "dateFormat": MessageLookupByLibrary.simpleMessage("Formato de fecha"),
+    "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
+      "Eliminar todas las notificaciones",
+    ),
     "dialogCloseAppTitle": MessageLookupByLibrary.simpleMessage(
       "Salir de la aplicación",
     ),
@@ -211,10 +227,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "languageSwedish": MessageLookupByLibrary.simpleMessage("Sueco"),
     "languageTurkish": MessageLookupByLibrary.simpleMessage("Turco"),
     "languageUkrainian": MessageLookupByLibrary.simpleMessage("Ucraniano"),
+    "lastAccessChipPrefix": MessageLookupByLibrary.simpleMessage(
+      "Última conexión",
+    ),
     "legalNoticeLabel": MessageLookupByLibrary.simpleMessage("Aviso legal"),
     "loading": MessageLookupByLibrary.simpleMessage("Cargando..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
+    "markAllAsRead": MessageLookupByLibrary.simpleMessage(
+      "Marcar todo como leído",
+    ),
     "menuBarSectionSocial": MessageLookupByLibrary.simpleMessage(
       "Redes sociales",
     ),
@@ -259,7 +281,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "No se pudo enviar el mensaje.",
     ),
     "messagesNoMessages": MessageLookupByLibrary.simpleMessage(
-      "Aún no hay mensajes. ¡Di algo!",
+      "Aún no hay mensajes. ¡Escribe algo!",
     ),
     "messagesRead": MessageLookupByLibrary.simpleMessage("Leído"),
     "messagesSend": MessageLookupByLibrary.simpleMessage("Enviar"),
@@ -268,6 +290,33 @@ class MessageLookup extends MessageLookupByLibrary {
       "Escribe un mensaje...",
     ),
     "newPassword": MessageLookupByLibrary.simpleMessage("Nueva contraseña"),
+    "noMoreRecords": MessageLookupByLibrary.simpleMessage(
+      "No hay más registros.",
+    ),
+    "notificationDeleteAllAsk": MessageLookupByLibrary.simpleMessage(
+      "¿Quieres eliminar todas las notificaciones?",
+    ),
+    "notificationMarkAllAsk": MessageLookupByLibrary.simpleMessage(
+      "¿Quieres marcar todas las notificaciones como leídas?",
+    ),
+    "notificationMarkReadError": MessageLookupByLibrary.simpleMessage(
+      "No se pudo marcar la notificación como leída.",
+    ),
+    "notificationMarkedRead": MessageLookupByLibrary.simpleMessage(
+      "Notificación marcada como leída.",
+    ),
+    "notificationsAllMarkedRead": MessageLookupByLibrary.simpleMessage(
+      "Todas las notificaciones marcadas como leídas.",
+    ),
+    "notificationsDeletedError": MessageLookupByLibrary.simpleMessage(
+      "No se pudieron eliminar las notificaciones.",
+    ),
+    "notificationsDeletedOk": MessageLookupByLibrary.simpleMessage(
+      "Notificaciones eliminadas.",
+    ),
+    "notificationsEmptyText": MessageLookupByLibrary.simpleMessage(
+      "No tienes notificaciones.",
+    ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage(
       "Notificaciones",
     ),
@@ -287,6 +336,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "privateMessages": MessageLookupByLibrary.simpleMessage(
       "Mensajes privados",
     ),
+    "profileShareSubject": m1,
+    "publicProfileAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "Perfil de usuario",
+    ),
+    "qrTitle": m2,
+    "recaptchaError": MessageLookupByLibrary.simpleMessage(
+      "No se pudo validar el captcha. Inténtalo de nuevo.",
+    ),
     "registerError": MessageLookupByLibrary.simpleMessage(
       "Error en el registro",
     ),
@@ -299,9 +356,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerTermsAndConditionsError": MessageLookupByLibrary.simpleMessage(
       "Debes aceptar los términos y condiciones y la política de privacidad",
     ),
+    "removeBirthdateTooltip": MessageLookupByLibrary.simpleMessage(
+      "Quitar fecha",
+    ),
+    "removeCountryTooltip": MessageLookupByLibrary.simpleMessage("Quitar país"),
+    "retryPublicProfile": MessageLookupByLibrary.simpleMessage("Reintentar"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Enviar código"),
+    "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
+      "Enviar mensaje",
+    ),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Ajustes"),
+    "shareOption": MessageLookupByLibrary.simpleMessage("Compartir"),
+    "shareTooltip": MessageLookupByLibrary.simpleMessage("Compartir"),
     "showMyProfile": MessageLookupByLibrary.simpleMessage("Ver mi perfil"),
+    "showQrOption": MessageLookupByLibrary.simpleMessage("Mostrar QR"),
     "signIn": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
     "signUp": MessageLookupByLibrary.simpleMessage("Registrarse"),
     "socialMailLabel": MessageLookupByLibrary.simpleMessage("Email"),
@@ -316,6 +384,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "No se pudo abrir WhatsApp.",
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
+    "statusChipPrefix": MessageLookupByLibrary.simpleMessage("Estado: "),
     "subjectSupport": MessageLookupByLibrary.simpleMessage("Contacto Filmoly"),
     "success": MessageLookupByLibrary.simpleMessage("Éxito"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
@@ -343,6 +412,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "userAvatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Descripción"),
     "userEmail": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
+    "userNotFoundPublicProfileText": MessageLookupByLibrary.simpleMessage(
+      "No hemos encontrado este usuario.",
+    ),
     "userOrEmail": MessageLookupByLibrary.simpleMessage("Usuario o email"),
     "userSectionAccount": MessageLookupByLibrary.simpleMessage(
       "Cuenta y perfil",
@@ -361,6 +433,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Código de verificación (6 dígitos)",
     ),
     "version": MessageLookupByLibrary.simpleMessage("Versión"),
+    "vipChipLabel": MessageLookupByLibrary.simpleMessage("Retroteca VIP"),
+    "webBlogHint": MessageLookupByLibrary.simpleMessage("https://tuweb.com"),
+    "webBlogLabel": MessageLookupByLibrary.simpleMessage("Página web / blog"),
     "weekStart": MessageLookupByLibrary.simpleMessage(
       "Día de inicio de semana",
     ),

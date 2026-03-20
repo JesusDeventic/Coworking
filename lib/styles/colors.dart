@@ -30,6 +30,11 @@ ColorScheme get lightColorScheme {
     brightness: Brightness.light,
     primary: AppColors.primary,
     onPrimary: AppColors.anthraciteDark,
+    // Igual que Fitcron: colores "fijos" para que widgets externos (emoji picker, tabs, etc.)
+    // no dependan de cómo derive Flutter `primaryFixed`.
+    primaryFixed: AppColors.white,
+    // 50% alpha del blanco (0x80)
+    primaryFixedDim: const Color(0x80FFFFFF),
     secondary: AppColors.secondary,
     onSecondary: AppColors.black,
     tertiary: AppColors.primaryAccent,
@@ -45,6 +50,9 @@ ColorScheme get darkColorScheme {
     brightness: Brightness.dark,
     primary: AppColors.primary,
     onPrimary: AppColors.anthraciteDark,
+    primaryFixed: AppColors.white,
+    // 50% alpha del blanco (0x80)
+    primaryFixedDim: const Color(0x80FFFFFF),
     secondary: AppColors.secondary,
     onSecondary: AppColors.black,
     tertiary: AppColors.primaryAccent,
@@ -69,6 +77,7 @@ ThemeData themeFromColorScheme(ColorScheme colorScheme) {
     appBarTheme: AppBarTheme(
       backgroundColor: colorScheme.primary,
       foregroundColor: colorScheme.onPrimary,
+      titleSpacing: 0,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: colorScheme.primary,
         statusBarIconBrightness: Brightness.dark,
@@ -163,6 +172,34 @@ ThemeData themeFromColorScheme(ColorScheme colorScheme) {
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
       filled: true,
       contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+    ),
+    switchTheme: SwitchThemeData(
+      // Evitamos que el thumb cambie a un color raro al pasar el ratón
+      // (hover) en desktop/web.
+      trackOutlineColor: WidgetStateProperty.resolveWith<Color?>((states) {       
+        if (states.contains(WidgetState.disabled)) {
+          return colorScheme.onSurface.withValues(alpha: 0.1);
+        } else if (states.contains(WidgetState.selected)) {
+          return colorScheme.primary;
+        }
+        return null; // fallback a Flutter por defecto
+      }),
+      trackColor: WidgetStateProperty.resolveWith<Color?>((states) {
+        if (states.contains(WidgetState.disabled)) {
+          return colorScheme.onSurface.withValues(alpha: 0.3);
+        } else if (states.contains(WidgetState.selected)) {
+          return colorScheme.primary.withValues(alpha: 0.3);
+        }       
+        return null; // fallback a Flutter por defecto
+      }),
+      thumbColor: WidgetStateProperty.resolveWith<Color?>((states) {
+        if (states.contains(WidgetState.disabled)) {
+          return colorScheme.primary.withValues(alpha: 0.3);
+        } else if (states.contains(WidgetState.selected)) {
+          return colorScheme.primary;
+        }        
+        return null; // fallback a Flutter por defecto
+      }),      
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       mouseCursor: _clickCursor,

@@ -23,6 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "Usuari o contrasenya incorrectes. Per favor espera ${seconds} segons abans de tornar-ho a intentar";
 
+  static String m1(username) => "Perfil de @${username} a Filmoly";
+
+  static String m2(username) => "QR per @${username}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "accountAndProfile": MessageLookupByLibrary.simpleMessage(
@@ -30,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "actionNo": MessageLookupByLibrary.simpleMessage("No"),
     "actionYes": MessageLookupByLibrary.simpleMessage("Sí"),
+    "ageChipPrefix": MessageLookupByLibrary.simpleMessage("Edat: "),
     "andLabel": MessageLookupByLibrary.simpleMessage("i"),
     "appName": MessageLookupByLibrary.simpleMessage("Filmoly"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
@@ -40,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Registre de canvis",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Enrere"),
+    "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonChangePassword": MessageLookupByLibrary.simpleMessage(
       "Canviar contrasenya",
     ),
@@ -61,6 +67,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
       "Política de galetes",
+    ),
+    "copiedProfileLinkSnackbar": MessageLookupByLibrary.simpleMessage(
+      "Enllaç copiat",
+    ),
+    "copyProfileLink": MessageLookupByLibrary.simpleMessage(
+      "Copiar enllaç de perfil",
     ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Versió actual",
@@ -188,6 +200,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "languageSwedish": MessageLookupByLibrary.simpleMessage("Suec"),
     "languageTurkish": MessageLookupByLibrary.simpleMessage("Turc"),
     "languageUkrainian": MessageLookupByLibrary.simpleMessage("Ucraïnès"),
+    "lastAccessChipPrefix": MessageLookupByLibrary.simpleMessage(
+      "Últim accés: ",
+    ),
     "legalNoticeLabel": MessageLookupByLibrary.simpleMessage("Avís legal"),
     "loading": MessageLookupByLibrary.simpleMessage("Carregant..."),
     "loginCountdownMessage": m0,
@@ -217,6 +232,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "privateMessages": MessageLookupByLibrary.simpleMessage(
       "Missatges privats",
     ),
+    "profileShareSubject": m1,
+    "publicProfileAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "Perfil d\'usuari",
+    ),
+    "qrTitle": m2,
     "registerError": MessageLookupByLibrary.simpleMessage(
       "Error en el registre",
     ),
@@ -229,11 +249,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerTermsAndConditionsError": MessageLookupByLibrary.simpleMessage(
       "Has d\'acceptar els termes i condicions i la política de privacitat",
     ),
+    "removeBirthdateTooltip": MessageLookupByLibrary.simpleMessage(
+      "Eliminar data de naixement",
+    ),
+    "removeCountryTooltip": MessageLookupByLibrary.simpleMessage(
+      "Eliminar país",
+    ),
+    "retryPublicProfile": MessageLookupByLibrary.simpleMessage("Reintentar"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Enviar codi"),
+    "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
+      "Enviar missatge",
+    ),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Configuració"),
+    "shareOption": MessageLookupByLibrary.simpleMessage("Compartir"),
+    "shareTooltip": MessageLookupByLibrary.simpleMessage("Compartir"),
     "showMyProfile": MessageLookupByLibrary.simpleMessage(
       "Veure el meu perfil",
     ),
+    "showQrOption": MessageLookupByLibrary.simpleMessage("Mostrar QR"),
     "signIn": MessageLookupByLibrary.simpleMessage("Iniciar sessió"),
     "signUp": MessageLookupByLibrary.simpleMessage("Registrar-se"),
     "socialMailLabel": MessageLookupByLibrary.simpleMessage("Email"),
@@ -248,6 +281,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "No s\'ha pogut obrir WhatsApp.",
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
+    "statusChipPrefix": MessageLookupByLibrary.simpleMessage("Estat: "),
     "subjectSupport": MessageLookupByLibrary.simpleMessage("Contacte Filmoly"),
     "success": MessageLookupByLibrary.simpleMessage("Èxit"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
@@ -259,6 +293,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("Tema"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Mode fosc"),
     "themeLight": MessageLookupByLibrary.simpleMessage("Mode clar"),
+    "userNotFoundPublicProfileText": MessageLookupByLibrary.simpleMessage(
+      "No hem trobat aquest usuari.",
+    ),
     "userOrEmail": MessageLookupByLibrary.simpleMessage("Usuari o email"),
     "userSectionContact": MessageLookupByLibrary.simpleMessage("Contacte"),
     "userSectionFAQs": MessageLookupByLibrary.simpleMessage("FAQs"),
@@ -273,6 +310,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Codi de verificació (6 dígits)",
     ),
     "version": MessageLookupByLibrary.simpleMessage("Versió"),
+    "vipChipLabel": MessageLookupByLibrary.simpleMessage("Retroteca VIP"),
+    "webBlogHint": MessageLookupByLibrary.simpleMessage(
+      "https://yourwebsite.com",
+    ),
+    "webBlogLabel": MessageLookupByLibrary.simpleMessage("Lloc web / bloc"),
     "weekStart": MessageLookupByLibrary.simpleMessage(
       "Dia d\'inici de setmana",
     ),

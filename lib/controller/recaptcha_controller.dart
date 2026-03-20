@@ -7,16 +7,25 @@ import 'package:filmoly/api/recaptcha_config_api.dart';
 /// Servicio para gestionar Google reCAPTCHA v3 en Filmoly (basado en Fitcron).
 class RecaptchaService {
   static String _token = '';
+  static bool _isReady = false;
 
   RecaptchaService._();
 
   /// Inicializa reCAPTCHA v3 (solo en web).
   static Future<void> initiate() async {
     if (kIsWeb) {
-      await GRecaptchaV3.ready(
-        ConfigGcaptcha.siteKey,
-        showBadge: false,
-      );
+      try {
+        await GRecaptchaV3.ready(
+          ConfigGcaptcha.siteKey,
+          showBadge: false,
+        );
+        _isReady = true;
+      } catch (_) {
+        // No marcamos ready para que el flujo de verificación intente
+        // nuevamente si hace falta.
+        _isReady = false;
+        rethrow;
+      }
     }
   }
 
@@ -26,9 +35,9 @@ class RecaptchaService {
 
     if (kIsWeb) {
       // En localhost permitimos todo para desarrollo.
-      if (Uri.base.host == 'localhost' || Uri.base.host == '127.0.0.1') {
+      /*if (Uri.base.host == 'localhost' || Uri.base.host == '127.0.0.1') {
         return true;
-      }
+      }*/
 
       final verificationResponse = await _getVerificationResponse();
       final score = verificationResponse?.score ?? 0.0;
@@ -54,7 +63,19 @@ class RecaptchaService {
   }
 
   static Future<RecaptchaResponse?> _getVerificationResponse() async {
-    _token = await GRecaptchaV3.execute('submit') ?? '';
+    // Evita que falle si se llama a isNotABot() antes de Splash/ready().
+    if (kIsWeb && !_isReady) {
+      await initiate();
+    }
+
+    try {
+      _token = await GRecaptchaV3.execute('submit') ?? '';
+    } catch (e) {
+      debugPrint('Error ejecutando reCAPTCHA (intentando re-init).');
+      // Un único reintento tras hacer ready.
+      await initiate();
+      _token = await GRecaptchaV3.execute('submit') ?? '';
+    }
 
     RecaptchaResponse? recaptchaResponse;
 
@@ -63,7 +84,7 @@ class RecaptchaService {
         final response = await FilmolyApi.verifyRecaptcha(_token);
         recaptchaResponse = RecaptchaResponse.fromMap(response);
       } catch (e) {
-        debugPrint('Error en la verificación de reCAPTCHA: ${e.toString()}');
+        debugPrint('Error en la verificación de reCAPTCHA.');
       }
     }
     return recaptchaResponse;
