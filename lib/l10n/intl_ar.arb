@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "ar",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "تسجيل الدخول",
     "signUp":  "إنشاء حساب",
     "userOrEmail":  "اسم المستخدم أو البريد الإلكتروني",
@@ -41,7 +41,7 @@
     "logout":  "تسجيل الخروج",
     "appVersionChangeLogTitle":  "سجل التغييرات",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·الإصدار الأول من Invitaty.",
+    "appVersion10Description":  "·الإصدار الأول من VACoworking.",
     "languageArabic":  "العربية",
     "languageCatalan":  "الكتالونية",
     "languageChinese":  "الصينية",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "اسم المستخدم أو كلمة المرور غير صحيحة.\nيرجى الانتظار {seconds} ثانية قبل المحاولة مرة أخرى",
     "registerError":  "خطأ في التسجيل",
     "dialogErrorTitle":  "خطأ",
-    "dialogErrorServerConnection":  "تعذر الاتصال بخادم Invitaty",
-    "dialogErrorAppVersion":  "يتوفر إصدار جديد من Invitaty.\nحدّث التطبيق للمتابعة",
+    "dialogErrorServerConnection":  "تعذر الاتصال بخادم VACoworking",
+    "dialogErrorAppVersion":  "يتوفر إصدار جديد من VACoworking.\nحدّث التطبيق للمتابعة",
     "dialogErrorServerMaintenance":  "التطبيق قيد الصيانة حالياً. حاول لاحقاً",
     "currentServerVersionText":  "الإصدار المتاح",
     "dialogWarningTitle":  "تنبيه",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "إشعار قانوني",
     "socialMailLabel":  "البريد الإلكتروني",
     "socialTelegramLabel":  "تيليجرام",
-    "subjectSupport":  "اتصال Invitaty",
-    "faq1Question":  "ما هو Invitaty؟",
+    "subjectSupport":  "اتصال VACoworking",
+    "faq1Question":  "ما هو VACoworking؟",
     "faq1Answer":  "إنها تطبيق لإنشاء دعوات لجميع أنواع الفعاليات. تتيح لك اختيار القوالب وتخصيص الدعوة ومشاركتها على وسائل التواصل الاجتماعي، وتلقي إشعارات التأكيد وتتبع الحضور.",
     "faq2Question":  "هل هو مجاني؟",
-    "faq2Answer":  "لا، يمكنك استخدام Invitaty لتصميم دعواتك، ولكن لكي تتمكن من نشرها تحتاج إلى إجراء دفعة مقابل كل دعوة على حدة.",
+    "faq2Answer":  "لا، يمكنك استخدام VACoworking لتصميم دعواتك، ولكن لكي تتمكن من نشرها تحتاج إلى إجراء دفعة مقابل كل دعوة على حدة.",
     "faq3Question":  "كيف أحذف حسابي؟",
     "faq3Answer":  "يمكنك حذف حسابك من إعدادات الحساب داخل التطبيق. سيُزال كل ما يتعلق بحسابك. لا يمكن التراجع عن هذا الإجراء.",
     "errorAuthInvalidUsername":  "يجب أن يكون اسم المستخدم بين 4 و20 حرفاً ويحتوي فقط على أحرف وأرقام وشرطات وشرطات سفلية.",
@@ -205,7 +205,7 @@
     "showQrOption":  "عرض رمز QR",
     "shareOption":  "مشاركة",
     "qrTitle":  "رمز QR لـ @{username}",
-    "profileShareSubject":  "ملف @{username} على Invitaty",
+    "profileShareSubject":  "ملف @{username} على VACoworking",
     "lastAccessChipPrefix":  "آخر اتصال",
     "statusLabel":  "الحالة",
     "bioLabel":  "نبذة",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "اذهب",
     "enterWithoutUser":  "الدخول بدون مستخدم"
 }
+

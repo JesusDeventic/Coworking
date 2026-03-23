@@ -1,4 +1,4 @@
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a de locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "Benutzername oder Passwort falsch.\nBitte warten Sie ${seconds} Sekunden, bevor Sie es erneut versuchen.";
 
-  static String m1(username) => "Profil von @${username} auf Invitaty";
+  static String m1(username) => "Profil von @${username} auf VACoworking";
 
   static String m2(username) => "QR für @${username}";
 
@@ -35,10 +35,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "actionNo": MessageLookupByLibrary.simpleMessage("Nein"),
     "actionYes": MessageLookupByLibrary.simpleMessage("Ja"),
     "andLabel": MessageLookupByLibrary.simpleMessage("und"),
-    "appName": MessageLookupByLibrary.simpleMessage("Invitaty"),
+    "appName": MessageLookupByLibrary.simpleMessage("VACoworking"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
     "appVersion10Description": MessageLookupByLibrary.simpleMessage(
-      "·Erstveröffentlichung von Invitaty.",
+      "·Erstveröffentlichung von VACoworking.",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Änderungsprotokoll",
@@ -115,10 +115,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Passwort",
     ),
     "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
-      "Eine neue Version von Invitaty ist verfügbar.\nBitte aktualisieren Sie die App, um fortzufahren.",
+      "Eine neue Version von VACoworking ist verfügbar.\nBitte aktualisieren Sie die App, um fortzufahren.",
     ),
     "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
-      "Verbindung zum Invitaty-Server nicht möglich.",
+      "Verbindung zum VACoworking-Server nicht möglich.",
     ),
     "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
       "Die App befindet sich derzeit in Wartung. Bitte versuchen Sie es später erneut.",
@@ -190,9 +190,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
       "Es ist eine App, mit der du Einladungen für alle Arten von Veranstaltungen erstellen kannst. Du kannst Vorlagen auswählen, die Einladung personalisieren, in sozialen Medien teilen, Bestätigungsbenachrichtigungen erhalten und die Teilnahme verfolgen.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Was ist Invitaty?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("Was ist VACoworking?"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Nein, du kannst Invitaty nutzen, um deine Einladungen zu gestalten, aber um sie veröffentlichen zu können, musst du für jede einzelne bezahlen.",
+      "Nein, du kannst VACoworking nutzen, um deine Einladungen zu gestalten, aber um sie veröffentlichen zu können, musst du für jede einzelne bezahlen.",
     ),
     "faq2Question": MessageLookupByLibrary.simpleMessage("Ist es kostenlos?"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
@@ -435,7 +435,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Status"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Invitaty Kontakt"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking Kontakt"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Allgemeine Geschäftsbedingungen",
     ),
@@ -492,3 +492,4 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
+

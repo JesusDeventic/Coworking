@@ -1,15 +1,17 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:invitaty/api/firebase_web_config.dart';
-import 'package:invitaty/core/global_functions.dart';
+import 'package:vacoworking/api/firebase_web_config.dart';
+import 'package:vacoworking/core/global_functions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' show Color, debugPrint;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/styles/colors.dart';
 
 /// Servicio centralizado de notificaciones push (Android / iOS / Web),
 /// alineado con Fitcron: Firebase sin opciones en nativo, opciones solo en Web.
-class InvitatyMessagingService {
+class VACoworkingMessagingService {
   FirebaseMessaging? _firebaseMessaging;
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
@@ -17,13 +19,13 @@ class InvitatyMessagingService {
   Future<void> initialize() async {
     try {
       if (kIsWeb) {
-        final o = InvitatyFirebaseWebConfig.webFirebaseOptions;
+        final o = VACoworkingFirebaseWebConfig.webFirebaseOptions;
         if (o.apiKey.isEmpty ||
             o.appId.isEmpty ||
             o.messagingSenderId.isEmpty ||
             o.projectId.isEmpty) {
           debugPrint(
-            'FCM Web no configurado: rellena InvitatyFirebaseWebConfig',
+            'FCM Web no configurado: rellena VACoworkingFirebaseWebConfig',
           );
           return;
         }
@@ -64,8 +66,8 @@ class InvitatyMessagingService {
         FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
           debugPrint('Mensaje FCM en primer plano: ${message.messageId}');
 
-          final title = message.notification?.title ?? 'Invitaty';
-          final body = message.notification?.body ?? 'Nueva notificación';
+          final title = message.notification?.title ?? S.current.appName;
+          final body = message.notification?.body ?? S.current.notificationsLabel;
 
           await _showNotification(
             title: title,
@@ -76,7 +78,7 @@ class InvitatyMessagingService {
       }
 
       FirebaseMessaging.onBackgroundMessage(
-        _invitatyFirebaseMessagingBackgroundHandler,
+        _VACoworkingFirebaseMessagingBackgroundHandler,
       );
 
       FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
@@ -89,7 +91,7 @@ class InvitatyMessagingService {
         } catch (_) {}
       });
     } catch (e) {
-      debugPrint('Error inicializando InvitatyMessagingService: $e');
+      debugPrint('Error inicializando VACoworkingMessagingService: $e');
     }
   }
 
@@ -101,14 +103,14 @@ class InvitatyMessagingService {
     if (kIsWeb) return;
 
     const androidDetails = AndroidNotificationDetails(
-      'invitaty_channel',
-      'Invitaty Notifications',
-      channelDescription: 'Canal de notificaciones de Invitaty',
+      'VACoworking_channel',
+      'VACoworking Notifications',
+      channelDescription: 'Canal de notificaciones de VACoworking',
       importance: Importance.max,
       priority: Priority.high,
       showWhen: true,
       icon: 'ic_notification',
-      color: Color(0xFFB8D936),
+      color: AppColors.primary,
     );
 
     const iosDetails = DarwinNotificationDetails(
@@ -133,19 +135,21 @@ class InvitatyMessagingService {
 }
 
 @pragma('vm:entry-point')
-Future<void> _invitatyFirebaseMessagingBackgroundHandler(
+Future<void> _VACoworkingFirebaseMessagingBackgroundHandler(
   RemoteMessage message,
 ) async {
   try {
     if (kIsWeb) {
       await Firebase.initializeApp(
-        options: InvitatyFirebaseWebConfig.webFirebaseOptions,
+        options: VACoworkingFirebaseWebConfig.webFirebaseOptions,
       );
     } else {
       await Firebase.initializeApp();
     }
     debugPrint('Mensaje FCM en segundo plano: ${message.messageId}');
   } catch (e) {
-    debugPrint('Error en background handler FCM Invitaty: $e');
+    debugPrint('Error en background handler FCM VACoworking: $e');
   }
 }
+
+

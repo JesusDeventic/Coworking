@@ -1,6 +1,6 @@
 ﻿# Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
-project(invitaty LANGUAGES CXX)
+project(VACoworking LANGUAGES CXX)
 
 # Firebase (via firebase_core) pulls a CMake project that still declares a very
 # old minimum (e.g. 3.1). Newer CMake versions remove compatibility with policy
@@ -9,7 +9,7 @@ set(CMAKE_POLICY_VERSION_MINIMUM 3.5 CACHE STRING "Minimum policy version" FORCE
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "invitaty")
+set(BINARY_NAME "VACoworking")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
@@ -112,3 +112,4 @@ install(DIRECTORY "${PROJECT_BUILD_DIR}/${FLUTTER_ASSET_DIR_NAME}"
 install(FILES "${AOT_LIBRARY}" DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
   CONFIGURATIONS Profile;Release
   COMPONENT Runtime)
+

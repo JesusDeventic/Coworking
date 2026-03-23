@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "ru",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "Войти",
     "signUp":  "Создать аккаунт",
     "userOrEmail":  "Имя пользователя или email",
@@ -41,7 +41,7 @@
     "logout":  "Выйти",
     "appVersionChangeLogTitle":  "Список изменений",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Первый выпуск Invitaty.",
+    "appVersion10Description":  "·Первый выпуск VACoworking.",
     "languageArabic":  "Арабский",
     "languageCatalan":  "Каталанский",
     "languageChinese":  "Китайский",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "Неверное имя пользователя или пароль.\nПодождите {seconds} секунд перед повторной попыткой",
     "registerError":  "Ошибка регистрации",
     "dialogErrorTitle":  "Ошибка",
-    "dialogErrorServerConnection":  "Не удалось подключиться к серверу Invitaty",
-    "dialogErrorAppVersion":  "Доступна новая версия Invitaty.\nОбновите приложение, чтобы продолжить",
+    "dialogErrorServerConnection":  "Не удалось подключиться к серверу VACoworking",
+    "dialogErrorAppVersion":  "Доступна новая версия VACoworking.\nОбновите приложение, чтобы продолжить",
     "dialogErrorServerMaintenance":  "Приложение на обслуживании. Попробуйте позже",
     "currentServerVersionText":  "Доступная версия",
     "dialogWarningTitle":  "Внимание",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "Правовая информация",
     "socialMailLabel":  "Электронная почта",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Связь с Invitaty",
-    "faq1Question":  "Что такое Invitaty?",
+    "subjectSupport":  "Связь с VACoworking",
+    "faq1Question":  "Что такое VACoworking?",
     "faq1Answer":  "Это приложение для создания приглашений на любые мероприятия. Оно позволяет выбрать шаблоны, настроить приглашение, поделиться им в социальных сетях, получать уведомления о подтверждении и отслеживать посещаемость.",
     "faq2Question":  "Это бесплатно?",
-    "faq2Answer":  "Нет, вы можете использовать Invitaty, чтобы оформить свои приглашения, но чтобы их опубликовать, вам нужно оплачивать каждое из них.",
+    "faq2Answer":  "Нет, вы можете использовать VACoworking, чтобы оформить свои приглашения, но чтобы их опубликовать, вам нужно оплачивать каждое из них.",
     "faq3Question":  "Как удалить свой аккаунт?",
     "faq3Answer":  "Удалить аккаунт можно в настройках аккаунта в приложении. Будут удалены все связанные данные. Это действие необратимо.",
     "errorAuthInvalidUsername":  "Имя пользователя должно быть от 4 до 20 символов и содержать только буквы, цифры, дефисы и подчёркивания.",
@@ -205,7 +205,7 @@
     "showQrOption":  "Показать QR",
     "shareOption":  "Поделиться",
     "qrTitle":  "QR @{username}",
-    "profileShareSubject":  "Профиль @{username} в Invitaty",
+    "profileShareSubject":  "Профиль @{username} в VACoworking",
     "lastAccessChipPrefix":  "Последний визит",
     "statusLabel":  "Статус",
     "bioLabel":  "О себе",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "ВОЙТИ",
     "enterWithoutUser":  "Войти без пользователя"
 }
+

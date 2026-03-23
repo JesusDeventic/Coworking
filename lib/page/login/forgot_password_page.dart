@@ -1,12 +1,12 @@
-import 'package:invitaty/api/invitaty_api.dart';
-import 'package:invitaty/core/api_error_messages.dart';
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/controller/recaptcha_controller.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/page/users/contact_page.dart';
-import 'package:invitaty/routes/app_routes.dart';
-import 'package:invitaty/widget/components_widgets.dart';
-import 'package:invitaty/providers/language_provider.dart';
+﻿import 'package:vacoworking/api/vacoworking_api.dart';
+import 'package:vacoworking/core/api_error_messages.dart';
+import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/controller/recaptcha_controller.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/page/users/contact_page.dart';
+import 'package:vacoworking/routes/app_routes.dart';
+import 'package:vacoworking/widget/components_widgets.dart';
+import 'package:vacoworking/providers/language_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -67,7 +67,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         showCustomSnackBar(S.current.recaptchaError, type: -1);
         return;
       }
-      final result = await InvitatyApi.forgotPassword(_loginController.text.trim());
+      final result = await VACoworkingApi.forgotPassword(_loginController.text.trim());
       if (!mounted) return;
       if (result['success'] == true) {
         setState(() => _showCodeAndPassword = true);
@@ -91,7 +91,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         showCustomSnackBar(S.current.code6Digits, type: -1);
         return;
       }
-      final result = await InvitatyApi.resetPassword(
+      final result = await VACoworkingApi.resetPassword(
         login: _loginController.text.trim(),
         code: code,
         newPassword: _passwordController.text,
@@ -318,3 +318,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     );
   }
 }
+
+
+

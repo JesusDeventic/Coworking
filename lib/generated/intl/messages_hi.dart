@@ -1,4 +1,4 @@
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a hi locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "उपयोगकर्ता नाम या पासवर्ड गलत है।\nकृपया पुनः प्रयास करने से पहले ${seconds} सेकंड प्रतीक्षा करें";
 
-  static String m1(username) => "Invitaty पर @${username} की प्रोफ़ाइल";
+  static String m1(username) => "VACoworking पर @${username} की प्रोफ़ाइल";
 
   static String m2(username) => "@${username} का QR";
 
@@ -33,10 +33,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "actionNo": MessageLookupByLibrary.simpleMessage("नहीं"),
     "actionYes": MessageLookupByLibrary.simpleMessage("हाँ"),
     "andLabel": MessageLookupByLibrary.simpleMessage("और"),
-    "appName": MessageLookupByLibrary.simpleMessage("Invitaty"),
+    "appName": MessageLookupByLibrary.simpleMessage("VACoworking"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
     "appVersion10Description": MessageLookupByLibrary.simpleMessage(
-      "·Invitaty का प्रारंभिक संस्करण।",
+      "·VACoworking का प्रारंभिक संस्करण।",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "परिवर्तन लॉग",
@@ -103,10 +103,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "पासवर्ड",
     ),
     "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
-      "Invitaty का नया संस्करण उपलब्ध है।\nजारी रखने के लिए ऐप अपडेट करें",
+      "VACoworking का नया संस्करण उपलब्ध है।\nजारी रखने के लिए ऐप अपडेट करें",
     ),
     "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
-      "Invitaty सर्वर से कनेक्ट नहीं हो सका",
+      "VACoworking सर्वर से कनेक्ट नहीं हो सका",
     ),
     "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
       "ऐप इस समय रखरखाव में है। बाद में प्रयास करें",
@@ -178,9 +178,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
       "यह एक ऐसा ऐप है जो हर तरह के कार्यक्रमों के लिए आमंत्रण बनाने में मदद करता है। आप टेम्पलेट चुन सकते हैं, आमंत्रण को पर्सनलाइज़ कर सकते हैं, इसे सोशल मीडिया पर शेयर कर सकते हैं, कन्फर्मेशन नोटिफिकेशन पा सकते हैं और उपस्थिति का ट्रैक रख सकते हैं।",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Invitaty क्या है?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("VACoworking क्या है?"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "नहीं, आप अपने आमंत्रण डिज़ाइन करने के लिए Invitaty का उपयोग कर सकते हैं, लेकिन उन्हें प्रकाशित करने के लिए आपको हर एक के लिए भुगतान करना होगा।",
+      "नहीं, आप अपने आमंत्रण डिज़ाइन करने के लिए VACoworking का उपयोग कर सकते हैं, लेकिन उन्हें प्रकाशित करने के लिए आपको हर एक के लिए भुगतान करना होगा।",
     ),
     "faq2Question": MessageLookupByLibrary.simpleMessage("क्या यह मुफ्त है?"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
@@ -405,7 +405,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("स्थिति"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Invitaty संपर्क"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking संपर्क"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "नियम व शर्तें",
     ),
@@ -460,3 +460,4 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("गलत क्रेडेंशियल"),
   };
 }
+

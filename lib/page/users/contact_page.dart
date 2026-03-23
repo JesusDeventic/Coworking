@@ -1,5 +1,5 @@
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/widget/components_widgets.dart';
+﻿import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/widget/components_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -40,7 +40,7 @@ class _ContactPageState extends State<ContactPage> {
                             children: [
                               InkResponse(
                                 onTap: () async {
-                                  const url = 'https://invitaty.com';
+                                  const url = 'https://VACoworking.com';
                                   if (await canLaunchUrl(Uri.parse(url))) {
                                     await launchUrl(Uri.parse(url),
                                         mode: LaunchMode.externalApplication);
@@ -63,7 +63,7 @@ class _ContactPageState extends State<ContactPage> {
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                'invitaty.com',
+                                'VACoworking.com',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 20,
@@ -118,7 +118,7 @@ class _ContactPageState extends State<ContactPage> {
                           children: [
                             InkResponse(
                               onTap: () async {
-                                const url = 'https://invitaty.com';
+                                const url = 'https://VACoworking.com';
                                 if (await canLaunchUrl(Uri.parse(url))) {
                                   await launchUrl(Uri.parse(url),
                                       mode: LaunchMode.externalApplication);
@@ -140,7 +140,7 @@ class _ContactPageState extends State<ContactPage> {
                               ),
                             ),
                             Text(
-                              'invitaty.com',
+                              'VACoworking.com',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 18,
@@ -216,7 +216,7 @@ class _ContactPageState extends State<ContactPage> {
             final subject = S.current.subjectSupport;
             final uri = Uri(
               scheme: 'mailto',
-              path: 'info@invitaty.com',
+              path: 'info@VACoworking.com',
               queryParameters: {'subject': subject},
             );
             if (await canLaunchUrl(uri)) {
@@ -337,7 +337,7 @@ class _ContactPageState extends State<ContactPage> {
   }
 
   Widget _privacyButtons(BuildContext context) {
-    const baseUrl = 'https://invitaty.com';
+    const baseUrl = 'https://VACoworking.com';
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -399,3 +399,5 @@ class _ContactPageState extends State<ContactPage> {
     );
   }
 }
+
+

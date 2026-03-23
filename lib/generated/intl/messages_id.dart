@@ -1,4 +1,4 @@
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a id locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "Nama pengguna atau kata sandi salah.\nHarap tunggu ${seconds} detik sebelum mencoba lagi";
 
-  static String m1(username) => "Profil @${username} di Invitaty";
+  static String m1(username) => "Profil @${username} di VACoworking";
 
   static String m2(username) => "QR @${username}";
 
@@ -33,10 +33,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "actionNo": MessageLookupByLibrary.simpleMessage("Tidak"),
     "actionYes": MessageLookupByLibrary.simpleMessage("Ya"),
     "andLabel": MessageLookupByLibrary.simpleMessage("dan"),
-    "appName": MessageLookupByLibrary.simpleMessage("Invitaty"),
+    "appName": MessageLookupByLibrary.simpleMessage("VACoworking"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
     "appVersion10Description": MessageLookupByLibrary.simpleMessage(
-      "·Rilis awal Invitaty.",
+      "·Rilis awal VACoworking.",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Log perubahan",
@@ -109,10 +109,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Kata sandi",
     ),
     "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
-      "Versi baru Invitaty tersedia.\nPerbarui aplikasi untuk melanjutkan",
+      "Versi baru VACoworking tersedia.\nPerbarui aplikasi untuk melanjutkan",
     ),
     "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
-      "Tidak dapat terhubung ke server Invitaty",
+      "Tidak dapat terhubung ke server VACoworking",
     ),
     "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
       "Aplikasi sedang dalam pemeliharaan. Coba lagi nanti",
@@ -184,9 +184,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
       "Ini adalah aplikasi untuk membuat undangan untuk berbagai jenis acara. Anda dapat memilih template, menyesuaikan undangan, membagikannya di media sosial, menerima notifikasi konfirmasi, dan memantau kehadiran.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Apa itu Invitaty?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("Apa itu VACoworking?"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Tidak, Anda dapat menggunakan Invitaty untuk mendesain undangan Anda, tetapi untuk mempublikasikannya Anda perlu melakukan pembayaran untuk setiap undangan.",
+      "Tidak, Anda dapat menggunakan VACoworking untuk mendesain undangan Anda, tetapi untuk mempublikasikannya Anda perlu melakukan pembayaran untuk setiap undangan.",
     ),
     "faq2Question": MessageLookupByLibrary.simpleMessage("Apakah gratis?"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
@@ -415,7 +415,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Status"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Kontak Invitaty"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage("Kontak VACoworking"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Syarat dan ketentuan",
     ),
@@ -472,3 +472,4 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
+

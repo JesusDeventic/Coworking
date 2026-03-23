@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "ko",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "로그인",
     "signUp":  "계정 만들기",
     "userOrEmail":  "사용자 이름 또는 이메일",
@@ -41,7 +41,7 @@
     "logout":  "로그아웃",
     "appVersionChangeLogTitle":  "변경 로그",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Invitaty 최초 버전.",
+    "appVersion10Description":  "·VACoworking 최초 버전.",
     "languageArabic":  "아랍어",
     "languageCatalan":  "카탈루냐어",
     "languageChinese":  "중국어",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "사용자 이름 또는 비밀번호가 올바르지 않습니다.\n{seconds}초 후 다시 시도하세요",
     "registerError":  "가입 오류",
     "dialogErrorTitle":  "오류",
-    "dialogErrorServerConnection":  "Invitaty 서버에 연결할 수 없습니다",
-    "dialogErrorAppVersion":  "Invitaty의 새 버전이 있습니다.\n계속하려면 앱을 업데이트하세요",
+    "dialogErrorServerConnection":  "VACoworking 서버에 연결할 수 없습니다",
+    "dialogErrorAppVersion":  "VACoworking의 새 버전이 있습니다.\n계속하려면 앱을 업데이트하세요",
     "dialogErrorServerMaintenance":  "앱이 점검 중입니다. 나중에 다시 시도하세요",
     "currentServerVersionText":  "사용 가능한 버전",
     "dialogWarningTitle":  "주의",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "법적 고지",
     "socialMailLabel":  "이메일",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Invitaty 문의",
-    "faq1Question":  "Invitaty이란?",
+    "subjectSupport":  "VACoworking 문의",
+    "faq1Question":  "VACoworking이란?",
     "faq1Answer":  "다양한 종류의 이벤트를 위한 초대장을 만드는 앱입니다. 템플릿을 선택하고 초대장을 개인화한 뒤, 소셜 미디어에 공유하고 확인 알림을 받으며 참석 현황을 추적할 수 있습니다.",
     "faq2Question":  "무료인가요?",
-    "faq2Answer":  "아니요. Invitaty로 초대장을 디자인할 수는 있지만, 공개하려면 초대장마다 결제를 해야 합니다.",
+    "faq2Answer":  "아니요. VACoworking로 초대장을 디자인할 수는 있지만, 공개하려면 초대장마다 결제를 해야 합니다.",
     "faq3Question":  "어떻게 계정을 삭제하나요?",
     "faq3Answer":  "앱의 계정 설정에서 삭제할 수 있습니다. 관련 데이터가 모두 삭제되며 되돌릴 수 없습니다.",
     "errorAuthInvalidUsername":  "사용자 이름은 4~20자이며 문자, 숫자, 하이픈, 밑줄만 사용할 수 있습니다.",
@@ -205,7 +205,7 @@
     "showQrOption":  "QR 표시",
     "shareOption":  "공유",
     "qrTitle":  "@{username}의 QR",
-    "profileShareSubject":  "Invitaty의 @{username} 프로필",
+    "profileShareSubject":  "VACoworking의 @{username} 프로필",
     "lastAccessChipPrefix":  "마지막 접속",
     "statusLabel":  "상태",
     "bioLabel":  "소개",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "로그인",
     "enterWithoutUser":  "사용자 없이 로그인"
 }
+

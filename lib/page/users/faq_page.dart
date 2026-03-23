@@ -1,4 +1,4 @@
-import 'package:invitaty/generated/l10n.dart';
+﻿import 'package:vacoworking/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 /// Página de FAQs (misma estructura que Fitcron FAQPage).
@@ -61,3 +61,5 @@ class FAQPage extends StatelessWidget {
     );
   }
 }
+
+

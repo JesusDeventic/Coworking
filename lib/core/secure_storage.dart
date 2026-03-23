@@ -1,8 +1,8 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+﻿import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-/// Almacenamiento seguro del token de sesión (Invitaty).
-class InvitatySecureStorage {
-  static const _keyToken = 'invitaty_auth_token';
+/// Almacenamiento seguro del token de sesión (VACoworking).
+class VACoworkingSecureStorage {
+  static const _keyToken = 'VACoworking_auth_token';
 
   final FlutterSecureStorage _storage = const FlutterSecureStorage(
     aOptions: AndroidOptions(encryptedSharedPreferences: true),
@@ -20,3 +20,4 @@ class InvitatySecureStorage {
     await _storage.delete(key: _keyToken);
   }
 }
+

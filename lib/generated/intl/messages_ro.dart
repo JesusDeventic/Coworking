@@ -1,4 +1,4 @@
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a ro locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "Nume de utilizator sau parolă incorectă.\nAșteaptă ${seconds} secunde înainte de a încerca din nou";
 
-  static String m1(username) => "Profilul lui @${username} pe Invitaty";
+  static String m1(username) => "Profilul lui @${username} pe VACoworking";
 
   static String m2(username) => "QR pentru @${username}";
 
@@ -33,10 +33,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "actionNo": MessageLookupByLibrary.simpleMessage("Nu"),
     "actionYes": MessageLookupByLibrary.simpleMessage("Da"),
     "andLabel": MessageLookupByLibrary.simpleMessage("și"),
-    "appName": MessageLookupByLibrary.simpleMessage("Invitaty"),
+    "appName": MessageLookupByLibrary.simpleMessage("VACoworking"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
     "appVersion10Description": MessageLookupByLibrary.simpleMessage(
-      "·Versiunea inițială Invitaty.",
+      "·Versiunea inițială VACoworking.",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Jurnal modificări",
@@ -109,10 +109,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Parolă",
     ),
     "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
-      "Este disponibilă o versiune nouă Invitaty.\nActualizează aplicația pentru a continua",
+      "Este disponibilă o versiune nouă VACoworking.\nActualizează aplicația pentru a continua",
     ),
     "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
-      "Nu s-a putut conecta la serverul Invitaty",
+      "Nu s-a putut conecta la serverul VACoworking",
     ),
     "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
       "Aplicația este în mentenanță. Încearcă mai târziu",
@@ -184,9 +184,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
       "Este o aplicație pentru a crea invitații pentru tot felul de evenimente. Vă permite să alegeți șabloane și să personalizați invitația, să o partajați pe rețelele sociale, să primiți notificări de confirmare și să urmăriți prezența.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Ce este Invitaty?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("Ce este VACoworking?"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Nu, poți folosi Invitaty pentru a-ți proiecta invitațiile, dar pentru a le publica trebuie să efectuezi o plată pentru fiecare.",
+      "Nu, poți folosi VACoworking pentru a-ți proiecta invitațiile, dar pentru a le publica trebuie să efectuezi o plată pentru fiecare.",
     ),
     "faq2Question": MessageLookupByLibrary.simpleMessage("Este gratuit?"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
@@ -417,7 +417,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Status"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Contact Invitaty"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage("Contact VACoworking"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Termeni și condiții",
     ),
@@ -478,3 +478,4 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
+

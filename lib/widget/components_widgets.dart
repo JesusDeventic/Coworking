@@ -1,10 +1,10 @@
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/main.dart';
-import 'package:invitaty/page/users/version_changelog_page.dart';
-import 'package:invitaty/providers/language_provider.dart';
-import 'package:invitaty/providers/theme_provider.dart';
+﻿import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/main.dart';
+import 'package:vacoworking/page/users/version_changelog_page.dart';
+import 'package:vacoworking/providers/language_provider.dart';
+import 'package:vacoworking/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -727,3 +727,5 @@ Widget customToggleButtons({
     ],
   );
 }
+
+

@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "nl",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "Inloggen",
     "signUp":  "Account aanmaken",
     "userOrEmail":  "Gebruikersnaam of e-mail",
@@ -41,7 +41,7 @@
     "logout":  "Uitloggen",
     "appVersionChangeLogTitle":  "Wijzigingslogboek",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Eerste versie van Invitaty.",
+    "appVersion10Description":  "·Eerste versie van VACoworking.",
     "languageArabic":  "Arabisch",
     "languageCatalan":  "Catalaans",
     "languageChinese":  "Chinees",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "Gebruikersnaam of wachtwoord onjuist.\nWacht {seconds} seconden voordat je het opnieuw probeert",
     "registerError":  "Registratiefout",
     "dialogErrorTitle":  "Fout",
-    "dialogErrorServerConnection":  "Kan geen verbinding maken met de Invitaty-server",
-    "dialogErrorAppVersion":  "Er is een nieuwe versie van Invitaty beschikbaar.\nWerk de app bij om door te gaan",
+    "dialogErrorServerConnection":  "Kan geen verbinding maken met de VACoworking-server",
+    "dialogErrorAppVersion":  "Er is een nieuwe versie van VACoworking beschikbaar.\nWerk de app bij om door te gaan",
     "dialogErrorServerMaintenance":  "De app is momenteel in onderhoud. Probeer het later opnieuw",
     "currentServerVersionText":  "Beschikbare versie",
     "dialogWarningTitle":  "Let op",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "Juridische kennisgeving",
     "socialMailLabel":  "E-mail",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Invitaty-contact",
-    "faq1Question":  "Wat is Invitaty?",
+    "subjectSupport":  "VACoworking-contact",
+    "faq1Question":  "Wat is VACoworking?",
     "faq1Answer":  "Het is een app om uitnodigingen te maken voor allerlei soorten evenementen. Je kunt templates kiezen, de uitnodiging personaliseren, delen op social media, bevestigingsmeldingen ontvangen en de aanwezigheid bijhouden.",
     "faq2Question":  "Is het gratis?",
-    "faq2Answer":  "Nee, je kunt Invitaty gebruiken om je uitnodigingen te ontwerpen, maar om ze te publiceren moet je voor elke uitnodiging apart betalen.",
+    "faq2Answer":  "Nee, je kunt VACoworking gebruiken om je uitnodigingen te ontwerpen, maar om ze te publiceren moet je voor elke uitnodiging apart betalen.",
     "faq3Question":  "Hoe verwijder ik mijn account?",
     "faq3Answer":  "Je kunt je account verwijderen in de accountinstellingen in de app. Alles wat aan je account gekoppeld is, wordt verwijderd. Deze actie kan niet ongedaan worden gemaakt.",
     "errorAuthInvalidUsername":  "De gebruikersnaam moet 4–20 tekens lang zijn en mag alleen letters, cijfers, streepjes en underscores bevatten.",
@@ -205,7 +205,7 @@
     "showQrOption":  "QR tonen",
     "shareOption":  "Delen",
     "qrTitle":  "QR van @{username}",
-    "profileShareSubject":  "Profiel van @{username} op Invitaty",
+    "profileShareSubject":  "Profiel van @{username} op VACoworking",
     "lastAccessChipPrefix":  "Laatst online",
     "statusLabel":  "Status",
     "bioLabel":  "Bio",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "GA",
     "enterWithoutUser":  "Inloggen zonder gebruiker"
 }
+

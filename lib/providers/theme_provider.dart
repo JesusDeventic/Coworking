@@ -1,4 +1,4 @@
-import 'package:invitaty/core/user_preferences.dart';
+﻿import 'package:vacoworking/core/user_preferences.dart';
 import 'package:flutter/material.dart';
 
 class ThemeProvider extends ChangeNotifier {
@@ -27,3 +27,5 @@ class ThemeProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+

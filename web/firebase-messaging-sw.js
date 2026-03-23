@@ -1,6 +1,6 @@
-// Service Worker para notificaciones push de Invitaty
+﻿// Service Worker para notificaciones push de VACoworking
 
-console.log('Invitaty Service Worker cargado');
+console.log('VACoworking Service Worker cargado');
 
 self.addEventListener('install', (event) => {
   console.log('Service Worker instalado');
@@ -26,7 +26,7 @@ self.addEventListener('push', function (event) {
       vibrate: [200, 100, 200],
       requireInteraction: true,
       silent: false,
-      tag: data.fcmMessageId || 'invitaty-default-tag',
+      tag: data.fcmMessageId || 'VACoworking-default-tag',
       renotify: true,
       actions: [
         {
@@ -39,7 +39,7 @@ self.addEventListener('push', function (event) {
     event.waitUntil(
       self.registration
         .showNotification(
-          (data.notification && data.notification.title) || 'Invitaty',
+          (data.notification && data.notification.title) || 'VACoworking',
           options,
         )
         .then(() => {
@@ -73,4 +73,5 @@ self.addEventListener('notificationclick', function (event) {
     }),
   );
 });
+
 

@@ -1,4 +1,4 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+﻿// GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'intl/messages_all.dart';
@@ -54,9 +54,9 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Invitaty`
+  /// `VACoworking`
   String get appName {
-    return Intl.message('Invitaty', name: 'appName', desc: '', args: []);
+    return Intl.message('VACoworking', name: 'appName', desc: '', args: []);
   }
 
   /// `Sign in`
@@ -369,10 +369,10 @@ class S {
     return Intl.message('v1.0.0', name: 'appVersion10Code', desc: '', args: []);
   }
 
-  /// `·Initial release of Invitaty.`
+  /// `·Initial release of VACoworking.`
   String get appVersion10Description {
     return Intl.message(
-      '·Initial release of Invitaty.',
+      '·Initial release of VACoworking.',
       name: 'appVersion10Description',
       desc: '',
       args: [],
@@ -969,20 +969,20 @@ class S {
     return Intl.message('Error', name: 'dialogErrorTitle', desc: '', args: []);
   }
 
-  /// `Could not connect to the Invitaty server.`
+  /// `Could not connect to the VACoworking server.`
   String get dialogErrorServerConnection {
     return Intl.message(
-      'Could not connect to the Invitaty server.',
+      'Could not connect to the VACoworking server.',
       name: 'dialogErrorServerConnection',
       desc: '',
       args: [],
     );
   }
 
-  /// `A new version of Invitaty is available.\nUpdate the app to continue.`
+  /// `A new version of VACoworking is available.\nUpdate the app to continue.`
   String get dialogErrorAppVersion {
     return Intl.message(
-      'A new version of Invitaty is available.\nUpdate the app to continue.',
+      'A new version of VACoworking is available.\nUpdate the app to continue.',
       name: 'dialogErrorAppVersion',
       desc: '',
       args: [],
@@ -1144,20 +1144,20 @@ class S {
     );
   }
 
-  /// `Invitaty contact`
+  /// `VACoworking contact`
   String get subjectSupport {
     return Intl.message(
-      'Invitaty contact',
+      'VACoworking contact',
       name: 'subjectSupport',
       desc: '',
       args: [],
     );
   }
 
-  /// `What is Invitaty?`
+  /// `What is VACoworking?`
   String get faq1Question {
     return Intl.message(
-      'What is Invitaty?',
+      'What is VACoworking?',
       name: 'faq1Question',
       desc: '',
       args: [],
@@ -1184,10 +1184,10 @@ class S {
     );
   }
 
-  /// `No, you can use Invitaty to design your invitations, but to publish them you need to make a payment for each one.`
+  /// `No, you can use VACoworking to design your invitations, but to publish them you need to make a payment for each one.`
   String get faq2Answer {
     return Intl.message(
-      'No, you can use Invitaty to design your invitations, but to publish them you need to make a payment for each one.',
+      'No, you can use VACoworking to design your invitations, but to publish them you need to make a payment for each one.',
       name: 'faq2Answer',
       desc: '',
       args: [],
@@ -1779,10 +1779,10 @@ class S {
     );
   }
 
-  /// `Profile of @{username} on Invitaty`
+  /// `Profile of @{username} on VACoworking`
   String profileShareSubject(Object username) {
     return Intl.message(
-      'Profile of @$username on Invitaty',
+      'Profile of @$username on VACoworking',
       name: 'profileShareSubject',
       desc: '',
       args: [username],
@@ -1929,3 +1929,4 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
     return false;
   }
 }
+

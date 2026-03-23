@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "hi",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "साइन इन करें",
     "signUp":  "खाता बनाएं",
     "userOrEmail":  "उपयोगकर्ता नाम या ईमेल",
@@ -41,7 +41,7 @@
     "logout":  "साइन आउट",
     "appVersionChangeLogTitle":  "परिवर्तन लॉग",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Invitaty का प्रारंभिक संस्करण।",
+    "appVersion10Description":  "·VACoworking का प्रारंभिक संस्करण।",
     "languageArabic":  "अरबी",
     "languageCatalan":  "कैटलान",
     "languageChinese":  "चीनी",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "उपयोगकर्ता नाम या पासवर्ड गलत है।\nकृपया पुनः प्रयास करने से पहले {seconds} सेकंड प्रतीक्षा करें",
     "registerError":  "पंजीकरण त्रुटि",
     "dialogErrorTitle":  "त्रुटि",
-    "dialogErrorServerConnection":  "Invitaty सर्वर से कनेक्ट नहीं हो सका",
-    "dialogErrorAppVersion":  "Invitaty का नया संस्करण उपलब्ध है।\nजारी रखने के लिए ऐप अपडेट करें",
+    "dialogErrorServerConnection":  "VACoworking सर्वर से कनेक्ट नहीं हो सका",
+    "dialogErrorAppVersion":  "VACoworking का नया संस्करण उपलब्ध है।\nजारी रखने के लिए ऐप अपडेट करें",
     "dialogErrorServerMaintenance":  "ऐप इस समय रखरखाव में है। बाद में प्रयास करें",
     "currentServerVersionText":  "उपलब्ध संस्करण",
     "dialogWarningTitle":  "ध्यान दें",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "कानूनी सूचना",
     "socialMailLabel":  "ईमेल",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Invitaty संपर्क",
-    "faq1Question":  "Invitaty क्या है?",
+    "subjectSupport":  "VACoworking संपर्क",
+    "faq1Question":  "VACoworking क्या है?",
     "faq1Answer":  "यह एक ऐसा ऐप है जो हर तरह के कार्यक्रमों के लिए आमंत्रण बनाने में मदद करता है। आप टेम्पलेट चुन सकते हैं, आमंत्रण को पर्सनलाइज़ कर सकते हैं, इसे सोशल मीडिया पर शेयर कर सकते हैं, कन्फर्मेशन नोटिफिकेशन पा सकते हैं और उपस्थिति का ट्रैक रख सकते हैं।",
     "faq2Question":  "क्या यह मुफ्त है?",
-    "faq2Answer":  "नहीं, आप अपने आमंत्रण डिज़ाइन करने के लिए Invitaty का उपयोग कर सकते हैं, लेकिन उन्हें प्रकाशित करने के लिए आपको हर एक के लिए भुगतान करना होगा।",
+    "faq2Answer":  "नहीं, आप अपने आमंत्रण डिज़ाइन करने के लिए VACoworking का उपयोग कर सकते हैं, लेकिन उन्हें प्रकाशित करने के लिए आपको हर एक के लिए भुगतान करना होगा।",
     "faq3Question":  "मैं अपना खाता कैसे हटाऊँ?",
     "faq3Answer":  "आप ऐप में खाता सेटिंग्स से अपना खाता हटा सकते हैं। सब कुछ हट जाएगा। यह क्रिया पूर्ववत नहीं की जा सकती।",
     "errorAuthInvalidUsername":  "उपयोगकर्ता नाम 4–20 अक्षरों का होना चाहिए और केवल अक्षर, अंक, हाइफ़न और अंडरस्कोर हो सकते हैं।",
@@ -205,7 +205,7 @@
     "showQrOption":  "QR दिखाएँ",
     "shareOption":  "साझा करें",
     "qrTitle":  "@{username} का QR",
-    "profileShareSubject":  "Invitaty पर @{username} की प्रोफ़ाइल",
+    "profileShareSubject":  "VACoworking पर @{username} की प्रोफ़ाइल",
     "lastAccessChipPrefix":  "अंतिम ऑनलाइन",
     "statusLabel":  "स्थिति",
     "bioLabel":  "परिचय",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "जाएँ",
     "enterWithoutUser":  "बिना उपयोगकर्ता के प्रवेश करें"
 }
+

@@ -1,15 +1,15 @@
-import 'package:invitaty/api/invitaty_api.dart';
-import 'package:invitaty/core/api_error_messages.dart';
-import 'package:invitaty/core/user_preferences.dart';
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/controller/recaptcha_controller.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/model/user_model.dart';
-import 'package:invitaty/page/users/contact_page.dart';
-import 'package:invitaty/routes/app_routes.dart';
-import 'package:invitaty/widget/components_widgets.dart';
-import 'package:invitaty/providers/language_provider.dart';
+﻿import 'package:vacoworking/api/vacoworking_api.dart';
+import 'package:vacoworking/core/api_error_messages.dart';
+import 'package:vacoworking/core/user_preferences.dart';
+import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/controller/recaptcha_controller.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/model/user_model.dart';
+import 'package:vacoworking/page/users/contact_page.dart';
+import 'package:vacoworking/routes/app_routes.dart';
+import 'package:vacoworking/widget/components_widgets.dart';
+import 'package:vacoworking/providers/language_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
@@ -73,7 +73,7 @@ class _RegisterPageState extends State<RegisterPage> {
     setState(() => _isLoading = true);
     try {
       final lang = context.read<LanguageProvider>().currentLanguage;
-      final result = await InvitatyApi.register(
+      final result = await VACoworkingApi.register(
         username: _usernameController.text.trim(),
         email: _emailController.text.trim(),
         password: _passwordController.text,
@@ -88,8 +88,8 @@ class _RegisterPageState extends State<RegisterPage> {
         final token = result['token'] as String;
         final userJson = result['user'] as Map<String, dynamic>?;
         if (userJson != null) {
-          await InvitatyApi.saveToken(token);
-          globalCurrentUser = InvitatyUser.fromJson(userJson);
+          await VACoworkingApi.saveToken(token);
+          globalCurrentUser = VACoworkingUser.fromJson(userJson);
           await UserPreferences().setCachedUser(globalCurrentUser);
           showCustomSnackBar(S.current.welcome);
           RecaptchaService.hideBadge();
@@ -269,7 +269,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
                                             launchUrl(
-                                              Uri.parse('https://invitaty.com/terms-and-conditions/'),
+                                              Uri.parse('https://VACoworking.com/terms-and-conditions/'),
                                               mode: LaunchMode.externalApplication,
                                             );
                                           },
@@ -283,7 +283,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
                                             launchUrl(
-                                              Uri.parse('https://invitaty.com/privacy-policy/'),
+                                              Uri.parse('https://VACoworking.com/privacy-policy/'),
                                               mode: LaunchMode.externalApplication,
                                             );
                                           },
@@ -365,3 +365,6 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
+
+
+

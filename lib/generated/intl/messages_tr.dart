@@ -1,4 +1,4 @@
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a tr locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "Kullanıcı adı veya şifre hatalı.\nTekrar denemeden önce ${seconds} saniye bekleyin";
 
-  static String m1(username) => "Invitaty\'ta @${username} profili";
+  static String m1(username) => "VACoworking\'ta @${username} profili";
 
   static String m2(username) => "@${username} için QR";
 
@@ -33,10 +33,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "actionNo": MessageLookupByLibrary.simpleMessage("Hayır"),
     "actionYes": MessageLookupByLibrary.simpleMessage("Evet"),
     "andLabel": MessageLookupByLibrary.simpleMessage("ve"),
-    "appName": MessageLookupByLibrary.simpleMessage("Invitaty"),
+    "appName": MessageLookupByLibrary.simpleMessage("VACoworking"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
     "appVersion10Description": MessageLookupByLibrary.simpleMessage(
-      "·Invitaty\'ın ilk sürümü.",
+      "·VACoworking\'ın ilk sürümü.",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Değişiklik günlüğü",
@@ -107,10 +107,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Şifre",
     ),
     "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
-      "Invitaty\'ın yeni bir sürümü var.\nDevam etmek için uygulamayı güncelleyin",
+      "VACoworking\'ın yeni bir sürümü var.\nDevam etmek için uygulamayı güncelleyin",
     ),
     "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
-      "Invitaty sunucusuna bağlanılamadı",
+      "VACoworking sunucusuna bağlanılamadı",
     ),
     "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
       "Uygulama şu anda bakımda. Daha sonra tekrar deneyin",
@@ -182,9 +182,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
       "Bu, her türlü etkinlik için davetiye oluşturmanıza yardımcı olan bir uygulamadır. Şablon seçmenize ve davetiyenizi kişiselleştirmenize, sosyal medyada paylaşmanıza, onay bildirimleri almanıza ve katılımı takip etmenize olanak tanır.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Invitaty nedir?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("VACoworking nedir?"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Hayır, davetiyelerinizi tasarlamak için Invitaty\'yi kullanabilirsiniz; ancak yayınlayabilmek için her biri için ödeme yapmanız gerekir.",
+      "Hayır, davetiyelerinizi tasarlamak için VACoworking\'yi kullanabilirsiniz; ancak yayınlayabilmek için her biri için ödeme yapmanız gerekir.",
     ),
     "faq2Question": MessageLookupByLibrary.simpleMessage("Ücretsiz mi?"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
@@ -405,7 +405,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Durum"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Invitaty iletişim"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking iletişim"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Şartlar ve koşullar",
     ),
@@ -460,3 +460,4 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("Hatalı bilgiler"),
   };
 }
+

@@ -1,12 +1,12 @@
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/page/home/home_placeholder_page.dart';
-import 'package:invitaty/page/users/account_profile_page.dart';
-import 'package:invitaty/page/home/splash_screen_page.dart';
-import 'package:invitaty/page/login/forgot_password_page.dart';
-import 'package:invitaty/page/login/login_page.dart';
-import 'package:invitaty/page/login/register_page.dart';
+﻿import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/page/home/home_placeholder_page.dart';
+import 'package:vacoworking/page/users/account_profile_page.dart';
+import 'package:vacoworking/page/home/splash_screen_page.dart';
+import 'package:vacoworking/page/login/forgot_password_page.dart';
+import 'package:vacoworking/page/login/login_page.dart';
+import 'package:vacoworking/page/login/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -79,3 +79,5 @@ GoRouter createAppRouter(GlobalKey<NavigatorState> navigatorKey) {
     ),
   );
 }
+
+

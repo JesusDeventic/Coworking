@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "en",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "Sign in",
     "signUp":  "Create account",
     "userOrEmail":  "Username or email",
@@ -41,7 +41,7 @@
     "logout":  "Log out",
     "appVersionChangeLogTitle":  "Changelog",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Initial release of Invitaty.",
+    "appVersion10Description":  "·Initial release of VACoworking.",
     "languageArabic":  "Arabic",
     "languageCatalan":  "Catalan",
     "languageChinese":  "Chinese",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "Incorrect username or password.\nPlease wait {seconds} seconds before trying again.",
     "registerError":  "Registration error",
     "dialogErrorTitle":  "Error",
-    "dialogErrorServerConnection":  "Could not connect to the Invitaty server.",
-    "dialogErrorAppVersion":  "A new version of Invitaty is available.\nUpdate the app to continue.",
+    "dialogErrorServerConnection":  "Could not connect to the VACoworking server.",
+    "dialogErrorAppVersion":  "A new version of VACoworking is available.\nUpdate the app to continue.",
     "dialogErrorServerMaintenance":  "The app is currently under maintenance. Please try again later.",
     "currentServerVersionText":  "Available version",
     "dialogWarningTitle":  "Attention",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "Legal notice",
     "socialMailLabel":  "Email",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Invitaty contact",
-    "faq1Question":  "What is Invitaty?",
+    "subjectSupport":  "VACoworking contact",
+    "faq1Question":  "What is VACoworking?",
     "faq1Answer":  "It's an app to create invitations for all kinds of events. It lets you choose templates and personalize the invitation, share it on social media, receive confirmation notifications, and track attendance.",
     "faq2Question":  "Is it free?",
-    "faq2Answer":  "No, you can use Invitaty to design your invitations, but to publish them you need to make a payment for each one.",
+    "faq2Answer":  "No, you can use VACoworking to design your invitations, but to publish them you need to make a payment for each one.",
     "faq3Question":  "How do I delete my account?",
     "faq3Answer":  "You can delete your user from account settings in the app. This removes everything related to your user. This action cannot be undone.",
     "errorAuthInvalidUsername":  "Username must be 4–20 characters and may only contain letters, numbers, hyphens and underscores.",
@@ -205,7 +205,7 @@
     "showQrOption":  "Show QR",
     "shareOption":  "Share",
     "qrTitle":  "QR for @{username}",
-    "profileShareSubject":  "Profile of @{username} on Invitaty",
+    "profileShareSubject":  "Profile of @{username} on VACoworking",
     "lastAccessChipPrefix":  "Last seen",
     "statusLabel":  "Status",
     "bioLabel":  "Bio",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "GO",
     "enterWithoutUser":  "Enter without user"
 }
+

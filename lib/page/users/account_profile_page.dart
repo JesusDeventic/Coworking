@@ -1,14 +1,14 @@
-import 'package:country_picker/country_picker.dart';
+﻿import 'package:country_picker/country_picker.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:invitaty/api/invitaty_api.dart';
-import 'package:invitaty/core/api_error_messages.dart';
-import 'package:invitaty/core/user_preferences.dart';
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/model/user_model.dart';
-import 'package:invitaty/routes/app_routes.dart';
-import 'package:invitaty/widget/components_widgets.dart';
+import 'package:vacoworking/api/vacoworking_api.dart';
+import 'package:vacoworking/core/api_error_messages.dart';
+import 'package:vacoworking/core/user_preferences.dart';
+import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/model/user_model.dart';
+import 'package:vacoworking/routes/app_routes.dart';
+import 'package:vacoworking/widget/components_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -202,7 +202,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
       ),
     );
 
-    final result = await InvitatyApi.updateUser(
+    final result = await VACoworkingApi.updateUser(
       userEmail: _emailController.text.trim(),
       websiteUrl: _websiteController.text.trim(),
       displayName: _displayNameController.text.trim().isEmpty ? null : _displayNameController.text.trim(),
@@ -221,7 +221,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
     if (result['success'] == true) {
       final userJson = result['user'];
       if (userJson is Map<String, dynamic>) {
-        globalCurrentUser = InvitatyUser.fromJson(userJson);
+        globalCurrentUser = VACoworkingUser.fromJson(userJson);
         await UserPreferences().setCachedUser(globalCurrentUser);
       }
       showCustomSnackBar(S.current.messageUpdateSuccess, type: 1);
@@ -579,7 +579,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                         ),
                       );
 
-                      final result = await InvitatyApi.changePassword(
+                      final result = await VACoworkingApi.changePassword(
                         currentPassword: current,
                         newPassword: newPwd,
                       );
@@ -670,7 +670,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                         ),
                       );
 
-                      final result = await InvitatyApi.deleteAccount(pwd);
+                      final result = await VACoworkingApi.deleteAccount(pwd);
 
                       navigator.pop();
 
@@ -693,3 +693,6 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
     );
   }
 }
+
+
+

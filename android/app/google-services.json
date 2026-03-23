@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "819871040897",
-    "project_id": "invitaty",
-    "storage_bucket": "invitaty.firebasestorage.app"
+    "project_number": "690823771522",
+    "project_id": "va-coworking",
+    "storage_bucket": "va-coworking.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:819871040897:android:ea5da9db5613842ca2d480",
+        "mobilesdk_app_id": "1:690823771522:android:788e6bf9f3c1fdb182cb9b",
         "android_client_info": {
-          "package_name": "com.deventic.invitaty"
+          "package_name": "com.deventic.vacoworking"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCxPNGH1--fb-uKTdQo9rcN2pNmrHauYO0"
+          "current_key": "AIzaSyAyTIqW5hnLvJxp6QZPPUPHYFHv55wqkKA"
         }
       ],
       "services": {

@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "sv",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "Logga in",
     "signUp":  "Skapa konto",
     "userOrEmail":  "Användarnamn eller e-post",
@@ -41,7 +41,7 @@
     "logout":  "Logga ut",
     "appVersionChangeLogTitle":  "Ändringslogg",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Första versionen av Invitaty.",
+    "appVersion10Description":  "·Första versionen av VACoworking.",
     "languageArabic":  "Arabiska",
     "languageCatalan":  "Katalanska",
     "languageChinese":  "Kinesiska",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "Fel användarnamn eller lösenord.\nVänta {seconds} sekunder innan du försöker igen",
     "registerError":  "Registreringsfel",
     "dialogErrorTitle":  "Fel",
-    "dialogErrorServerConnection":  "Kunde inte ansluta till Invitaty-servern",
-    "dialogErrorAppVersion":  "En ny version av Invitaty finns tillgänglig.\nUppdatera appen för att fortsätta",
+    "dialogErrorServerConnection":  "Kunde inte ansluta till VACoworking-servern",
+    "dialogErrorAppVersion":  "En ny version av VACoworking finns tillgänglig.\nUppdatera appen för att fortsätta",
     "dialogErrorServerMaintenance":  "Appen underhålls just nu. Försök igen senare",
     "currentServerVersionText":  "Tillgänglig version",
     "dialogWarningTitle":  "Obs",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "Juridisk information",
     "socialMailLabel":  "E-post",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Kontakt Invitaty",
-    "faq1Question":  "Vad är Invitaty?",
+    "subjectSupport":  "Kontakt VACoworking",
+    "faq1Question":  "Vad är VACoworking?",
     "faq1Answer":  "Det är en app för att skapa inbjudningar för alla typer av evenemang. Du kan välja mallar och anpassa inbjudan, dela den i sociala medier, få bekräftelseaviseringar och följa deltagandet.",
     "faq2Question":  "Är det gratis?",
-    "faq2Answer":  "Nej, du kan använda Invitaty för att designa dina inbjudningar, men för att kunna publicera dem måste du betala för varje enskild.",
+    "faq2Answer":  "Nej, du kan använda VACoworking för att designa dina inbjudningar, men för att kunna publicera dem måste du betala för varje enskild.",
     "faq3Question":  "Hur tar jag bort mitt konto?",
     "faq3Answer":  "Du kan ta bort ditt konto under kontoinställningar i appen. Allt kopplat till kontot tas bort. Detta kan inte ångras.",
     "errorAuthInvalidUsername":  "Användarnamnet måste vara 4–20 tecken och får bara innehålla bokstäver, siffror, bindestreck och understreck.",
@@ -205,7 +205,7 @@
     "showQrOption":  "Visa QR",
     "shareOption":  "Dela",
     "qrTitle":  "QR för @{username}",
-    "profileShareSubject":  "Profil för @{username} på Invitaty",
+    "profileShareSubject":  "Profil för @{username} på VACoworking",
     "lastAccessChipPrefix":  "Senast online",
     "statusLabel":  "Status",
     "bioLabel":  "Bio",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "GÅ",
     "enterWithoutUser":  "Logga in utan användare"
 }
+

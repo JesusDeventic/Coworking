@@ -1,4 +1,4 @@
-import 'package:invitaty/generated/l10n.dart';
+﻿import 'package:vacoworking/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 /// Página de registro de versiones (mismo diseño que Fitcron).
@@ -68,3 +68,5 @@ class VersionChangeLogPage extends StatelessWidget {
     );
   }
 }
+
+

@@ -1,15 +1,15 @@
-import 'package:invitaty/api/invitaty_api.dart';
-import 'package:invitaty/core/api_error_messages.dart';
-import 'package:invitaty/core/user_preferences.dart';
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/controller/recaptcha_controller.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/model/user_model.dart';
-import 'package:invitaty/page/users/contact_page.dart';
-import 'package:invitaty/routes/app_routes.dart';
-import 'package:invitaty/widget/components_widgets.dart';
-import 'package:invitaty/providers/language_provider.dart';
+﻿import 'package:vacoworking/api/vacoworking_api.dart';
+import 'package:vacoworking/core/api_error_messages.dart';
+import 'package:vacoworking/core/user_preferences.dart';
+import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/controller/recaptcha_controller.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/model/user_model.dart';
+import 'package:vacoworking/page/users/contact_page.dart';
+import 'package:vacoworking/routes/app_routes.dart';
+import 'package:vacoworking/widget/components_widgets.dart';
+import 'package:vacoworking/providers/language_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
       _isButtonDisabled = true;
     });
     try {
-      final result = await InvitatyApi.login(
+      final result = await VACoworkingApi.login(
         login: _loginController.text.trim(),
         password: _passwordController.text,
       );
@@ -90,8 +90,8 @@ class _LoginPageState extends State<LoginPage> {
         final token = result['token'] as String?;
         final userJson = result['user'] as Map<String, dynamic>?;
         if (token != null && userJson != null) {
-          await InvitatyApi.saveToken(token);
-          globalCurrentUser = InvitatyUser.fromJson(userJson);
+          await VACoworkingApi.saveToken(token);
+          globalCurrentUser = VACoworkingUser.fromJson(userJson);
           await UserPreferences().setCachedUser(globalCurrentUser);
           if (_keepSession) {
             // Token ya guardado en saveToken
@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
   void _enterWithoutLogin() {
     RecaptchaService.hideBadge();
     globalUserToken = '';
-    globalCurrentUser = InvitatyUser();
+    globalCurrentUser = VACoworkingUser();
     context.go(AppRoutes.home);
   }
 
@@ -307,3 +307,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
+

@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "zh",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "登录",
     "signUp":  "创建账户",
     "userOrEmail":  "用户名或电子邮箱",
@@ -41,7 +41,7 @@
     "logout":  "退出登录",
     "appVersionChangeLogTitle":  "更新日志",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Invitaty 初始版本。",
+    "appVersion10Description":  "·VACoworking 初始版本。",
     "languageArabic":  "阿拉伯语",
     "languageCatalan":  "加泰罗尼亚语",
     "languageChinese":  "中文",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "用户名或密码错误。\n请等待 {seconds} 秒后再试",
     "registerError":  "注册错误",
     "dialogErrorTitle":  "错误",
-    "dialogErrorServerConnection":  "无法连接到 Invitaty 服务器",
-    "dialogErrorAppVersion":  "Invitaty 有新版本可用。\n请更新应用以继续",
+    "dialogErrorServerConnection":  "无法连接到 VACoworking 服务器",
+    "dialogErrorAppVersion":  "VACoworking 有新版本可用。\n请更新应用以继续",
     "dialogErrorServerMaintenance":  "应用正在维护中，请稍后再试",
     "currentServerVersionText":  "可用版本",
     "dialogWarningTitle":  "注意",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "法律声明",
     "socialMailLabel":  "电子邮箱",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Invitaty 联系",
-    "faq1Question":  "Invitaty 是什么？",
+    "subjectSupport":  "VACoworking 联系",
+    "faq1Question":  "VACoworking 是什么？",
     "faq1Answer":  "这是一款用于制作各种活动邀请函的应用。它让你选择模板、个性化邀请函内容、在社交媒体上分享、接收确认通知，并跟踪出席情况。",
     "faq2Question":  "免费吗？",
-    "faq2Answer":  "不可以。你可以使用 Invitaty 来设计邀请函，但要发布它们，你需要为每一份分别付款。",
+    "faq2Answer":  "不可以。你可以使用 VACoworking 来设计邀请函，但要发布它们，你需要为每一份分别付款。",
     "faq3Question":  "如何删除我的账户？",
     "faq3Answer":  "您可在应用内的账户设置中删除账户，这将删除与账户相关的所有数据。此操作无法撤销。",
     "errorAuthInvalidUsername":  "用户名长度须为 4–20 个字符，且只能包含字母、数字、连字符和下划线。",
@@ -205,7 +205,7 @@
     "showQrOption":  "显示二维码",
     "shareOption":  "分享",
     "qrTitle":  "@{username} 的二维码",
-    "profileShareSubject":  "Invitaty 上 @{username} 的资料",
+    "profileShareSubject":  "VACoworking 上 @{username} 的资料",
     "lastAccessChipPrefix":  "上次在线",
     "statusLabel":  "状态",
     "bioLabel":  "简介",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "去登录",
     "enterWithoutUser":  "无需用户登录"
 }
+

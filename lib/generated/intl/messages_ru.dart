@@ -1,4 +1,4 @@
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a ru locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "Неверное имя пользователя или пароль.\nПодождите ${seconds} секунд перед повторной попыткой";
 
-  static String m1(username) => "Профиль @${username} в Invitaty";
+  static String m1(username) => "Профиль @${username} в VACoworking";
 
   static String m2(username) => "QR @${username}";
 
@@ -35,10 +35,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "actionNo": MessageLookupByLibrary.simpleMessage("Нет"),
     "actionYes": MessageLookupByLibrary.simpleMessage("Да"),
     "andLabel": MessageLookupByLibrary.simpleMessage("и"),
-    "appName": MessageLookupByLibrary.simpleMessage("Invitaty"),
+    "appName": MessageLookupByLibrary.simpleMessage("VACoworking"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
     "appVersion10Description": MessageLookupByLibrary.simpleMessage(
-      "·Первый выпуск Invitaty.",
+      "·Первый выпуск VACoworking.",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Список изменений",
@@ -115,10 +115,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Пароль",
     ),
     "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
-      "Доступна новая версия Invitaty.\nОбновите приложение, чтобы продолжить",
+      "Доступна новая версия VACoworking.\nОбновите приложение, чтобы продолжить",
     ),
     "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
-      "Не удалось подключиться к серверу Invitaty",
+      "Не удалось подключиться к серверу VACoworking",
     ),
     "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
       "Приложение на обслуживании. Попробуйте позже",
@@ -190,9 +190,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
       "Это приложение для создания приглашений на любые мероприятия. Оно позволяет выбрать шаблоны, настроить приглашение, поделиться им в социальных сетях, получать уведомления о подтверждении и отслеживать посещаемость.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Что такое Invitaty?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("Что такое VACoworking?"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Нет, вы можете использовать Invitaty, чтобы оформить свои приглашения, но чтобы их опубликовать, вам нужно оплачивать каждое из них.",
+      "Нет, вы можете использовать VACoworking, чтобы оформить свои приглашения, но чтобы их опубликовать, вам нужно оплачивать каждое из них.",
     ),
     "faq2Question": MessageLookupByLibrary.simpleMessage("Это бесплатно?"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
@@ -423,7 +423,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Статус"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Связь с Invitaty"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage("Связь с VACoworking"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Условия использования",
     ),
@@ -476,3 +476,4 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("Неверные данные"),
   };
 }
+

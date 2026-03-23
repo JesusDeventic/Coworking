@@ -1,9 +1,9 @@
-import 'package:invitaty/api/invitaty_api.dart';
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/core/user_preferences.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/model/user_model.dart';
+﻿import 'package:vacoworking/api/vacoworking_api.dart';
+import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/core/user_preferences.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/model/user_model.dart';
 import 'package:flutter/material.dart';
 
 /// Idioma de la app: SharedPreferences es la fuente de verdad (como Fitcron).
@@ -68,7 +68,7 @@ class LanguageProvider extends ChangeNotifier {
 
     // Persistir en backend para notificaciones (si hay sesión)
     if (globalUserToken.isNotEmpty && globalCurrentUser.username.isNotEmpty) {
-      final result = await InvitatyApi.updateUser(
+      final result = await VACoworkingApi.updateUser(
         userEmail: globalCurrentUser.email,
         language: _currentLanguage,
         dateFormat: globalCurrentUser.dateFormat,
@@ -77,7 +77,7 @@ class LanguageProvider extends ChangeNotifier {
       if (result['success'] == true) {
         final userJson = result['user'];
         if (userJson is Map<String, dynamic>) {
-          globalCurrentUser = InvitatyUser.fromJson(userJson);
+          globalCurrentUser = VACoworkingUser.fromJson(userJson);
           await _prefs.setCachedUser(globalCurrentUser);
         }
       }
@@ -87,3 +87,5 @@ class LanguageProvider extends ChangeNotifier {
     syncPushConfig();
   }
 }
+
+

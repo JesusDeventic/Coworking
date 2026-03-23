@@ -1,4 +1,4 @@
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a zh locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -22,7 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(seconds) => "用户名或密码错误。\n请等待 ${seconds} 秒后再试";
 
-  static String m1(username) => "Invitaty 上 @${username} 的资料";
+  static String m1(username) => "VACoworking 上 @${username} 的资料";
 
   static String m2(username) => "@${username} 的二维码";
 
@@ -32,10 +32,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "actionNo": MessageLookupByLibrary.simpleMessage("否"),
     "actionYes": MessageLookupByLibrary.simpleMessage("是"),
     "andLabel": MessageLookupByLibrary.simpleMessage("和"),
-    "appName": MessageLookupByLibrary.simpleMessage("Invitaty"),
+    "appName": MessageLookupByLibrary.simpleMessage("VACoworking"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
     "appVersion10Description": MessageLookupByLibrary.simpleMessage(
-      "·Invitaty 初始版本。",
+      "·VACoworking 初始版本。",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage("更新日志"),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("去登录"),
@@ -76,10 +76,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dialogDeleteAccountPassword": MessageLookupByLibrary.simpleMessage("密码"),
     "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
-      "Invitaty 有新版本可用。\n请更新应用以继续",
+      "VACoworking 有新版本可用。\n请更新应用以继续",
     ),
     "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
-      "无法连接到 Invitaty 服务器",
+      "无法连接到 VACoworking 服务器",
     ),
     "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
       "应用正在维护中，请稍后再试",
@@ -129,9 +129,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
       "这是一款用于制作各种活动邀请函的应用。它让你选择模板、个性化邀请函内容、在社交媒体上分享、接收确认通知，并跟踪出席情况。",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Invitaty 是什么？"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("VACoworking 是什么？"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "不可以。你可以使用 Invitaty 来设计邀请函，但要发布它们，你需要为每一份分别付款。",
+      "不可以。你可以使用 VACoworking 来设计邀请函，但要发布它们，你需要为每一份分别付款。",
     ),
     "faq2Question": MessageLookupByLibrary.simpleMessage("免费吗？"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
@@ -288,7 +288,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("状态"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Invitaty 联系"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking 联系"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage("服务条款"),
     "textUserSupportDescription": MessageLookupByLibrary.simpleMessage(
       "需要帮助？请通过任一渠道联系我们，我们会尽快回复。",
@@ -325,3 +325,4 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("凭据错误"),
   };
 }
+

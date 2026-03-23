@@ -1,10 +1,10 @@
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/routes/app_routes.dart';
-import 'package:invitaty/controller/recaptcha_controller.dart';
+﻿import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/routes/app_routes.dart';
+import 'package:vacoworking/controller/recaptcha_controller.dart';
 import 'dart:io';
-import 'package:invitaty/api/invitaty_api.dart';
+import 'package:vacoworking/api/vacoworking_api.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -49,7 +49,7 @@ class _SplashScreenPageState extends State<SplashScreenPage>
 
   Future<void> _checkServerStatusAndNavigate() async {
     try {
-      final status = await InvitatyApi.getStatus();
+      final status = await VACoworkingApi.getStatus();
       if (!mounted) return;
 
       if (status == null) {
@@ -226,3 +226,6 @@ class _SplashScreenPageState extends State<SplashScreenPage>
     super.dispose();
   }
 }
+
+
+

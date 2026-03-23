@@ -1,7 +1,7 @@
-﻿/// Modelo de usuario devuelto por la API de Invitaty (WordPress).
+﻿/// Modelo de usuario devuelto por la API de VACoworking (WordPress).
 ///
-/// Coincide con la estructura de `invitaty_get_full_user_data()` en `usuario.php` (WordPress).
-class InvitatyUser {
+/// Coincide con la estructura de `VACoworking_get_full_user_data()` en `usuario.php` (WordPress).
+class VACoworkingUser {
   int id;
   String username;
   String email;
@@ -24,7 +24,7 @@ class InvitatyUser {
   String reviewStatus;
   String reviewPromptedAt;
 
-  InvitatyUser({
+  VACoworkingUser({
     this.id = 0,
     this.username = '',
     this.email = '',
@@ -50,8 +50,8 @@ class InvitatyUser {
 
   bool get isEmpty => id == 0 && username.isEmpty;
 
-  factory InvitatyUser.fromJson(Map<String, dynamic> json) {
-    return InvitatyUser(
+  factory VACoworkingUser.fromJson(Map<String, dynamic> json) {
+    return VACoworkingUser(
       id: (json['id'] as num?)?.toInt() ?? 0,
       username: (json['username'] as String?) ?? '',
       // El backend usa `user_email`; admitimos tambiÃ©n `email` por compatibilidad.
@@ -71,15 +71,15 @@ class InvitatyUser {
       country: (json['country'] as String?) ?? '',
       birthdate: (json['birthdate'] as String?) ?? '',
       isRetrotecaVip:
-          (json['invitaty_retroteca_vip'] as bool?) ?? false,
+          (json['VACoworking_retroteca_vip'] as bool?) ?? false,
       marketingConsent:
           (json['marketing_consent'] as bool?) ?? false,
       accountStatus: (json['account_status'] as String?) ?? 'active',
-      lastLogin: (json['invitaty_last_login'] as String?) ?? '',
+      lastLogin: (json['VACoworking_last_login'] as String?) ?? '',
       reviewStatus:
-          (json['invitaty_review_status'] as String?) ?? 'none',
+          (json['VACoworking_review_status'] as String?) ?? 'none',
       reviewPromptedAt:
-          (json['invitaty_review_prompted_at'] as String?) ?? '',
+          (json['VACoworking_review_prompted_at'] as String?) ?? '',
     );
   }
 
@@ -101,3 +101,4 @@ class InvitatyUser {
         'marketing_consent': marketingConsent,
       };
 }
+

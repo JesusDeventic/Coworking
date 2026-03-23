@@ -1,59 +1,59 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/core/secure_storage.dart';
-import 'package:invitaty/model/user_model.dart';
-import 'package:invitaty/model/app_status_model.dart';
-import 'package:invitaty/model/private_message_model.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/core/secure_storage.dart';
+import 'package:vacoworking/model/user_model.dart';
+import 'package:vacoworking/model/app_status_model.dart';
+import 'package:vacoworking/model/private_message_model.dart';
 import 'package:flutter/foundation.dart' show kIsWeb, defaultTargetPlatform, TargetPlatform;
 import 'package:http/http.dart' as http;
 
-/// Base URL del backend WordPress (REST namespace `invitaty/v1`).
+/// Base URL del backend WordPress (REST namespace `VACoworking/v1`).
 /// Ajusta el dominio al servidor donde despliegues los snippets PHP.
-const String invitatyBaseUrl = 'https://invitaty.com/wp-json/invitaty/v1';
+const String VACoworkingBaseUrl = 'https://coworking.deventic.com/wp-json/VACoworking/v1';
 /// Base pública de la app Flutter Web para enlaces compartibles de perfil.
 /// Ajusta este valor al dominio real donde publiques la app web.
-const String invitatyAppPublicBaseUrl = 'https://app.invitaty.com';
+const String VACoworkingAppPublicBaseUrl = 'https://app.VACoworking.com';
 
-final InvitatySecureStorage _secureStorage = InvitatySecureStorage();
+final VACoworkingSecureStorage _secureStorage = VACoworkingSecureStorage();
 
 /// User-Agent con app + dispositivo para que el backend lo guarde en user_agent.
-String _getInvitatyUserAgent() {
+String _getVACoworkingUserAgent() {
   final v = globalCurrentVersionApp.isNotEmpty ? globalCurrentVersionApp : '1.0.0';
-  if (kIsWeb) return 'Invitaty/$v (Web)';
+  if (kIsWeb) return 'VACoworking/$v (Web)';
   switch (defaultTargetPlatform) {
     case TargetPlatform.android:
-      return 'Invitaty/$v (Android)';
+      return 'VACoworking/$v (Android)';
     case TargetPlatform.iOS:
-      return 'Invitaty/$v (iOS)';
+      return 'VACoworking/$v (iOS)';
     case TargetPlatform.windows:
-      return 'Invitaty/$v (Windows)';
+      return 'VACoworking/$v (Windows)';
     case TargetPlatform.macOS:
-      return 'Invitaty/$v (macOS)';
+      return 'VACoworking/$v (macOS)';
     case TargetPlatform.linux:
-      return 'Invitaty/$v (Linux)';
+      return 'VACoworking/$v (Linux)';
     default:
-      return 'Invitaty/$v';
+      return 'VACoworking/$v';
   }
 }
 
-class InvitatyApi {
-  static const String _baseUrl = invitatyBaseUrl;
+class VACoworkingApi {
+  static const String _baseUrl = VACoworkingBaseUrl;
 
   static String buildPublicProfileUrl(String username) {
     final clean = username.trim();
     if (clean.isEmpty) return '';
     // Deep link para navegación dentro de la app web (y que también se puede
     // mapear a la app nativa con App Links / Universal Links).
-    return '$invitatyAppPublicBaseUrl/user/${Uri.encodeComponent(clean)}';
+    return '$VACoworkingAppPublicBaseUrl/user/${Uri.encodeComponent(clean)}';
   }
 
   static Map<String, String> _headers({String? token}) {
     final map = <String, String>{
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'User-Agent': _getInvitatyUserAgent(),
+      'User-Agent': _getVACoworkingUserAgent(),
     };
     if (token != null && token.isNotEmpty) {
       map['Authorization'] = 'Bearer $token';
@@ -120,7 +120,7 @@ class InvitatyApi {
   }
 
   /// GET /auth/me — valida token y devuelve usuario o null.
-  static Future<InvitatyUser?> validateToken(String token) async {
+  static Future<VACoworkingUser?> validateToken(String token) async {
     final url = Uri.parse('$_baseUrl/auth/me');
     final response = await http.get(
       url,
@@ -131,7 +131,7 @@ class InvitatyApi {
     if (data == null || data['success'] != true) return null;
     final userJson = data['user'];
     if (userJson is! Map<String, dynamic>) return null;
-    return InvitatyUser.fromJson(userJson);
+    return VACoworkingUser.fromJson(userJson);
   }
 
   /// POST /auth/logout
@@ -194,13 +194,13 @@ class InvitatyApi {
       await logout(globalUserToken);
     }
     globalUserToken = '';
-    globalCurrentUser = InvitatyUser();
+    globalCurrentUser = VACoworkingUser();
     await _secureStorage.removeToken();
   }
 
   /// Verifica un token de reCAPTCHA v3 contra el endpoint de WordPress.
   static Future<Map<String, dynamic>> verifyRecaptcha(String token) async {
-    final url = Uri.parse('$invitatyBaseUrl/verify-recaptcha');
+    final url = Uri.parse('$VACoworkingBaseUrl/verify-recaptcha');
     final response = await http.post(
       url,
       headers: _headers(),
@@ -219,13 +219,13 @@ class InvitatyApi {
   }
 
   /// GET /status — devuelve versión mínima y estado (mantenimiento).
-  static Future<InvitatyAppStatus?> getStatus() async {
-    final url = Uri.parse('$invitatyBaseUrl/status');
+  static Future<VACoworkingAppStatus?> getStatus() async {
+    final url = Uri.parse('$VACoworkingBaseUrl/status');
     try {
       final response = await http.get(url, headers: _headers());
       if (response.statusCode != 200) return null;
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
-      return InvitatyAppStatus.fromJson(data);
+      return VACoworkingAppStatus.fromJson(data);
     } catch (_) {
       return null;
     }
@@ -280,7 +280,7 @@ class InvitatyApi {
     final url = Uri.parse('$_baseUrl/user/update');
     final request = http.MultipartRequest('POST', url);
     request.headers['Authorization'] = 'Bearer $token';
-    request.headers['User-Agent'] = _getInvitatyUserAgent();
+    request.headers['User-Agent'] = _getVACoworkingUserAgent();
     request.headers['Accept'] = 'application/json';
 
     request.fields['user_email'] = userEmail;
@@ -322,7 +322,7 @@ class InvitatyApi {
   }
 
   /// GET /user/public/{username}
-  static Future<InvitatyUser?> getPublicUserByUsername(String username) async {
+  static Future<VACoworkingUser?> getPublicUserByUsername(String username) async {
     final clean = username.trim();
     if (clean.isEmpty) return null;
 
@@ -337,7 +337,7 @@ class InvitatyApi {
       if (data['success'] != true) return null;
       final userJson = data['user'];
       if (userJson is! Map<String, dynamic>) return null;
-      return InvitatyUser.fromJson(userJson);
+      return VACoworkingUser.fromJson(userJson);
     } catch (_) {
       return null;
     }
@@ -622,3 +622,5 @@ class InvitatyApi {
     }
   }
 }
+
+

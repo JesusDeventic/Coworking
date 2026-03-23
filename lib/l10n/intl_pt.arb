@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "pt",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "Entrar",
     "signUp":  "Criar conta",
     "userOrEmail":  "Nome de usuário ou e-mail",
@@ -41,7 +41,7 @@
     "logout":  "Sair",
     "appVersionChangeLogTitle":  "Registro de alterações",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Versão inicial do Invitaty.",
+    "appVersion10Description":  "·Versão inicial do VACoworking.",
     "languageArabic":  "Árabe",
     "languageCatalan":  "Catalão",
     "languageChinese":  "Chinês",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "Nome de usuário ou senha incorretos.\nAguarde {seconds} segundos para tentar novamente",
     "registerError":  "Erro no registro",
     "dialogErrorTitle":  "Erro",
-    "dialogErrorServerConnection":  "Não foi possível conectar ao servidor Invitaty",
-    "dialogErrorAppVersion":  "Há uma nova versão do Invitaty disponível.\nAtualize o app para continuar",
+    "dialogErrorServerConnection":  "Não foi possível conectar ao servidor VACoworking",
+    "dialogErrorAppVersion":  "Há uma nova versão do VACoworking disponível.\nAtualize o app para continuar",
     "dialogErrorServerMaintenance":  "O aplicativo está em manutenção no momento. Tente novamente mais tarde",
     "currentServerVersionText":  "Versão disponível",
     "dialogWarningTitle":  "Atenção",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "Aviso legal",
     "socialMailLabel":  "E-mail",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Contato Invitaty",
-    "faq1Question":  "O que é o Invitaty?",
+    "subjectSupport":  "Contato VACoworking",
+    "faq1Question":  "O que é o VACoworking?",
     "faq1Answer":  "É um aplicativo para criar convites para todo tipo de evento. Permite escolher modelos e personalizar o convite, compartilhá-lo nas redes sociais, receber notificações de confirmação e acompanhar a presença.",
     "faq2Question":  "É gratuito?",
-    "faq2Answer":  "Não, você pode usar o Invitaty para criar seus convites, mas para publicá-los você precisa fazer um pagamento por cada um.",
+    "faq2Answer":  "Não, você pode usar o VACoworking para criar seus convites, mas para publicá-los você precisa fazer um pagamento por cada um.",
     "faq3Question":  "Como excluo minha conta?",
     "faq3Answer":  "Você pode excluir sua conta nas configurações da conta no próprio app. Isso remove tudo relacionado à sua conta. Esta ação é irreversível.",
     "errorAuthInvalidUsername":  "O nome de usuário deve ter entre 4 e 20 caracteres e só pode conter letras, números, hífens e sublinhados.",
@@ -205,7 +205,7 @@
     "showQrOption":  "Mostrar QR",
     "shareOption":  "Compartilhar",
     "qrTitle":  "QR de @{username}",
-    "profileShareSubject":  "Perfil de @{username} no Invitaty",
+    "profileShareSubject":  "Perfil de @{username} no VACoworking",
     "lastAccessChipPrefix":  "Último acesso",
     "statusLabel":  "Status",
     "bioLabel":  "Bio",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "IR",
     "enterWithoutUser":  "Entrar sem utilizador"
 }
+

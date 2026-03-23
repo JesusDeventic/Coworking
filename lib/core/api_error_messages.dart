@@ -1,4 +1,4 @@
-import 'package:invitaty/generated/l10n.dart';
+﻿import 'package:vacoworking/generated/l10n.dart';
 
 /// Devuelve el mensaje de error localizado según el código del backend.
 /// Si el código no se reconoce, devuelve [S.current.errorAuthGeneric].
@@ -43,3 +43,5 @@ String getAuthErrorMessage(String? code) {
       return S.current.errorAuthGeneric;
   }
 }
+
+

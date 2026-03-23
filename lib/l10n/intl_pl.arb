@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "pl",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "Zaloguj się",
     "signUp":  "Utwórz konto",
     "userOrEmail":  "Nazwa użytkownika lub e-mail",
@@ -41,7 +41,7 @@
     "logout":  "Wyloguj się",
     "appVersionChangeLogTitle":  "Dziennik zmian",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Pierwsza wersja Invitaty.",
+    "appVersion10Description":  "·Pierwsza wersja VACoworking.",
     "languageArabic":  "Arabski",
     "languageCatalan":  "Kataloński",
     "languageChinese":  "Chiński",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "Nieprawidłowa nazwa użytkownika lub hasło.\nPoczekaj {seconds} sekund przed ponowną próbą",
     "registerError":  "Błąd rejestracji",
     "dialogErrorTitle":  "Błąd",
-    "dialogErrorServerConnection":  "Nie można połączyć się z serwerem Invitaty",
-    "dialogErrorAppVersion":  "Dostępna jest nowa wersja Invitaty.\nZaktualizuj aplikację, aby kontynuować",
+    "dialogErrorServerConnection":  "Nie można połączyć się z serwerem VACoworking",
+    "dialogErrorAppVersion":  "Dostępna jest nowa wersja VACoworking.\nZaktualizuj aplikację, aby kontynuować",
     "dialogErrorServerMaintenance":  "Aplikacja jest obecnie w konserwacji. Spróbuj ponownie później",
     "currentServerVersionText":  "Dostępna wersja",
     "dialogWarningTitle":  "Uwaga",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "Informacje prawne",
     "socialMailLabel":  "E-mail",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Kontakt Invitaty",
-    "faq1Question":  "Czym jest Invitaty?",
+    "subjectSupport":  "Kontakt VACoworking",
+    "faq1Question":  "Czym jest VACoworking?",
     "faq1Answer":  "To aplikacja do tworzenia zaproszeń na wszelkiego rodzaju wydarzenia. Umożliwia wybór szablonów i personalizowanie zaproszenia, udostępnianie w mediach społecznościowych, otrzymywanie powiadomień o potwierdzeniu oraz śledzenie obecności.",
     "faq2Question":  "Czy to jest darmowe?",
-    "faq2Answer":  "Nie, możesz używać Invitaty do projektowania zaproszeń, ale aby je opublikować, musisz uiścić płatność za każde z nich.",
+    "faq2Answer":  "Nie, możesz używać VACoworking do projektowania zaproszeń, ale aby je opublikować, musisz uiścić płatność za każde z nich.",
     "faq3Question":  "Jak usunąć moje konto?",
     "faq3Answer":  "Możesz usunąć konto w ustawieniach konta w aplikacji. Usunięte zostaną wszystkie powiązane dane. Tej operacji nie można cofnąć.",
     "errorAuthInvalidUsername":  "Nazwa użytkownika musi mieć 4–20 znaków i może zawierać tylko litery, cyfry, myślniki i podkreślenia.",
@@ -205,7 +205,7 @@
     "showQrOption":  "Pokaż kod QR",
     "shareOption":  "Udostępnij",
     "qrTitle":  "QR użytkownika @{username}",
-    "profileShareSubject":  "Profil @{username} w Invitaty",
+    "profileShareSubject":  "Profil @{username} w VACoworking",
     "lastAccessChipPrefix":  "Ostatnie logowanie",
     "statusLabel":  "Status",
     "bioLabel":  "Bio",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "PRZEJDŹ",
     "enterWithoutUser":  "Zaloguj się bez użytkownika"
 }
+

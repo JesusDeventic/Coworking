@@ -1,12 +1,12 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'dart:io';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
-import 'package:invitaty/api/invitaty_api.dart';
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/model/private_message_model.dart';
-import 'package:invitaty/widget/components_widgets.dart';
+import 'package:vacoworking/api/vacoworking_api.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/model/private_message_model.dart';
+import 'package:vacoworking/widget/components_widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show LogicalKeyboardKey, KeyDownEvent;
@@ -69,7 +69,7 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
 
   Future<void> _loadInitial() async {
     setState(() => _loading = true);
-    final msgs = await InvitatyApi.getMessages(otherUserId: widget.recipientId);
+    final msgs = await VACoworkingApi.getMessages(otherUserId: widget.recipientId);
     if (!mounted) return;
     setState(() {
       _messages.clear();
@@ -86,7 +86,7 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
     if (_loadingMore || !_hasMore || _messages.isEmpty) return;
     setState(() => _loadingMore = true);
     final oldest = _messages.last.id;
-    final msgs = await InvitatyApi.getMessages(
+    final msgs = await VACoworkingApi.getMessages(
       otherUserId: widget.recipientId, beforeId: oldest);
     if (!mounted) return;
     setState(() {
@@ -119,7 +119,7 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
 
   Future<void> _pollDelta() async {
     if (_lastCreatedAt == null) return;
-    final delta = await InvitatyApi.getMessages(
+    final delta = await VACoworkingApi.getMessages(
       otherUserId: widget.recipientId, afterCreated: _lastCreatedAt);
     if (!mounted || delta.isEmpty) return;
 
@@ -161,7 +161,7 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
     );
     if (!hasUnreadMine) return;
 
-    final isRead = await InvitatyApi.getMessageReadStatus(widget.recipientId);
+    final isRead = await VACoworkingApi.getMessageReadStatus(widget.recipientId);
     if (!mounted) return;
     if (isRead != true) return;
 
@@ -195,7 +195,7 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
   Future<void> _sendNew(String text) async {
     setState(() => _sending = true);
     _inputController.clear();
-    final msg = await InvitatyApi.sendMessage(
+    final msg = await VACoworkingApi.sendMessage(
       recipientId: widget.recipientId, message: text);
     if (!mounted) return;
     setState(() {
@@ -219,7 +219,7 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
     final msg = _editingMessage!;
     setState(() { _sending = true; _editingMessage = null; });
     _inputController.clear();
-    final ok = await InvitatyApi.editMessage(id: msg.id, message: text);
+    final ok = await VACoworkingApi.editMessage(id: msg.id, message: text);
     if (!mounted) return;
     setState(() => _sending = false);
     if (!ok) showCustomSnackBar(S.current.messagesErrorEdit, type: -1);
@@ -238,7 +238,7 @@ class _PrivateChatPageState extends State<PrivateChatPage> {
   }
 
   Future<void> _deleteMessage(PrivateMessage msg) async {
-    final ok = await InvitatyApi.deleteMessage(msg.id);
+    final ok = await VACoworkingApi.deleteMessage(msg.id);
     if (!mounted) return;
     if (!ok) {
       showCustomSnackBar(S.current.messagesErrorDelete, type: -1);
@@ -686,3 +686,6 @@ class _MessageBubble extends StatelessWidget {
     );
   }
 }
+
+
+

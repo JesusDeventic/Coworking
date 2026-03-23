@@ -1,4 +1,4 @@
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a ja locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "ユーザー名またはパスワードが正しくありません。\n${seconds} 秒待ってから再試行してください";
 
-  static String m1(username) => "Invitaty の @${username} のプロフィール";
+  static String m1(username) => "VACoworking の @${username} のプロフィール";
 
   static String m2(username) => "@${username} の QR";
 
@@ -33,10 +33,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "actionNo": MessageLookupByLibrary.simpleMessage("いいえ"),
     "actionYes": MessageLookupByLibrary.simpleMessage("はい"),
     "andLabel": MessageLookupByLibrary.simpleMessage("および"),
-    "appName": MessageLookupByLibrary.simpleMessage("Invitaty"),
+    "appName": MessageLookupByLibrary.simpleMessage("VACoworking"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
     "appVersion10Description": MessageLookupByLibrary.simpleMessage(
-      "・Invitaty の初版。",
+      "・VACoworking の初版。",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage("変更履歴"),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("ログイン"),
@@ -87,10 +87,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "パスワード",
     ),
     "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
-      "Invitaty の新しいバージョンがあります。\n続行するにはアプリを更新してください",
+      "VACoworking の新しいバージョンがあります。\n続行するにはアプリを更新してください",
     ),
     "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
-      "Invitaty サーバーに接続できません",
+      "VACoworking サーバーに接続できません",
     ),
     "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
       "アプリはメンテナンス中です。後でもう一度お試しください",
@@ -154,9 +154,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
       "これは、あらゆる種類のイベントの招待状を作成するためのアプリです。テンプレートを選んで招待状をカスタマイズし、SNSで共有し、確認通知を受け取り、参加状況を追跡できます。",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Invitaty とは？"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("VACoworking とは？"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "いいえ。Invitatyを使って招待状をデザインできますが、公開するには1件ごとにお支払いが必要です。",
+      "いいえ。VACoworkingを使って招待状をデザインできますが、公開するには1件ごとにお支払いが必要です。",
     ),
     "faq2Question": MessageLookupByLibrary.simpleMessage("無料ですか？"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
@@ -341,7 +341,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("ステータス"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Invitaty お問い合わせ"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking お問い合わせ"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage("利用規約"),
     "textUserSupportDescription": MessageLookupByLibrary.simpleMessage(
       "お困りですか？各チャネルからお問い合わせください。できるだけ早く返信します。",
@@ -378,3 +378,4 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("認証情報が正しくありません"),
   };
 }
+

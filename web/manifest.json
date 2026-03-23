@@ -1,11 +1,11 @@
 {
-    "name": "Invitaty",
-    "short_name": "Invitaty",
+    "name": "VACoworking",
+    "short_name": "VACoworking",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
-    "description": "Invitaty",
+    "description": "VACoworking",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

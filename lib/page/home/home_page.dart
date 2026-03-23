@@ -1,16 +1,16 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'dart:io';
-import 'package:invitaty/api/invitaty_api.dart';
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/page/users/account_profile_page.dart';
-import 'package:invitaty/page/users/contact_page.dart';
-import 'package:invitaty/page/users/general_settings_page.dart';
-import 'package:invitaty/page/users/faq_page.dart';
-import 'package:invitaty/page/users/notifications_page.dart';
-import 'package:invitaty/routes/app_routes.dart';
-import 'package:invitaty/widget/components_widgets.dart';
+import 'package:vacoworking/api/vacoworking_api.dart';
+import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/page/users/account_profile_page.dart';
+import 'package:vacoworking/page/users/contact_page.dart';
+import 'package:vacoworking/page/users/general_settings_page.dart';
+import 'package:vacoworking/page/users/faq_page.dart';
+import 'package:vacoworking/page/users/notifications_page.dart';
+import 'package:vacoworking/routes/app_routes.dart';
+import 'package:vacoworking/widget/components_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
       if (mounted) setState(() => _unreadNotificationsCount = 0);
       return;
     }
-    final count = await InvitatyApi.getUnreadNotificationsCount();
+    final count = await VACoworkingApi.getUnreadNotificationsCount();
     if (mounted) setState(() => _unreadNotificationsCount = count);
   }
 
@@ -574,3 +574,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+

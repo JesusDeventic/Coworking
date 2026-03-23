@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "uk",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "Увійти",
     "signUp":  "Створити обліковий запис",
     "userOrEmail":  "Ім'я користувача або email",
@@ -41,7 +41,7 @@
     "logout":  "Вийти",
     "appVersionChangeLogTitle":  "Журнал змін",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Перший випуск Invitaty.",
+    "appVersion10Description":  "·Перший випуск VACoworking.",
     "languageArabic":  "Арабська",
     "languageCatalan":  "Каталанська",
     "languageChinese":  "Китайська",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "Невірне ім'я користувача або пароль.\nЗачекайте {seconds} секунд перед повторною спробою",
     "registerError":  "Помилка реєстрації",
     "dialogErrorTitle":  "Помилка",
-    "dialogErrorServerConnection":  "Не вдалося підключитися до сервера Invitaty",
-    "dialogErrorAppVersion":  "Доступна нова версія Invitaty.\nОновіть додаток, щоб продовжити",
+    "dialogErrorServerConnection":  "Не вдалося підключитися до сервера VACoworking",
+    "dialogErrorAppVersion":  "Доступна нова версія VACoworking.\nОновіть додаток, щоб продовжити",
     "dialogErrorServerMaintenance":  "Додаток на обслуговуванні. Спробуйте пізніше",
     "currentServerVersionText":  "Доступна версія",
     "dialogWarningTitle":  "Увага",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "Правова інформація",
     "socialMailLabel":  "Електронна пошта",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Зв'язок з Invitaty",
-    "faq1Question":  "Що таке Invitaty?",
+    "subjectSupport":  "Зв'язок з VACoworking",
+    "faq1Question":  "Що таке VACoworking?",
     "faq1Answer":  "Це застосунок для створення запрошень для будь-яких подій. Він дозволяє вибирати шаблони та налаштовувати запрошення, ділитися ним у соцмережах, отримувати сповіщення про підтвердження та відстежувати відвідуваність.",
     "faq2Question":  "Це безкоштовно?",
-    "faq2Answer":  "Ні, ви можете використовувати Invitaty для створення запрошень, але щоб їх опублікувати, вам потрібно сплатити за кожне з них.",
+    "faq2Answer":  "Ні, ви можете використовувати VACoworking для створення запрошень, але щоб їх опублікувати, вам потрібно сплатити за кожне з них.",
     "faq3Question":  "Як видалити мій акаунт?",
     "faq3Answer":  "Видалити обліковий запис можна в налаштуваннях облікового запису в додатку. Усе пов'язане з обліковим записом буде видалено. Цю дію неможливо скасувати.",
     "errorAuthInvalidUsername":  "Ім'я користувача має бути 4–20 символів і містити лише літери, цифри, дефіси та підкреслення.",
@@ -205,7 +205,7 @@
     "showQrOption":  "Показати QR",
     "shareOption":  "Поділитися",
     "qrTitle":  "QR для @{username}",
-    "profileShareSubject":  "Профіль @{username} у Invitaty",
+    "profileShareSubject":  "Профіль @{username} у VACoworking",
     "lastAccessChipPrefix":  "Останній візит",
     "statusLabel":  "Статус",
     "bioLabel":  "Про себе",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "УВІЙТИ",
     "enterWithoutUser":  "Увійти без користувача"
 }
+

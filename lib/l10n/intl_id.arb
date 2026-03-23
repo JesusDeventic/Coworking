@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "id",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "Masuk",
     "signUp":  "Buat akun",
     "userOrEmail":  "Nama pengguna atau email",
@@ -41,7 +41,7 @@
     "logout":  "Keluar",
     "appVersionChangeLogTitle":  "Log perubahan",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Rilis awal Invitaty.",
+    "appVersion10Description":  "·Rilis awal VACoworking.",
     "languageArabic":  "Arab",
     "languageCatalan":  "Katalan",
     "languageChinese":  "Mandarin",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "Nama pengguna atau kata sandi salah.\nHarap tunggu {seconds} detik sebelum mencoba lagi",
     "registerError":  "Kesalahan pendaftaran",
     "dialogErrorTitle":  "Kesalahan",
-    "dialogErrorServerConnection":  "Tidak dapat terhubung ke server Invitaty",
-    "dialogErrorAppVersion":  "Versi baru Invitaty tersedia.\nPerbarui aplikasi untuk melanjutkan",
+    "dialogErrorServerConnection":  "Tidak dapat terhubung ke server VACoworking",
+    "dialogErrorAppVersion":  "Versi baru VACoworking tersedia.\nPerbarui aplikasi untuk melanjutkan",
     "dialogErrorServerMaintenance":  "Aplikasi sedang dalam pemeliharaan. Coba lagi nanti",
     "currentServerVersionText":  "Versi tersedia",
     "dialogWarningTitle":  "Perhatian",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "Pemberitahuan hukum",
     "socialMailLabel":  "Email",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Kontak Invitaty",
-    "faq1Question":  "Apa itu Invitaty?",
+    "subjectSupport":  "Kontak VACoworking",
+    "faq1Question":  "Apa itu VACoworking?",
     "faq1Answer":  "Ini adalah aplikasi untuk membuat undangan untuk berbagai jenis acara. Anda dapat memilih template, menyesuaikan undangan, membagikannya di media sosial, menerima notifikasi konfirmasi, dan memantau kehadiran.",
     "faq2Question":  "Apakah gratis?",
-    "faq2Answer":  "Tidak, Anda dapat menggunakan Invitaty untuk mendesain undangan Anda, tetapi untuk mempublikasikannya Anda perlu melakukan pembayaran untuk setiap undangan.",
+    "faq2Answer":  "Tidak, Anda dapat menggunakan VACoworking untuk mendesain undangan Anda, tetapi untuk mempublikasikannya Anda perlu melakukan pembayaran untuk setiap undangan.",
     "faq3Question":  "Bagaimana cara menghapus akun saya?",
     "faq3Answer":  "Anda dapat menghapus akun di pengaturan akun dalam aplikasi. Semua data terkait akan dihapus. Tindakan ini tidak dapat dibatalkan.",
     "errorAuthInvalidUsername":  "Nama pengguna harus 4–20 karakter dan hanya mengandung huruf, angka, tanda hubung, dan garis bawah.",
@@ -205,7 +205,7 @@
     "showQrOption":  "Tampilkan QR",
     "shareOption":  "Bagikan",
     "qrTitle":  "QR @{username}",
-    "profileShareSubject":  "Profil @{username} di Invitaty",
+    "profileShareSubject":  "Profil @{username} di VACoworking",
     "lastAccessChipPrefix":  "Terakhir online",
     "statusLabel":  "Status",
     "bioLabel":  "Bio",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "MASUK",
     "enterWithoutUser":  "Masuk tanpa pengguna"
 }
+

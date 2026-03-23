@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "ja",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "ログイン",
     "signUp":  "アカウント作成",
     "userOrEmail":  "ユーザー名またはメール",
@@ -41,7 +41,7 @@
     "logout":  "ログアウト",
     "appVersionChangeLogTitle":  "変更履歴",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "・Invitaty の初版。",
+    "appVersion10Description":  "・VACoworking の初版。",
     "languageArabic":  "アラビア語",
     "languageCatalan":  "カタルーニャ語",
     "languageChinese":  "中国語",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "ユーザー名またはパスワードが正しくありません。\n{seconds} 秒待ってから再試行してください",
     "registerError":  "登録エラー",
     "dialogErrorTitle":  "エラー",
-    "dialogErrorServerConnection":  "Invitaty サーバーに接続できません",
-    "dialogErrorAppVersion":  "Invitaty の新しいバージョンがあります。\n続行するにはアプリを更新してください",
+    "dialogErrorServerConnection":  "VACoworking サーバーに接続できません",
+    "dialogErrorAppVersion":  "VACoworking の新しいバージョンがあります。\n続行するにはアプリを更新してください",
     "dialogErrorServerMaintenance":  "アプリはメンテナンス中です。後でもう一度お試しください",
     "currentServerVersionText":  "利用可能なバージョン",
     "dialogWarningTitle":  "注意",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "法的表示",
     "socialMailLabel":  "メール",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Invitaty お問い合わせ",
-    "faq1Question":  "Invitaty とは？",
+    "subjectSupport":  "VACoworking お問い合わせ",
+    "faq1Question":  "VACoworking とは？",
     "faq1Answer":  "これは、あらゆる種類のイベントの招待状を作成するためのアプリです。テンプレートを選んで招待状をカスタマイズし、SNSで共有し、確認通知を受け取り、参加状況を追跡できます。",
     "faq2Question":  "無料ですか？",
-    "faq2Answer":  "いいえ。Invitatyを使って招待状をデザインできますが、公開するには1件ごとにお支払いが必要です。",
+    "faq2Answer":  "いいえ。VACoworkingを使って招待状をデザインできますが、公開するには1件ごとにお支払いが必要です。",
     "faq3Question":  "どうやってアカウントを削除しますか？",
     "faq3Answer":  "アプリ内のアカウント設定から削除できます。関連データはすべて削除されます。取り消せません。",
     "errorAuthInvalidUsername":  "ユーザー名は4〜20文字で、英数字・ハイフン・アンダースコアのみ使用できます。",
@@ -205,7 +205,7 @@
     "showQrOption":  "QR を表示",
     "shareOption":  "共有",
     "qrTitle":  "@{username} の QR",
-    "profileShareSubject":  "Invitaty の @{username} のプロフィール",
+    "profileShareSubject":  "VACoworking の @{username} のプロフィール",
     "lastAccessChipPrefix":  "最終オンライン",
     "statusLabel":  "ステータス",
     "bioLabel":  "自己紹介",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "ログイン",
     "enterWithoutUser":  "ユーザーなしで入る"
 }
+

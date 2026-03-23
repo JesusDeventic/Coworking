@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 /// Cursor de mano para elementos interactuables en Windows/desktop.
@@ -6,7 +6,7 @@ final _clickCursor = WidgetStateProperty.all<MouseCursor>(
   SystemMouseCursors.click,
 );
 
-/// Colores de Invitaty: rosa/magenta principal y gris antracita.
+/// Colores de VACoworking: rosa/magenta principal y gris antracita.
 class AppColors {
   /// Rosa principal (elementos principales, botones, acentos)
   static const Color primary = Color(0xFFFF7BB5);
@@ -234,3 +234,4 @@ ThemeData themeFromColorScheme(ColorScheme colorScheme) {
 
 ThemeData get lightTheme => themeFromColorScheme(lightColorScheme);
 ThemeData get darkTheme => themeFromColorScheme(darkColorScheme);
+

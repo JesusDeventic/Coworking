@@ -1,17 +1,18 @@
-class InvitatyAppStatus {
+﻿class VACoworkingAppStatus {
   final String version;
   final int status;
 
-  const InvitatyAppStatus({
+  const VACoworkingAppStatus({
     required this.version,
     required this.status,
   });
 
-  factory InvitatyAppStatus.fromJson(Map<String, dynamic> json) {
-    return InvitatyAppStatus(
+  factory VACoworkingAppStatus.fromJson(Map<String, dynamic> json) {
+    return VACoworkingAppStatus(
       version: (json['version'] as String?) ?? '',
       status: (json['status'] as num?)?.toInt() ?? 0,
     );
   }
 }
+
 

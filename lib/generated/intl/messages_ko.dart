@@ -1,4 +1,4 @@
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a ko locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(seconds) =>
       "사용자 이름 또는 비밀번호가 올바르지 않습니다.\n${seconds}초 후 다시 시도하세요";
 
-  static String m1(username) => "Invitaty의 @${username} 프로필";
+  static String m1(username) => "VACoworking의 @${username} 프로필";
 
   static String m2(username) => "@${username}의 QR";
 
@@ -33,10 +33,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "actionNo": MessageLookupByLibrary.simpleMessage("아니요"),
     "actionYes": MessageLookupByLibrary.simpleMessage("예"),
     "andLabel": MessageLookupByLibrary.simpleMessage("및"),
-    "appName": MessageLookupByLibrary.simpleMessage("Invitaty"),
+    "appName": MessageLookupByLibrary.simpleMessage("VACoworking"),
     "appVersion10Code": MessageLookupByLibrary.simpleMessage("v1.0.0"),
     "appVersion10Description": MessageLookupByLibrary.simpleMessage(
-      "·Invitaty 최초 버전.",
+      "·VACoworking 최초 버전.",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage("변경 로그"),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("로그인"),
@@ -83,10 +83,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dialogDeleteAccountPassword": MessageLookupByLibrary.simpleMessage("비밀번호"),
     "dialogErrorAppVersion": MessageLookupByLibrary.simpleMessage(
-      "Invitaty의 새 버전이 있습니다.\n계속하려면 앱을 업데이트하세요",
+      "VACoworking의 새 버전이 있습니다.\n계속하려면 앱을 업데이트하세요",
     ),
     "dialogErrorServerConnection": MessageLookupByLibrary.simpleMessage(
-      "Invitaty 서버에 연결할 수 없습니다",
+      "VACoworking 서버에 연결할 수 없습니다",
     ),
     "dialogErrorServerMaintenance": MessageLookupByLibrary.simpleMessage(
       "앱이 점검 중입니다. 나중에 다시 시도하세요",
@@ -152,9 +152,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
       "다양한 종류의 이벤트를 위한 초대장을 만드는 앱입니다. 템플릿을 선택하고 초대장을 개인화한 뒤, 소셜 미디어에 공유하고 확인 알림을 받으며 참석 현황을 추적할 수 있습니다.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Invitaty이란?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("VACoworking이란?"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "아니요. Invitaty로 초대장을 디자인할 수는 있지만, 공개하려면 초대장마다 결제를 해야 합니다.",
+      "아니요. VACoworking로 초대장을 디자인할 수는 있지만, 공개하려면 초대장마다 결제를 해야 합니다.",
     ),
     "faq2Question": MessageLookupByLibrary.simpleMessage("무료인가요?"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
@@ -339,7 +339,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("상태"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Invitaty 문의"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking 문의"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage("이용약관"),
     "textUserSupportDescription": MessageLookupByLibrary.simpleMessage(
       "도움이 필요하신가요? 채널로 연락 주시면 최대한 빨리 답변드리겠습니다.",
@@ -378,3 +378,4 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("잘못된 자격 증명"),
   };
 }
+

@@ -1,11 +1,11 @@
-import 'dart:io';
-import 'package:invitaty/api/invitaty_messaging_service.dart';
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/providers/language_provider.dart';
-import 'package:invitaty/providers/theme_provider.dart';
-import 'package:invitaty/routes/app_router.dart';
-import 'package:invitaty/styles/colors.dart';
+﻿import 'dart:io';
+import 'package:vacoworking/api/vacoworking_messaging_service.dart';
+import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/providers/language_provider.dart';
+import 'package:vacoworking/providers/theme_provider.dart';
+import 'package:vacoworking/routes/app_router.dart';
+import 'package:vacoworking/styles/colors.dart';
 import 'package:app_links/app_links.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ void main() async {
   // Inicializar notificaciones push solo en Android / iOS / Web
   if (kIsWeb || Platform.isAndroid || Platform.isIOS) {
     try {
-      final messaging = InvitatyMessagingService();
+      final messaging = VACoworkingMessagingService();
       await messaging.initialize();
     } catch (e) {
       debugPrint('Error inicializando notificaciones de Firebase: $e');
@@ -37,19 +37,19 @@ void main() async {
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => LanguageProvider()),
       ],
-      child: const InvitatyApp(),
+      child: const VACoworkingApp(),
     ),
   );
 }
 
-class InvitatyApp extends StatefulWidget {
-  const InvitatyApp({super.key});
+class VACoworkingApp extends StatefulWidget {
+  const VACoworkingApp({super.key});
 
   @override
-  State<InvitatyApp> createState() => _InvitatyAppState();
+  State<VACoworkingApp> createState() => _VACoworkingAppState();
 }
 
-class _InvitatyAppState extends State<InvitatyApp> {
+class _VACoworkingAppState extends State<VACoworkingApp> {
   late final GoRouter _router = createAppRouter(navigatorKey);
   final AppLinks _appLinks = AppLinks();
 
@@ -161,17 +161,17 @@ class _InvitatyAppState extends State<InvitatyApp> {
 //      `use_modular_headers!` en el target Runner si usas los pods actuales.
 //
 // 4) Backend WordPress / REST
-//    - Cambiar `invitatyBaseUrl` en `lib/api/invitaty_api.dart`.
+//    - Cambiar `VACoworkingBaseUrl` en `lib/api/VACoworking_api.dart`.
 //    - Revisar rutas/prefijos en `wordpress_backend/*.php`:
-//      - Namespace REST (`invitaty/v1/...`)
-//      - Funciones/prefijos (`invitaty_...` en PHP: internas; usermeta sigue igual salvo que migres BD).
+//      - Namespace REST (`VACoworking/v1/...`)
+//      - Funciones/prefijos (`VACoworking_...` en PHP: internas; usermeta sigue igual salvo que migres BD).
 //
 // 5) Secretos y configuracion sensible (wp-config.php)
 //    - NO hardcodear claves en snippets o plugins.
 //    - Definir en `wp-config.php` al menos:
-//      - `INVITATY_FIREBASE_PROJECT_ID`
-//      - `INVITATY_FIREBASE_SERVICE_ACCOUNT_PATH`
-//      - `INVITATY_RECAPTCHA_SECRET_KEY`
+//      - `VACoworking_FIREBASE_PROJECT_ID`
+//      - `VACoworking_FIREBASE_SERVICE_ACCOUNT_PATH`
+//      - `VACoworking_RECAPTCHA_SECRET_KEY`
 //    - Verificar que `wordpress_backend/recaptcha.php` y `notificaciones.php`
 //      lean esas constantes.
 //
@@ -200,3 +200,6 @@ class _InvitatyAppState extends State<InvitatyApp> {
 //
 // Con esto, el proyecto queda listo como plantilla base reutilizable para apps
 // Flutter + WordPress con backend propio.
+
+
+

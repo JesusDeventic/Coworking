@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         if (!empty($topic)) {
             // Enviar a topic (HTTP v1)
-            $result = invitaty_send_push_to_topic($topic, $title, $body);
+            $result = VACoworking_send_push_to_topic($topic, $title, $body);
             if (is_wp_error($result)) {
                 $message_output = '<p style="color:red;">âŒ Error enviando a topic <code>' . esc_html($topic) . '</code>: ' . esc_html($result->get_error_message()) . '</p>';
             } else {
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $message_output = '<p style="color:red;">âŒ Usuario no encontrado: ' . esc_html($username) . '</p>';
             } else {
                 // Admin tool: siempre crea notificaciÃ³n + manda push.
-                $result = invitaty_notify_user((int)$user->ID, $title, $body, true);
+                $result = VACoworking_notify_user((int)$user->ID, $title, $body, true);
 
                 $push = $result['push'] ?? [];
                 $sent = (int)($push['sent'] ?? 0);
@@ -69,12 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         * {
             box-sizing: border-box;
         }
-        .invitaty-push-wrapper {
+        .VACoworking-push-wrapper {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             max-width: 600px;
             margin: 30px auto;
         }
-        .invitaty-push-container {
+        .VACoworking-push-container {
             /* sin fondo ni sombra para integrarse con el theme */
         }
         h3 {
@@ -152,9 +152,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </style>
 
-    <div class="invitaty-push-wrapper">
-        <div class="invitaty-push-container">
-            <h3>Enviar NotificaciÃ³n Push (Invitaty, HTTP v1)</h3>
+    <div class="VACoworking-push-wrapper">
+        <div class="VACoworking-push-container">
+            <h3>Enviar NotificaciÃ³n Push (VACoworking, HTTP v1)</h3>
 
             <form method="post" id="notificationForm">
                 <label for="fcm_topic">Topic (por ejemplo: es / en) â€” vacÃ­o para enviar a un usuario:</label>

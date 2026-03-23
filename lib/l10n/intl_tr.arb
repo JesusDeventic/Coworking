@@ -1,6 +1,6 @@
-{
+﻿{
     "@@locale":  "tr",
-    "appName":  "Invitaty",
+    "appName":  "VACoworking",
     "signIn":  "Giriş yap",
     "signUp":  "Hesap oluştur",
     "userOrEmail":  "Kullanıcı adı veya e-posta",
@@ -41,7 +41,7 @@
     "logout":  "Çıkış yap",
     "appVersionChangeLogTitle":  "Değişiklik günlüğü",
     "appVersion10Code":  "v1.0.0",
-    "appVersion10Description":  "·Invitaty'ın ilk sürümü.",
+    "appVersion10Description":  "·VACoworking'ın ilk sürümü.",
     "languageArabic":  "Arapça",
     "languageCatalan":  "Katalanca",
     "languageChinese":  "Çince",
@@ -116,8 +116,8 @@
     "loginCountdownMessage":  "Kullanıcı adı veya şifre hatalı.\nTekrar denemeden önce {seconds} saniye bekleyin",
     "registerError":  "Kayıt hatası",
     "dialogErrorTitle":  "Hata",
-    "dialogErrorServerConnection":  "Invitaty sunucusuna bağlanılamadı",
-    "dialogErrorAppVersion":  "Invitaty'ın yeni bir sürümü var.\nDevam etmek için uygulamayı güncelleyin",
+    "dialogErrorServerConnection":  "VACoworking sunucusuna bağlanılamadı",
+    "dialogErrorAppVersion":  "VACoworking'ın yeni bir sürümü var.\nDevam etmek için uygulamayı güncelleyin",
     "dialogErrorServerMaintenance":  "Uygulama şu anda bakımda. Daha sonra tekrar deneyin",
     "currentServerVersionText":  "Mevcut sürüm",
     "dialogWarningTitle":  "Dikkat",
@@ -134,11 +134,11 @@
     "legalNoticeLabel":  "Yasal uyarı",
     "socialMailLabel":  "E-posta",
     "socialTelegramLabel":  "Telegram",
-    "subjectSupport":  "Invitaty iletişim",
-    "faq1Question":  "Invitaty nedir?",
+    "subjectSupport":  "VACoworking iletişim",
+    "faq1Question":  "VACoworking nedir?",
     "faq1Answer":  "Bu, her türlü etkinlik için davetiye oluşturmanıza yardımcı olan bir uygulamadır. Şablon seçmenize ve davetiyenizi kişiselleştirmenize, sosyal medyada paylaşmanıza, onay bildirimleri almanıza ve katılımı takip etmenize olanak tanır.",
     "faq2Question":  "Ücretsiz mi?",
-    "faq2Answer":  "Hayır, davetiyelerinizi tasarlamak için Invitaty'yi kullanabilirsiniz; ancak yayınlayabilmek için her biri için ödeme yapmanız gerekir.",
+    "faq2Answer":  "Hayır, davetiyelerinizi tasarlamak için VACoworking'yi kullanabilirsiniz; ancak yayınlayabilmek için her biri için ödeme yapmanız gerekir.",
     "faq3Question":  "Hesabımı nasıl silerim?",
     "faq3Answer":  "Hesabınızı uygulamadaki hesap ayarlarından silebilirsiniz. Hesabınızla ilişkili her şey kaldırılır. Bu işlem geri alınamaz.",
     "errorAuthInvalidUsername":  "Kullanıcı adı 4–20 karakter olmalı ve yalnızca harf, rakam, tire ve alt çizgi içerebilir.",
@@ -205,7 +205,7 @@
     "showQrOption":  "QR göster",
     "shareOption":  "Paylaş",
     "qrTitle":  "@{username} için QR",
-    "profileShareSubject":  "Invitaty'ta @{username} profili",
+    "profileShareSubject":  "VACoworking'ta @{username} profili",
     "lastAccessChipPrefix":  "Son çevrimiçi",
     "statusLabel":  "Durum",
     "bioLabel":  "Biyografi",
@@ -217,3 +217,4 @@
     "authRequiredFunctionAction":  "GİRİŞ",
     "enterWithoutUser":  "Kullanıcı olmadan giriş yap"
 }
+

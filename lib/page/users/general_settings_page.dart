@@ -1,22 +1,22 @@
-import 'dart:io';
+﻿import 'dart:io';
 
 import 'package:app_settings/app_settings.dart';
-import 'package:invitaty/api/invitaty_api.dart';
-import 'package:invitaty/core/global_functions.dart';
-import 'package:invitaty/core/global_variables.dart';
-import 'package:invitaty/core/user_preferences.dart';
-import 'package:invitaty/generated/l10n.dart';
-import 'package:invitaty/model/user_model.dart';
-import 'package:invitaty/providers/language_provider.dart';
-import 'package:invitaty/providers/theme_provider.dart';
-import 'package:invitaty/widget/components_widgets.dart';
+import 'package:vacoworking/api/vacoworking_api.dart';
+import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/core/global_variables.dart';
+import 'package:vacoworking/core/user_preferences.dart';
+import 'package:vacoworking/generated/l10n.dart';
+import 'package:vacoworking/model/user_model.dart';
+import 'package:vacoworking/providers/language_provider.dart';
+import 'package:vacoworking/providers/theme_provider.dart';
+import 'package:vacoworking/widget/components_widgets.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-/// Ajustes generales de Invitaty (idioma, tema, inicio de semana, formato fecha).
+/// Ajustes generales de VACoworking (idioma, tema, inicio de semana, formato fecha).
 class GeneralSettingsPage extends StatefulWidget {
   const GeneralSettingsPage({super.key});
 
@@ -151,7 +151,7 @@ class _GeneralSettingsPageState extends State<GeneralSettingsPage>
       return false;
     }
     try {
-      final result = await InvitatyApi.updateUser(
+      final result = await VACoworkingApi.updateUser(
         userEmail: globalCurrentUser.email,
         language: context.read<LanguageProvider>().currentLanguage,
         dateFormat: _dateFormat,
@@ -163,7 +163,7 @@ class _GeneralSettingsPageState extends State<GeneralSettingsPage>
       }
       final userJson = result['user'];
       if (userJson is Map<String, dynamic>) {
-        globalCurrentUser = InvitatyUser.fromJson(userJson);
+        globalCurrentUser = VACoworkingUser.fromJson(userJson);
         await _prefs.setCachedUser(globalCurrentUser);
       }
       showCustomSnackBar(S.current.generalSettingsSaveSuccess, type: 1);
@@ -631,4 +631,7 @@ class _LanguageSelectorSettings extends StatelessWidget {
     );
   }
 }
+
+
+
 

@@ -1,4 +1,4 @@
-package com.deventic.invitaty
+package com.deventic.vacoworking
 
 import io.flutter.embedding.android.FlutterActivity
 
