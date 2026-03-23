@@ -43,6 +43,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Registro modifiche",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("VAI"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "Questa funzione richiede l\'accesso.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Indietro"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Annulla"),
@@ -121,6 +125,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nome visualizzato (facoltativo)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Accedi senza utente",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Impossibile eliminare l\'account. Riprova",
     ),
@@ -214,13 +221,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("Vai alla home"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "Crea invito",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "Tocca Crea invito per iniziare",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "Non hai ancora creato inviti",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Email non valida"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Resta connesso"),

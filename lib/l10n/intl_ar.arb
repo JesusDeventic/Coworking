@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "ar",
     "appName":  "Invitaty",
     "signIn":  "تسجيل الدخول",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "موقع / مدونة",
     "webBlogHint":  "https://موقعك.com",
     "removeCountryTooltip":  "إزالة البلد",
-    "removeBirthdateTooltip":  "إزالة التاريخ"
+    "removeBirthdateTooltip":  "إزالة التاريخ",
+    "authRequiredFunctionMessage":  "تتطلب هذه الميزة تسجيل الدخول",
+    "authRequiredFunctionAction":  "اذهب",
+    "enterWithoutUser":  "الدخول بدون مستخدم"
 }

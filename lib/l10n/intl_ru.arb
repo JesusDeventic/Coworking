@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "ru",
     "appName":  "Invitaty",
     "signIn":  "Войти",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Сайт / блог",
     "webBlogHint":  "https://ваш-сайт.ru",
     "removeCountryTooltip":  "Убрать страну",
-    "removeBirthdateTooltip":  "Убрать дату"
+    "removeBirthdateTooltip":  "Убрать дату",
+    "authRequiredFunctionMessage":  "Эта функция требует входа в систему",
+    "authRequiredFunctionAction":  "ВОЙТИ",
+    "enterWithoutUser":  "Войти без пользователя"
 }

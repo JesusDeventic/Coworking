@@ -38,6 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "·Invitaty 初始版本。",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage("更新日志"),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("去登录"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "此功能需要登录。",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("返回"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("简介"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("取消"),
@@ -84,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dialogWarningTitle": MessageLookupByLibrary.simpleMessage("注意"),
     "displayName": MessageLookupByLibrary.simpleMessage("显示名称（可选）"),
     "email": MessageLookupByLibrary.simpleMessage("电子邮箱"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage("无需用户登录"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "无法删除账户，请重试",
     ),
@@ -146,14 +151,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "generalSettingsSaveSuccess": MessageLookupByLibrary.simpleMessage("设置已保存"),
     "goToHome": MessageLookupByLibrary.simpleMessage("前往首页"),
-    "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
-    ),
+    "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage("创建邀请"),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "点击创建邀请开始",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "还没有创建邀请",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("电子邮箱无效"),
     "keepSession": MessageLookupByLibrary.simpleMessage("保持登录"),

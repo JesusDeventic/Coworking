@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "pl",
     "appName":  "Invitaty",
     "signIn":  "Zaloguj się",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Strona / blog",
     "webBlogHint":  "https://twojastrona.pl",
     "removeCountryTooltip":  "Usuń kraj",
-    "removeBirthdateTooltip":  "Usuń datę"
+    "removeBirthdateTooltip":  "Usuń datę",
+    "authRequiredFunctionMessage":  "Ta funkcja wymaga zalogowania się",
+    "authRequiredFunctionAction":  "PRZEJDŹ",
+    "enterWithoutUser":  "Zaloguj się bez użytkownika"
 }

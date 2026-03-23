@@ -43,6 +43,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Registre de canvis",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("ANAR"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "Aquesta funció requereix iniciar sessió.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Enrere"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Cancel·la"),
@@ -125,6 +129,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nom visible (opcional)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Correu electrònic"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Entrar sense usuari",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "No s\'ha pogut eliminar el compte. Torna-ho a intentar.",
     ),
@@ -216,13 +223,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("Anar a l\'inici"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "Crear invitació",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "Prem Crear invitació per començar",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "Encara no tens invitacions creades",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage(
       "Correu electrònic no vàlid",

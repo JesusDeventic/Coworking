@@ -43,6 +43,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Wijzigingslogboek",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("GA"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "Deze functie vereist dat je inlogt.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Terug"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Annuleren"),
@@ -123,6 +127,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Weergavenaam (optioneel)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("E-mail"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Inloggen zonder gebruiker",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Account kon niet worden verwijderd. Probeer het opnieuw",
     ),
@@ -216,13 +223,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("Naar start"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "Uitnodiging maken",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "Tik op Uitnodiging maken om te beginnen",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "Nog geen uitnodigingen aangemaakt",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Ongeldige e-mail"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Ingelogd blijven"),

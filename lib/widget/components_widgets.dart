@@ -11,7 +11,12 @@ import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
-void showCustomSnackBar(String message, {int? type}) {
+void showCustomSnackBar(
+  String message, {
+  int? type,
+  bool goToLogin = false,
+  VoidCallback? onGoToLogin,
+}) {
   Color? backgroundColor;
   Color? textColor;
   switch (type) {
@@ -45,6 +50,22 @@ void showCustomSnackBar(String message, {int? type}) {
                 style: TextStyle(fontSize: 16, color: textColor),
               ),
             ),
+            if (goToLogin) ...[
+              const SizedBox(width: 8),
+              ElevatedButton(
+                onPressed: () {
+                  scaffoldMessengerKey.currentState?.hideCurrentSnackBar();
+                  onGoToLogin?.call();
+                },
+                child: Text(
+                  S.current.authRequiredFunctionAction,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
           ],
         ),
       ),

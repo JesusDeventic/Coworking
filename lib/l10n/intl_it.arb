@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "it",
     "appName":  "Invitaty",
     "signIn":  "Accedi",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Sito web / blog",
     "webBlogHint":  "https://tuosito.it",
     "removeCountryTooltip":  "Rimuovi paese",
-    "removeBirthdateTooltip":  "Rimuovi data"
+    "removeBirthdateTooltip":  "Rimuovi data",
+    "authRequiredFunctionMessage":  "Questa funzione richiede l'accesso",
+    "authRequiredFunctionAction":  "VAI",
+    "enterWithoutUser":  "Accedi senza utente"
 }

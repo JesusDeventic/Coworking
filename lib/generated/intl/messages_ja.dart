@@ -39,6 +39,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "・Invitaty の初版。",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage("変更履歴"),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("ログイン"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "この機能にはログインが必要です。",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("戻る"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("自己紹介"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("キャンセル"),
@@ -95,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dialogWarningTitle": MessageLookupByLibrary.simpleMessage("注意"),
     "displayName": MessageLookupByLibrary.simpleMessage("表示名（任意）"),
     "email": MessageLookupByLibrary.simpleMessage("メール"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage("ユーザーなしで入る"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "アカウントを削除できませんでした。再試行してください",
     ),
@@ -173,14 +178,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "設定を保存しました",
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("ホームへ"),
-    "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
-    ),
+    "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage("招待を作成"),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "開始するには「招待を作成」をタップしてください",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "まだ招待を作成していません",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("メールが無効です"),
     "keepSession": MessageLookupByLibrary.simpleMessage("ログイン状態を保持"),

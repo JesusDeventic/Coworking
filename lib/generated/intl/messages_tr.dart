@@ -41,6 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Değişiklik günlüğü",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("GİRİŞ"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "Bu özellik oturum açmanızı gerektirir.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Geri"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Biyografi"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("İptal"),
@@ -117,6 +121,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Görünen ad (isteğe bağlı)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("E-posta"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Kullanıcı olmadan giriş yap",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Hesap silinemedi. Tekrar deneyin",
     ),
@@ -204,13 +211,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("Ana sayfaya git"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "Davet oluştur",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "Başlamak için Davet oluştur düğmesine dokunun",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "Henüz oluşturulmuş davet yok",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Geçersiz e-posta"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Oturumu açık tut"),

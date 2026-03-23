@@ -41,6 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Changelog",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("GO"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "This feature requires you to sign in.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -111,6 +115,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Display name (optional)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Enter without user",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Could not delete the account. Please try again.",
     ),
@@ -203,10 +210,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Create invitation",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "Tap Create invitation to get started",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "No invitations created yet",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Keep me signed in"),

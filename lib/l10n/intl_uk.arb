@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "uk",
     "appName":  "Invitaty",
     "signIn":  "Увійти",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Сайт / блог",
     "webBlogHint":  "https://ваш-сайт.ua",
     "removeCountryTooltip":  "Прибрати країну",
-    "removeBirthdateTooltip":  "Прибрати дату"
+    "removeBirthdateTooltip":  "Прибрати дату",
+    "authRequiredFunctionMessage":  "Ця функція потребує входу в систему",
+    "authRequiredFunctionAction":  "УВІЙТИ",
+    "enterWithoutUser":  "Увійти без користувача"
 }

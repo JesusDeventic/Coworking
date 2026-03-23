@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "sv",
     "appName":  "Invitaty",
     "signIn":  "Logga in",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Webbplats / blogg",
     "webBlogHint":  "https://dinsida.se",
     "removeCountryTooltip":  "Ta bort land",
-    "removeBirthdateTooltip":  "Ta bort datum"
+    "removeBirthdateTooltip":  "Ta bort datum",
+    "authRequiredFunctionMessage":  "Den här funktionen kräver att du loggar in",
+    "authRequiredFunctionAction":  "GÅ",
+    "enterWithoutUser":  "Logga in utan användare"
 }

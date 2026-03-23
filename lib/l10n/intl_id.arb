@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "id",
     "appName":  "Invitaty",
     "signIn":  "Masuk",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Situs / blog",
     "webBlogHint":  "https://situsanda.com",
     "removeCountryTooltip":  "Hapus negara",
-    "removeBirthdateTooltip":  "Hapus tanggal"
+    "removeBirthdateTooltip":  "Hapus tanggal",
+    "authRequiredFunctionMessage":  "Fitur ini memerlukan Anda untuk masuk",
+    "authRequiredFunctionAction":  "MASUK",
+    "enterWithoutUser":  "Masuk tanpa pengguna"
 }

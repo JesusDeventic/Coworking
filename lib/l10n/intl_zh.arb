@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "zh",
     "appName":  "Invitaty",
     "signIn":  "登录",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "网站 / 博客",
     "webBlogHint":  "https://你的网站.com",
     "removeCountryTooltip":  "移除国家/地区",
-    "removeBirthdateTooltip":  "移除日期"
+    "removeBirthdateTooltip":  "移除日期",
+    "authRequiredFunctionMessage":  "此功能需要登录。",
+    "authRequiredFunctionAction":  "去登录",
+    "enterWithoutUser":  "无需用户登录"
 }

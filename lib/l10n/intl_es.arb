@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "es",
     "appName":  "Invitaty",
     "signIn":  "Iniciar sesión",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Página web / blog",
     "webBlogHint":  "https://tuweb.com",
     "removeCountryTooltip":  "Quitar país",
-    "removeBirthdateTooltip":  "Quitar fecha"
+    "removeBirthdateTooltip":  "Quitar fecha",
+    "authRequiredFunctionMessage":  "Esta función requiere iniciar sesión",
+    "authRequiredFunctionAction":  "IR",
+    "enterWithoutUser":  "Entrar sin usuario"
 }

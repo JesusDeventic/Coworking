@@ -43,6 +43,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Журнал змін",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage(
+      "УВІЙТИ",
+    ),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "Ця функція потребує входу в систему.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Назад"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Про себе"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Скасувати"),
@@ -125,6 +131,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Відображуване ім\'я (необов\'язково)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Електронна пошта"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Увійти без користувача",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Не вдалося видалити обліковий запис. Спробуйте ще раз",
     ),
@@ -216,13 +225,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("На головну"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "Створити запрошення",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "Натисніть Створити запрошення, щоб почати",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "Поки немає створених запрошень",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Невірний email"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Залишатися в системі"),

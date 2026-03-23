@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'package:invitaty/api/invitaty_messaging_service.dart';
 import 'package:invitaty/core/global_functions.dart';
 import 'package:invitaty/generated/l10n.dart';
@@ -82,13 +82,6 @@ class _InvitatyAppState extends State<InvitatyApp> {
     if (!mounted) return;
     if (_lastHandledUri == uri) return;
     _lastHandledUri = uri;
-
-    final path = uri.path;
-    if (path.startsWith('/user/')) {
-      final ctx = navigatorKey.currentContext;
-      if (ctx == null) return;
-      ctx.go(path);
-    }
   }
 
   @override

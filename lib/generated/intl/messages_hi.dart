@@ -41,6 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "परिवर्तन लॉग",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("जाएँ"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "इस सुविधा के लिए साइन इन करना आवश्यक है।",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("वापस"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("परिचय"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("रद्द करें"),
@@ -113,6 +117,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "प्रदर्शन नाम (वैकल्पिक)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("ईमेल"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "बिना उपयोगकर्ता के प्रवेश करें",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "खाता नहीं हटाया जा सका। पुनः प्रयास करें",
     ),
@@ -202,13 +209,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("होम पर जाएँ"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "निमंत्रण बनाएं",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "शुरू करने के लिए निमंत्रण बनाएं पर टैप करें",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "अभी तक कोई निमंत्रण नहीं बनाए गए हैं",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("अमान्य ईमेल"),
     "keepSession": MessageLookupByLibrary.simpleMessage("मुझे साइन इन रखें"),

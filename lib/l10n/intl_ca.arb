@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "ca",
     "appName":  "Invitaty",
     "signIn":  "Inicia la sessió",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Pàgina web / blog",
     "webBlogHint":  "https://elteuweb.com",
     "removeCountryTooltip":  "Treu el país",
-    "removeBirthdateTooltip":  "Treu la data"
+    "removeBirthdateTooltip":  "Treu la data",
+    "authRequiredFunctionMessage":  "Aquesta funció requereix iniciar sessió",
+    "authRequiredFunctionAction":  "ANAR",
+    "enterWithoutUser":  "Entrar sense usuari"
 }

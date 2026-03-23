@@ -43,6 +43,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Ändringslogg",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("GÅ"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "Den här funktionen kräver att du loggar in.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Tillbaka"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Avbryt"),
@@ -123,6 +127,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Visningsnamn (valfritt)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("E-post"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Logga in utan användare",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Kunde inte ta bort kontot. Försök igen",
     ),
@@ -214,13 +221,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("Gå till hem"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "Skapa inbjudan",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "Tryck på Skapa inbjudan för att börja",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "Inga inbjudningar skapade ännu",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Ogiltig e-post"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Håll mig inloggad"),

@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "nl",
     "appName":  "Invitaty",
     "signIn":  "Inloggen",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Website / blog",
     "webBlogHint":  "https://jouwsite.nl",
     "removeCountryTooltip":  "Land verwijderen",
-    "removeBirthdateTooltip":  "Datum verwijderen"
+    "removeBirthdateTooltip":  "Datum verwijderen",
+    "authRequiredFunctionMessage":  "Deze functie vereist dat je inlogt",
+    "authRequiredFunctionAction":  "GA",
+    "enterWithoutUser":  "Inloggen zonder gebruiker"
 }

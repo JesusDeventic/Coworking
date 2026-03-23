@@ -41,6 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "سجل التغييرات",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("اذهب"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "تتطلب هذه الميزة تسجيل الدخول.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("رجوع"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("نبذة"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
@@ -119,6 +123,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "الاسم المعروض (اختياري)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "الدخول بدون مستخدم",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "تعذر حذف الحساب. حاول مرة أخرى",
     ),
@@ -202,13 +209,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("الانتقال إلى الرئيسية"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "إنشاء دعوة",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "اضغط على إنشاء دعوة للبدء",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "لم تنشئ أي دعوات بعد",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage(
       "بريد إلكتروني غير صالح",

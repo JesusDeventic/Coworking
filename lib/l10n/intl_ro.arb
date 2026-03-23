@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "ro",
     "appName":  "Invitaty",
     "signIn":  "Conectare",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Site / blog",
     "webBlogHint":  "https://site-ul-tau.ro",
     "removeCountryTooltip":  "Elimină țara",
-    "removeBirthdateTooltip":  "Elimină data"
+    "removeBirthdateTooltip":  "Elimină data",
+    "authRequiredFunctionMessage":  "Această funcție necesită autentificare",
+    "authRequiredFunctionAction":  "INTRĂ",
+    "enterWithoutUser":  "Autentificare fără utilizator"
 }

@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "ja",
     "appName":  "Invitaty",
     "signIn":  "ログイン",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "ウェブサイト / ブログ",
     "webBlogHint":  "https://example.jp",
     "removeCountryTooltip":  "国を削除",
-    "removeBirthdateTooltip":  "日付を削除"
+    "removeBirthdateTooltip":  "日付を削除",
+    "authRequiredFunctionMessage":  "この機能にはログインが必要です。",
+    "authRequiredFunctionAction":  "ログイン",
+    "enterWithoutUser":  "ユーザーなしで入る"
 }

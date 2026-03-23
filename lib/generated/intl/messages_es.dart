@@ -43,6 +43,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Registro de cambios",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("IR"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "Esta función requiere iniciar sesión.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Volver"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
@@ -123,6 +127,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nombre para mostrar (opcional)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Entrar sin usuario",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "No se pudo eliminar la cuenta. Inténtalo de nuevo",
     ),

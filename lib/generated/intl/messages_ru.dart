@@ -43,6 +43,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Список изменений",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("ВОЙТИ"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "Эта функция требует входа в систему.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Назад"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("О себе"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Отмена"),
@@ -125,6 +129,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Отображаемое имя (необязательно)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Электронная почта"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Войти без пользователя",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Не удалось удалить аккаунт. Попробуйте снова",
     ),
@@ -214,13 +221,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("На главную"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "Создать приглашение",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "Нажмите Создать приглашение, чтобы начать",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "Пока нет созданных приглашений",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Неверный email"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Оставаться в системе"),

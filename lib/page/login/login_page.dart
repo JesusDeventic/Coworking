@@ -116,6 +116,13 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  void _enterWithoutLogin() {
+    RecaptchaService.hideBadge();
+    globalUserToken = '';
+    globalCurrentUser = InvitatyUser();
+    context.go(AppRoutes.home);
+  }
+
   @override
   Widget build(BuildContext context) {
     // Escuchar cambios de idioma para reconstruir toda la pantalla (como en Fitcron)
@@ -251,6 +258,28 @@ class _LoginPageState extends State<LoginPage> {
                                     ? null
                                     : () => context.go(AppRoutes.forgotPassword),
                                 child: Text(S.current.forgotPassword),
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+                            SizedBox(
+                              width: double.infinity,
+                              child: TextButton(
+                                onPressed: (_isLoading || _isButtonDisabled)
+                                    ? null
+                                    : () {
+                                        unFocusGlobal();
+                                        _enterWithoutLogin();
+                                      },
+                                child: Text(
+                                  S.current.enterWithoutUser,
+                                  style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface
+                                        .withValues(alpha: 0.7),
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                                ),
                               ),
                             ),
                           ],

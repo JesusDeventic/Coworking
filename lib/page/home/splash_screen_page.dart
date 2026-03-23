@@ -99,11 +99,8 @@ class _SplashScreenPageState extends State<SplashScreenPage>
   }
 
   void _navigate() {
-    if (globalCurrentUser.username.isEmpty) {
-      context.go(AppRoutes.login);
-    } else {
-      context.go(AppRoutes.home);
-    }
+    // Entramos siempre a Home; si no hay sesión válida, queda en modo invitado.
+    context.go(AppRoutes.home);
   }
 
   Future<void> _showErrorDialog(

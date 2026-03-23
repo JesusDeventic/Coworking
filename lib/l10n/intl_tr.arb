@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "tr",
     "appName":  "Invitaty",
     "signIn":  "Giriş yap",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Web sitesi / blog",
     "webBlogHint":  "https://siteniz.com",
     "removeCountryTooltip":  "Ülkeyi kaldır",
-    "removeBirthdateTooltip":  "Tarihi kaldır"
+    "removeBirthdateTooltip":  "Tarihi kaldır",
+    "authRequiredFunctionMessage":  "Bu özellik oturum açmanızı gerektirir",
+    "authRequiredFunctionAction":  "GİRİŞ",
+    "enterWithoutUser":  "Kullanıcı olmadan giriş yap"
 }

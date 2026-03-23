@@ -41,6 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Jurnal modificări",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("INTRĂ"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "Această funcție necesită autentificare.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Înapoi"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Anulează"),
@@ -119,6 +123,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nume afișat (opțional)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("E-mail"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Autentificare fără utilizator",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Contul nu s-a putut șterge. Încearcă din nou",
     ),
@@ -208,13 +215,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("Mergi la acasă"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "Creează invitație",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "Apasă pe Creează invitație pentru a începe",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "Încă nu ai invitații create",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("E-mail invalid"),
     "keepSession": MessageLookupByLibrary.simpleMessage(

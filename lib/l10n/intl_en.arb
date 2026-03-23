@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "en",
     "appName":  "Invitaty",
     "signIn":  "Sign in",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "Website / blog",
     "webBlogHint":  "https://yoursite.com",
     "removeCountryTooltip":  "Remove country",
-    "removeBirthdateTooltip":  "Remove date"
+    "removeBirthdateTooltip":  "Remove date",
+    "authRequiredFunctionMessage":  "This feature requires you to sign in",
+    "authRequiredFunctionAction":  "GO",
+    "enterWithoutUser":  "Enter without user"
 }

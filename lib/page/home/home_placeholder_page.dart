@@ -24,6 +24,18 @@ class HomePlaceholderPage extends StatefulWidget {
 class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
   int _unreadNotificationsCount = 0;
   Timer? _unreadTimer;
+  bool get _isGuest => globalUserToken.isEmpty;
+  String get _userLabel =>
+      globalCurrentUser.username.isNotEmpty ? globalCurrentUser.username : 'Invitado';
+
+  void _showAuthRequiredSnackbar() {
+    showCustomSnackBar(
+      S.current.authRequiredFunctionMessage,
+      type: -1,
+      goToLogin: true,
+      onGoToLogin: () => context.go(AppRoutes.login),
+    );
+  }
 
   @override
   void initState() {
@@ -42,6 +54,10 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
   }
 
   Future<void> _refreshUnreadNotifications() async {
+    if (_isGuest) {
+      if (mounted) setState(() => _unreadNotificationsCount = 0);
+      return;
+    }
     final count = await InvitatyApi.getUnreadNotificationsCount();
     if (mounted) setState(() => _unreadNotificationsCount = count);
   }
@@ -56,6 +72,7 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
   }
 
   Widget _buildNotificationIcon() {
+    if (_isGuest) return const SizedBox.shrink();
     final isDesktop = MediaQuery.of(context).size.width > 800;
     return Tooltip(
       message: S.current.notificationsLabel,
@@ -253,9 +270,32 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
                 const SizedBox(height: 4),
                 const Divider(),
                 ListTile(
-                  leading: const Icon(Icons.app_settings_alt_rounded),
-                  title: Text(S.current.generalSettings),
+                  leading: Icon(
+                    Icons.app_settings_alt_rounded,
+                    color: _isGuest
+                        ? Theme.of(context)
+                            .colorScheme
+                            .onSurface
+                            .withValues(alpha: 0.5)
+                        : null,
+                  ),
+                  title: Text(
+                    S.current.generalSettings,
+                    style: TextStyle(
+                      color: _isGuest
+                          ? Theme.of(context)
+                              .colorScheme
+                              .onSurface
+                              .withValues(alpha: 0.5)
+                          : null,
+                    ),
+                  ),
                   onTap: () {
+                    if (_isGuest) {
+                      Navigator.of(dialogContext).pop();
+                      _showAuthRequiredSnackbar();
+                      return;
+                    }
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -265,9 +305,26 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
                   },
                 ),
                 ListTile(
-                  leading: const Icon(Icons.person_rounded),
-                  title: Text(S.current.accountSettings),
+                  leading: Icon(
+                    Icons.person_rounded,
+                    color: _isGuest
+                        ? Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.45)
+                        : null,
+                  ),
+                  title: Text(
+                    S.current.accountSettings,
+                    style: _isGuest
+                        ? TextStyle(
+                            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.45),
+                          )
+                        : null,
+                  ),
                   onTap: () {
+                    if (_isGuest) {
+                      Navigator.of(dialogContext).pop();
+                      _showAuthRequiredSnackbar();
+                      return;
+                    }
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -302,10 +359,11 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
                   },
                 ),
                 const Divider(),
-                ListTile(
-                  leading: const Icon(Icons.exit_to_app_rounded),
-                  title: Text(S.current.userSectionSessionClose),
-                  onTap: () {
+                if (!_isGuest)
+                  ListTile(
+                    leading: const Icon(Icons.exit_to_app_rounded),
+                    title: Text(S.current.userSectionSessionClose),
+                    onTap: () {
                     final router = GoRouter.of(context);
                     showConfirmDialogGlobal(
                       context,
@@ -338,7 +396,13 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
                       router.go(AppRoutes.login);
                     });
                   },
-                ),
+                  ),
+                if (_isGuest)
+                  ListTile(
+                    leading: const Icon(Icons.login_rounded),
+                    title: Text(S.current.signIn),
+                    onTap: () => context.go(AppRoutes.login),
+                  ),
                 ListTile(
                   leading: const Icon(Icons.cancel_presentation_rounded),
                   title: Text(S.current.dialogCloseAppTitle),
@@ -391,7 +455,7 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
                   const SizedBox(width: 12),
                   Flexible(
                     child: Text(
-                      globalCurrentUser.username,
+                      _userLabel,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.onSurface,
                         fontSize: 16,
@@ -464,7 +528,7 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
         ),
         actions: [
           _buildNotificationIcon(),
-          if (isDesktop) _buildDesktopAppBarDivider(),
+          if (isDesktop && !_isGuest) _buildDesktopAppBarDivider(),
           _buildUserProfile(),
         ],
         bottom: PreferredSize(
@@ -496,6 +560,10 @@ class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
           const SizedBox(height: 20),
           ElevatedButton.icon(
             onPressed: () {
+              /*if (_isGuest) {
+                _showAuthRequiredSnackbar();
+                return;
+              }*/
               showCustomSnackBar('Próximamente: crear invitación');
             },
             icon: const Icon(Icons.add_rounded),

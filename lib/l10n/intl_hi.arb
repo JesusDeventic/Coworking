@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "hi",
     "appName":  "Invitaty",
     "signIn":  "साइन इन करें",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "वेबसाइट / ब्लॉग",
     "webBlogHint":  "https://आपकीसाइट.com",
     "removeCountryTooltip":  "देश हटाएँ",
-    "removeBirthdateTooltip":  "तिथि हटाएँ"
+    "removeBirthdateTooltip":  "तिथि हटाएँ",
+    "authRequiredFunctionMessage":  "इस सुविधा के लिए साइन इन करना आवश्यक है।",
+    "authRequiredFunctionAction":  "जाएँ",
+    "enterWithoutUser":  "बिना उपयोगकर्ता के प्रवेश करें"
 }

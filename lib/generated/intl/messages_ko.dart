@@ -39,6 +39,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "·Invitaty 최초 버전.",
     ),
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage("변경 로그"),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("로그인"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "이 기능을 사용하려면 로그인해야 합니다.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("뒤로"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("소개"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("취소"),
@@ -91,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dialogWarningTitle": MessageLookupByLibrary.simpleMessage("주의"),
     "displayName": MessageLookupByLibrary.simpleMessage("표시 이름(선택)"),
     "email": MessageLookupByLibrary.simpleMessage("이메일"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage("사용자 없이 로그인"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "계정을 삭제할 수 없습니다. 다시 시도하세요",
     ),
@@ -172,13 +177,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("홈으로"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "초대장 만들기",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "시작하려면 초대장 만들기를 탭하세요",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "아직 초대장을 만들지 않았습니다",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("유효하지 않은 이메일"),
     "keepSession": MessageLookupByLibrary.simpleMessage("로그인 상태 유지"),

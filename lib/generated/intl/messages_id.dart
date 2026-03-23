@@ -41,6 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage(
       "Log perubahan",
     ),
+    "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("MASUK"),
+    "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
+      "Fitur ini memerlukan Anda untuk masuk.",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Kembali"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Batal"),
@@ -119,6 +123,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nama tampilan (opsional)",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
+      "Masuk tanpa pengguna",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Tidak dapat menghapus akun. Coba lagi",
     ),
@@ -208,13 +215,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "goToHome": MessageLookupByLibrary.simpleMessage("Ke beranda"),
     "homeCreateInvitationButton": MessageLookupByLibrary.simpleMessage(
-      "Create invitation",
+      "Buat undangan",
     ),
     "homeEmptyInvitationsSubtitle": MessageLookupByLibrary.simpleMessage(
-      "Tap Create invitation to get started.",
+      "Ketuk Buat undangan untuk memulai",
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
-      "No invitations created yet.",
+      "Belum ada undangan yang dibuat",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Email tidak valid"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Tetap masuk"),

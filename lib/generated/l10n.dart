@@ -884,20 +884,20 @@ class S {
     return Intl.message('Home', name: 'menuHome', desc: '', args: []);
   }
 
-  /// `No invitations created yet.`
+  /// `No invitations created yet`
   String get homeEmptyInvitationsTitle {
     return Intl.message(
-      'No invitations created yet.',
+      'No invitations created yet',
       name: 'homeEmptyInvitationsTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Tap Create invitation to get started.`
+  /// `Tap Create invitation to get started`
   String get homeEmptyInvitationsSubtitle {
     return Intl.message(
-      'Tap Create invitation to get started.',
+      'Tap Create invitation to get started',
       name: 'homeEmptyInvitationsSubtitle',
       desc: '',
       args: [],
@@ -1844,6 +1844,36 @@ class S {
     return Intl.message(
       'Remove date',
       name: 'removeBirthdateTooltip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This feature requires you to sign in.`
+  String get authRequiredFunctionMessage {
+    return Intl.message(
+      'This feature requires you to sign in.',
+      name: 'authRequiredFunctionMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `GO`
+  String get authRequiredFunctionAction {
+    return Intl.message(
+      'GO',
+      name: 'authRequiredFunctionAction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter without user`
+  String get enterWithoutUser {
+    return Intl.message(
+      'Enter without user',
+      name: 'enterWithoutUser',
       desc: '',
       args: [],
     );

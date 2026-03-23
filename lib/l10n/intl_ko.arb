@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "ko",
     "appName":  "Invitaty",
     "signIn":  "로그인",
@@ -212,5 +212,8 @@
     "webBlogLabel":  "웹사이트 / 블로그",
     "webBlogHint":  "https://example.kr",
     "removeCountryTooltip":  "국가 제거",
-    "removeBirthdateTooltip":  "날짜 제거"
+    "removeBirthdateTooltip":  "날짜 제거",
+    "authRequiredFunctionMessage":  "이 기능을 사용하려면 로그인해야 합니다",
+    "authRequiredFunctionAction":  "로그인",
+    "enterWithoutUser":  "사용자 없이 로그인"
 }
