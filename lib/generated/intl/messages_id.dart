@@ -43,7 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("MASUK"),
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
-      "Fitur ini memerlukan Anda untuk masuk.",
+      "Fitur ini memerlukan Anda untuk masuk",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Kembali"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),

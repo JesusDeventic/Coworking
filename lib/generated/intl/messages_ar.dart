@@ -43,7 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("اذهب"),
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
-      "تتطلب هذه الميزة تسجيل الدخول.",
+      "تتطلب هذه الميزة تسجيل الدخول",
     ),
     "back": MessageLookupByLibrary.simpleMessage("رجوع"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("نبذة"),

@@ -45,7 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("VAI"),
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
-      "Questa funzione richiede l\'accesso.",
+      "Questa funzione richiede l\'accesso",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Indietro"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),

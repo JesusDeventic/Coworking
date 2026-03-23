@@ -47,7 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "ANMELDEN",
     ),
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
-      "Diese Funktion erfordert eine Anmeldung.",
+      "Diese Funktion erfordert eine Anmeldung",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Zurück"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),

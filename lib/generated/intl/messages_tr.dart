@@ -43,7 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("GİRİŞ"),
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
-      "Bu özellik oturum açmanızı gerektirir.",
+      "Bu özellik oturum açmanızı gerektirir",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Geri"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Biyografi"),

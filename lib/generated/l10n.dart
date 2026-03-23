@@ -1849,10 +1849,10 @@ class S {
     );
   }
 
-  /// `This feature requires you to sign in.`
+  /// `This feature requires you to sign in`
   String get authRequiredFunctionMessage {
     return Intl.message(
-      'This feature requires you to sign in.',
+      'This feature requires you to sign in',
       name: 'authRequiredFunctionMessage',
       desc: '',
       args: [],
@@ -1877,6 +1877,11 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Prueba`
+  String get prueba {
+    return Intl.message('Prueba', name: 'prueba', desc: '', args: []);
   }
 }
 

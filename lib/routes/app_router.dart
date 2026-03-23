@@ -53,7 +53,7 @@ GoRouter createAppRouter(GlobalKey<NavigatorState> navigatorKey) {
       ),
       GoRoute(
         path: AppRoutes.home,
-        builder: (_, __) => const HomePlaceholderPage(),
+        builder: (_, __) => const HomePage(),
       ),
       GoRoute(
         path: AppRoutes.accountProfile,

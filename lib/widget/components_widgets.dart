@@ -602,10 +602,11 @@ Widget rowSettingsAppAndVersion(BuildContext context) {
               context.read<ThemeProvider>().toggleTheme();
             },
             child: Consumer<ThemeProvider>(
-              builder: (_, themeProvider, __) => Icon(
+              builder: (ctx, themeProvider, __) => Icon(
                 themeProvider.isDarkMode
                     ? Icons.nightlight_round
                     : Icons.wb_sunny_rounded,
+                color: Theme.of(ctx).colorScheme.onSurface,
               ),
             ),
           ),

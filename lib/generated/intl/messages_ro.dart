@@ -43,7 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("INTRĂ"),
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
-      "Această funcție necesită autentificare.",
+      "Această funcție necesită autentificare",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Înapoi"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),

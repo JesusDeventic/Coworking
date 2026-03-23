@@ -41,7 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appVersionChangeLogTitle": MessageLookupByLibrary.simpleMessage("변경 로그"),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("로그인"),
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
-      "이 기능을 사용하려면 로그인해야 합니다.",
+      "이 기능을 사용하려면 로그인해야 합니다",
     ),
     "back": MessageLookupByLibrary.simpleMessage("뒤로"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("소개"),

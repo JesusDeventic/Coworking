@@ -47,7 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "УВІЙТИ",
     ),
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
-      "Ця функція потребує входу в систему.",
+      "Ця функція потребує входу в систему",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Назад"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Про себе"),

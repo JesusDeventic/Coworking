@@ -45,7 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("ANAR"),
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
-      "Aquesta funció requereix iniciar sessió.",
+      "Aquesta funció requereix iniciar sessió",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Enrere"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),

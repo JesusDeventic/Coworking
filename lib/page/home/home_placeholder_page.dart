@@ -14,14 +14,14 @@ import 'package:invitaty/widget/components_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class HomePlaceholderPage extends StatefulWidget {
-  const HomePlaceholderPage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomePlaceholderPage> createState() => _HomePlaceholderPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePlaceholderPageState extends State<HomePlaceholderPage> {
+class _HomePageState extends State<HomePage> {
   int _unreadNotificationsCount = 0;
   Timer? _unreadTimer;
   bool get _isGuest => globalUserToken.isEmpty;

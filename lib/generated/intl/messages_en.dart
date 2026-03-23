@@ -43,7 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "authRequiredFunctionAction": MessageLookupByLibrary.simpleMessage("GO"),
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
-      "This feature requires you to sign in.",
+      "This feature requires you to sign in",
     ),
     "back": MessageLookupByLibrary.simpleMessage("Back"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
@@ -350,6 +350,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privateMessages": MessageLookupByLibrary.simpleMessage("Private messages"),
     "profileShareSubject": m1,
+    "prueba": MessageLookupByLibrary.simpleMessage("Prueba"),
     "publicProfileAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "User profile",
     ),
