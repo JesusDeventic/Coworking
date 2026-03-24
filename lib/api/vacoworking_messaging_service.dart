@@ -1,10 +1,9 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:vacoworking/api/firebase_web_config.dart';
 import 'package:vacoworking/core/global_functions.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' show Color, debugPrint;
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:vacoworking/generated/l10n.dart';
 import 'package:vacoworking/styles/colors.dart';
@@ -110,7 +109,7 @@ class VACoworkingMessagingService {
       priority: Priority.high,
       showWhen: true,
       icon: 'ic_notification',
-      color: AppColors.primary,
+      color: AppColors.secondary,
     );
 
     const iosDetails = DarwinNotificationDetails(

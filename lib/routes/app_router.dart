@@ -1,7 +1,7 @@
 ﻿import 'package:vacoworking/core/global_functions.dart';
 import 'package:vacoworking/core/global_variables.dart';
 import 'package:vacoworking/generated/l10n.dart';
-import 'package:vacoworking/page/home/home_placeholder_page.dart';
+import 'package:vacoworking/page/home/home_page.dart';
 import 'package:vacoworking/page/users/account_profile_page.dart';
 import 'package:vacoworking/page/home/splash_screen_page.dart';
 import 'package:vacoworking/page/login/forgot_password_page.dart';

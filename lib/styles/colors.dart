@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 /// Cursor de mano para elementos interactuables en Windows/desktop.
@@ -6,24 +6,30 @@ final _clickCursor = WidgetStateProperty.all<MouseCursor>(
   SystemMouseCursors.click,
 );
 
-/// Colores de VACoworking: rosa/magenta principal y gris antracita.
+/// Colores de VACoworking extraídos del logo (va-coworking):
+/// azul marino de la V / edificios, verde del pin, azul cielo y amarillo de acento.
 class AppColors {
-  /// Rosa principal (elementos principales, botones, acentos)
-  static const Color primary = Color(0xFFFF7BB5);
+  /// Azul marino principal (forma V, bloques del logo) — AppBar, botones primarios
+  static const Color primary = Color(0xFF213148);
 
-  /// Variante oscura para estados/hover sutiles
-  static const Color primaryLow = Color(0xFFE85A9C);
+  /// Variante más oscura para bordes / estados
+  static const Color primaryLow = Color(0xFF1A2738);
 
-  /// Variante clara como acento (tambien se reutiliza como `secondary`)
-  static const Color primaryAccent = Color(0xFFFFB7D8);
+  /// Azul cielo del logo (lado izquierdo) — acentos suaves, `tertiary` en el tema
+  static const Color primaryAccent = Color(0xFF29ABE2);
 
-  /// Gris antracita (fondos oscuros, texto, contraste)
+  /// Gris antracita (texto sobre superficies claras)
   static const Color anthracite = Color(0xFF2C2C2E);
   static const Color anthraciteDark = Color(0xFF121212);
 
-  /// Secundario / apoyo (si no había secundario, usamos un acento claro)
-  static const Color secondary = Color(0xFFFFB7D8);
-  static const Color secondaryLow = Color(0xFFE85A9C);
+  /// Verde del pin / mapa — secundario de marca (chips, acentos, FABs)
+  static const Color secondary = Color(0xFF70BC1F);
+
+  /// Verde más oscuro (hover / bordes)
+  static const Color secondaryLow = Color(0xFF5A9A18);
+
+  /// Amarillo dorado del logo (opcional: ratings, highlights puntuales)
+  static const Color accentYellow = Color(0xFFFFC600);
   static const Color red = Color(0xFFD50032);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
@@ -38,14 +44,14 @@ ColorScheme get lightColorScheme {
   return const ColorScheme(
     brightness: Brightness.light,
     primary: AppColors.primary,
-    onPrimary: AppColors.anthraciteDark,
+    onPrimary: AppColors.white,
     // Igual que Fitcron: colores "fijos" para que widgets externos (emoji picker, tabs, etc.)
     // no dependan de cómo derive Flutter `primaryFixed`.
     primaryFixed: AppColors.white,
     // 50% alpha del blanco (0x80)
     primaryFixedDim: const Color(0x80FFFFFF),
     secondary: AppColors.secondary,
-    onSecondary: AppColors.black,
+    onSecondary: AppColors.white,
     tertiary: AppColors.primaryAccent,
     error: AppColors.red,
     onError: AppColors.white,
@@ -58,12 +64,12 @@ ColorScheme get darkColorScheme {
   return const ColorScheme(
     brightness: Brightness.dark,
     primary: AppColors.primary,
-    onPrimary: AppColors.anthraciteDark,
+    onPrimary: AppColors.white,
     primaryFixed: AppColors.white,
     // 50% alpha del blanco (0x80)
     primaryFixedDim: const Color(0x80FFFFFF),
     secondary: AppColors.secondary,
-    onSecondary: AppColors.black,
+    onSecondary: AppColors.white,
     tertiary: AppColors.primaryAccent,
     error: AppColors.red,
     onError: AppColors.white,
@@ -89,7 +95,8 @@ ThemeData themeFromColorScheme(ColorScheme colorScheme) {
       titleSpacing: 0,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: colorScheme.primary,
-        statusBarIconBrightness: Brightness.dark,
+        // Barra oscura (azul marino) → iconos claros en la status bar
+        statusBarIconBrightness: Brightness.light,
         systemNavigationBarColor: colorScheme.surface,
         systemNavigationBarIconBrightness:
             colorScheme.brightness == Brightness.dark
