@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a ar locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -182,17 +182,19 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("توسيع"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "إنها تطبيق لإنشاء دعوات لجميع أنواع الفعاليات. تتيح لك اختيار القوالب وتخصيص الدعوة ومشاركتها على وسائل التواصل الاجتماعي، وتلقي إشعارات التأكيد وتتبع الحضور.",
+      "إنه تطبيق معلوماتي حول مساحات العمل المشتركة المتاحة، والمصنفة حسب الخدمات والميزات. يتيح لك البحث والتصفية وفق معايير مختلفة للعثور على المكان المثالي للعمل.",
     ),
     "faq1Question": MessageLookupByLibrary.simpleMessage("ما هو VACoworking؟"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "لا، يمكنك استخدام VACoworking لتصميم دعواتك، ولكن لكي تتمكن من نشرها تحتاج إلى إجراء دفعة مقابل كل دعوة على حدة.",
+      "يمكن فقط لمسؤولي التطبيق إضافة مساحات العمل المشتركة. لإضافة المزيد من المساحات، يجب التواصل مع فريق التطبيق.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("هل هو مجاني؟"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "هل يمكنني إضافة مساحات عمل مشتركة؟",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "يمكنك حذف حسابك من إعدادات الحساب داخل التطبيق. سيُزال كل ما يتعلق بحسابك. لا يمكن التراجع عن هذا الإجراء.",
+      "عند السماح بالإشعارات، تُرسل تنبيهات إلى جهازك تتضمن تحديثات أو أخبارًا مهمة عن مساحات العمل المشتركة. يمكنك ضبط الإشعارات من إعدادات التطبيق.",
     ),
-    "faq3Question": MessageLookupByLibrary.simpleMessage("كيف أحذف حسابي؟"),
+    "faq3Question": MessageLookupByLibrary.simpleMessage("كيف تعمل الإشعارات؟"),
     "fieldRequired": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("الإعدادات العامة"),
@@ -216,6 +218,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "لم تنشئ أي دعوات بعد",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "اعثر على مكان جيد للعمل",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن مساحات عمل مشتركة",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage(
       "بريد إلكتروني غير صالح",
@@ -321,6 +329,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "لا توجد إشعارات",
     ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("جديد"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "أذونات إشعارات الجهاز",
     ),
@@ -456,4 +465,3 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
-

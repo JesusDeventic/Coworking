@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a sv locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -186,18 +186,20 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("Expandera"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "Det är en app för att skapa inbjudningar för alla typer av evenemang. Du kan välja mallar och anpassa inbjudan, dela den i sociala medier, få bekräftelseaviseringar och följa deltagandet.",
+      "Det är en informationsapp om tillgängliga coworking-platser, kategoriserade efter tjänster och egenskaper. Du kan söka och filtrera efter olika kriterier för att hitta den perfekta arbetsplatsen.",
     ),
     "faq1Question": MessageLookupByLibrary.simpleMessage("Vad är VACoworking?"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Nej, du kan använda VACoworking för att designa dina inbjudningar, men för att kunna publicera dem måste du betala för varje enskild.",
+      "Endast appens administratörer kan lägga till coworking-platser. För att lägga till fler platser behöver du kontakta appteamet.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("Är det gratis?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "Kan jag lägga till coworking-platser?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "Du kan ta bort ditt konto under kontoinställningar i appen. Allt kopplat till kontot tas bort. Detta kan inte ångras.",
+      "När du tillåter notiser skickas aviseringar till din enhet med nyheter eller viktig information om coworking-platser. Du kan konfigurera notiser i appens inställningar.",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "Hur tar jag bort mitt konto?",
+      "Hur fungerar notiser?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage(
       "Detta fält är obligatoriskt",
@@ -228,6 +230,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "Inga inbjudningar skapade ännu",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "Hitta en bra plats att arbeta på",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "Sök coworking-platser",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Ogiltig e-post"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Håll mig inloggad"),
@@ -343,6 +351,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Du har inga aviseringar",
     ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("Aviseringar"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("Ny"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "Aviseringsbehörigheter för enheten",
     ),
@@ -423,7 +432,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Status"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Kontakt VACoworking"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "Kontakt VACoworking",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Användarvillkor",
     ),
@@ -474,4 +485,3 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
-

@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "id",
     "appName":  "VACoworking",
     "signIn":  "Masuk",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "Kontak VACoworking",
     "faq1Question":  "Apa itu VACoworking?",
-    "faq1Answer":  "Ini adalah aplikasi untuk membuat undangan untuk berbagai jenis acara. Anda dapat memilih template, menyesuaikan undangan, membagikannya di media sosial, menerima notifikasi konfirmasi, dan memantau kehadiran.",
-    "faq2Question":  "Apakah gratis?",
-    "faq2Answer":  "Tidak, Anda dapat menggunakan VACoworking untuk mendesain undangan Anda, tetapi untuk mempublikasikannya Anda perlu melakukan pembayaran untuk setiap undangan.",
-    "faq3Question":  "Bagaimana cara menghapus akun saya?",
-    "faq3Answer":  "Anda dapat menghapus akun di pengaturan akun dalam aplikasi. Semua data terkait akan dihapus. Tindakan ini tidak dapat dibatalkan.",
+    "faq1Answer":  "Ini adalah aplikasi informatif tentang ruang coworking yang tersedia, dikategorikan berdasarkan layanan dan fitur. Anda dapat mencari dan memfilter dengan berbagai kriteria untuk menemukan tempat terbaik untuk bekerja.",
+    "faq2Question":  "Apakah saya bisa menambahkan ruang coworking?",
+    "faq2Answer":  "Hanya administrator aplikasi yang dapat menambahkan ruang coworking. Untuk menambahkan lebih banyak ruang, Anda perlu menghubungi tim aplikasi.",
+    "faq3Question":  "Bagaimana notifikasi bekerja?",
+    "faq3Answer":  "Saat Anda mengizinkan notifikasi, pemberitahuan akan dikirim ke perangkat Anda dengan pembaruan atau berita penting tentang ruang coworking. Anda dapat mengatur notifikasi di pengaturan aplikasi.",
     "errorAuthInvalidUsername":  "Nama pengguna harus 4–20 karakter dan hanya mengandung huruf, angka, tanda hubung, dan garis bawah.",
     "errorAuthInvalidEmail":  "Email tidak valid",
     "errorAuthInvalidPassword":  "Kata sandi minimal 6 karakter",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Hapus tanggal",
     "authRequiredFunctionMessage":  "Fitur ini memerlukan Anda untuk masuk",
     "authRequiredFunctionAction":  "MASUK",
+    "notificationsNewBadge": "Baru",
+    "homeHeroTitle": "Temukan tempat yang baik untuk bekerja",
+    "homeSearchCoworkingButton": "Cari ruang coworking",
     "enterWithoutUser":  "Masuk tanpa pengguna"
 }
 

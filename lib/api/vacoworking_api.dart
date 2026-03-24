@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:vacoworking/core/global_variables.dart';
@@ -411,11 +411,9 @@ class VACoworkingApi {
 
   /// GET /notifications/unread-count
   static Future<int> getUnreadNotificationsCount() async {
-    final token = globalUserToken;
-    if (token.isEmpty) return 0;
     try {
       final url = Uri.parse('$_baseUrl/notifications/unread-count');
-      final response = await http.get(url, headers: _headers(token: token));
+      final response = await http.get(url, headers: _headers());
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       return (data['unread_count'] as num?)?.toInt() ?? 0;
     } catch (_) {
@@ -427,21 +425,18 @@ class VACoworkingApi {
   static Future<Map<String, dynamic>> getNotifications({
     int page = 1,
     int perPage = 20,
+    int? sinceId,
   }) async {
-    final token = globalUserToken;
-    if (token.isEmpty) {
-      return {
-        'notifications': <Map<String, dynamic>>[],
-        'total': 0,
-        'page': page,
-        'per_page': perPage,
-        'total_pages': 0,
-      };
-    }
     try {
-      final url =
-          Uri.parse('$_baseUrl/notifications?page=$page&per_page=$perPage');
-      final response = await http.get(url, headers: _headers(token: token));
+      final params = <String, String>{
+        'page': '$page',
+        'per_page': '$perPage',
+      };
+      if (sinceId != null && sinceId > 0) {
+        params['since_id'] = '$sinceId';
+      }
+      final url = Uri.parse('$_baseUrl/notifications').replace(queryParameters: params);
+      final response = await http.get(url, headers: _headers());
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       final list = data['notifications'] as List<dynamic>? ?? [];
       return {
@@ -467,13 +462,11 @@ class VACoworkingApi {
   /// POST /notifications/mark-read
   /// notificationId = 0 => marcar todas como leídas.
   static Future<bool> markNotificationAsRead(int notificationId) async {
-    final token = globalUserToken;
-    if (token.isEmpty) return false;
     try {
       final url = Uri.parse('$_baseUrl/notifications/mark-read');
       final response = await http.post(
         url,
-        headers: _headers(token: token),
+        headers: _headers(),
         body: jsonEncode({'notification_id': notificationId}),
       );
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
@@ -486,13 +479,11 @@ class VACoworkingApi {
   /// DELETE /notifications?notification_id=X
   /// notificationId = 0 => borrar todas.
   static Future<bool> deleteNotifications({int notificationId = 0}) async {
-    final token = globalUserToken;
-    if (token.isEmpty) return false;
     try {
       final url = Uri.parse('$_baseUrl/notifications').replace(
         queryParameters: {'notification_id': '$notificationId'},
       );
-      final response = await http.delete(url, headers: _headers(token: token));
+      final response = await http.delete(url, headers: _headers());
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       return response.statusCode == 200 && data['success'] == true;
     } catch (_) {

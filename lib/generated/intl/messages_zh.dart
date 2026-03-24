@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a zh locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -127,17 +127,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorProcessingImage": MessageLookupByLibrary.simpleMessage("无法处理图片"),
     "expandMenu": MessageLookupByLibrary.simpleMessage("展开"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "这是一款用于制作各种活动邀请函的应用。它让你选择模板、个性化邀请函内容、在社交媒体上分享、接收确认通知，并跟踪出席情况。",
+      "这是一款关于可用联合办公空间的信息应用，按服务和特点进行分类。你可以按不同条件搜索和筛选，找到最适合工作的空间。",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("VACoworking 是什么？"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage("什么是 VACoworking？"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "不可以。你可以使用 VACoworking 来设计邀请函，但要发布它们，你需要为每一份分别付款。",
+      "只有应用管理员可以添加联合办公空间。若要新增更多空间，请联系应用团队。",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("免费吗？"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage("我可以添加联合办公空间吗？"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "您可在应用内的账户设置中删除账户，这将删除与账户相关的所有数据。此操作无法撤销。",
+      "当你允许通知后，设备会收到有关联合办公空间更新或重要消息的提醒。你可以在应用设置中配置通知。",
     ),
-    "faq3Question": MessageLookupByLibrary.simpleMessage("如何删除我的账户？"),
+    "faq3Question": MessageLookupByLibrary.simpleMessage("通知如何工作？"),
     "fieldRequired": MessageLookupByLibrary.simpleMessage("此字段为必填项"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("忘记密码？"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("常规设置"),
@@ -157,6 +157,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "还没有创建邀请",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage("找到一个适合工作的好地方"),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "搜索联合办公空间",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("电子邮箱无效"),
     "keepSession": MessageLookupByLibrary.simpleMessage("保持登录"),
@@ -232,6 +236,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsDeletedOk": MessageLookupByLibrary.simpleMessage("通知已删除"),
     "notificationsEmptyText": MessageLookupByLibrary.simpleMessage("暂无通知"),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("通知"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("新"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "设备通知权限",
     ),
@@ -325,4 +330,3 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("凭据错误"),
   };
 }
-

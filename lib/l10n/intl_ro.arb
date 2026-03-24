@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "ro",
     "appName":  "VACoworking",
     "signIn":  "Conectare",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "Contact VACoworking",
     "faq1Question":  "Ce este VACoworking?",
-    "faq1Answer":  "Este o aplicație pentru a crea invitații pentru tot felul de evenimente. Vă permite să alegeți șabloane și să personalizați invitația, să o partajați pe rețelele sociale, să primiți notificări de confirmare și să urmăriți prezența.",
-    "faq2Question":  "Este gratuit?",
-    "faq2Answer":  "Nu, poți folosi VACoworking pentru a-ți proiecta invitațiile, dar pentru a le publica trebuie să efectuezi o plată pentru fiecare.",
-    "faq3Question":  "Cum îmi pot șterge contul?",
-    "faq3Answer":  "Poți șterge contul din setările contului din aplicație. Se elimină tot ce este asociat contului tău. Această acțiune este ireversibilă.",
+    "faq1Answer":  "Este o aplicație informativă despre spațiile de coworking disponibile, clasificate după servicii și caracteristici. Poți căuta și filtra după diferite criterii pentru a găsi locul perfect de lucru.",
+    "faq2Question":  "Pot adăuga spații de coworking?",
+    "faq2Answer":  "Doar administratorii aplicației pot adăuga spații de coworking. Pentru a adăuga mai multe spații, trebuie să contactezi echipa aplicației.",
+    "faq3Question":  "Cum funcționează notificările?",
+    "faq3Answer":  "Când permiți notificările, pe dispozitiv se trimit alerte cu noutăți sau informații importante despre spațiile de coworking. Poți configura notificările din setările aplicației.",
     "errorAuthInvalidUsername":  "Numele de utilizator trebuie să aibă între 4 și 20 de caractere și poate conține doar litere, cifre, cratime și underscore.",
     "errorAuthInvalidEmail":  "E-mailul nu este valid",
     "errorAuthInvalidPassword":  "Parola trebuie să aibă cel puțin 6 caractere",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Elimină data",
     "authRequiredFunctionMessage":  "Această funcție necesită autentificare",
     "authRequiredFunctionAction":  "INTRĂ",
+    "notificationsNewBadge": "Nou",
+    "homeHeroTitle": "Găsește un loc bun pentru a lucra",
+    "homeSearchCoworkingButton": "Caută spații coworking",
     "enterWithoutUser":  "Autentificare fără utilizator"
 }
 

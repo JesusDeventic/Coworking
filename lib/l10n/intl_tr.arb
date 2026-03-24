@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "tr",
     "appName":  "VACoworking",
     "signIn":  "Giriş yap",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "VACoworking iletişim",
     "faq1Question":  "VACoworking nedir?",
-    "faq1Answer":  "Bu, her türlü etkinlik için davetiye oluşturmanıza yardımcı olan bir uygulamadır. Şablon seçmenize ve davetiyenizi kişiselleştirmenize, sosyal medyada paylaşmanıza, onay bildirimleri almanıza ve katılımı takip etmenize olanak tanır.",
-    "faq2Question":  "Ücretsiz mi?",
-    "faq2Answer":  "Hayır, davetiyelerinizi tasarlamak için VACoworking'yi kullanabilirsiniz; ancak yayınlayabilmek için her biri için ödeme yapmanız gerekir.",
-    "faq3Question":  "Hesabımı nasıl silerim?",
-    "faq3Answer":  "Hesabınızı uygulamadaki hesap ayarlarından silebilirsiniz. Hesabınızla ilişkili her şey kaldırılır. Bu işlem geri alınamaz.",
+    "faq1Answer":  "Bu, mevcut coworking alanları hakkında hizmet ve özelliklere göre kategorize edilmiş bilgilendirici bir uygulamadır. Çalışmak için en uygun alanı bulmanız için farklı kriterlere göre arama ve filtreleme yapmanıza olanak tanır.",
+    "faq2Question":  "Coworking alanı ekleyebilir miyim?",
+    "faq2Answer":  "Yalnızca uygulama yöneticileri coworking alanı ekleyebilir. Daha fazla alan eklemek için uygulama ekibiyle iletişime geçmeniz gerekir.",
+    "faq3Question":  "Bildirimler nasıl çalışır?",
+    "faq3Answer":  "Bildirimlere izin verdiğinizde cihazınıza coworking alanlarıyla ilgili yenilikler veya önemli haberler gönderilir. Bildirimleri uygulama ayarlarından yapılandırabilirsiniz.",
     "errorAuthInvalidUsername":  "Kullanıcı adı 4–20 karakter olmalı ve yalnızca harf, rakam, tire ve alt çizgi içerebilir.",
     "errorAuthInvalidEmail":  "E-posta geçersiz",
     "errorAuthInvalidPassword":  "Şifre en az 6 karakter olmalıdır",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Tarihi kaldır",
     "authRequiredFunctionMessage":  "Bu özellik oturum açmanızı gerektirir",
     "authRequiredFunctionAction":  "GİRİŞ",
+    "notificationsNewBadge": "Yeni",
+    "homeHeroTitle": "Çalışmak için iyi bir yer bulun",
+    "homeSearchCoworkingButton": "Coworking alanlarını ara",
     "enterWithoutUser":  "Kullanıcı olmadan giriş yap"
 }
 

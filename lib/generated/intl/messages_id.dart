@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a id locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -182,18 +182,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("Luaskan"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "Ini adalah aplikasi untuk membuat undangan untuk berbagai jenis acara. Anda dapat memilih template, menyesuaikan undangan, membagikannya di media sosial, menerima notifikasi konfirmasi, dan memantau kehadiran.",
+      "Ini adalah aplikasi informatif tentang ruang coworking yang tersedia, dikategorikan berdasarkan layanan dan fitur. Anda dapat mencari dan memfilter dengan berbagai kriteria untuk menemukan tempat terbaik untuk bekerja.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Apa itu VACoworking?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage(
+      "Apa itu VACoworking?",
+    ),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Tidak, Anda dapat menggunakan VACoworking untuk mendesain undangan Anda, tetapi untuk mempublikasikannya Anda perlu melakukan pembayaran untuk setiap undangan.",
+      "Hanya administrator aplikasi yang dapat menambahkan ruang coworking. Untuk menambahkan lebih banyak ruang, Anda perlu menghubungi tim aplikasi.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("Apakah gratis?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "Apakah saya bisa menambahkan ruang coworking?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "Anda dapat menghapus akun di pengaturan akun dalam aplikasi. Semua data terkait akan dihapus. Tindakan ini tidak dapat dibatalkan.",
+      "Saat Anda mengizinkan notifikasi, pemberitahuan akan dikirim ke perangkat Anda dengan pembaruan atau berita penting tentang ruang coworking. Anda dapat mengatur notifikasi di pengaturan aplikasi.",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "Bagaimana cara menghapus akun saya?",
+      "Bagaimana notifikasi bekerja?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage(
       "Bidang ini wajib diisi",
@@ -222,6 +226,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "Belum ada undangan yang dibuat",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "Temukan tempat yang baik untuk bekerja",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "Cari ruang coworking",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Email tidak valid"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Tetap masuk"),
@@ -335,6 +345,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Anda tidak memiliki notifikasi",
     ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("Notifikasi"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("Baru"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "Izin notifikasi perangkat",
     ),
@@ -415,7 +426,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Status"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Kontak VACoworking"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "Kontak VACoworking",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Syarat dan ketentuan",
     ),
@@ -472,4 +485,3 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
-

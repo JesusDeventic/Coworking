@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "pl",
     "appName":  "VACoworking",
     "signIn":  "Zaloguj się",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "Kontakt VACoworking",
     "faq1Question":  "Czym jest VACoworking?",
-    "faq1Answer":  "To aplikacja do tworzenia zaproszeń na wszelkiego rodzaju wydarzenia. Umożliwia wybór szablonów i personalizowanie zaproszenia, udostępnianie w mediach społecznościowych, otrzymywanie powiadomień o potwierdzeniu oraz śledzenie obecności.",
-    "faq2Question":  "Czy to jest darmowe?",
-    "faq2Answer":  "Nie, możesz używać VACoworking do projektowania zaproszeń, ale aby je opublikować, musisz uiścić płatność za każde z nich.",
-    "faq3Question":  "Jak usunąć moje konto?",
-    "faq3Answer":  "Możesz usunąć konto w ustawieniach konta w aplikacji. Usunięte zostaną wszystkie powiązane dane. Tej operacji nie można cofnąć.",
+    "faq1Answer":  "To aplikacja informacyjna o dostępnych przestrzeniach coworkingowych, uporządkowanych według usług i cech. Umożliwia wyszukiwanie i filtrowanie według różnych kryteriów, aby znaleźć idealne miejsce do pracy.",
+    "faq2Question":  "Czy mogę dodawać przestrzenie coworkingowe?",
+    "faq2Answer":  "Tylko administratorzy aplikacji mogą dodawać przestrzenie coworkingowe. Aby dodać więcej miejsc, należy skontaktować się z zespołem aplikacji.",
+    "faq3Question":  "Jak działają powiadomienia?",
+    "faq3Answer":  "Po włączeniu powiadomień na urządzenie będą wysyłane informacje o nowościach lub ważnych wiadomościach dotyczących przestrzeni coworkingowych. Powiadomienia można skonfigurować w ustawieniach aplikacji.",
     "errorAuthInvalidUsername":  "Nazwa użytkownika musi mieć 4–20 znaków i może zawierać tylko litery, cyfry, myślniki i podkreślenia.",
     "errorAuthInvalidEmail":  "E-mail jest nieprawidłowy",
     "errorAuthInvalidPassword":  "Hasło musi mieć co najmniej 6 znaków",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Usuń datę",
     "authRequiredFunctionMessage":  "Ta funkcja wymaga zalogowania się",
     "authRequiredFunctionAction":  "PRZEJDŹ",
+    "notificationsNewBadge": "Nowe",
+    "homeHeroTitle": "Znajdź dobre miejsce do pracy",
+    "homeSearchCoworkingButton": "Szukaj przestrzeni coworkingowych",
     "enterWithoutUser":  "Zaloguj się bez użytkownika"
 }
 

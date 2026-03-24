@@ -1,4 +1,4 @@
-﻿import 'dart:convert';
+import 'dart:convert';
 
 import 'package:vacoworking/model/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,6 +9,7 @@ class UserPreferences {
   static const _keyTheme = 'VACoworking_theme_dark';
   static const _keyLanguage = 'VACoworking_language';
   static const _keyCachedUser = 'VACoworking_cached_user';
+  static const _keyLastSeenNotificationId = 'VACoworking_last_seen_notification_id';
 
   Future<SharedPreferences> get _prefs async =>
       await SharedPreferences.getInstance();
@@ -55,6 +56,16 @@ class UserPreferences {
   Future<void> clearCachedUser() async {
     final prefs = await _prefs;
     await prefs.remove(_keyCachedUser);
+  }
+
+  Future<void> setLastSeenNotificationId(int id) async {
+    final prefs = await _prefs;
+    await prefs.setInt(_keyLastSeenNotificationId, id < 0 ? 0 : id);
+  }
+
+  Future<int> getLastSeenNotificationId() async {
+    final prefs = await _prefs;
+    return prefs.getInt(_keyLastSeenNotificationId) ?? 0;
   }
 
   Map<String, dynamic> _userToJson(VACoworkingUser u) => {

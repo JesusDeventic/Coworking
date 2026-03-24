@@ -1,5 +1,6 @@
-﻿import 'package:vacoworking/api/vacoworking_api.dart';
+import 'package:vacoworking/api/vacoworking_api.dart';
 import 'package:vacoworking/core/global_functions.dart';
+import 'package:vacoworking/core/user_preferences.dart';
 import 'package:vacoworking/generated/l10n.dart';
 import 'package:vacoworking/widget/components_widgets.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +13,13 @@ class NotificationsPage extends StatefulWidget {
 }
 
 class _NotificationsPageState extends State<NotificationsPage> {
+  final UserPreferences _prefs = UserPreferences();
   final List<Map<String, dynamic>> _notificationList = [];
   final ScrollController _scrollController = ScrollController();
+  int _entryLastSeenId = 0;
+  bool _entrySeenLoaded = false;
 
   bool _isLoading = true;
-  bool _isProcessing = false;
   bool _isLoadingMore = false;
   bool _hasMore = true;
   bool _shouldLoadMore = true;
@@ -47,6 +50,10 @@ class _NotificationsPageState extends State<NotificationsPage> {
   }
 
   Future<void> _fetchNotifications() async {
+    if (!_entrySeenLoaded) {
+      _entryLastSeenId = await _prefs.getLastSeenNotificationId();
+      _entrySeenLoaded = true;
+    }
     setState(() {
       _isLoading = true;
       _hasMore = true;
@@ -57,6 +64,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
     if (!mounted) return;
 
     final list = response['notifications'] as List<Map<String, dynamic>>;
+    await _markAsSeenIfNeeded(list);
     setState(() {
       _totalNotifications = response['total'] as int? ?? 0;
       _notificationList
@@ -95,6 +103,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
     if (!mounted) return;
 
     final list = response['notifications'] as List<Map<String, dynamic>>;
+    await _markAsSeenIfNeeded(list);
     setState(() {
       _notificationList.addAll(list);
       _currentPage = response['page'] as int? ?? nextPage;
@@ -108,57 +117,23 @@ class _NotificationsPageState extends State<NotificationsPage> {
     });
   }
 
-  Future<void> _markNotificationAsRead(int notificationId) async {
-    setState(() => _isProcessing = true);
-    final ok = await VACoworkingApi.markNotificationAsRead(notificationId);
-    if (!mounted) return;
-
-    if (ok) {
-      setState(() {
-        if (notificationId == 0) {
-          for (final n in _notificationList) {
-            n['read_status'] = true;
-          }
-        } else {
-          final idx = _notificationList.indexWhere((n) => n['id'] == notificationId);
-          if (idx != -1) _notificationList[idx]['read_status'] = true;
-        }
-      });
-      showCustomSnackBar(
-        notificationId == 0
-            ? S.current.notificationsAllMarkedRead
-            : S.current.notificationMarkedRead,
-        type: 1,
-      );
-    } else {
-      showCustomSnackBar(S.current.notificationMarkReadError, type: -1);
+  Future<void> _markAsSeenIfNeeded(List<Map<String, dynamic>> list) async {
+    if (list.isEmpty) return;
+    int maxId = 0;
+    for (final row in list) {
+      final id = (row['id'] as num?)?.toInt() ?? 0;
+      if (id > maxId) maxId = id;
     }
-    setState(() => _isProcessing = false);
-  }
-
-  Future<void> _deleteAllNotifications() async {
-    setState(() => _isProcessing = true);
-    final ok = await VACoworkingApi.deleteNotifications(notificationId: 0);
-    if (!mounted) return;
-    setState(() => _isProcessing = false);
-
-    if (ok) {
-      showCustomSnackBar(S.current.notificationsDeletedOk, type: 1);
-      await _fetchNotifications();
-    } else {
-      showCustomSnackBar(S.current.notificationsDeletedError, type: -1);
+    if (maxId <= 0) return;
+    final current = await _prefs.getLastSeenNotificationId();
+    if (maxId > current) {
+      await _prefs.setLastSeenNotificationId(maxId);
     }
-  }
-
-  bool _areAllNotificationsRead() {
-    return _notificationList.every((n) => n['read_status'] == true);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Scaffold(
+    return Scaffold(
           appBar: AppBar(
             title: Text(
               '${S.current.notificationsLabel}${_totalNotifications > 0 ? ' ($_totalNotifications)' : ''}',
@@ -170,37 +145,6 @@ class _NotificationsPageState extends State<NotificationsPage> {
                   child: IconButton(
                     icon: const Icon(Icons.refresh_rounded),
                     onPressed: _fetchNotifications,
-                  ),
-                ),
-              if (_notificationList.isNotEmpty && !_areAllNotificationsRead())
-                Tooltip(
-                  message: S.current.markAllAsRead,
-                  child: IconButton(
-                    icon: const Icon(Icons.mark_email_read_rounded),
-                    onPressed: () async {
-                      final confirmed = await showConfirmDialogGlobal(
-                        context,
-                        title: S.current.markAllAsRead,
-                        message: S.current.notificationMarkAllAsk,
-                      );
-                      if (confirmed) await _markNotificationAsRead(0);
-                    },
-                  ),
-                ),
-              if (_notificationList.isNotEmpty)
-                Tooltip(
-                  message: S.current.deleteAllNotifications,
-                  child: IconButton(
-                    icon: const Icon(Icons.delete_forever_rounded),
-                    onPressed: () async {
-                      final confirmed = await showConfirmDialogGlobal(
-                        context,
-                        title: S.current.deleteAllNotifications,
-                        message: S.current.notificationDeleteAllAsk,
-                        destructive: true,
-                      );
-                      if (confirmed) await _deleteAllNotifications();
-                    },
                   ),
                 ),
               const SizedBox(width: 8),
@@ -250,61 +194,119 @@ class _NotificationsPageState extends State<NotificationsPage> {
                           }
 
                           final notification = _notificationList[index];
-                          final isRead = notification['read_status'] == true;
                           final notificationId =
                               (notification['id'] as num?)?.toInt() ?? 0;
+                          final topic =
+                              (notification['topic'] as String?) ?? 'global';
+                          final isGlobalTopic =
+                              topic.toLowerCase().trim() == 'global';
+                          final isNew = notificationId > _entryLastSeenId;
 
                             return Center(
                             child: ConstrainedBox(
                               constraints: const BoxConstraints(maxWidth: 800),
                               child: Card(
                                 margin: const EdgeInsets.symmetric(vertical: 4),
-                                elevation: isRead ? 1 : 3,
-                                color: isRead
-                                    ? null
-                                    : Theme.of(context)
+                                elevation: isNew ? 3 : 1,
+                                color: isNew
+                                    ? Theme.of(context)
                                         .colorScheme
                                         .primaryContainer
-                                        .withValues(alpha: 0.3),
-                                child: InkWell(
-                                  onTap: () async {
-                                    if (!isRead && notificationId != 0) {
-                                      await _markNotificationAsRead(notificationId);
-                                    }
-                                  },
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: Padding(
+                                        .withValues(alpha: 0.25)
+                                    : null,
+                                child: Padding(
                                     padding: const EdgeInsets.all(12),
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Container(
-                                          margin: const EdgeInsets.only(top: 2),
-                                          width: 10,
-                                          height: 10,
-                                          decoration: BoxDecoration(
-                                            color: isRead
-                                                ? Colors.transparent
-                                                : Theme.of(context)
-                                                    .colorScheme
-                                                    .secondary,
-                                            shape: BoxShape.circle,
-                                          ),
-                                        ),
-                                        const SizedBox(width: 10),
                                         Expanded(
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Text(
-                                                (notification['title'] as String?) ??
-                                                    '',
-                                                style: TextStyle(
-                                                  fontWeight: isRead
-                                                      ? FontWeight.w500
-                                                      : FontWeight.w700,
-                                                ),
+                                              Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Expanded(
+                                                    child: Text(
+                                                      (notification['title']
+                                                              as String?) ??
+                                                          '',
+                                                      style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  const SizedBox(width: 8),
+                                                  Tooltip(
+                                                    message: isGlobalTopic
+                                                        ? 'Global'
+                                                        : topic,
+                                                    child: Container(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              6),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                                999),
+                                                        color: isGlobalTopic
+                                                            ? Theme.of(context)
+                                                                .colorScheme
+                                                                .primary
+                                                                .withValues(
+                                                                    alpha: 0.15)
+                                                            : Theme.of(context)
+                                                                .colorScheme
+                                                                .secondary
+                                                                .withValues(
+                                                                    alpha: 0.18),
+                                                      ),
+                                                      child: Icon(
+                                                        isGlobalTopic
+                                                            ? Icons.public_rounded
+                                                            : Icons.tag_rounded,
+                                                        size: 14,
+                                                        color: Theme.of(context)
+                                                            .colorScheme
+                                                            .onSurface,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  if (isNew) ...[
+                                                    const SizedBox(width: 6),
+                                                    Container(
+                                                      padding:
+                                                          const EdgeInsets.symmetric(
+                                                              horizontal: 8,
+                                                              vertical: 2),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                                999),
+                                                        color: Theme.of(context)
+                                                            .colorScheme
+                                                            .secondary
+                                                            .withValues(
+                                                                alpha: 0.22),
+                                                      ),
+                                                      child: Text(
+                                                        S.current.notificationsNewBadge,
+                                                        style: TextStyle(
+                                                          fontSize: 11,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color:
+                                                              Theme.of(context)
+                                                                  .colorScheme
+                                                                  .onSurface,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ],
                                               ),
                                               const SizedBox(height: 4),
                                               Text(
@@ -333,7 +335,6 @@ class _NotificationsPageState extends State<NotificationsPage> {
                                       ],
                                     ),
                                   ),
-                                ),
                               ),
                             ),
                             );
@@ -341,16 +342,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
                         ),
                       ),
           ),
-        ),
-        if (_isProcessing)
-          Positioned.fill(
-            child: Container(
-              color: Colors.black.withValues(alpha: 0.25),
-              child: const Center(child: CircularProgressIndicator()),
-            ),
-          ),
-      ],
-    );
+        );
   }
 }
 

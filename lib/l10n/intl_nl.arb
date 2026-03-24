@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "nl",
     "appName":  "VACoworking",
     "signIn":  "Inloggen",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "VACoworking-contact",
     "faq1Question":  "Wat is VACoworking?",
-    "faq1Answer":  "Het is een app om uitnodigingen te maken voor allerlei soorten evenementen. Je kunt templates kiezen, de uitnodiging personaliseren, delen op social media, bevestigingsmeldingen ontvangen en de aanwezigheid bijhouden.",
-    "faq2Question":  "Is het gratis?",
-    "faq2Answer":  "Nee, je kunt VACoworking gebruiken om je uitnodigingen te ontwerpen, maar om ze te publiceren moet je voor elke uitnodiging apart betalen.",
-    "faq3Question":  "Hoe verwijder ik mijn account?",
-    "faq3Answer":  "Je kunt je account verwijderen in de accountinstellingen in de app. Alles wat aan je account gekoppeld is, wordt verwijderd. Deze actie kan niet ongedaan worden gemaakt.",
+    "faq1Answer":  "Het is een informatieve app over beschikbare coworkingruimtes, ingedeeld op diensten en kenmerken. Je kunt zoeken en filteren op verschillende criteria om de perfecte werkplek te vinden.",
+    "faq2Question":  "Kan ik coworkingruimtes toevoegen?",
+    "faq2Answer":  "Alleen appbeheerders kunnen coworkingruimtes toevoegen. Neem contact op met het appteam als je meer ruimtes wilt laten toevoegen.",
+    "faq3Question":  "Hoe werken meldingen?",
+    "faq3Answer":  "Als je meldingen toestaat, ontvangt je apparaat updates of belangrijk nieuws over coworkingruimtes. Je kunt meldingen instellen in de appinstellingen.",
     "errorAuthInvalidUsername":  "De gebruikersnaam moet 4–20 tekens lang zijn en mag alleen letters, cijfers, streepjes en underscores bevatten.",
     "errorAuthInvalidEmail":  "De e-mail is ongeldig",
     "errorAuthInvalidPassword":  "Het wachtwoord moet minimaal 6 tekens hebben",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Datum verwijderen",
     "authRequiredFunctionMessage":  "Deze functie vereist dat je inlogt",
     "authRequiredFunctionAction":  "GA",
+    "notificationsNewBadge": "Nieuw",
+    "homeHeroTitle": "Vind een goede plek om te werken",
+    "homeSearchCoworkingButton": "Zoek coworkingruimtes",
     "enterWithoutUser":  "Inloggen zonder gebruiker"
 }
 

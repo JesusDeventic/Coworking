@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 
 import 'package:vacoworking/api/vacoworking_api.dart';
 import 'package:vacoworking/api/firebase_web_config.dart';
@@ -12,9 +12,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:provider/provider.dart';
-import 'package:vacoworking/main.dart';
-import 'package:vacoworking/providers/language_provider.dart';
 
 final _secureStorage = VACoworkingSecureStorage();
 
@@ -61,11 +58,10 @@ Future<bool> loginUser() async {
 }
 
 /// Sincroniza la configuración push del usuario actual:
-/// - registra/actualiza el token FCM en backend (WP)
-/// - suscribe a topic por idioma (solo Android/iOS)
+/// - registra token en backend solo si hay sesión
+/// - suscribe al topic global (solo Android/iOS)
 Future<void> syncPushConfig() async {
   if (!(kIsWeb || Platform.isAndroid || Platform.isIOS)) return;
-  if (globalUserToken.isEmpty) return;
   if (Firebase.apps.isEmpty) return;
   try {
     final fcm = FirebaseMessaging.instance;
@@ -74,23 +70,6 @@ Future<void> syncPushConfig() async {
     final settings = await fcm.getNotificationSettings();
     if (settings.authorizationStatus == AuthorizationStatus.denied) {
       return;
-    }
-
-    // Mismo criterio que Fitcron (app_backend checkLoginUserByTopic): idioma de la app
-    // (Provider → prefs), no el campo del usuario en la API/DB.
-    String langCode = 'en';
-    String? previousLangCode;
-    try {
-      final ctx = navigatorKey.currentContext;
-      if (ctx != null && ctx.mounted) {
-        final lp = Provider.of<LanguageProvider>(ctx, listen: false);
-        langCode = lp.currentLanguage;
-        previousLangCode = lp.previousLanguage;
-      } else {
-        langCode = await UserPreferences().getLanguage() ?? 'en';
-      }
-    } catch (_) {
-      langCode = await UserPreferences().getLanguage() ?? 'en';
     }
 
     String? fcmToken;
@@ -109,25 +88,18 @@ Future<void> syncPushConfig() async {
     }
     if (fcmToken == null || fcmToken.isEmpty) return;
 
-    final ok = await VACoworkingApi.registerPushToken(
-      token: globalUserToken,
-      fcmToken: fcmToken,
-    );
-    debugPrint('Registro token push backend: $ok');
+    if (globalUserToken.isNotEmpty) {
+      final ok = await VACoworkingApi.registerPushToken(
+        token: globalUserToken,
+        fcmToken: fcmToken,
+      );
+      debugPrint('Registro token push backend: $ok');
+    }
 
-    // Topics: solo Android/iOS (en web no aplica)
+    // Topics: solo Android/iOS (en web no aplica). Sin login: topic global.
     if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
       try {
-        if (previousLangCode != null &&
-            previousLangCode.isNotEmpty &&
-            previousLangCode != langCode) {
-          try {
-            await fcm.unsubscribeFromTopic(previousLangCode);
-          } catch (_) {
-            // ignorar
-          }
-        }
-        await fcm.subscribeToTopic(langCode);
+        await fcm.subscribeToTopic('global');
       } catch (e) {
         debugPrint('Error suscripción topic push: $e');
       }

@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "ca",
     "appName":  "VACoworking",
     "signIn":  "Inicia la sessió",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "Contacte VACoworking",
     "faq1Question":  "Què és VACoworking?",
-    "faq1Answer":  "És una aplicació per crear invitacions per a tota mena d'esdeveniments. Permet escollir plantilles i personalitzar la invitació, compartir-la a les xarxes socials, rebre notificacions de confirmació i fer el seguiment de les assistències.",
-    "faq2Question":  "És gratuït?",
-    "faq2Answer":  "No, pots utilitzar VACoworking per dissenyar les teves invitacions, però per poder publicar-les necessites fer un pagament per cada una.",
-    "faq3Question":  "Com elimino el meu compte?",
-    "faq3Answer":  "Pots eliminar el teu usuari des dels ajustos del compte a l'app. Això elimina tot el relacionat amb el teu usuari. Aquesta acció és irreversible.",
+    "faq1Answer":  "És una aplicació informativa sobre els espais de coworking disponibles, categoritzats per serveis i característiques. Permet cercar i filtrar per diferents criteris per trobar l'espai perfecte per treballar.",
+    "faq2Question":  "Puc afegir espais de coworking?",
+    "faq2Answer":  "Només els administradors de l'aplicació poden afegir espais de coworking. Per afegir-ne més, cal contactar amb l'equip de l'aplicació.",
+    "faq3Question":  "Com funcionen les notificacions?",
+    "faq3Answer":  "Quan permets les notificacions, s'envien avisos al dispositiu amb novetats o notícies importants sobre els espais de coworking. Les notificacions es poden configurar als ajustos de l'aplicació.",
     "errorAuthInvalidUsername":  "El nom d'usuari ha de tenir entre 4 i 20 caràcters i només pot contenir lletres, números, guions i guions baixos.",
     "errorAuthInvalidEmail":  "El correu no és vàlid.",
     "errorAuthInvalidPassword":  "La contrasenya ha de tenir almenys 6 caràcters.",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Treu la data",
     "authRequiredFunctionMessage":  "Aquesta funció requereix iniciar sessió",
     "authRequiredFunctionAction":  "ANAR",
+    "notificationsNewBadge": "Nou",
+    "homeHeroTitle": "Troba un bon lloc per treballar",
+    "homeSearchCoworkingButton": "Cerca espais coworking",
     "enterWithoutUser":  "Entrar sense usuari"
 }
 

@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a es locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -186,18 +186,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("Expandir"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "Es una aplicación para realizar invitaciones a todo tipo de eventos. Permite escoger plantillas y personalizar la invitación, compartirla por redes sociales, recibir notificaciones de confirmación y realizar el seguimiento de las asistencias.",
+      "Es una aplicación informativa sobre los espacios coworkings disponibles, categorizados por servicios y características. Permite buscar y filtrar por diferentes criterios para encontrar el espacio perfecto para trabajar.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("¿Qué es VACoworking?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage(
+      "¿Qué es VACoworking?",
+    ),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "No, puedes usar VACoworking para diseñar tus invitaciones, pero para poder publicarlas necesitas realizar un pago por cada una de ellas.",
+      "Solo los administradores de la aplicación pueden añadir espacios coworkings. Para añadir más espacios es necesario contactar con el equipo de la aplicación.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("¿Es gratis?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "¿Puedo añadir espacios coworkings?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "Puedes eliminar tu usuario desde los ajustes de la cuenta en la propia App. Esto elimina todo lo relacionado y asociado a tu usuario. Esta acción es irreversible.",
+      "Al permitir notificaciones, se envian avisos al dispositivo con novedades o noticias importantes sobre los espacios coworkings. Se pueden configurar las notificaciones en los ajustes de la aplicación.",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "¿Cómo elimino mi cuenta?",
+      "¿Cómo funcionan las notificaciones?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage(
       "Este campo es obligatorio",
@@ -230,6 +234,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "Aún no tienes invitaciones creadas",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "Encuentra un buen lugar para trabajar",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "Buscar espacios coworking",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Email no válido"),
     "keepSession": MessageLookupByLibrary.simpleMessage(
@@ -349,6 +359,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsLabel": MessageLookupByLibrary.simpleMessage(
       "Notificaciones",
     ),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("Nuevo"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "Permisos de notificaciones del dispositivo",
     ),
@@ -431,7 +442,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Estado"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Contacto VACoworking"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "Contacto VACoworking",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Términos y condiciones",
     ),
@@ -490,4 +503,3 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
-

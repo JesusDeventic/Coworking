@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -23,14 +23,12 @@ function VACoworking_notifications_create_table() {
 
     $sql = "CREATE TABLE {$table_name} (
         id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-        user_id BIGINT UNSIGNED NOT NULL,
         title VARCHAR(255) NOT NULL,
         message TEXT NOT NULL,
-        read_status TINYINT(1) NOT NULL DEFAULT 0,
+        topic VARCHAR(120) NOT NULL DEFAULT 'global',
         created_at DATETIME NOT NULL,
         PRIMARY KEY (id),
-        KEY user_id (user_id),
-        KEY read_status (read_status),
+        KEY topic (topic),
         KEY created_at (created_at)
     ) {$charset_collate};";
 
@@ -56,27 +54,21 @@ add_action('rest_api_init', function () {
         'permission_callback' => '__return_true',
     ]);
 
-    register_rest_route('VACoworking/v1', '/notifications/unread-count', [
-        'methods' => 'GET',
-        'callback' => 'VACoworking_get_unread_notifications_count',
-        'permission_callback' => '__return_true',
-    ]);
-
     register_rest_route('VACoworking/v1', '/notifications', [
         'methods' => 'GET',
         'callback' => 'VACoworking_get_notifications',
         'permission_callback' => '__return_true',
     ]);
 
-    register_rest_route('VACoworking/v1', '/notifications/mark-read', [
-        'methods' => 'POST',
-        'callback' => 'VACoworking_mark_notification_as_read',
+    register_rest_route('VACoworking/v1', '/notifications/topics', [
+        'methods' => 'GET',
+        'callback' => 'VACoworking_get_notification_topics',
         'permission_callback' => '__return_true',
     ]);
 
-    register_rest_route('VACoworking/v1', '/notifications', [
-        'methods' => 'DELETE',
-        'callback' => 'VACoworking_delete_notifications',
+    register_rest_route('VACoworking/v1', '/notifications/send', [
+        'methods' => 'POST',
+        'callback' => 'VACoworking_send_global_notification',
         'permission_callback' => '__return_true',
     ]);
 });
@@ -113,6 +105,10 @@ function VACoworking_get_user_fcm_tokens($user_id) {
     return is_array($tokens) ? $tokens : [];
 }
 
+function VACoworking_token_is_not_target($token, $target) {
+    return (string) $token !== (string) $target;
+}
+
 function VACoworking_add_user_fcm_token($user_id, $fcm_token) {
     $tokens = VACoworking_get_user_fcm_tokens($user_id);
 
@@ -126,39 +122,44 @@ function VACoworking_add_user_fcm_token($user_id, $fcm_token) {
 
 function VACoworking_remove_user_fcm_token($user_id, $fcm_token) {
     $tokens = VACoworking_get_user_fcm_tokens($user_id);
-
-    $tokens = array_values(array_filter($tokens, function ($token) use ($fcm_token) {
-        return $token !== $fcm_token;
-    }));
+    $filtered = array();
+    foreach ($tokens as $token) {
+        if (VACoworking_token_is_not_target($token, $fcm_token)) {
+            $filtered[] = $token;
+        }
+    }
+    $tokens = array_values($filtered);
 
     update_user_meta($user_id, 'VACoworking_fcm_tokens', $tokens);
 
     return $tokens;
 }
 
-/**
- * =========================================================
- * CREAR NOTIFICACIÃ“N INTERNA
- * =========================================================
- */
-function VACoworking_create_notification($user_id, $title, $message) {
+function VACoworking_create_global_notification($title, $message, $topic = 'global') {
     global $wpdb;
 
     $table_name = $wpdb->prefix . 'VACoworking_notifications';
-
+    $topic = VACoworking_sanitize_notification_topic($topic);
     $wpdb->insert(
         $table_name,
         [
-            'user_id' => $user_id,
             'title' => $title,
             'message' => $message,
-            'read_status' => 0,
+            'topic' => $topic,
             'created_at' => current_time('mysql'),
         ],
-        ['%d', '%s', '%s', '%d', '%s']
+        ['%s', '%s', '%s', '%s']
     );
 
     return (int) $wpdb->insert_id;
+}
+
+function VACoworking_sanitize_notification_topic($topic) {
+    $topic = sanitize_key((string) $topic);
+    if ($topic === '') {
+        return 'global';
+    }
+    return $topic;
 }
 
 /**
@@ -212,79 +213,53 @@ function VACoworking_unregister_push_token(WP_REST_Request $request) {
 
 /**
  * =========================================================
- * NOTIFICACIONES - RECUENTO
- * =========================================================
- */
-function VACoworking_get_unread_notifications_count(WP_REST_Request $request) {
-    global $wpdb;
-
-    $user_id = VACoworking_get_authenticated_user_id_or_error($request);
-
-    if (is_wp_error($user_id)) {
-        return $user_id;
-    }
-
-    $table_name = $wpdb->prefix . 'VACoworking_notifications';
-
-    $count = $wpdb->get_var(
-        $wpdb->prepare(
-            "SELECT COUNT(*) FROM {$table_name} WHERE user_id = %d AND read_status = 0",
-            $user_id
-        )
-    );
-
-    return new WP_REST_Response([
-        'unread_count' => (int) $count,
-    ], 200);
-}
-
-/**
- * =========================================================
  * NOTIFICACIONES - LISTADO
  * =========================================================
  */
 function VACoworking_get_notifications(WP_REST_Request $request) {
     global $wpdb;
 
-    $user_id = VACoworking_get_authenticated_user_id_or_error($request);
-
-    if (is_wp_error($user_id)) {
-        return $user_id;
-    }
-
     $page = max(1, (int) ($request->get_param('page') ?: 1));
     $per_page = max(1, min((int) ($request->get_param('per_page') ?: 20), 100));
     $offset = ($page - 1) * $per_page;
+    $topic = VACoworking_sanitize_notification_topic((string) $request->get_param('topic'));
+    $all_topics = !empty($request->get_param('all_topics'));
+    $since_id = (int) ($request->get_param('since_id') ?: 0);
 
     $table_name = $wpdb->prefix . 'VACoworking_notifications';
 
-    $total = (int) $wpdb->get_var(
-        $wpdb->prepare(
-            "SELECT COUNT(*) FROM {$table_name} WHERE user_id = %d",
-            $user_id
-        )
-    );
+    $where = "1=1";
+    $params = [];
+    if (!$all_topics) {
+        $where .= " AND topic = %s";
+        $params[] = $topic;
+    }
+    if ($since_id > 0) {
+        $where .= " AND id > %d";
+        $params[] = $since_id;
+    }
 
-    $notifications = $wpdb->get_results(
-        $wpdb->prepare(
-            "SELECT * FROM {$table_name}
-             WHERE user_id = %d
-             ORDER BY created_at DESC
-             LIMIT %d OFFSET %d",
-            $user_id,
-            $per_page,
-            $offset
-        ),
-        ARRAY_A
-    );
+    $total_sql = "SELECT COUNT(*) FROM {$table_name} WHERE {$where}";
+    $total = (int) $wpdb->get_var(!empty($params) ? $wpdb->prepare($total_sql, $params) : $total_sql);
+
+    $list_sql = "SELECT id, title, message, topic, created_at
+                 FROM {$table_name}
+                 WHERE {$where}
+                 ORDER BY created_at DESC
+                 LIMIT %d OFFSET %d";
+    $list_params = $params;
+    $list_params[] = $per_page;
+    $list_params[] = $offset;
+    $notifications = $wpdb->get_results($wpdb->prepare($list_sql, $list_params), ARRAY_A);
 
     foreach ($notifications as &$notification) {
         $notification['id'] = (int) $notification['id'];
-        $notification['user_id'] = (int) $notification['user_id'];
-        $notification['read_status'] = (bool) $notification['read_status'];
+        $notification['topic'] = (string) ($notification['topic'] ?? 'global');
     }
 
     return new WP_REST_Response([
+        'success' => true,
+        'mode' => 'global',
         'notifications' => $notifications,
         'total' => $total,
         'page' => $page,
@@ -295,104 +270,89 @@ function VACoworking_get_notifications(WP_REST_Request $request) {
 
 /**
  * =========================================================
- * NOTIFICACIONES - MARCAR COMO LEÃDA
+ * TOPICS DISPONIBLES (para construir filtros/suscripciones en app)
  * =========================================================
  */
-function VACoworking_mark_notification_as_read(WP_REST_Request $request) {
+function VACoworking_get_notification_topics(WP_REST_Request $request) {
     global $wpdb;
-
-    $user_id = VACoworking_get_authenticated_user_id_or_error($request);
-
-    if (is_wp_error($user_id)) {
-        return $user_id;
-    }
-
-    $params = VACoworking_notifications_get_json_params($request);
-    $notification_id = (int) ($params['notification_id'] ?? 0);
-
     $table_name = $wpdb->prefix . 'VACoworking_notifications';
-
-    if ($notification_id === 0) {
-        $wpdb->update(
-            $table_name,
-            ['read_status' => 1],
-            ['user_id' => $user_id, 'read_status' => 0],
-            ['%d'],
-            ['%d', '%d']
-        );
-
-        return new WP_REST_Response([
-            'success' => true,
-            'message' => 'Todas las notificaciones marcadas como leÃ­das.',
-        ], 200);
+    $rows = $wpdb->get_results("SELECT topic, COUNT(*) as total FROM {$table_name} GROUP BY topic ORDER BY topic ASC", ARRAY_A);
+    $topics = [];
+    foreach ($rows as $row) {
+        $topics[] = [
+            'topic' => (string) $row['topic'],
+            'count' => (int) $row['total'],
+        ];
     }
-
-    $notification = $wpdb->get_row(
-        $wpdb->prepare(
-            "SELECT id FROM {$table_name} WHERE id = %d AND user_id = %d LIMIT 1",
-            $notification_id,
-            $user_id
-        )
-    );
-
-    if (!$notification) {
-        return VACoworking_notifications_error('notification_not_found', 'La notificaciÃ³n no existe o no pertenece al usuario.', 404);
-    }
-
-    $wpdb->update(
-        $table_name,
-        ['read_status' => 1],
-        ['id' => $notification_id, 'user_id' => $user_id],
-        ['%d'],
-        ['%d', '%d']
-    );
-
     return new WP_REST_Response([
         'success' => true,
-        'message' => 'NotificaciÃ³n marcada como leÃ­da.',
+        'topics' => $topics,
     ], 200);
 }
 
 /**
  * =========================================================
- * NOTIFICACIONES - ELIMINAR
+ * ENVIO GLOBAL (admin/editor): guarda notificacion + push por topic
  * =========================================================
  */
-function VACoworking_delete_notifications(WP_REST_Request $request) {
-    global $wpdb;
-
+function VACoworking_send_global_notification(WP_REST_Request $request) {
     $user_id = VACoworking_get_authenticated_user_id_or_error($request);
-
     if (is_wp_error($user_id)) {
         return $user_id;
     }
-
-    $notification_id = (int) ($request->get_param('notification_id') ?: 0);
-    $table_name = $wpdb->prefix . 'VACoworking_notifications';
-
-    if ($notification_id === 0) {
-        $wpdb->delete($table_name, ['user_id' => $user_id], ['%d']);
-
-        return new WP_REST_Response([
-            'success' => true,
-            'message' => 'Todas las notificaciones eliminadas.',
-        ], 200);
+    if (!VACoworking_notifications_user_is_admin_or_editor((int) $user_id)) {
+        return VACoworking_notifications_error('forbidden', 'No tienes permisos para enviar notificaciones globales.', 403);
     }
 
-    $deleted = $wpdb->delete(
-        $table_name,
-        ['id' => $notification_id, 'user_id' => $user_id],
-        ['%d', '%d']
-    );
+    $params = VACoworking_notifications_get_json_params($request);
+    $title = sanitize_text_field($params['title'] ?? '');
+    $message = sanitize_textarea_field($params['message'] ?? '');
+    $topic = VACoworking_sanitize_notification_topic($params['topic'] ?? 'global');
+    $send_push = !isset($params['send_push']) || (bool) $params['send_push'];
+    if ($title === '' || $message === '') {
+        return VACoworking_notifications_error('missing_fields', 'title y message son obligatorios.', 400);
+    }
 
-    if (!$deleted) {
-        return VACoworking_notifications_error('notification_not_found', 'La notificaciÃ³n no existe o no pertenece al usuario.', 404);
+    $notification_id = VACoworking_create_global_notification($title, $message, $topic);
+    $push_result = [
+        'success' => true,
+        'sent' => $send_push ? 1 : 0,
+        'topic' => $topic,
+    ];
+    if ($send_push) {
+        $send = VACoworking_send_push_to_topic($topic, $title, $message);
+        if (is_wp_error($send)) {
+            $push_result = [
+                'success' => false,
+                'error' => $send->get_error_message(),
+                'data' => $send->get_error_data(),
+                'topic' => $topic,
+            ];
+        } else {
+            $push_result = [
+                'success' => true,
+                'topic' => $topic,
+                'provider_response' => $send,
+            ];
+        }
     }
 
     return new WP_REST_Response([
         'success' => true,
-        'message' => 'NotificaciÃ³n eliminada.',
+        'mode' => 'global',
+        'notification_id' => (int) $notification_id,
+        'topic' => $topic,
+        'push' => $push_result,
     ], 200);
+}
+
+function VACoworking_notifications_user_is_admin_or_editor($user_id) {
+    $user = get_userdata((int) $user_id);
+    if (!$user) {
+        return false;
+    }
+    $roles = (array) $user->roles;
+    return in_array('administrator', $roles, true) || in_array('editor', $roles, true);
 }
 
 /**
@@ -593,81 +553,3 @@ function VACoworking_send_push_to_topic($topic, $title, $message) {
     return $body;
 }
 
-function VACoworking_send_push_to_user($user_id, $title, $message) {
-    $tokens = VACoworking_get_user_fcm_tokens($user_id);
-
-    if (empty($tokens)) {
-        return [
-            'success' => true,
-            'sent' => 0,
-            'failed' => 0,
-            'results' => [],
-        ];
-    }
-
-    $sent = 0;
-    $failed = 0;
-    $results = [];
-
-    foreach ($tokens as $token) {
-        $result = VACoworking_send_push_to_token($token, $title, $message);
-
-        if (is_wp_error($result)) {
-            $failed++;
-            VACoworking_remove_user_fcm_token($user_id, $token);
-
-            $results[] = [
-                'token' => $token,
-                'success' => false,
-                'error' => $result->get_error_message(),
-            ];
-        } else {
-            $sent++;
-            $results[] = [
-                'token' => $token,
-                'success' => true,
-            ];
-        }
-    }
-
-    return [
-        'success' => true,
-        'sent' => $sent,
-        'failed' => $failed,
-        'results' => $results,
-    ];
-}
-
-/**
- * =========================================================
- * FUNCIÃ“N PRÃCTICA: CREA NOTIFICACIÃ“N + ENVÃA PUSH
- * =========================================================
- */
-function VACoworking_notify_user($user_id, $title, $message, $send_push = true) {
-    $notification_id = VACoworking_create_notification($user_id, $title, $message);
-    $push_result = $send_push
-        ? VACoworking_send_push_to_user($user_id, $title, $message)
-        : [
-            'success' => true,
-            'sent' => 0,
-            'failed' => 0,
-            'results' => [],
-        ];
-
-    return [
-        'notification_id' => $notification_id,
-        'push' => $push_result,
-    ];
-}
-
-/**
- * EnvÃ­a notificaciÃ³n + push en el idioma del usuario (VACoworking_language).
- * Usa claves de VACoworking_translations.php. Ejemplo:
- *   VACoworking_notify_user_translated($user_id, 'notif_new_msg_title', 'notif_new_msg_body', ['name' => 'Juan']);
- */
-function VACoworking_notify_user_translated($user_id, $title_key, $message_key, $replacements = [], $send_push = true) {
-    $locale = function_exists('VACoworking_get_user_language') ? VACoworking_get_user_language($user_id) : 'en';
-    $title = VACoworking_t($title_key, $locale, $replacements);
-    $message = VACoworking_t($message_key, $locale, $replacements);
-    return VACoworking_notify_user($user_id, $title, $message, $send_push);
-}

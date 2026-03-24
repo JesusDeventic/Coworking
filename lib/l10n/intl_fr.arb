@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "fr",
     "appName":  "VACoworking",
     "signIn":  "Connexion",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "Contact VACoworking",
     "faq1Question":  "Qu'est-ce que VACoworking ?",
-    "faq1Answer":  "C'est une application qui permet de créer des invitations pour toutes sortes d'événements. Elle vous permet de choisir des modèles et de personnaliser l'invitation, de la partager sur les réseaux sociaux, de recevoir des notifications de confirmation et de suivre les présences.",
-    "faq2Question":  "Est-ce gratuit ?",
-    "faq2Answer":  "Non, vous pouvez utiliser VACoworking pour concevoir vos invitations, mais pour les publier, vous devez effectuer un paiement pour chacune d'elles.",
-    "faq3Question":  "Comment supprimer mon compte ?",
-    "faq3Answer":  "Vous pouvez supprimer votre compte dans les paramètres du compte dans l'application. Cela supprime tout ce qui est lié à votre compte. Cette action est irréversible.",
+    "faq1Answer":  "C'est une application informative sur les espaces de coworking disponibles, classés par services et caractéristiques. Elle permet de rechercher et de filtrer selon différents critères pour trouver l'espace idéal où travailler.",
+    "faq2Question":  "Puis-je ajouter des espaces de coworking ?",
+    "faq2Answer":  "Seuls les administrateurs de l'application peuvent ajouter des espaces de coworking. Pour en ajouter davantage, il faut contacter l'équipe de l'application.",
+    "faq3Question":  "Comment fonctionnent les notifications ?",
+    "faq3Answer":  "Lorsque vous autorisez les notifications, des alertes sont envoyées à votre appareil avec des nouveautés ou des informations importantes sur les espaces de coworking. Vous pouvez configurer les notifications dans les paramètres de l'application.",
     "errorAuthInvalidUsername":  "Le nom d'utilisateur doit comporter entre 4 et 20 caractères et ne peut contenir que des lettres, des chiffres, des tirets et des underscores.",
     "errorAuthInvalidEmail":  "L'e-mail n'est pas valide",
     "errorAuthInvalidPassword":  "Le mot de passe doit comporter au moins 6 caractères",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Retirer la date",
     "authRequiredFunctionMessage":  "Cette fonctionnalité nécessite de vous connecter",
     "authRequiredFunctionAction":  "ALLER",
+    "notificationsNewBadge": "Nouveau",
+    "homeHeroTitle": "Trouvez un bon endroit pour travailler",
+    "homeSearchCoworkingButton": "Rechercher des espaces coworking",
     "enterWithoutUser":  "Se connecter sans utilisateur"
 }
 

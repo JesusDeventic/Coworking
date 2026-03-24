@@ -1,4 +1,4 @@
-﻿// GENERATED CODE - DO NOT MODIFY BY HAND
+// GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'intl/messages_all.dart';
@@ -1164,50 +1164,50 @@ class S {
     );
   }
 
-  /// `It's an app to create invitations for all kinds of events. It lets you choose templates and personalize the invitation, share it on social media, receive confirmation notifications, and track attendance.`
+  /// `It is an informational app about available coworking spaces, categorized by services and features. It lets you search and filter by different criteria to find the perfect place to work.`
   String get faq1Answer {
     return Intl.message(
-      'It\'s an app to create invitations for all kinds of events. It lets you choose templates and personalize the invitation, share it on social media, receive confirmation notifications, and track attendance.',
+      'It is an informational app about available coworking spaces, categorized by services and features. It lets you search and filter by different criteria to find the perfect place to work.',
       name: 'faq1Answer',
       desc: '',
       args: [],
     );
   }
 
-  /// `Is it free?`
+  /// `Can I add coworking spaces?`
   String get faq2Question {
     return Intl.message(
-      'Is it free?',
+      'Can I add coworking spaces?',
       name: 'faq2Question',
       desc: '',
       args: [],
     );
   }
 
-  /// `No, you can use VACoworking to design your invitations, but to publish them you need to make a payment for each one.`
+  /// `Only app administrators can add coworking spaces. To include more spaces, you need to contact the app team.`
   String get faq2Answer {
     return Intl.message(
-      'No, you can use VACoworking to design your invitations, but to publish them you need to make a payment for each one.',
+      'Only app administrators can add coworking spaces. To include more spaces, you need to contact the app team.',
       name: 'faq2Answer',
       desc: '',
       args: [],
     );
   }
 
-  /// `How do I delete my account?`
+  /// `How do notifications work?`
   String get faq3Question {
     return Intl.message(
-      'How do I delete my account?',
+      'How do notifications work?',
       name: 'faq3Question',
       desc: '',
       args: [],
     );
   }
 
-  /// `You can delete your user from account settings in the app. This removes everything related to your user. This action cannot be undone.`
+  /// `When you allow notifications, alerts are sent to your device with updates or important news about coworking spaces. You can configure notifications in the app settings.`
   String get faq3Answer {
     return Intl.message(
-      'You can delete your user from account settings in the app. This removes everything related to your user. This action cannot be undone.',
+      'When you allow notifications, alerts are sent to your device with updates or important news about coworking spaces. You can configure notifications in the app settings.',
       name: 'faq3Answer',
       desc: '',
       args: [],
@@ -1869,6 +1869,36 @@ class S {
     );
   }
 
+  /// `New`
+  String get notificationsNewBadge {
+    return Intl.message(
+      'New',
+      name: 'notificationsNewBadge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Find a great place to work`
+  String get homeHeroTitle {
+    return Intl.message(
+      'Find a great place to work',
+      name: 'homeHeroTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search coworking spaces`
+  String get homeSearchCoworkingButton {
+    return Intl.message(
+      'Search coworking spaces',
+      name: 'homeSearchCoworkingButton',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Enter without user`
   String get enterWithoutUser {
     return Intl.message(
@@ -1877,11 +1907,6 @@ class S {
       desc: '',
       args: [],
     );
-  }
-
-  /// `Prueba`
-  String get prueba {
-    return Intl.message('Prueba', name: 'prueba', desc: '', args: []);
   }
 }
 
@@ -1929,4 +1954,3 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
     return false;
   }
 }
-

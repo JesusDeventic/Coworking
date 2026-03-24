@@ -61,6 +61,29 @@ class VACoworkingMessagingService {
         sound: true,
       );
 
+      // Modo sin login: forzar sincronización push al iniciar para
+      // suscribirse al topic global en Android/iOS.
+      try {
+        await syncPushConfig();
+      } catch (e) {
+        debugPrint('Error syncPushConfig en initialize(): $e');
+      }
+
+      // Log útil para depurar dispositivos que no reciben push.
+      try {
+        final settings = await _firebaseMessaging?.getNotificationSettings();
+        final token = kIsWeb
+            ? await _firebaseMessaging?.getToken(
+                vapidKey: VACoworkingFirebaseWebConfig.webVapidKey,
+              )
+            : await _firebaseMessaging?.getToken();
+        debugPrint(
+          'FCM status: ${settings?.authorizationStatus} | token: ${token == null ? 'null' : token.substring(0, token.length > 18 ? 18 : token.length)}...',
+        );
+      } catch (e) {
+        debugPrint('Error leyendo estado/token FCM: $e');
+      }
+
       if (!kIsWeb) {
         FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
           debugPrint('Mensaje FCM en primer plano: ${message.messageId}');
@@ -109,7 +132,7 @@ class VACoworkingMessagingService {
       priority: Priority.high,
       showWhen: true,
       icon: 'ic_notification',
-      color: AppColors.secondary,
+      color: AppColors.primary,
     );
 
     const iosDetails = DarwinNotificationDetails(

@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a uk locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -190,18 +190,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("Розгорнути"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "Це застосунок для створення запрошень для будь-яких подій. Він дозволяє вибирати шаблони та налаштовувати запрошення, ділитися ним у соцмережах, отримувати сповіщення про підтвердження та відстежувати відвідуваність.",
+      "Це інформаційний застосунок про доступні коворкінги, упорядковані за послугами та характеристиками. Він дозволяє шукати й фільтрувати за різними критеріями, щоб знайти ідеальне місце для роботи.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Що таке VACoworking?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage(
+      "Що таке VACoworking?",
+    ),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Ні, ви можете використовувати VACoworking для створення запрошень, але щоб їх опублікувати, вам потрібно сплатити за кожне з них.",
+      "Додавати коворкінги можуть лише адміністратори застосунку. Щоб додати більше просторів, потрібно звернутися до команди застосунку.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("Це безкоштовно?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "Чи можу я додавати коворкінги?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "Видалити обліковий запис можна в налаштуваннях облікового запису в додатку. Усе пов\'язане з обліковим записом буде видалено. Цю дію неможливо скасувати.",
+      "Коли ви дозволяєте сповіщення, на пристрій надходять повідомлення з оновленнями або важливими новинами про коворкінги. Налаштувати сповіщення можна в параметрах застосунку.",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "Як видалити мій акаунт?",
+      "Як працюють сповіщення?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage(
       "Це поле обов\'язкове",
@@ -232,6 +236,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "Поки немає створених запрошень",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "Знайдіть гарне місце для роботи",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "Шукати коворкінги",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Невірний email"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Залишатися в системі"),
@@ -347,6 +357,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "У вас немає сповіщень",
     ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("Сповіщення"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("Нове"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "Дозволи на сповіщення пристрою",
     ),
@@ -484,4 +495,3 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("Невірні дані"),
   };
 }
-

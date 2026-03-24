@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "it",
     "appName":  "VACoworking",
     "signIn":  "Accedi",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "Contatto VACoworking",
     "faq1Question":  "Cos'è VACoworking?",
-    "faq1Answer":  "È un'app per creare inviti per tutti i tipi di eventi. Ti permette di scegliere modelli e personalizzare l'invito, condividerlo sui social, ricevere notifiche di conferma e tenere traccia delle presenze.",
-    "faq2Question":  "È gratis?",
-    "faq2Answer":  "No, puoi usare VACoworking per progettare i tuoi inviti, ma per poterli pubblicare devi effettuare un pagamento per ciascuno di essi.",
-    "faq3Question":  "Come elimino il mio account?",
-    "faq3Answer":  "Puoi eliminare il tuo account dalle impostazioni dell'account nell'app. Vengono rimossi tutti i dati associati. Questa azione è irreversibile.",
+    "faq1Answer":  "È un'app informativa sugli spazi coworking disponibili, categorizzati per servizi e caratteristiche. Ti permette di cercare e filtrare in base a diversi criteri per trovare lo spazio perfetto dove lavorare.",
+    "faq2Question":  "Posso aggiungere spazi coworking?",
+    "faq2Answer":  "Solo gli amministratori dell'app possono aggiungere spazi coworking. Per aggiungerne altri, è necessario contattare il team dell'app.",
+    "faq3Question":  "Come funzionano le notifiche?",
+    "faq3Answer":  "Quando abiliti le notifiche, il dispositivo riceve avvisi con novità o notizie importanti sugli spazi coworking. Puoi configurare le notifiche nelle impostazioni dell'app.",
     "errorAuthInvalidUsername":  "Il nome utente deve avere tra 4 e 20 caratteri e può contenere solo lettere, numeri, trattini e underscore.",
     "errorAuthInvalidEmail":  "L'email non è valida",
     "errorAuthInvalidPassword":  "La password deve avere almeno 6 caratteri",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Rimuovi data",
     "authRequiredFunctionMessage":  "Questa funzione richiede l'accesso",
     "authRequiredFunctionAction":  "VAI",
+    "notificationsNewBadge": "Nuovo",
+    "homeHeroTitle": "Trova un buon posto dove lavorare",
+    "homeSearchCoworkingButton": "Cerca spazi coworking",
     "enterWithoutUser":  "Accedi senza utente"
 }
 

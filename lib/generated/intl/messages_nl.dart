@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a nl locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -186,18 +186,20 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("Uitvouwen"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "Het is een app om uitnodigingen te maken voor allerlei soorten evenementen. Je kunt templates kiezen, de uitnodiging personaliseren, delen op social media, bevestigingsmeldingen ontvangen en de aanwezigheid bijhouden.",
+      "Het is een informatieve app over beschikbare coworkingruimtes, ingedeeld op diensten en kenmerken. Je kunt zoeken en filteren op verschillende criteria om de perfecte werkplek te vinden.",
     ),
     "faq1Question": MessageLookupByLibrary.simpleMessage("Wat is VACoworking?"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Nee, je kunt VACoworking gebruiken om je uitnodigingen te ontwerpen, maar om ze te publiceren moet je voor elke uitnodiging apart betalen.",
+      "Alleen appbeheerders kunnen coworkingruimtes toevoegen. Neem contact op met het appteam als je meer ruimtes wilt laten toevoegen.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("Is het gratis?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "Kan ik coworkingruimtes toevoegen?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "Je kunt je account verwijderen in de accountinstellingen in de app. Alles wat aan je account gekoppeld is, wordt verwijderd. Deze actie kan niet ongedaan worden gemaakt.",
+      "Als je meldingen toestaat, ontvangt je apparaat updates of belangrijk nieuws over coworkingruimtes. Je kunt meldingen instellen in de appinstellingen.",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "Hoe verwijder ik mijn account?",
+      "Hoe werken meldingen?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage(
       "Dit veld is verplicht",
@@ -230,6 +232,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "Nog geen uitnodigingen aangemaakt",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "Vind een goede plek om te werken",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "Zoek coworkingruimtes",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Ongeldige e-mail"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Ingelogd blijven"),
@@ -345,6 +353,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Je hebt geen meldingen",
     ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("Meldingen"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("Nieuw"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "Meldingsrechten van het apparaat",
     ),
@@ -429,7 +438,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Status"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking-contact"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "VACoworking-contact",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Algemene voorwaarden",
     ),
@@ -488,4 +499,3 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
-

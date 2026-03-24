@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "sv",
     "appName":  "VACoworking",
     "signIn":  "Logga in",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "Kontakt VACoworking",
     "faq1Question":  "Vad är VACoworking?",
-    "faq1Answer":  "Det är en app för att skapa inbjudningar för alla typer av evenemang. Du kan välja mallar och anpassa inbjudan, dela den i sociala medier, få bekräftelseaviseringar och följa deltagandet.",
-    "faq2Question":  "Är det gratis?",
-    "faq2Answer":  "Nej, du kan använda VACoworking för att designa dina inbjudningar, men för att kunna publicera dem måste du betala för varje enskild.",
-    "faq3Question":  "Hur tar jag bort mitt konto?",
-    "faq3Answer":  "Du kan ta bort ditt konto under kontoinställningar i appen. Allt kopplat till kontot tas bort. Detta kan inte ångras.",
+    "faq1Answer":  "Det är en informationsapp om tillgängliga coworking-platser, kategoriserade efter tjänster och egenskaper. Du kan söka och filtrera efter olika kriterier för att hitta den perfekta arbetsplatsen.",
+    "faq2Question":  "Kan jag lägga till coworking-platser?",
+    "faq2Answer":  "Endast appens administratörer kan lägga till coworking-platser. För att lägga till fler platser behöver du kontakta appteamet.",
+    "faq3Question":  "Hur fungerar notiser?",
+    "faq3Answer":  "När du tillåter notiser skickas aviseringar till din enhet med nyheter eller viktig information om coworking-platser. Du kan konfigurera notiser i appens inställningar.",
     "errorAuthInvalidUsername":  "Användarnamnet måste vara 4–20 tecken och får bara innehålla bokstäver, siffror, bindestreck och understreck.",
     "errorAuthInvalidEmail":  "E-postadressen är ogiltig",
     "errorAuthInvalidPassword":  "Lösenordet måste ha minst 6 tecken",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Ta bort datum",
     "authRequiredFunctionMessage":  "Den här funktionen kräver att du loggar in",
     "authRequiredFunctionAction":  "GÅ",
+    "notificationsNewBadge": "Ny",
+    "homeHeroTitle": "Hitta en bra plats att arbeta på",
+    "homeSearchCoworkingButton": "Sök coworking-platser",
     "enterWithoutUser":  "Logga in utan användare"
 }
 

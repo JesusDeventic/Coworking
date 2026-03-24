@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a en locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -174,18 +174,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("Expand"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "It\'s an app to create invitations for all kinds of events. It lets you choose templates and personalize the invitation, share it on social media, receive confirmation notifications, and track attendance.",
+      "It is an informational app about available coworking spaces, categorized by services and features. It lets you search and filter by different criteria to find the perfect place to work.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("What is VACoworking?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage(
+      "What is VACoworking?",
+    ),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "No, you can use VACoworking to design your invitations, but to publish them you need to make a payment for each one.",
+      "Only app administrators can add coworking spaces. To include more spaces, you need to contact the app team.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("Is it free?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "Can I add coworking spaces?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "You can delete your user from account settings in the app. This removes everything related to your user. This action cannot be undone.",
+      "When you allow notifications, alerts are sent to your device with updates or important news about coworking spaces. You can configure notifications in the app settings.",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "How do I delete my account?",
+      "How do notifications work?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage(
       "This field is required",
@@ -214,6 +218,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "No invitations created yet",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "Find a great place to work",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "Search coworking spaces",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Keep me signed in"),
@@ -321,6 +331,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "You have no notifications.",
     ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("Notifications"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("New"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "Device notification permissions",
     ),
@@ -350,7 +361,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "privateMessages": MessageLookupByLibrary.simpleMessage("Private messages"),
     "profileShareSubject": m1,
-    "prueba": MessageLookupByLibrary.simpleMessage("Prueba"),
     "publicProfileAppBarTitle": MessageLookupByLibrary.simpleMessage(
       "User profile",
     ),
@@ -400,7 +410,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Status"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking contact"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "VACoworking contact",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Terms and conditions",
     ),
@@ -453,4 +465,3 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
-

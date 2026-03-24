@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "ja",
     "appName":  "VACoworking",
     "signIn":  "ログイン",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "VACoworking お問い合わせ",
     "faq1Question":  "VACoworking とは？",
-    "faq1Answer":  "これは、あらゆる種類のイベントの招待状を作成するためのアプリです。テンプレートを選んで招待状をカスタマイズし、SNSで共有し、確認通知を受け取り、参加状況を追跡できます。",
-    "faq2Question":  "無料ですか？",
-    "faq2Answer":  "いいえ。VACoworkingを使って招待状をデザインできますが、公開するには1件ごとにお支払いが必要です。",
-    "faq3Question":  "どうやってアカウントを削除しますか？",
-    "faq3Answer":  "アプリ内のアカウント設定から削除できます。関連データはすべて削除されます。取り消せません。",
+    "faq1Answer":  "利用可能なコワーキングスペースを、サービスや特徴ごとに分類して紹介する情報アプリです。さまざまな条件で検索・絞り込みを行い、仕事に最適なスペースを見つけられます。",
+    "faq2Question":  "コワーキングスペースを追加できますか？",
+    "faq2Answer":  "コワーキングスペースを追加できるのはアプリ管理者のみです。掲載スペースを増やしたい場合は、アプリ運営チームへお問い合わせください。",
+    "faq3Question":  "通知はどのように動作しますか？",
+    "faq3Answer":  "通知を許可すると、コワーキングスペースに関する更新情報や重要なお知らせが端末に送信されます。通知設定はアプリの設定画面で変更できます。",
     "errorAuthInvalidUsername":  "ユーザー名は4〜20文字で、英数字・ハイフン・アンダースコアのみ使用できます。",
     "errorAuthInvalidEmail":  "メールが無効です",
     "errorAuthInvalidPassword":  "パスワードは6文字以上である必要があります",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "日付を削除",
     "authRequiredFunctionMessage":  "この機能にはログインが必要です。",
     "authRequiredFunctionAction":  "ログイン",
+    "notificationsNewBadge": "新着",
+    "homeHeroTitle": "働くのに最適な場所を見つけよう",
+    "homeSearchCoworkingButton": "コワーキングスペースを探す",
     "enterWithoutUser":  "ユーザーなしで入る"
 }
 

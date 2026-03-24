@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a de locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -188,18 +188,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("Ausklappen"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "Es ist eine App, mit der du Einladungen für alle Arten von Veranstaltungen erstellen kannst. Du kannst Vorlagen auswählen, die Einladung personalisieren, in sozialen Medien teilen, Bestätigungsbenachrichtigungen erhalten und die Teilnahme verfolgen.",
+      "Es ist eine Informations-App über verfügbare Coworking-Spaces, die nach Services und Merkmalen kategorisiert sind. Sie können nach verschiedenen Kriterien suchen und filtern, um den perfekten Arbeitsplatz zu finden.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Was ist VACoworking?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage(
+      "Was ist VACoworking?",
+    ),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Nein, du kannst VACoworking nutzen, um deine Einladungen zu gestalten, aber um sie veröffentlichen zu können, musst du für jede einzelne bezahlen.",
+      "Nur Administratoren der App können Coworking-Spaces hinzufügen. Um weitere Spaces aufzunehmen, wenden Sie sich bitte an das App-Team.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("Ist es kostenlos?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "Kann ich Coworking-Spaces hinzufügen?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "Sie können Ihr Konto in den Kontoeinstellungen in der App löschen. Dadurch werden alle zugehörigen Daten entfernt. Dieser Vorgang kann nicht rückgängig gemacht werden.",
+      "Wenn Sie Benachrichtigungen erlauben, erhält Ihr Gerät Hinweise zu Neuigkeiten oder wichtigen Informationen über Coworking-Spaces. Sie können die Benachrichtigungen in den App-Einstellungen konfigurieren.",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "Wie lösche ich mein Konto?",
+      "Wie funktionieren Benachrichtigungen?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage(
       "Dieses Feld ist erforderlich",
@@ -232,6 +236,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "Noch keine Einladungen erstellt",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "Finden Sie einen guten Ort zum Arbeiten",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "Coworking-Spaces suchen",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Ungültige E-Mail"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Angemeldet bleiben"),
@@ -349,6 +359,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsLabel": MessageLookupByLibrary.simpleMessage(
       "Benachrichtigungen",
     ),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("Neu"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "Geräte-Benachrichtigungsberechtigungen",
     ),
@@ -435,7 +446,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Status"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking Kontakt"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "VACoworking Kontakt",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Allgemeine Geschäftsbedingungen",
     ),
@@ -492,4 +505,3 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
-

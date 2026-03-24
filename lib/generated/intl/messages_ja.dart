@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a ja locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -152,17 +152,17 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("展開"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "これは、あらゆる種類のイベントの招待状を作成するためのアプリです。テンプレートを選んで招待状をカスタマイズし、SNSで共有し、確認通知を受け取り、参加状況を追跡できます。",
+      "利用可能なコワーキングスペースを、サービスや特徴ごとに分類して紹介する情報アプリです。さまざまな条件で検索・絞り込みを行い、仕事に最適なスペースを見つけられます。",
     ),
     "faq1Question": MessageLookupByLibrary.simpleMessage("VACoworking とは？"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "いいえ。VACoworkingを使って招待状をデザインできますが、公開するには1件ごとにお支払いが必要です。",
+      "コワーキングスペースを追加できるのはアプリ管理者のみです。掲載スペースを増やしたい場合は、アプリ運営チームへお問い合わせください。",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("無料ですか？"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage("コワーキングスペースを追加できますか？"),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "アプリ内のアカウント設定から削除できます。関連データはすべて削除されます。取り消せません。",
+      "通知を許可すると、コワーキングスペースに関する更新情報や重要なお知らせが端末に送信されます。通知設定はアプリの設定画面で変更できます。",
     ),
-    "faq3Question": MessageLookupByLibrary.simpleMessage("どうやってアカウントを削除しますか？"),
+    "faq3Question": MessageLookupByLibrary.simpleMessage("通知はどのように動作しますか？"),
     "fieldRequired": MessageLookupByLibrary.simpleMessage("この項目は必須です"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("パスワードをお忘れですか？"),
     "generalSettings": MessageLookupByLibrary.simpleMessage("一般設定"),
@@ -184,6 +184,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "まだ招待を作成していません",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage("働くのに最適な場所を見つけよう"),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "コワーキングスペースを探す",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("メールが無効です"),
     "keepSession": MessageLookupByLibrary.simpleMessage("ログイン状態を保持"),
@@ -279,6 +283,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationsDeletedOk": MessageLookupByLibrary.simpleMessage("通知を削除しました"),
     "notificationsEmptyText": MessageLookupByLibrary.simpleMessage("通知はありません"),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("通知"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("新着"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "デバイスの通知権限",
     ),
@@ -341,7 +346,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("ステータス"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking お問い合わせ"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "VACoworking お問い合わせ",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage("利用規約"),
     "textUserSupportDescription": MessageLookupByLibrary.simpleMessage(
       "お困りですか？各チャネルからお問い合わせください。できるだけ早く返信します。",
@@ -378,4 +385,3 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("認証情報が正しくありません"),
   };
 }
-

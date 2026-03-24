@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a ru locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -188,18 +188,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("Развернуть"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "Это приложение для создания приглашений на любые мероприятия. Оно позволяет выбрать шаблоны, настроить приглашение, поделиться им в социальных сетях, получать уведомления о подтверждении и отслеживать посещаемость.",
+      "Это информационное приложение о доступных коворкингах, сгруппированных по услугам и характеристикам. В нём можно искать и фильтровать по разным критериям, чтобы найти идеальное место для работы.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Что такое VACoworking?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage(
+      "Что такое VACoworking?",
+    ),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Нет, вы можете использовать VACoworking, чтобы оформить свои приглашения, но чтобы их опубликовать, вам нужно оплачивать каждое из них.",
+      "Добавлять коворкинги могут только администраторы приложения. Чтобы добавить больше площадок, свяжитесь с командой приложения.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("Это бесплатно?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "Могу ли я добавлять коворкинги?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "Удалить аккаунт можно в настройках аккаунта в приложении. Будут удалены все связанные данные. Это действие необратимо.",
+      "Когда вы разрешаете уведомления, на устройство приходят оповещения с обновлениями или важными новостями о коворкингах. Настроить уведомления можно в параметрах приложения.",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "Как удалить свой аккаунт?",
+      "Как работают уведомления?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage(
       "Это поле обязательно",
@@ -228,6 +232,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "Пока нет созданных приглашений",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "Найдите хорошее место для работы",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "Искать коворкинги",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Неверный email"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Оставаться в системе"),
@@ -341,6 +351,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "У вас нет уведомлений",
     ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("Уведомления"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("Новое"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "Разрешения на уведомления устройства",
     ),
@@ -423,7 +434,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Статус"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Связь с VACoworking"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "Связь с VACoworking",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Условия использования",
     ),
@@ -476,4 +489,3 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("Неверные данные"),
   };
 }
-

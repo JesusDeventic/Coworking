@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "en",
     "appName":  "VACoworking",
     "signIn":  "Sign in",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "VACoworking contact",
     "faq1Question":  "What is VACoworking?",
-    "faq1Answer":  "It's an app to create invitations for all kinds of events. It lets you choose templates and personalize the invitation, share it on social media, receive confirmation notifications, and track attendance.",
-    "faq2Question":  "Is it free?",
-    "faq2Answer":  "No, you can use VACoworking to design your invitations, but to publish them you need to make a payment for each one.",
-    "faq3Question":  "How do I delete my account?",
-    "faq3Answer":  "You can delete your user from account settings in the app. This removes everything related to your user. This action cannot be undone.",
+    "faq1Answer":  "It is an informational app about available coworking spaces, categorized by services and features. It lets you search and filter by different criteria to find the perfect place to work.",
+    "faq2Question":  "Can I add coworking spaces?",
+    "faq2Answer":  "Only app administrators can add coworking spaces. To include more spaces, you need to contact the app team.",
+    "faq3Question":  "How do notifications work?",
+    "faq3Answer":  "When you allow notifications, alerts are sent to your device with updates or important news about coworking spaces. You can configure notifications in the app settings.",
     "errorAuthInvalidUsername":  "Username must be 4–20 characters and may only contain letters, numbers, hyphens and underscores.",
     "errorAuthInvalidEmail":  "The email is not valid.",
     "errorAuthInvalidPassword":  "Password must be at least 6 characters.",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Remove date",
     "authRequiredFunctionMessage":  "This feature requires you to sign in",
     "authRequiredFunctionAction":  "GO",
+    "notificationsNewBadge": "New",
+    "homeHeroTitle": "Find a great place to work",
+    "homeSearchCoworkingButton": "Search coworking spaces",
     "enterWithoutUser":  "Enter without user"
 }
 

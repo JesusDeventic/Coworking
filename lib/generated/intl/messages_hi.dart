@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a hi locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -176,18 +176,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("विस्तार करें"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "यह एक ऐसा ऐप है जो हर तरह के कार्यक्रमों के लिए आमंत्रण बनाने में मदद करता है। आप टेम्पलेट चुन सकते हैं, आमंत्रण को पर्सनलाइज़ कर सकते हैं, इसे सोशल मीडिया पर शेयर कर सकते हैं, कन्फर्मेशन नोटिफिकेशन पा सकते हैं और उपस्थिति का ट्रैक रख सकते हैं।",
+      "यह उपलब्ध coworking स्पेस की जानकारी देने वाला ऐप है, जिन्हें सेवाओं और विशेषताओं के आधार पर वर्गीकृत किया गया है। आप अलग-अलग मानदंडों से खोज और फ़िल्टर करके काम करने के लिए सही जगह ढूंढ सकते हैं।",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("VACoworking क्या है?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage(
+      "VACoworking क्या है?",
+    ),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "नहीं, आप अपने आमंत्रण डिज़ाइन करने के लिए VACoworking का उपयोग कर सकते हैं, लेकिन उन्हें प्रकाशित करने के लिए आपको हर एक के लिए भुगतान करना होगा।",
+      "केवल ऐप एडमिनिस्ट्रेटर ही coworking स्पेस जोड़ सकते हैं। अधिक स्पेस जोड़ने के लिए आपको ऐप टीम से संपर्क करना होगा।",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("क्या यह मुफ्त है?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "क्या मैं coworking स्पेस जोड़ सकता/सकती हूँ?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "आप ऐप में खाता सेटिंग्स से अपना खाता हटा सकते हैं। सब कुछ हट जाएगा। यह क्रिया पूर्ववत नहीं की जा सकती।",
+      "जब आप नोटिफिकेशन की अनुमति देते हैं, तो आपके डिवाइस पर coworking स्पेस से जुड़ी अपडेट या महत्वपूर्ण खबरों के अलर्ट भेजे जाते हैं। आप ऐप की सेटिंग्स में नोटिफिकेशन कॉन्फ़िगर कर सकते हैं।",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "मैं अपना खाता कैसे हटाऊँ?",
+      "नोटिफिकेशन कैसे काम करते हैं?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage(
       "यह फ़ील्ड आवश्यक है",
@@ -216,6 +220,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "अभी तक कोई निमंत्रण नहीं बनाए गए हैं",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "काम करने के लिए अच्छी जगह खोजें",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "कोवर्किंग स्पेस खोजें",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("अमान्य ईमेल"),
     "keepSession": MessageLookupByLibrary.simpleMessage("मुझे साइन इन रखें"),
@@ -325,6 +335,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "आपके पास कोई सूचना नहीं है",
     ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("सूचनाएँ"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("नया"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "डिवाइस सूचना अनुमतियाँ",
     ),
@@ -405,7 +416,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("स्थिति"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking संपर्क"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "VACoworking संपर्क",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "नियम व शर्तें",
     ),
@@ -460,4 +473,3 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("गलत क्रेडेंशियल"),
   };
 }
-

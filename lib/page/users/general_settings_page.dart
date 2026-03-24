@@ -1,4 +1,4 @@
-﻿import 'dart:io';
+import 'dart:io';
 
 import 'package:app_settings/app_settings.dart';
 import 'package:vacoworking/api/vacoworking_api.dart';
@@ -13,10 +13,9 @@ import 'package:vacoworking/widget/components_widgets.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-/// Ajustes generales de VACoworking (idioma, tema, inicio de semana, formato fecha).
+/// Ajustes generales de VACoworking (idioma, tema y notificaciones del dispositivo).
 class GeneralSettingsPage extends StatefulWidget {
   const GeneralSettingsPage({super.key});
 
@@ -146,9 +145,18 @@ class _GeneralSettingsPageState extends State<GeneralSettingsPage>
   }
 
   Future<bool> _saveSettings() async {
+    // Modo sin login: los ajustes visibles (idioma/tema y permisos de notificación)
+    // se guardan localmente en providers/prefs, sin backend.
     if (globalUserToken.isEmpty || globalCurrentUser.username.isEmpty) {
-      showCustomSnackBar(S.current.generalSettingsSaveErrorSession, type: -1);
-      return false;
+      setState(() {
+        _initialWeekStart = _weekStart;
+        _initialDateFormat = _dateFormat;
+        _initialIsDarkMode = context.read<ThemeProvider>().isDarkMode;
+        _initialLanguage = context.read<LanguageProvider>().currentLanguage;
+        _isEditing = false;
+      });
+      showCustomSnackBar(S.current.generalSettingsSaveSuccess, type: 1);
+      return true;
     }
     try {
       final result = await VACoworkingApi.updateUser(
@@ -241,19 +249,6 @@ class _GeneralSettingsPageState extends State<GeneralSettingsPage>
   @override
   Widget build(BuildContext context) {
     final l10n = S.current;
-    final now = DateTime.now();
-    final dateFormatsList = [
-      'dd/MM/yyyy',
-      'dd-MM-yyyy',
-      'MM/dd/yyyy',
-      'MM-dd-yyyy',
-      'yyyy/MM/dd',
-      'yyyy-MM-dd',
-    ];
-
-    String formatExample(String pattern) {
-      return DateFormat(pattern).format(now);
-    }
 
     return PopScope(
       canPop: !_isEditing,
@@ -406,62 +401,6 @@ class _GeneralSettingsPageState extends State<GeneralSettingsPage>
 
                       const SizedBox(height: 16),
 
-              // Día de inicio de la semana (toggle como Fitcron)
-                      customToggleButtons(
-                        context: context,
-                        isEditing: _isEditing,
-                        options: [l10n.weekStartSunday, l10n.weekStartMonday],
-                        isSelected: [
-                          _weekStart == 'sunday',
-                          _weekStart == 'monday',
-                        ],
-                        onPressed: (index) {
-                          if (!_isEditing) return;
-                          setState(() {
-                            _weekStart = index == 0 ? 'sunday' : 'monday';
-                          });
-                        },
-                        title: l10n.weekStart,
-                        icon: Icons.filter_1_rounded,
-                      ),
-
-                      const SizedBox(height: 16),
-
-              // Formato de fecha (etiqueta + ejemplo + desplegable sencillo)
-                      Row(
-                        children: [
-                          const Icon(Icons.date_range_rounded),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              '${l10n.dateFormat} (${formatExample(_dateFormat)})',
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      DropdownButton<String>(
-                        value: _dateFormat,
-                        isExpanded: true,
-                        onChanged: _isEditing
-                            ? (v) {
-                                if (v == null) return;
-                                setState(() => _dateFormat = v);
-                              }
-                            : null,
-                        items: dateFormatsList.map((pattern) {
-                          return DropdownMenuItem<String>(
-                            value: pattern,
-                            child: Text('$pattern   (${formatExample(pattern)})'),
-                          );
-                        }).toList(),
-                      ),
                       const SizedBox(height: 16),
                       if (_showNotificationPermissionSection) ...[
                         // Permisos de notificaciones del dispositivo (sin guardar en DB/SP)

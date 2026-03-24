@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "es",
     "appName":  "VACoworking",
     "signIn":  "Iniciar sesión",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "Contacto VACoworking",
     "faq1Question":  "¿Qué es VACoworking?",
-    "faq1Answer":  "Es una aplicación para realizar invitaciones a todo tipo de eventos. Permite escoger plantillas y personalizar la invitación, compartirla por redes sociales, recibir notificaciones de confirmación y realizar el seguimiento de las asistencias.",
-    "faq2Question":  "¿Es gratis?",
-    "faq2Answer":  "No, puedes usar VACoworking para diseñar tus invitaciones, pero para poder publicarlas necesitas realizar un pago por cada una de ellas.",
-    "faq3Question":  "¿Cómo elimino mi cuenta?",
-    "faq3Answer":  "Puedes eliminar tu usuario desde los ajustes de la cuenta en la propia App. Esto elimina todo lo relacionado y asociado a tu usuario. Esta acción es irreversible.",
+    "faq1Answer":  "Es una aplicación informativa sobre los espacios coworkings disponibles, categorizados por servicios y características. Permite buscar y filtrar por diferentes criterios para encontrar el espacio perfecto para trabajar.",
+    "faq2Question":  "¿Puedo añadir espacios coworkings?",
+    "faq2Answer":  "Solo los administradores de la aplicación pueden añadir espacios coworkings. Para añadir más espacios es necesario contactar con el equipo de la aplicación.",
+    "faq3Question":  "¿Cómo funcionan las notificaciones?",
+    "faq3Answer":  "Al permitir notificaciones, se envian avisos al dispositivo con novedades o noticias importantes sobre los espacios coworkings. Se pueden configurar las notificaciones en los ajustes de la aplicación.",
     "errorAuthInvalidUsername":  "El nombre de usuario debe tener entre 4 y 20 caracteres y solo puede contener letras, números, guiones y guiones bajos.",
     "errorAuthInvalidEmail":  "El email no es válido",
     "errorAuthInvalidPassword":  "La contraseña debe tener al menos 6 caracteres",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Quitar fecha",
     "authRequiredFunctionMessage":  "Esta función requiere iniciar sesión",
     "authRequiredFunctionAction":  "IR",
+    "notificationsNewBadge": "Nuevo",
+    "homeHeroTitle": "Encuentra un buen lugar para trabajar",
+    "homeSearchCoworkingButton": "Buscar espacios coworking",
     "enterWithoutUser":  "Entrar sin usuario"
 }
 

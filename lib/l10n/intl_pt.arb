@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "pt",
     "appName":  "VACoworking",
     "signIn":  "Entrar",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "Contato VACoworking",
     "faq1Question":  "O que é o VACoworking?",
-    "faq1Answer":  "É um aplicativo para criar convites para todo tipo de evento. Permite escolher modelos e personalizar o convite, compartilhá-lo nas redes sociais, receber notificações de confirmação e acompanhar a presença.",
-    "faq2Question":  "É gratuito?",
-    "faq2Answer":  "Não, você pode usar o VACoworking para criar seus convites, mas para publicá-los você precisa fazer um pagamento por cada um.",
-    "faq3Question":  "Como excluo minha conta?",
-    "faq3Answer":  "Você pode excluir sua conta nas configurações da conta no próprio app. Isso remove tudo relacionado à sua conta. Esta ação é irreversível.",
+    "faq1Answer":  "É um aplicativo informativo sobre espaços de coworking disponíveis, categorizados por serviços e características. Ele permite pesquisar e filtrar por diferentes critérios para encontrar o espaço ideal para trabalhar.",
+    "faq2Question":  "Posso adicionar espaços de coworking?",
+    "faq2Answer":  "Somente os administradores do aplicativo podem adicionar espaços de coworking. Para incluir mais espaços, é necessário entrar em contato com a equipe do aplicativo.",
+    "faq3Question":  "Como funcionam as notificações?",
+    "faq3Answer":  "Ao permitir notificações, avisos são enviados ao dispositivo com novidades ou notícias importantes sobre os espaços de coworking. Você pode configurar as notificações nas configurações do aplicativo.",
     "errorAuthInvalidUsername":  "O nome de usuário deve ter entre 4 e 20 caracteres e só pode conter letras, números, hífens e sublinhados.",
     "errorAuthInvalidEmail":  "O e-mail não é válido",
     "errorAuthInvalidPassword":  "A senha deve ter pelo menos 6 caracteres",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Remover data",
     "authRequiredFunctionMessage":  "Esta função requer que você faça login",
     "authRequiredFunctionAction":  "IR",
+    "notificationsNewBadge": "Novo",
+    "homeHeroTitle": "Encontre um bom lugar para trabalhar",
+    "homeSearchCoworkingButton": "Pesquisar espaços de coworking",
     "enterWithoutUser":  "Entrar sem utilizador"
 }
 

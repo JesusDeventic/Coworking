@@ -9,11 +9,11 @@ final _clickCursor = WidgetStateProperty.all<MouseCursor>(
 /// Colores de VACoworking extraídos del logo (va-coworking):
 /// azul marino de la V / edificios, verde del pin, azul cielo y amarillo de acento.
 class AppColors {
-  /// Azul marino principal (forma V, bloques del logo) — AppBar, botones primarios
-  static const Color primary = Color(0xFF213148);
+  /// Azul claro principal del logo (lado izquierdo) — AppBar, botones primarios
+  static const Color primary = Color(0xFF0172cf);
 
   /// Variante más oscura para bordes / estados
-  static const Color primaryLow = Color(0xFF1A2738);
+  static const Color primaryLow = Color(0xFF172cf4);
 
   /// Azul cielo del logo (lado izquierdo) — acentos suaves, `tertiary` en el tema
   static const Color primaryAccent = Color(0xFF29ABE2);

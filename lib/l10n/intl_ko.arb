@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "ko",
     "appName":  "VACoworking",
     "signIn":  "로그인",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "VACoworking 문의",
     "faq1Question":  "VACoworking이란?",
-    "faq1Answer":  "다양한 종류의 이벤트를 위한 초대장을 만드는 앱입니다. 템플릿을 선택하고 초대장을 개인화한 뒤, 소셜 미디어에 공유하고 확인 알림을 받으며 참석 현황을 추적할 수 있습니다.",
-    "faq2Question":  "무료인가요?",
-    "faq2Answer":  "아니요. VACoworking로 초대장을 디자인할 수는 있지만, 공개하려면 초대장마다 결제를 해야 합니다.",
-    "faq3Question":  "어떻게 계정을 삭제하나요?",
-    "faq3Answer":  "앱의 계정 설정에서 삭제할 수 있습니다. 관련 데이터가 모두 삭제되며 되돌릴 수 없습니다.",
+    "faq1Answer":  "서비스와 특징별로 분류된 이용 가능한 코워킹 공간 정보를 제공하는 앱입니다. 다양한 조건으로 검색하고 필터링하여 일하기 좋은 공간을 찾을 수 있습니다.",
+    "faq2Question":  "코워킹 공간을 추가할 수 있나요?",
+    "faq2Answer":  "코워킹 공간은 앱 관리자만 추가할 수 있습니다. 더 많은 공간을 추가하려면 앱 운영팀에 문의해야 합니다.",
+    "faq3Question":  "알림은 어떻게 동작하나요?",
+    "faq3Answer":  "알림을 허용하면 코워킹 공간 관련 업데이트나 중요한 소식이 기기로 전송됩니다. 알림 설정은 앱 설정에서 변경할 수 있습니다.",
     "errorAuthInvalidUsername":  "사용자 이름은 4~20자이며 문자, 숫자, 하이픈, 밑줄만 사용할 수 있습니다.",
     "errorAuthInvalidEmail":  "이메일이 유효하지 않습니다",
     "errorAuthInvalidPassword":  "비밀번호는 최소 6자여야 합니다",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "날짜 제거",
     "authRequiredFunctionMessage":  "이 기능을 사용하려면 로그인해야 합니다",
     "authRequiredFunctionAction":  "로그인",
+    "notificationsNewBadge": "신규",
+    "homeHeroTitle": "일하기 좋은 곳을 찾아보세요",
+    "homeSearchCoworkingButton": "코워킹 공간 찾기",
     "enterWithoutUser":  "사용자 없이 로그인"
 }
 

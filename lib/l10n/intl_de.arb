@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "de",
     "appName":  "VACoworking",
     "signIn":  "Anmelden",
@@ -136,11 +136,11 @@
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "VACoworking Kontakt",
     "faq1Question":  "Was ist VACoworking?",
-    "faq1Answer":  "Es ist eine App, mit der du Einladungen für alle Arten von Veranstaltungen erstellen kannst. Du kannst Vorlagen auswählen, die Einladung personalisieren, in sozialen Medien teilen, Bestätigungsbenachrichtigungen erhalten und die Teilnahme verfolgen.",
-    "faq2Question":  "Ist es kostenlos?",
-    "faq2Answer":  "Nein, du kannst VACoworking nutzen, um deine Einladungen zu gestalten, aber um sie veröffentlichen zu können, musst du für jede einzelne bezahlen.",
-    "faq3Question":  "Wie lösche ich mein Konto?",
-    "faq3Answer":  "Sie können Ihr Konto in den Kontoeinstellungen in der App löschen. Dadurch werden alle zugehörigen Daten entfernt. Dieser Vorgang kann nicht rückgängig gemacht werden.",
+    "faq1Answer":  "Es ist eine Informations-App über verfügbare Coworking-Spaces, die nach Services und Merkmalen kategorisiert sind. Sie können nach verschiedenen Kriterien suchen und filtern, um den perfekten Arbeitsplatz zu finden.",
+    "faq2Question":  "Kann ich Coworking-Spaces hinzufügen?",
+    "faq2Answer":  "Nur Administratoren der App können Coworking-Spaces hinzufügen. Um weitere Spaces aufzunehmen, wenden Sie sich bitte an das App-Team.",
+    "faq3Question":  "Wie funktionieren Benachrichtigungen?",
+    "faq3Answer":  "Wenn Sie Benachrichtigungen erlauben, erhält Ihr Gerät Hinweise zu Neuigkeiten oder wichtigen Informationen über Coworking-Spaces. Sie können die Benachrichtigungen in den App-Einstellungen konfigurieren.",
     "errorAuthInvalidUsername":  "Der Benutzername muss 4–20 Zeichen lang sein und darf nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten.",
     "errorAuthInvalidEmail":  "Die E-Mail ist ungültig.",
     "errorAuthInvalidPassword":  "Das Passwort muss mindestens 6 Zeichen haben.",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "Datum entfernen",
     "authRequiredFunctionMessage":  "Diese Funktion erfordert eine Anmeldung",
     "authRequiredFunctionAction":  "ANMELDEN",
+    "notificationsNewBadge": "Neu",
+    "homeHeroTitle": "Finden Sie einen guten Ort zum Arbeiten",
+    "homeSearchCoworkingButton": "Coworking-Spaces suchen",
     "enterWithoutUser":  "Ohne Benutzer anmelden"
 }
 

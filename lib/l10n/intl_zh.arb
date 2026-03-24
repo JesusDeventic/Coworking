@@ -1,4 +1,4 @@
-﻿{
+{
     "@@locale":  "zh",
     "appName":  "VACoworking",
     "signIn":  "登录",
@@ -135,12 +135,12 @@
     "socialMailLabel":  "电子邮箱",
     "socialTelegramLabel":  "Telegram",
     "subjectSupport":  "VACoworking 联系",
-    "faq1Question":  "VACoworking 是什么？",
-    "faq1Answer":  "这是一款用于制作各种活动邀请函的应用。它让你选择模板、个性化邀请函内容、在社交媒体上分享、接收确认通知，并跟踪出席情况。",
-    "faq2Question":  "免费吗？",
-    "faq2Answer":  "不可以。你可以使用 VACoworking 来设计邀请函，但要发布它们，你需要为每一份分别付款。",
-    "faq3Question":  "如何删除我的账户？",
-    "faq3Answer":  "您可在应用内的账户设置中删除账户，这将删除与账户相关的所有数据。此操作无法撤销。",
+    "faq1Question":  "什么是 VACoworking？",
+    "faq1Answer":  "这是一款关于可用联合办公空间的信息应用，按服务和特点进行分类。你可以按不同条件搜索和筛选，找到最适合工作的空间。",
+    "faq2Question":  "我可以添加联合办公空间吗？",
+    "faq2Answer":  "只有应用管理员可以添加联合办公空间。若要新增更多空间，请联系应用团队。",
+    "faq3Question":  "通知如何工作？",
+    "faq3Answer":  "当你允许通知后，设备会收到有关联合办公空间更新或重要消息的提醒。你可以在应用设置中配置通知。",
     "errorAuthInvalidUsername":  "用户名长度须为 4–20 个字符，且只能包含字母、数字、连字符和下划线。",
     "errorAuthInvalidEmail":  "电子邮箱无效",
     "errorAuthInvalidPassword":  "密码至少需 6 个字符",
@@ -215,6 +215,9 @@
     "removeBirthdateTooltip":  "移除日期",
     "authRequiredFunctionMessage":  "此功能需要登录。",
     "authRequiredFunctionAction":  "去登录",
+    "notificationsNewBadge": "新",
+    "homeHeroTitle": "找到一个适合工作的好地方",
+    "homeSearchCoworkingButton": "搜索联合办公空间",
     "enterWithoutUser":  "无需用户登录"
 }
 

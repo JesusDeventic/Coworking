@@ -1,4 +1,4 @@
-﻿// Service Worker para notificaciones push de VACoworking
+// Service Worker para notificaciones push de VACoworking
 
 console.log('VACoworking Service Worker cargado');
 

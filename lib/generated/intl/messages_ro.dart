@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a ro locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -182,18 +182,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("Extinde"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "Este o aplicație pentru a crea invitații pentru tot felul de evenimente. Vă permite să alegeți șabloane și să personalizați invitația, să o partajați pe rețelele sociale, să primiți notificări de confirmare și să urmăriți prezența.",
+      "Este o aplicație informativă despre spațiile de coworking disponibile, clasificate după servicii și caracteristici. Poți căuta și filtra după diferite criterii pentru a găsi locul perfect de lucru.",
     ),
-    "faq1Question": MessageLookupByLibrary.simpleMessage("Ce este VACoworking?"),
+    "faq1Question": MessageLookupByLibrary.simpleMessage(
+      "Ce este VACoworking?",
+    ),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Nu, poți folosi VACoworking pentru a-ți proiecta invitațiile, dar pentru a le publica trebuie să efectuezi o plată pentru fiecare.",
+      "Doar administratorii aplicației pot adăuga spații de coworking. Pentru a adăuga mai multe spații, trebuie să contactezi echipa aplicației.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("Este gratuit?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "Pot adăuga spații de coworking?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "Poți șterge contul din setările contului din aplicație. Se elimină tot ce este asociat contului tău. Această acțiune este ireversibilă.",
+      "Când permiți notificările, pe dispozitiv se trimit alerte cu noutăți sau informații importante despre spațiile de coworking. Poți configura notificările din setările aplicației.",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "Cum îmi pot șterge contul?",
+      "Cum funcționează notificările?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage(
       "Acest câmp este obligatoriu",
@@ -222,6 +226,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "Încă nu ai invitații create",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "Găsește un loc bun pentru a lucra",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "Caută spații coworking",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("E-mail invalid"),
     "keepSession": MessageLookupByLibrary.simpleMessage(
@@ -337,6 +347,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Nu ai notificări",
     ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("Notificări"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("Nou"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "Permisiuni notificări dispozitiv",
     ),
@@ -417,7 +428,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Status"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("Contact VACoworking"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "Contact VACoworking",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Termeni și condiții",
     ),
@@ -478,4 +491,3 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
   };
 }
-

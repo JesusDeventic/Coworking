@@ -1,4 +1,4 @@
-﻿// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
 // This is a library that provides messages for a tr locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
@@ -180,18 +180,20 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "expandMenu": MessageLookupByLibrary.simpleMessage("Genişlet"),
     "faq1Answer": MessageLookupByLibrary.simpleMessage(
-      "Bu, her türlü etkinlik için davetiye oluşturmanıza yardımcı olan bir uygulamadır. Şablon seçmenize ve davetiyenizi kişiselleştirmenize, sosyal medyada paylaşmanıza, onay bildirimleri almanıza ve katılımı takip etmenize olanak tanır.",
+      "Bu, mevcut coworking alanları hakkında hizmet ve özelliklere göre kategorize edilmiş bilgilendirici bir uygulamadır. Çalışmak için en uygun alanı bulmanız için farklı kriterlere göre arama ve filtreleme yapmanıza olanak tanır.",
     ),
     "faq1Question": MessageLookupByLibrary.simpleMessage("VACoworking nedir?"),
     "faq2Answer": MessageLookupByLibrary.simpleMessage(
-      "Hayır, davetiyelerinizi tasarlamak için VACoworking\'yi kullanabilirsiniz; ancak yayınlayabilmek için her biri için ödeme yapmanız gerekir.",
+      "Yalnızca uygulama yöneticileri coworking alanı ekleyebilir. Daha fazla alan eklemek için uygulama ekibiyle iletişime geçmeniz gerekir.",
     ),
-    "faq2Question": MessageLookupByLibrary.simpleMessage("Ücretsiz mi?"),
+    "faq2Question": MessageLookupByLibrary.simpleMessage(
+      "Coworking alanı ekleyebilir miyim?",
+    ),
     "faq3Answer": MessageLookupByLibrary.simpleMessage(
-      "Hesabınızı uygulamadaki hesap ayarlarından silebilirsiniz. Hesabınızla ilişkili her şey kaldırılır. Bu işlem geri alınamaz.",
+      "Bildirimlere izin verdiğinizde cihazınıza coworking alanlarıyla ilgili yenilikler veya önemli haberler gönderilir. Bildirimleri uygulama ayarlarından yapılandırabilirsiniz.",
     ),
     "faq3Question": MessageLookupByLibrary.simpleMessage(
-      "Hesabımı nasıl silerim?",
+      "Bildirimler nasıl çalışır?",
     ),
     "fieldRequired": MessageLookupByLibrary.simpleMessage("Bu alan zorunludur"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage(
@@ -218,6 +220,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "homeEmptyInvitationsTitle": MessageLookupByLibrary.simpleMessage(
       "Henüz oluşturulmuş davet yok",
+    ),
+    "homeHeroTitle": MessageLookupByLibrary.simpleMessage(
+      "Çalışmak için iyi bir yer bulun",
+    ),
+    "homeSearchCoworkingButton": MessageLookupByLibrary.simpleMessage(
+      "Coworking alanlarını ara",
     ),
     "invalidEmail": MessageLookupByLibrary.simpleMessage("Geçersiz e-posta"),
     "keepSession": MessageLookupByLibrary.simpleMessage("Oturumu açık tut"),
@@ -327,6 +335,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Bildiriminiz yok",
     ),
     "notificationsLabel": MessageLookupByLibrary.simpleMessage("Bildirimler"),
+    "notificationsNewBadge": MessageLookupByLibrary.simpleMessage("Yeni"),
     "notificationsPermissionHint": MessageLookupByLibrary.simpleMessage(
       "Cihaz bildirim izinleri",
     ),
@@ -405,7 +414,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("WhatsApp"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("Durum"),
-    "subjectSupport": MessageLookupByLibrary.simpleMessage("VACoworking iletişim"),
+    "subjectSupport": MessageLookupByLibrary.simpleMessage(
+      "VACoworking iletişim",
+    ),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Şartlar ve koşullar",
     ),
@@ -460,4 +471,3 @@ class MessageLookup extends MessageLookupByLibrary {
     "wrongCredentials": MessageLookupByLibrary.simpleMessage("Hatalı bilgiler"),
   };
 }
-
