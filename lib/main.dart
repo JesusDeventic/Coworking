@@ -21,7 +21,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Cargar versiÃ³n de la app SIEMPRE al arrancar,
   // para que estÃ© disponible incluso tras reload en Web.
-  await loadAppVersion();
+  await loadAppVersion();          //carga version de la app
   // Inicializar notificaciones push solo en Android / iOS / Web
   if (kIsWeb || Platform.isAndroid || Platform.isIOS) {
     try {
@@ -34,10 +34,11 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider(create: (_) => LanguageProvider()),
+        // ChangeNotifierProvider permite que los widgets escuchen cambios
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),    // Tema claro/oscuro
+        ChangeNotifierProvider(create: (_) => LanguageProvider()), // Idioma
       ],
-      child: const VACoworkingApp(),
+      child: const VACoworkingApp(),  
     ),
   );
 }
@@ -89,7 +90,7 @@ class _VACoworkingAppState extends State<VACoworkingApp> {
     return Consumer2<ThemeProvider, LanguageProvider>(
       builder: (context, themeProvider, languageProvider, _) {
         return MaterialApp.router(
-          routerConfig: _router,
+          routerConfig: _router,                       //rutas de navegación
           scaffoldMessengerKey: scaffoldMessengerKey,
           debugShowCheckedModeBanner: false,
           onGenerateTitle: (context) => S.current.appName,

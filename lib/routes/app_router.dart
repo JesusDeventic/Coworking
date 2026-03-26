@@ -15,8 +15,8 @@ import 'app_routes.dart';
 GoRouter createAppRouter(GlobalKey<NavigatorState> navigatorKey) {
   return GoRouter(
     navigatorKey: navigatorKey,
-    initialLocation: AppRoutes.splash,
-    redirect: (context, state) async {
+    initialLocation: AppRoutes.splash,    //pantalla de bienvenida
+    redirect: (context, state) async {    //redirige a la ruta correcta
       final location = state.uri.path;
       const authRoutes = <String>{
         AppRoutes.login,

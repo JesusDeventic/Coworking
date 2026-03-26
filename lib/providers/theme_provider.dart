@@ -18,13 +18,13 @@ class ThemeProvider extends ChangeNotifier {
     } else {
       _isDarkMode = saved;
     }
-    notifyListeners();
+    notifyListeners(); //Redibuja todos los widgets que usan este provider
   }
 
   Future<void> toggleTheme() async {
     _isDarkMode = !_isDarkMode;
-    await _prefs.setThemeApp(_isDarkMode);
-    notifyListeners();
+    await _prefs.setThemeApp(_isDarkMode);   // Guardar preferencia
+    notifyListeners();                      // Notificar a los widgets
   }
 }
 
