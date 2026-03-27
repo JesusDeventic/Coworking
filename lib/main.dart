@@ -51,7 +51,7 @@ class VACoworkingApp extends StatefulWidget {
 }
 
 class _VACoworkingAppState extends State<VACoworkingApp> {
-  late final GoRouter _router = createAppRouter(navigatorKey);
+  late final GoRouter _router = createAppRouter(navigatorKey); //permite navegar de una pagina a otra
   final AppLinks _appLinks = AppLinks();
 
   Uri? _lastHandledUri;
