@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:go_router/go_router.dart';
 import 'package:vacoworking/api/vacoworking_api.dart';
 import 'package:vacoworking/core/global_functions.dart';
 import 'package:vacoworking/generated/l10n.dart';
@@ -442,7 +443,7 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () {
-                showCustomSnackBar('Implementar aqui');
+                context.go('/map');
               },
               icon: const Icon(Icons.map_rounded),
               label: Text(S.current.homeSearchCoworkingButton),

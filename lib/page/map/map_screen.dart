@@ -78,7 +78,10 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Coworkings en Valladolid')),
+      appBar: AppBar(title: Padding(
+        padding: const EdgeInsets.all(20),
+        child: const Text('Coworkings en Valladolid'),
+      )),
       body: Stack(
         //uso stack para poner el buscador encima del mapa
         children: [
