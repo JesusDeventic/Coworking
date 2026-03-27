@@ -11,45 +11,49 @@
  * - Meta: vac_lat, vac_lng, vac_direccion, vac_capacidad_total, vac_salas_json, vac_galeria_ids
  */
 
-if (!defined('ABSPATH')) {
+if (!defined('ABSPATH')) {  //Seguridad, constante que WordPress define al arrancar para evitar accesos directos desde el navegador sin pasar por WordPress
     exit;
 }
 
-add_action('rest_api_init', 'VACoworking_map_register_routes');
+add_action('rest_api_init', 'VACoworking_map_register_routes'); //rest_api_init es un hook de WordPress que se ejecuta cuando se inicializa la API REST y mi función VACoworking_map_register_routes la registra
 
-function VACoworking_map_register_routes() {
-    register_rest_route('VACoworking/v1', '/coworking/map', array(
-        'methods'             => 'GET',
-        'callback'            => 'VACoworking_map_get_spaces',
-        'permission_callback' => '__return_true',
+function VACoworking_map_register_routes() { //crea 2 endpoints
+    register_rest_route('VACoworking/v1', '/coworking/map', array( //pedira lista de espacios de coworking
+        'methods'             => 'GET',                           //método HTTP
+        'callback'            => 'VACoworking_map_get_spaces',   //función que se ejecuta cuando se llama al endpoint
+        'permission_callback' => '__return_true',                //permiso para que cualquier persona pueda acceder
     ));
 
-    register_rest_route('VACoworking/v1', '/coworking/filters', array(
+    register_rest_route('VACoworking/v1', '/coworking/filters', array(  //pedira opciones de filtros
         'methods'             => 'GET',
         'callback'            => 'VACoworking_map_get_filters',
         'permission_callback' => '__return_true',
     ));
 }
 
-function VACoworking_map_get_spaces(WP_REST_Request $request) {
-    $search = trim((string) $request->get_param('search'));
+//funcion que obtiene los espacios coworking
+function VACoworking_map_get_spaces(WP_REST_Request $request) { 
+    $search = trim((string) $request->get_param('search')); //busca por nombre o dirección
 
-    $servicio_ids = VACoworking_map_parse_term_filter($request->get_param('servicios'), 'servicio_coworking');
-    $equipamiento_ids = VACoworking_map_parse_term_filter($request->get_param('equipamientos'), 'equipamiento_coworking');
+    $servicio_ids = VACoworking_map_parse_term_filter($request->get_param('servicios'), 'servicio_coworking'); //filtra por servicios
+    $equipamiento_ids = VACoworking_map_parse_term_filter($request->get_param('equipamientos'), 'equipamiento_coworking'); //filtra por equipamientos
 
-    $cap_total_min = VACoworking_map_parse_int_or_null($request->get_param('cap_total_min'));
-    $cap_total_max = VACoworking_map_parse_int_or_null($request->get_param('cap_total_max'));
-    $sala_cap_min = VACoworking_map_parse_int_or_null($request->get_param('sala_cap_min'));
-    $sala_cap_max = VACoworking_map_parse_int_or_null($request->get_param('sala_cap_max'));
+    $cap_total_min = VACoworking_map_parse_int_or_null($request->get_param('cap_total_min')); //filtra por capacidad total mínima
+    $cap_total_max = VACoworking_map_parse_int_or_null($request->get_param('cap_total_max')); //filtra por capacidad total máxima
+    $sala_cap_min = VACoworking_map_parse_int_or_null($request->get_param('sala_cap_min')); //filtra por capacidad de sala mínima
+    $sala_cap_max = VACoworking_map_parse_int_or_null($request->get_param('sala_cap_max')); //filtra por capacidad de sala máxima
 
-    $page = max(1, (int) $request->get_param('page'));
-    $per_page = (int) $request->get_param('per_page');
+    $page = max(1, (int) $request->get_param('page'));  //página actual
+    $per_page = (int) $request->get_param('per_page');  //número de elementos por página
     if ($per_page <= 0) {
-        $per_page = 50;
+        $per_page = 50;  //valor por defecto
     }
-    $per_page = min(200, $per_page);
+    $per_page = min(200, $per_page);  //límite máximo
+    
 
-    $tax_query = array();
+    //guarda datos de filtros en dos tablas: taxonomías y metadatos
+
+    $tax_query = array();      //consulta taxonomías, como servicios o equipamientos
     if (!empty($servicio_ids)) {
         $tax_query[] = array(
             'taxonomy' => 'servicio_coworking',
@@ -70,7 +74,7 @@ function VACoworking_map_get_spaces(WP_REST_Request $request) {
         $tax_query['relation'] = 'AND';
     }
 
-    $meta_query = array();
+    $meta_query = array();     //consulta metadatos, como capacidades maximas de personas
     if ($cap_total_min !== null || $cap_total_max !== null) {
         $meta_query[] = array(
             'key'     => 'vac_capacidad_total',
@@ -102,48 +106,52 @@ function VACoworking_map_get_spaces(WP_REST_Request $request) {
         $args['meta_query'] = $meta_query;
     }
 
+
+    //Ir a la base de datos y obtener los espacios
     $q = new WP_Query($args);
 
-    $items = array();
+    $items = array();  //array de espacios
     foreach ($q->posts as $post) {
-        $item = VACoworking_map_build_space_item($post);
+        $item = VACoworking_map_build_space_item($post); //convierte el post en un array
         if (!$item) {
-            continue;
+            continue; //si no se puede convertir, salta al siguiente post
+        } 
+        if (!VACoworking_map_match_sala_capacity_filter($item, $sala_cap_min, $sala_cap_max)) {  //filtra por capacidad de sala
+            continue; //si no cumple con el filtro de capacidad de sala, salta al siguiente post
         }
-        if (!VACoworking_map_match_sala_capacity_filter($item, $sala_cap_min, $sala_cap_max)) {
-            continue;
-        }
-        $items[] = $item;
+        $items[] = $item; //agrega el espacio al array
     }
 
-    return rest_ensure_response(array(
-        'success' => true,
+    //devuelve la respuesta
+    return rest_ensure_response(array( 
+        'success' => true, 
         'page' => $page,
         'per_page' => $per_page,
-        'found_posts' => (int) $q->found_posts,
+        'found_posts' => (int) $q->found_posts, 
         'total_pages' => (int) $q->max_num_pages,
         'count' => count($items),
         'filters_applied' => array(
             'search' => $search,
             'servicios' => $servicio_ids,
             'equipamientos' => $equipamiento_ids,
-            'cap_total_min' => $cap_total_min,
+            'cap_total_min' => $cap_total_min, 
             'cap_total_max' => $cap_total_max,
             'sala_cap_min' => $sala_cap_min,
             'sala_cap_max' => $sala_cap_max,
         ),
-        'items' => $items,
+        'items' => $items, 
     ));
 }
 
+//muestra los filtros para el mapa
 function VACoworking_map_get_filters(WP_REST_Request $request) {
-    $servicios = get_terms(array(
+    $servicios = get_terms(array(                                 //obtiene los términos de la taxonomía servicio_coworking
         'taxonomy' => 'servicio_coworking',
         'hide_empty' => false,
         'orderby' => 'name',
         'order' => 'ASC',
     ));
-    $equipamientos = get_terms(array(
+    $equipamientos = get_terms(array(                            //obtiene los términos de la taxonomía equipamiento_coworking
         'taxonomy' => 'equipamiento_coworking',
         'hide_empty' => false,
         'orderby' => 'name',
@@ -174,7 +182,7 @@ function VACoworking_map_get_filters(WP_REST_Request $request) {
         }
     }
 
-    $capacity_stats = VACoworking_map_get_capacity_stats();
+    $capacity_stats = VACoworking_map_get_capacity_stats();    //busca cual es la capacidad mínima y máxima de todos los coworkings en la base de datos
 
     return rest_ensure_response(array(
         'success' => true,
@@ -184,13 +192,14 @@ function VACoworking_map_get_filters(WP_REST_Request $request) {
     ));
 }
 
+//función que obtiene estadísticas de capacidad
 function VACoworking_map_get_capacity_stats() {
     $q = new WP_Query(array(
-        'post_type' => 'espacio_coworking',
-        'post_status' => 'publish',
-        'posts_per_page' => -1,
-        'fields' => 'ids',
-        'no_found_rows' => true,
+        'post_type' => 'espacio_coworking',  // tipo de post
+        'post_status' => 'publish',          // solo publicados
+        'posts_per_page' => -1,              // todos
+        'fields' => 'ids',                   // solo IDs para performance
+        'no_found_rows' => true,             // no necesitamos total
     ));
 
     $total_values = array();
@@ -225,11 +234,13 @@ function VACoworking_map_get_capacity_stats() {
     );
 }
 
+
+//toma los datos de la base de datos y los prepara en un array para enviar al frontend
 function VACoworking_map_build_space_item($post) {
-    $post_id = (int) $post->ID;
-    $lat = (float) get_post_meta($post_id, 'vac_lat', true);
-    $lng = (float) get_post_meta($post_id, 'vac_lng', true);
-    if ($lat === 0.0 && $lng === 0.0) {
+    $post_id = (int) $post->ID;                                   // ID del post
+    $lat = (float) get_post_meta($post_id, 'vac_lat', true);      // latitud
+    $lng = (float) get_post_meta($post_id, 'vac_lng', true);      // longitud
+    if ($lat === 0.0 && $lng === 0.0) {                           // si no tiene coordenadas, no se muestra
         return null;
     }
 
@@ -298,6 +309,7 @@ function VACoworking_map_build_space_item($post) {
         'salas' => $salas,
     );
 }
+
 
 function VACoworking_map_get_terms_for_post($post_id, $taxonomy) {
     $terms = wp_get_post_terms($post_id, $taxonomy);

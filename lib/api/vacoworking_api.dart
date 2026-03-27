@@ -6,12 +6,16 @@ import 'package:vacoworking/core/secure_storage.dart';
 import 'package:vacoworking/model/user_model.dart';
 import 'package:vacoworking/model/app_status_model.dart';
 import 'package:vacoworking/model/private_message_model.dart';
-import 'package:flutter/foundation.dart' show kIsWeb, defaultTargetPlatform, TargetPlatform;
+import 'package:vacoworking/model/coworking.dart';
+import 'package:flutter/foundation.dart'
+    show kIsWeb, defaultTargetPlatform, TargetPlatform, debugPrint;
 import 'package:http/http.dart' as http;
 
 /// Base URL del backend WordPress (REST namespace `VACoworking/v1`).
 /// Ajusta el dominio al servidor donde despliegues los snippets PHP.
-const String VACoworkingBaseUrl = 'https://coworking.deventic.com/wp-json/VACoworking/v1';
+const String VACoworkingBaseUrl =
+    'https://coworking.deventic.com/wp-json/VACoworking/v1';
+
 /// Base pública de la app Flutter Web para enlaces compartibles de perfil.
 /// Ajusta este valor al dominio real donde publiques la app web.
 const String VACoworkingAppPublicBaseUrl = 'https://app.VACoworking.com';
@@ -20,7 +24,9 @@ final VACoworkingSecureStorage _secureStorage = VACoworkingSecureStorage();
 
 /// User-Agent con app + dispositivo para que el backend lo guarde en user_agent.
 String _getVACoworkingUserAgent() {
-  final v = globalCurrentVersionApp.isNotEmpty ? globalCurrentVersionApp : '1.0.0';
+  final v = globalCurrentVersionApp.isNotEmpty
+      ? globalCurrentVersionApp
+      : '1.0.0';
   if (kIsWeb) return 'VACoworking/$v (Web)';
   switch (defaultTargetPlatform) {
     case TargetPlatform.android:
@@ -122,10 +128,7 @@ class VACoworkingApi {
   /// GET /auth/me — valida token y devuelve usuario o null.
   static Future<VACoworkingUser?> validateToken(String token) async {
     final url = Uri.parse('$_baseUrl/auth/me');
-    final response = await http.get(
-      url,
-      headers: _headers(token: token),
-    );
+    final response = await http.get(url, headers: _headers(token: token));
     if (response.statusCode != 200) return null;
     final data = jsonDecode(response.body) as Map<String, dynamic>?;
     if (data == null || data['success'] != true) return null;
@@ -137,10 +140,7 @@ class VACoworkingApi {
   /// POST /auth/logout
   static Future<bool> logout(String token) async {
     final url = Uri.parse('$_baseUrl/auth/logout');
-    final response = await http.post(
-      url,
-      headers: _headers(token: token),
-    );
+    final response = await http.post(url, headers: _headers(token: token));
     return response.statusCode == 200;
   }
 
@@ -243,9 +243,7 @@ class VACoworkingApi {
       final response = await http.post(
         url,
         headers: _headers(token: token),
-        body: jsonEncode({
-          'fcm_token': fcmToken,
-        }),
+        body: jsonEncode({'fcm_token': fcmToken}),
       );
       if (response.statusCode != 200) return false;
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
@@ -275,7 +273,8 @@ class VACoworkingApi {
     String avatarFilename = 'avatar.jpg',
   }) async {
     final token = globalUserToken;
-    if (token.isEmpty) return {'success': false, 'message': 'No token', 'code': 'missing_token'};
+    if (token.isEmpty)
+      return {'success': false, 'message': 'No token', 'code': 'missing_token'};
 
     final url = Uri.parse('$_baseUrl/user/update');
     final request = http.MultipartRequest('POST', url);
@@ -294,15 +293,18 @@ class VACoworkingApi {
     if (weekStart != null) request.fields['start_day_week'] = weekStart;
     if (country != null) request.fields['country'] = country;
     if (birthdate != null) request.fields['birthdate'] = birthdate;
-    if (marketingConsent != null) request.fields['marketing_consent'] = marketingConsent.toString();
+    if (marketingConsent != null)
+      request.fields['marketing_consent'] = marketingConsent.toString();
     if (deleteAvatar) request.fields['delete_avatar'] = 'true';
 
     if (avatarBytes != null && avatarBytes.isNotEmpty) {
-      request.files.add(http.MultipartFile.fromBytes(
-        'avatar',
-        avatarBytes,
-        filename: avatarFilename,
-      ));
+      request.files.add(
+        http.MultipartFile.fromBytes(
+          'avatar',
+          avatarBytes,
+          filename: avatarFilename,
+        ),
+      );
     }
 
     try {
@@ -317,21 +319,26 @@ class VACoworkingApi {
       final code = data['code'] as String?;
       return {'success': false, 'message': message, 'code': code, 'data': data};
     } catch (e) {
-      return {'success': false, 'message': e.toString(), 'code': 'network_error'};
+      return {
+        'success': false,
+        'message': e.toString(),
+        'code': 'network_error',
+      };
     }
   }
 
   /// GET /user/public/{username}
-  static Future<VACoworkingUser?> getPublicUserByUsername(String username) async {
+  static Future<VACoworkingUser?> getPublicUserByUsername(
+    String username,
+  ) async {
     final clean = username.trim();
     if (clean.isEmpty) return null;
 
-    final url = Uri.parse('$_baseUrl/user/public/${Uri.encodeComponent(clean)}');
+    final url = Uri.parse(
+      '$_baseUrl/user/public/${Uri.encodeComponent(clean)}',
+    );
     try {
-      final response = await http.get(
-        url,
-        headers: _headers(),
-      );
+      final response = await http.get(url, headers: _headers());
       if (response.statusCode != 200) return null;
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       if (data['success'] != true) return null;
@@ -346,7 +353,8 @@ class VACoworkingApi {
   /// POST /auth/delete-account — elimina la cuenta (requiere contraseña).
   static Future<Map<String, dynamic>> deleteAccount(String password) async {
     final token = globalUserToken;
-    if (token.isEmpty) return {'success': false, 'message': 'No token', 'code': 'missing_token'};
+    if (token.isEmpty)
+      return {'success': false, 'message': 'No token', 'code': 'missing_token'};
 
     final url = Uri.parse('$_baseUrl/auth/delete-account');
     final response = await http.post(
@@ -376,14 +384,21 @@ class VACoworkingApi {
       final response = await http.post(
         url,
         headers: _headers(token: token),
-        body: jsonEncode({'current_password': currentPassword, 'new_password': newPassword}),
+        body: jsonEncode({
+          'current_password': currentPassword,
+          'new_password': newPassword,
+        }),
       );
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       if (response.statusCode == 200 && data['success'] == true) return data;
       final code = data['code'] as String?;
       return {'success': false, 'code': code, 'message': data['message']};
     } catch (e) {
-      return {'success': false, 'code': 'network_error', 'message': e.toString()};
+      return {
+        'success': false,
+        'code': 'network_error',
+        'message': e.toString(),
+      };
     }
   }
 
@@ -397,9 +412,7 @@ class VACoworkingApi {
       final response = await http.post(
         url,
         headers: _headers(token: token),
-        body: jsonEncode({
-          'fcm_token': fcmToken,
-        }),
+        body: jsonEncode({'fcm_token': fcmToken}),
       );
       if (response.statusCode != 200) return false;
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
@@ -428,14 +441,13 @@ class VACoworkingApi {
     int? sinceId,
   }) async {
     try {
-      final params = <String, String>{
-        'page': '$page',
-        'per_page': '$perPage',
-      };
+      final params = <String, String>{'page': '$page', 'per_page': '$perPage'};
       if (sinceId != null && sinceId > 0) {
         params['since_id'] = '$sinceId';
       }
-      final url = Uri.parse('$_baseUrl/notifications').replace(queryParameters: params);
+      final url = Uri.parse(
+        '$_baseUrl/notifications',
+      ).replace(queryParameters: params);
       final response = await http.get(url, headers: _headers());
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       final list = data['notifications'] as List<dynamic>? ?? [];
@@ -480,9 +492,9 @@ class VACoworkingApi {
   /// notificationId = 0 => borrar todas.
   static Future<bool> deleteNotifications({int notificationId = 0}) async {
     try {
-      final url = Uri.parse('$_baseUrl/notifications').replace(
-        queryParameters: {'notification_id': '$notificationId'},
-      );
+      final url = Uri.parse(
+        '$_baseUrl/notifications',
+      ).replace(queryParameters: {'notification_id': '$notificationId'});
       final response = await http.delete(url, headers: _headers());
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       return response.statusCode == 200 && data['success'] == true;
@@ -496,15 +508,22 @@ class VACoworkingApi {
   // =========================================================
 
   /// GET /messages/conversations
-  static Future<List<Conversation>> getConversations({int limit = 20, int offset = 0}) async {
+  static Future<List<Conversation>> getConversations({
+    int limit = 20,
+    int offset = 0,
+  }) async {
     final token = globalUserToken;
     if (token.isEmpty) return [];
     try {
-      final url = Uri.parse('$_baseUrl/messages/conversations?limit=$limit&offset=$offset');
+      final url = Uri.parse(
+        '$_baseUrl/messages/conversations?limit=$limit&offset=$offset',
+      );
       final response = await http.get(url, headers: _headers(token: token));
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       final list = data['conversations'] as List<dynamic>? ?? [];
-      return list.map((e) => Conversation.fromJson(e as Map<String, dynamic>)).toList();
+      return list
+          .map((e) => Conversation.fromJson(e as Map<String, dynamic>))
+          .toList();
     } catch (_) {
       return [];
     }
@@ -522,11 +541,15 @@ class VACoworkingApi {
       final params = <String, String>{'other_user_id': '$otherUserId'};
       if (beforeId != null) params['before_id'] = '$beforeId';
       if (afterCreated != null) params['after_created'] = afterCreated;
-      final url = Uri.parse('$_baseUrl/messages').replace(queryParameters: params);
+      final url = Uri.parse(
+        '$_baseUrl/messages',
+      ).replace(queryParameters: params);
       final response = await http.get(url, headers: _headers(token: token));
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       final list = data['messages'] as List<dynamic>? ?? [];
-      return list.map((e) => PrivateMessage.fromJson(e as Map<String, dynamic>)).toList();
+      return list
+          .map((e) => PrivateMessage.fromJson(e as Map<String, dynamic>))
+          .toList();
     } catch (_) {
       return [];
     }
@@ -551,7 +574,9 @@ class VACoworkingApi {
     final token = globalUserToken;
     if (token.isEmpty) return null;
     try {
-      final url = Uri.parse('$_baseUrl/messages/read-status?other_user_id=$otherUserId');
+      final url = Uri.parse(
+        '$_baseUrl/messages/read-status?other_user_id=$otherUserId',
+      );
       final response = await http.get(url, headers: _headers(token: token));
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       final v = data['is_read'];
@@ -563,14 +588,19 @@ class VACoworkingApi {
   }
 
   /// POST /messages/send
-  static Future<PrivateMessage?> sendMessage({required int recipientId, required String message}) async {
+  static Future<PrivateMessage?> sendMessage({
+    required int recipientId,
+    required String message,
+  }) async {
     final token = globalUserToken;
     if (token.isEmpty) return null;
     try {
       final url = Uri.parse('$_baseUrl/messages/send');
-      final response = await http.post(url,
-          headers: _headers(token: token),
-          body: jsonEncode({'recipient_id': recipientId, 'message': message}));
+      final response = await http.post(
+        url,
+        headers: _headers(token: token),
+        body: jsonEncode({'recipient_id': recipientId, 'message': message}),
+      );
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       if (data['success'] == true && data['message'] != null) {
         return PrivateMessage.fromJson(data['message'] as Map<String, dynamic>);
@@ -582,14 +612,19 @@ class VACoworkingApi {
   }
 
   /// POST /messages/edit
-  static Future<bool> editMessage({required int id, required String message}) async {
+  static Future<bool> editMessage({
+    required int id,
+    required String message,
+  }) async {
     final token = globalUserToken;
     if (token.isEmpty) return false;
     try {
       final url = Uri.parse('$_baseUrl/messages/edit');
-      final response = await http.post(url,
-          headers: _headers(token: token),
-          body: jsonEncode({'id': id, 'message': message}));
+      final response = await http.post(
+        url,
+        headers: _headers(token: token),
+        body: jsonEncode({'id': id, 'message': message}),
+      );
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       return data['success'] == true;
     } catch (_) {
@@ -603,15 +638,151 @@ class VACoworkingApi {
     if (token.isEmpty) return false;
     try {
       final url = Uri.parse('$_baseUrl/messages/delete');
-      final response = await http.post(url,
-          headers: _headers(token: token),
-          body: jsonEncode({'id': id}));
+      final response = await http.post(
+        url,
+        headers: _headers(token: token),
+        body: jsonEncode({'id': id}),
+      );
       final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
       return data['success'] == true;
     } catch (_) {
       return false;
     }
   }
+
+  /// GET /coworking/map - Obtiene espacios de coworking con filtros
+  static Future<Map<String, dynamic>> getCoworkingSpaces({
+    String? search,
+    List<String>? servicios,
+    List<String>? equipamientos,
+    int? capTotalMin,
+    int? capTotalMax,
+    int? salaCapMin,
+    int? salaCapMax,
+    int page = 1,
+    int perPage = 50,
+  }) async {
+    try {
+      // Construir parámetros de consulta
+      final params = <String, String>{'page': '$page', 'per_page': '$perPage'};
+
+      if (search != null && search.isNotEmpty) {
+        params['search'] = search;
+      }
+
+      if (servicios != null && servicios.isNotEmpty) {
+        params['servicios'] = servicios.join(',');
+      }
+
+      if (equipamientos != null && equipamientos.isNotEmpty) {
+        params['equipamientos'] = equipamientos.join(',');
+      }
+
+      if (capTotalMin != null) params['cap_total_min'] = '$capTotalMin';
+      if (capTotalMax != null) params['cap_total_max'] = '$capTotalMax';
+      if (salaCapMin != null) params['sala_cap_min'] = '$salaCapMin';
+      if (salaCapMax != null) params['sala_cap_max'] = '$salaCapMax';
+
+      final url = Uri.parse(
+        '$_baseUrl/coworking/map',
+      ).replace(queryParameters: params);
+      final response = await http.get(url, headers: _headers());
+
+      if (response.statusCode != 200) {
+        return {
+          'success': false,
+          'message': 'Error del servidor: ${response.statusCode}',
+          'coworkings': <Coworking>[],
+          'total': 0,
+          'page': page,
+          'total_pages': 0,
+        };
+      }
+
+      final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+
+      if (data['success'] != true) {
+        return {
+          'success': false,
+          'message': data['message'] as String? ?? 'Error desconocido',
+          'coworkings': <Coworking>[],
+          'total': 0,
+          'page': page,
+          'total_pages': 0,
+        };
+      }
+
+      // Convertir los items a objetos Coworking
+      final items = data['items'] as List<dynamic>? ?? [];
+      final coworkings = <Coworking>[];
+
+      for (final item in items) {
+        if (item is Map<String, dynamic>) {
+          try {
+            final coworking = Coworking.fromJson(item);
+            coworkings.add(coworking);
+          } catch (e) {
+            debugPrint('Error parsing coworking: $e');
+          }
+        }
+      }
+
+      return {
+        'success': true,
+        'coworkings': coworkings,
+        'total': (data['found_posts'] as num?)?.toInt() ?? 0,
+        'page': (data['page'] as num?)?.toInt() ?? page,
+        'total_pages': (data['total_pages'] as num?)?.toInt() ?? 0,
+        'filters_applied':
+            data['filters_applied'] as Map<String, dynamic>? ?? {},
+      };
+    } catch (e) {
+      return {
+        'success': false,
+        'message': 'Error de conexión: $e',
+        'coworkings': <Coworking>[],
+        'total': 0,
+        'page': page,
+        'total_pages': 0,
+      };
+    }
+  }
+
+  /// GET /coworking/filters - Obtiene filtros disponibles
+  static Future<Map<String, dynamic>> getCoworkingFilters() async {
+    try {
+      final url = Uri.parse('$_baseUrl/coworking/filters');
+      final response = await http.get(url, headers: _headers());
+
+      if (response.statusCode != 200) {
+        return {
+          'success': false,
+          'message': 'Error del servidor: ${response.statusCode}',
+          'servicios': <Map<String, dynamic>>[],
+          'equipamientos': <Map<String, dynamic>>[],
+          'capacity': <String, int>{},
+        };
+      }
+
+      final data = jsonDecode(response.body) as Map<String, dynamic>? ?? {};
+
+      return {
+        'success': data['success'] == true,
+        'servicios': data['servicios'] as List<dynamic>? ?? [],
+        'equipamientos': data['equipamientos'] as List<dynamic>? ?? [],
+        'capacity': data['capacity'] as Map<String, dynamic>? ?? {},
+        'message': data['success'] == true
+            ? 'OK'
+            : (data['message'] as String? ?? 'Error desconocido'),
+      };
+    } catch (e) {
+      return {
+        'success': false,
+        'message': 'Error de conexión: $e',
+        'servicios': <Map<String, dynamic>>[],
+        'equipamientos': <Map<String, dynamic>>[],
+        'capacity': <String, int>{},
+      };
+    }
+  }
 }
-
-

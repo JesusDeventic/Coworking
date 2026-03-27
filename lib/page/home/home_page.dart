@@ -443,7 +443,7 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () {
-                context.go('/map');
+                context.push('/map');
               },
               icon: const Icon(Icons.map_rounded),
               label: Text(S.current.homeSearchCoworkingButton),

@@ -1,10 +1,11 @@
 import 'package:vacoworking/page/detail/details_screen.dart'; //Pantalla detalles importada
 import 'package:flutter/material.dart';
+import 'dart:async'; // Para Timer
 import 'package:flutter_map/flutter_map.dart'; // El paquete del mapa
 import 'package:latlong2/latlong.dart'; // Para manejar coordenadas
 import 'package:vacoworking/model/coworking.dart'; //Modelo importado
 import 'package:collection/collection.dart';
-import 'package:vacoworking/api/mock/mock_data.dart';
+import 'package:vacoworking/api/vacoworking_api.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -14,116 +15,208 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  List<Coworking> filteredCoworkings = List.from(
-    mockCoworkings,
-  ); // Crea una copia de mockCoworkings, y aquí guardo la lista que se está mostrando actualmente
+  List<Coworking> filteredCoworkings = []; // Lista que se muestra actualmente
+  List<Coworking> allCoworkings = []; // Todos los coworkings del backend
+  bool isLoading = true;
+  String? errorMessage;
 
   final TextEditingController _controller =
       TextEditingController(); // Controlador para el texto que escribe el usuario
 
-  // Funcion de busqueda avanzada
-  void _searchResults(String query) {
-    setState(() {
-      final searchLower = query.toLowerCase();
-      if (searchLower.isEmpty) {
-        filteredCoworkings = List.from(mockCoworkings);
-        return;
-      }
+  Timer? _debounceTimer;
 
-      filteredCoworkings = mockCoworkings.where((coworking) {
-        //Recorro la lista con .where y para cada coworking ejecuto la funcion
-        // 1. Datos básicos
-        final nameMatches = coworking.name.toLowerCase().contains(searchLower);
-        final addressMatches = coworking.address.toLowerCase().contains(
-          searchLower,
-        );
-        final descriptionMatches = coworking.description.toLowerCase().contains(
-          searchLower,
-        );
+  @override
+  void initState() {
+    super.initState();
+    _loadCoworkings();
 
-        // 2. Listas de Strings (Servicios y Equipamiento general)
-        final servicesMatches = coworking.services.any(
-          //Recorro la lista services, donde cada servicio es "s" y devuelve coincidencias
-          (s) => s.toLowerCase().contains(searchLower),
-        );
-        final equipmentMatches = coworking.equipment.any(
-          (e) => e.toLowerCase().contains(searchLower),
-        );
-
-        // 3. Búsqueda en Salas (Nombre, Equipamiento de la sala y Capacidad)
-        final roomsMatches = coworking.rooms.any((room) {
-          final roomNameMatches = room.name.toLowerCase().contains(searchLower);
-          final roomEquipMatches = room.equipment.any(
-            (e) => e.toLowerCase().contains(searchLower),
-          );
-          // Convierto la capacidad (int) a String para poder compararla
-          final capacityMatches = room.capacity.toString().contains(
-            searchLower,
-          );
-
-          return roomNameMatches || roomEquipMatches || capacityMatches;
-        });
-
-        // Si cualquiera de estas condiciones es verdadera, el coworking se muestra
-        return nameMatches ||
-            addressMatches ||
-            descriptionMatches ||
-            servicesMatches ||
-            equipmentMatches ||
-            roomsMatches;
-      }).toList();
+    // Configurar debounce para búsqueda
+    _controller.addListener(() {
+      if (_debounceTimer?.isActive ?? false) _debounceTimer!.cancel();
+      _debounceTimer = Timer(const Duration(milliseconds: 500), () {
+        _searchResults(_controller.text);
+      });
     });
+  }
+
+  @override
+  void dispose() {
+    _debounceTimer?.cancel();
+    _controller.dispose();
+    super.dispose();
+  }
+
+  // Cargar todos los coworkings del backend
+  Future<void> _loadCoworkings() async {
+    setState(() {
+      isLoading = true;
+      errorMessage = null;
+    });
+
+    try {
+      final result = await VACoworkingApi.getCoworkingSpaces(perPage: 200);
+
+      if (result['success'] == true) {
+        final coworkings = result['coworkings'] as List<Coworking>;
+        setState(() {
+          allCoworkings = coworkings;
+          filteredCoworkings = List.from(coworkings);
+          isLoading = false;
+        });
+      } else {
+        setState(() {
+          errorMessage =
+              result['message'] as String? ?? 'Error al cargar los datos';
+          isLoading = false;
+        });
+      }
+    } catch (e) {
+      setState(() {
+        errorMessage = 'Error de conexión: $e';
+        isLoading = false;
+      });
+    }
+  }
+
+  // Función de búsqueda con debounce usando backend
+  Future<void> _searchResults(String query) async {
+    if (query.isEmpty) {
+      setState(() {
+        filteredCoworkings = List.from(allCoworkings);
+      });
+      return;
+    }
+
+    setState(() {
+      isLoading = true;
+      errorMessage = null;
+    });
+
+    try {
+      final result = await VACoworkingApi.getCoworkingSpaces(
+        search: query,
+        perPage: 50,
+      );
+
+      if (result['success'] == true) {
+        final coworkings = result['coworkings'] as List<Coworking>;
+        setState(() {
+          filteredCoworkings = coworkings;
+          isLoading = false;
+        });
+      } else {
+        setState(() {
+          errorMessage = result['message'] as String? ?? 'Error en la búsqueda';
+          isLoading = false;
+          // En caso de error, mostrar todos los coworkings
+          filteredCoworkings = List.from(allCoworkings);
+        });
+      }
+    } catch (e) {
+      setState(() {
+        errorMessage = 'Error de conexión: $e';
+        isLoading = false;
+        // En caso de error, mostrar todos los coworkings
+        filteredCoworkings = List.from(allCoworkings);
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Padding(
-        padding: const EdgeInsets.all(20),
-        child: const Text('Coworkings en Valladolid'),
-      )),
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.all(20),
+          child: const Text('Coworkings en Valladolid'),
+        ),
+        actions: [
+          if (errorMessage != null)
+            IconButton(
+              icon: const Icon(Icons.refresh),
+              onPressed: _loadCoworkings,
+              tooltip: 'Reintentar',
+            ),
+        ],
+      ),
       body: Stack(
         //uso stack para poner el buscador encima del mapa
         children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width, //ocupa todo el ancho
-            height: MediaQuery.of(context).size.height, //ocupa todo el alto
-            child: FlutterMap(
-              options: MapOptions(
-                // 1. Centro el mapa en Valladolid
-                initialCenter: const LatLng(41.6523, -4.7245),
-                initialZoom: 14.0,
+          // Mostrar loading o error
+          if (isLoading && allCoworkings.isEmpty)
+            const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 16),
+                  Text('Cargando espacios de coworking...'),
+                ],
               ),
-              children: [
-                // 2. La capa del mapa (el dibujo de las calles)
-                TileLayer(
-                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  userAgentPackageName: 'com.deventic.app_coworking',
+            )
+          else if (errorMessage != null && allCoworkings.isEmpty)
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.error_outline, size: 64, color: Colors.red),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Error al cargar los datos',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(errorMessage!),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: _loadCoworkings,
+                    child: const Text('Reintentar'),
+                  ),
+                ],
+              ),
+            )
+          else
+            SizedBox(
+              width: MediaQuery.of(context).size.width, //ocupa todo el ancho
+              height: MediaQuery.of(context).size.height, //ocupa todo el alto
+              child: FlutterMap(
+                options: MapOptions(
+                  // 1. Centro el mapa en Valladolid
+                  initialCenter: const LatLng(41.6523, -4.7245),
+                  initialZoom: 14.0,
                 ),
-                // 3. La capa de los marcadores, recorro la lista para crear los marcadores
-                MarkerLayer(
-                  markers: filteredCoworkings.map((coworking) {
-                    //uso la lista filtrada
-                    return Marker(
-                      point: LatLng(coworking.latitude, coworking.longitude),
-                      width: 40,
-                      height: 40,
-                      child: GestureDetector(
-                        onTap: () {
-                          _showCoworkingSummary(context, coworking);
-                        },
-                        child: const Icon(
-                          Icons.location_on,
-                          size: 40,
-                          color: Colors.red,
+                children: [
+                  // 2. La capa del mapa (el dibujo de las calles)
+                  TileLayer(
+                    urlTemplate:
+                        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    userAgentPackageName: 'com.deventic.app_coworking',
+                  ),
+                  // 3. La capa de los marcadores, recorro la lista para crear los marcadores
+                  MarkerLayer(
+                    markers: filteredCoworkings.map((coworking) {
+                      //uso la lista filtrada
+                      return Marker(
+                        point: LatLng(coworking.latitude, coworking.longitude),
+                        width: 40,
+                        height: 40,
+                        child: GestureDetector(
+                          onTap: () {
+                            _showCoworkingSummary(context, coworking);
+                          },
+                          child: const Icon(
+                            Icons.location_on,
+                            size: 40,
+                            color: Colors.red,
+                          ),
                         ),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              ],
+                      );
+                    }).toList(),
+                  ),
+                ],
+              ),
             ),
-          ),
+
           // --- BARRA DE BÚSQUEDA ---
           Positioned(
             top: 10,
@@ -139,7 +232,18 @@ class _MapScreenState extends State<MapScreen> {
                     controller: _controller,
                     decoration: InputDecoration(
                       hintText: 'Buscar por nombre o servicio',
-                      prefixIcon: const Icon(Icons.search),
+                      prefixIcon: isLoading && _controller.text.isNotEmpty
+                          ? const SizedBox(
+                              width: 20,
+                              height: 20,
+                              child: Padding(
+                                padding: EdgeInsets.all(12.0),
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                ),
+                              ),
+                            )
+                          : const Icon(Icons.search),
                       border: InputBorder.none,
                       contentPadding: const EdgeInsets.all(15),
                       suffixIcon: IconButton(
@@ -150,11 +254,33 @@ class _MapScreenState extends State<MapScreen> {
                         },
                       ),
                     ),
-                    onChanged: (query) => _searchResults(query),
+                    // onChanged: (query) => _searchResults(query), // Ahora manejado por debounce
                   ),
+
+                  // Indicador de carga durante búsqueda
+                  if (isLoading &&
+                      _controller.text.isNotEmpty &&
+                      allCoworkings.isNotEmpty)
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 16,
+                            height: 16,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          ),
+                          SizedBox(width: 8),
+                          Text('Buscando...'),
+                        ],
+                      ),
+                    ),
+
                   // Solo aparece si hay texto y si hay resultados
                   if (_controller.text.isNotEmpty &&
-                      filteredCoworkings.isNotEmpty)
+                      filteredCoworkings.isNotEmpty &&
+                      !isLoading)
                     Container(
                       constraints: const BoxConstraints(
                         maxHeight: 250,
