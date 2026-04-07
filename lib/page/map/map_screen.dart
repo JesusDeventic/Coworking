@@ -1,3 +1,4 @@
+import 'package:vacoworking/generated/l10n.dart';
 import 'package:vacoworking/page/detail/details_screen.dart'; //Pantalla detalles importada
 import 'package:flutter/material.dart';
 import 'dart:async'; // Para Timer
@@ -371,7 +372,7 @@ class _MapScreenState extends State<MapScreen> {
       appBar: AppBar(
         title: Padding(
           padding: const EdgeInsets.all(20),
-          child: const Text('Coworkings en Valladolid'),
+          child: Text(S.current.titleAppBar),
         ),
         actions: [
           if (errorMessage != null)
@@ -474,7 +475,7 @@ class _MapScreenState extends State<MapScreen> {
                   TextField(
                     controller: _controller,
                     decoration: InputDecoration(
-                      hintText: 'Buscar por nombre o servicio',
+                      hintText: S.current.searchByKeyWord,
                       prefixIcon: isLoading && _controller.text.isNotEmpty
                           ? const SizedBox(
                               width: 20,
@@ -770,7 +771,7 @@ class _MapScreenState extends State<MapScreen> {
                             ),
                           ),
                           Text(
-                            'Total',
+                            S.current.total,
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey[600],
@@ -795,7 +796,7 @@ class _MapScreenState extends State<MapScreen> {
                             ),
                           ),
                           Text(
-                            'Sala principal',
+                            S.current.mainRoom,
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey[600],
@@ -812,7 +813,7 @@ class _MapScreenState extends State<MapScreen> {
                 // Servicios principales
                 if (coworking.services.isNotEmpty) ...[
                   Text(
-                    'Servicios',
+                    S.current.services,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -845,7 +846,7 @@ class _MapScreenState extends State<MapScreen> {
                   ),
                   if (coworking.services.length > 6)
                     Text(
-                      '+${coworking.services.length - 6} servicios más',
+                      '+${coworking.services.length - 6} ${S.current.moreServices}',
                       style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                     ),
                   const SizedBox(height: 20),
@@ -863,7 +864,7 @@ class _MapScreenState extends State<MapScreen> {
                           padding: const EdgeInsets.symmetric(vertical: 15),
                           side: const BorderSide(color: Colors.grey),
                         ),
-                        child: const Text('Cerrar'),
+                        child: Text(S.current.close),
                       ),
                     ),
                     const SizedBox(width: 15),
@@ -885,7 +886,7 @@ class _MapScreenState extends State<MapScreen> {
                           foregroundColor: Colors.white,
                           padding: const EdgeInsets.symmetric(vertical: 15),
                         ),
-                        child: const Text('Ver todos los detalles'),
+                        child: Text(S.current.seeAllDetails),
                       ),
                     ),
                   ],

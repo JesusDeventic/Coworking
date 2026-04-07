@@ -1908,6 +1908,121 @@ class S {
       args: [],
     );
   }
+
+  /// `Coworking en Valladolid`
+  String get titleAppBar {
+    return Intl.message(
+      'Coworking en Valladolid',
+      name: 'titleAppBar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buscar por nombre ó servicio`
+  String get searchByKeyWord {
+    return Intl.message(
+      'Buscar por nombre ó servicio',
+      name: 'searchByKeyWord',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message('Total', name: 'total', desc: '', args: []);
+  }
+
+  /// `Sala principal`
+  String get mainRoom {
+    return Intl.message('Sala principal', name: 'mainRoom', desc: '', args: []);
+  }
+
+  /// `Servicios`
+  String get services {
+    return Intl.message('Servicios', name: 'services', desc: '', args: []);
+  }
+
+  /// `servicios más`
+  String get moreServices {
+    return Intl.message(
+      'servicios más',
+      name: 'moreServices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ver todos los detalles`
+  String get seeAllDetails {
+    return Intl.message(
+      'Ver todos los detalles',
+      name: 'seeAllDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No se pudo abrir`
+  String get couldNotOpenContact {
+    return Intl.message(
+      'No se pudo abrir',
+      name: 'couldNotOpenContact',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Descripción`
+  String get description {
+    return Intl.message('Descripción', name: 'description', desc: '', args: []);
+  }
+
+  /// `Equipamiento`
+  String get equipment {
+    return Intl.message('Equipamiento', name: 'equipment', desc: '', args: []);
+  }
+
+  /// `Salas disponibles`
+  String get availableRooms {
+    return Intl.message(
+      'Salas disponibles',
+      name: 'availableRooms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Capacidad`
+  String get capacity {
+    return Intl.message('Capacidad', name: 'capacity', desc: '', args: []);
+  }
+
+  /// `personas`
+  String get people {
+    return Intl.message('personas', name: 'people', desc: '', args: []);
+  }
+
+  /// `Contacto`
+  String get contact {
+    return Intl.message('Contacto', name: 'contact', desc: '', args: []);
+  }
+
+  /// `Tel:`
+  String get tel {
+    return Intl.message('Tel:', name: 'tel', desc: '', args: []);
+  }
+
+  /// `Consulta sobre`
+  String get contactSubject {
+    return Intl.message(
+      'Consulta sobre',
+      name: 'contactSubject',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vacoworking/generated/l10n.dart';
 import '../../model/coworking.dart'; //Modelo importado
 import 'package:url_launcher/url_launcher.dart';
 
@@ -7,12 +8,14 @@ class DetailsScreen extends StatelessWidget {
 
   const DetailsScreen({super.key, required this.coworking});
 
-
-//funcion para los Ontap de contacto
-  Future<void> _contact(String contactText) async { 
-    final Uri url = Uri.parse(contactText);            //analizo y guardo el tipo de texto en objeto URI con .parse para saber que hacer    
-    if (!await launchUrl(url)) {                       //intento abrir apps dependiendo del URI, de con que empezaba. Le pongo ! al principio para cambiar el booleano a false en caso de que sea true y no entre a la excepcion.
-      throw Exception('No se pudo abrir $contactText');
+  //funcion para los Ontap de contacto
+  Future<void> _contact(String contactText) async {
+    final Uri url = Uri.parse(
+      contactText,
+    ); //analizo y guardo el tipo de texto en objeto URI con .parse para saber que hacer
+    if (!await launchUrl(url)) {
+      //intento abrir apps dependiendo del URI, de con que empezaba. Le pongo ! al principio para cambiar el booleano a false en caso de que sea true y no entre a la excepcion.
+      throw Exception(S.current.couldNotOpenContact + contactText);
     }
   }
 
@@ -57,16 +60,19 @@ class DetailsScreen extends StatelessWidget {
                   ),
                   const Divider(height: 30),
 
-                  const Text(
-                    "Descripción",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  Text(
+                    S.current.description,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Text(coworking.description),
                   const SizedBox(height: 20),
 
-                  const Text(
-                    "Servicios",
+                  Text(
+                    S.current.services,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   // 2. Chips para los servicios
@@ -77,8 +83,8 @@ class DetailsScreen extends StatelessWidget {
                         .toList(),
                   ),
                   const SizedBox(height: 10),
-                  const Text(
-                    "Equipamiento",
+                  Text(
+                    S.current.equipment,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 10),
@@ -114,8 +120,8 @@ class DetailsScreen extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 20),
-                  const Text(
-                    "Salas Disponibles",
+                  Text(
+                    S.current.availableRooms,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   // 3. Lista de salas, con los 3 puntos iniciales transformo la lista para que children los lea uno por uno y no tener una lista dentro de otra.
@@ -123,14 +129,19 @@ class DetailsScreen extends StatelessWidget {
                     (room) => ListTile(
                       leading: const Icon(Icons.meeting_room),
                       title: Text(room.name),
-                      subtitle: Text("Capacidad: ${room.capacity} personas"),
+                      subtitle: Text(
+                        '${S.current.capacity} ${room.capacity} ${S.current.people}',
+                      ),
                     ),
                   ),
                   const SizedBox(height: 20),
                   //4.Contacto
-                  const Text(
-                    "Contacto",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  Text(
+                    S.current.contact,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 10),
                   // Uso ListTile para que sea interactivos con onTap
@@ -138,7 +149,7 @@ class DetailsScreen extends StatelessWidget {
                     leading: const Icon(Icons.phone, color: Colors.indigo),
                     title: Text(coworking.phone),
                     onTap: () {
-                      _contact("tel:${coworking.phone}");
+                      _contact('${S.current.tel} ${coworking.phone}');
                     },
                   ),
                   ListTile(
@@ -146,7 +157,7 @@ class DetailsScreen extends StatelessWidget {
                     title: Text(coworking.email),
                     onTap: () {
                       _contact(
-                        "mailto:${coworking.email}?subject=Consulta sobre ${coworking.name}",
+                        "mailto:${coworking.email}?subject=${S.current.contactSubject} ${coworking.name}",
                       ); // Abre el correo con asunto                    },
                     },
                   ),
@@ -160,9 +171,7 @@ class DetailsScreen extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
-                      _contact(               
-                        coworking.website, 
-                      ); 
+                      _contact(coworking.website);
                     },
                   ),
                   const SizedBox(height: 30), // Espacio final para el scroll
