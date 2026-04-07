@@ -4,8 +4,22 @@ import 'dart:async'; // Para Timer
 import 'package:flutter_map/flutter_map.dart'; // El paquete del mapa
 import 'package:latlong2/latlong.dart'; // Para manejar coordenadas
 import 'package:vacoworking/model/coworking.dart'; //Modelo importado
-import 'package:collection/collection.dart';
 import 'package:vacoworking/api/vacoworking_api.dart';
+
+// Clase para representar coincidencias de búsqueda
+class SearchResult {
+  final Coworking coworking;
+  final String matchType; // 'name', 'address', 'service', 'equipment', 'room'
+  final String matchText;
+  final String matchDetail;
+
+  SearchResult({
+    required this.coworking,
+    required this.matchType,
+    required this.matchText,
+    required this.matchDetail,
+  });
+}
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -24,6 +38,25 @@ class _MapScreenState extends State<MapScreen> {
       TextEditingController(); // Controlador para el texto que escribe el usuario
 
   Timer? _debounceTimer;
+
+  // Función para eliminar acentos y caracteres especiales
+  String _removeDiacritics(String text) {
+    const accents = 'áÁéÉíÍóÓúÚñÑüÜ';
+    const withoutAccents = 'aAeEiIoOuUnNuU';
+
+    String result = text;
+    for (int i = 0; i < accents.length; i++) {
+      result = result.replaceAll(accents[i], withoutAccents[i]);
+    }
+    return result;
+  }
+
+  // Función de búsqueda normalizada (sin acentos y en minúsculas)
+  bool _matchesSearch(String text, String search) {
+    final normalizedText = _removeDiacritics(text.toLowerCase());
+    final normalizedSearch = _removeDiacritics(search.toLowerCase());
+    return normalizedText.contains(normalizedSearch);
+  }
 
   @override
   void initState() {
@@ -44,6 +77,111 @@ class _MapScreenState extends State<MapScreen> {
     _debounceTimer?.cancel();
     _controller.dispose();
     super.dispose();
+  }
+
+  // Obtener coincidencias para un coworking específico
+  List<SearchResult> _getMatchesForCoworking(
+    Coworking coworking,
+    String query,
+  ) {
+    final matches = <SearchResult>[];
+    final capacityFilter = _extractCapacityFromQuery(query);
+    final searchTerms = _extractSearchTerms(query, capacityFilter);
+
+    // 1. Coincidencia en capacidad
+    if (capacityFilter != null) {
+      final hasMatchingCapacity =
+          coworking.totalCapacity >= capacityFilter ||
+          coworking.salaMaxCapacity >= capacityFilter ||
+          coworking.rooms.any((room) => room.capacity >= capacityFilter);
+
+      if (hasMatchingCapacity) {
+        matches.add(
+          SearchResult(
+            coworking: coworking,
+            matchType: 'capacity',
+            matchText: 'Capacidad $capacityFilter+',
+            matchDetail: 'Capacidad disponible',
+          ),
+        );
+      }
+    }
+
+    // 2. Coincidencia en nombre (búsqueda mejorada sin acentos)
+    if (searchTerms.isNotEmpty && _matchesSearch(coworking.name, searchTerms)) {
+      matches.add(
+        SearchResult(
+          coworking: coworking,
+          matchType: 'name',
+          matchText: coworking.name,
+          matchDetail: 'Nombre del espacio',
+        ),
+      );
+    }
+
+    // 3. Coincidencia en dirección (búsqueda sin acentos)
+    if (searchTerms.isNotEmpty &&
+        _matchesSearch(coworking.address, searchTerms)) {
+      matches.add(
+        SearchResult(
+          coworking: coworking,
+          matchType: 'address',
+          matchText: coworking.address,
+          matchDetail: 'Dirección',
+        ),
+      );
+    }
+
+    // 4. Coincidencias en servicios (búsqueda sin acentos)
+    if (searchTerms.isNotEmpty) {
+      for (final service in coworking.services) {
+        if (_matchesSearch(service, searchTerms)) {
+          matches.add(
+            SearchResult(
+              coworking: coworking,
+              matchType: 'service',
+              matchText: service,
+              matchDetail: 'Servicio disponible',
+            ),
+          );
+        }
+      }
+    }
+
+    // 5. Coincidencias en equipamientos (búsqueda sin acentos)
+    if (searchTerms.isNotEmpty) {
+      for (final equipment in coworking.equipment) {
+        if (_matchesSearch(equipment, searchTerms)) {
+          matches.add(
+            SearchResult(
+              coworking: coworking,
+              matchType: 'equipment',
+              matchText: equipment,
+              matchDetail: 'Equipamiento',
+            ),
+          );
+        }
+      }
+    }
+
+    // 6. Coincidencias en salas (búsqueda sin acentos)
+    if (searchTerms.isNotEmpty) {
+      for (final room in coworking.rooms) {
+        if (_matchesSearch(room.name, searchTerms) ||
+            room.equipment.any((equip) => _matchesSearch(equip, searchTerms))) {
+          matches.add(
+            SearchResult(
+              coworking: coworking,
+              matchType: 'room',
+              matchText: room.name,
+              matchDetail: 'Sala (${room.capacity} personas)',
+            ),
+          );
+        }
+      }
+    }
+
+    return matches;
   }
 
   // Cargar todos los coworkings del backend
@@ -78,48 +216,153 @@ class _MapScreenState extends State<MapScreen> {
     }
   }
 
-  // Función de búsqueda con debounce usando backend
+  // Función de búsqueda con filtrado local completo
   Future<void> _searchResults(String query) async {
-    if (query.isEmpty) {
-      setState(() {
-        filteredCoworkings = List.from(allCoworkings);
-      });
-      return;
-    }
-
     setState(() {
       isLoading = true;
       errorMessage = null;
     });
 
     try {
-      final result = await VACoworkingApi.getCoworkingSpaces(
-        search: query,
-        perPage: 50,
+      // Siempre cargamos todos los datos para filtrar localmente
+      if (allCoworkings.isEmpty) {
+        final result = await VACoworkingApi.getCoworkingSpaces(perPage: 200);
+        if (result['success'] == true) {
+          final coworkings = result['coworkings'] as List<Coworking>;
+          setState(() {
+            allCoworkings = coworkings;
+          });
+        }
+      }
+
+      // Extraer capacidad y términos de búsqueda
+      final capacityFilter = _extractCapacityFromQuery(query);
+
+      // Filtrar localmente por TODO: servicios, equipamientos, capacidad, nombre, dirección
+      final filtered = _filterCoworkingsLocally(
+        allCoworkings,
+        query,
+        capacityFilter,
       );
 
-      if (result['success'] == true) {
-        final coworkings = result['coworkings'] as List<Coworking>;
-        setState(() {
-          filteredCoworkings = coworkings;
-          isLoading = false;
-        });
-      } else {
-        setState(() {
-          errorMessage = result['message'] as String? ?? 'Error en la búsqueda';
-          isLoading = false;
-          // En caso de error, mostrar todos los coworkings
-          filteredCoworkings = List.from(allCoworkings);
-        });
-      }
+      setState(() {
+        filteredCoworkings = filtered;
+        isLoading = false;
+      });
     } catch (e) {
       setState(() {
         errorMessage = 'Error de conexión: $e';
         isLoading = false;
-        // En caso de error, mostrar todos los coworkings
         filteredCoworkings = List.from(allCoworkings);
       });
     }
+  }
+
+  // Extraer capacidad numérica de la consulta (ej: "12", "capacidad 12", "12 personas")
+  int? _extractCapacityFromQuery(String query) {
+    final lowerQuery = query.toLowerCase();
+
+    // Patrones comunes para capacidad
+    final patterns = [
+      RegExp(
+        r'(\d+)\s*(?:personas|puestos|lugares|sillas|capi|capacidad)?',
+        caseSensitive: false,
+      ),
+      RegExp(r'capacidad\s*(?:de\s*)?(\d+)', caseSensitive: false),
+      RegExp(r'(\d+)(?=\s|$)', caseSensitive: false),
+    ];
+
+    for (final pattern in patterns) {
+      final match = pattern.firstMatch(lowerQuery);
+      if (match != null) {
+        return int.tryParse(match.group(1) ?? '');
+      }
+    }
+
+    return null;
+  }
+
+  // Extraer términos de búsqueda excluyendo números para capacidad
+  String _extractSearchTerms(String query, int? capacityFilter) {
+    if (capacityFilter != null) {
+      // Remover patrones de capacidad de la búsqueda
+      String searchTerms = query.toLowerCase();
+      searchTerms = searchTerms.replaceAll(
+        RegExp(
+          r'\d+\s*(?:personas|puestos|lugares|sillas|capi|capacidad)?',
+          caseSensitive: false,
+        ),
+        '',
+      );
+      searchTerms = searchTerms.replaceAll(
+        RegExp(r'capacidad\s*(?:de\s*)?\d+', caseSensitive: false),
+        '',
+      );
+      searchTerms = searchTerms.replaceAll(
+        RegExp(r'\d+', caseSensitive: false),
+        '',
+      );
+      return searchTerms.trim();
+    }
+    return query.trim();
+  }
+
+  // Filtrar coworkings localmente por servicios, equipamientos y capacidad
+  List<Coworking> _filterCoworkingsLocally(
+    List<Coworking> coworkings,
+    String originalQuery,
+    int? capacityFilter,
+  ) {
+    final searchTerms = _extractSearchTerms(originalQuery, capacityFilter);
+    final filtered = <Coworking>[];
+
+    for (final coworking in coworkings) {
+      bool matches = true;
+
+      // Filtrar por capacidad si se especificó
+      if (capacityFilter != null) {
+        final hasMatchingCapacity =
+            coworking.totalCapacity >= capacityFilter ||
+            coworking.salaMaxCapacity >= capacityFilter ||
+            coworking.rooms.any((room) => room.capacity >= capacityFilter);
+
+        if (!hasMatchingCapacity) {
+          matches = false;
+        }
+      }
+
+      // Filtrar por términos de búsqueda (servicios, equipamientos, etc.)
+      if (searchTerms.isNotEmpty) {
+        final hasNameMatch = _matchesSearch(coworking.name, searchTerms);
+        final hasAddressMatch = _matchesSearch(coworking.address, searchTerms);
+        final hasServiceMatch = coworking.services.any(
+          (service) => _matchesSearch(service, searchTerms),
+        );
+        final hasEquipmentMatch = coworking.equipment.any(
+          (equipment) => _matchesSearch(equipment, searchTerms),
+        );
+        final hasRoomMatch = coworking.rooms.any(
+          (room) =>
+              _matchesSearch(room.name, searchTerms) ||
+              room.equipment.any((equip) => _matchesSearch(equip, searchTerms)),
+        );
+
+        // Si no hay coincidencias en NINGÚN campo, excluir
+        if (!hasNameMatch &&
+            !hasAddressMatch &&
+            !hasServiceMatch &&
+            !hasEquipmentMatch &&
+            !hasRoomMatch) {
+          matches = false;
+        }
+      }
+
+      if (matches) {
+        filtered.add(coworking);
+      }
+    }
+
+    return filtered;
   }
 
   @override
@@ -283,7 +526,7 @@ class _MapScreenState extends State<MapScreen> {
                       !isLoading)
                     Container(
                       constraints: const BoxConstraints(
-                        maxHeight: 250,
+                        maxHeight: 300,
                       ), // Límite de altura del desplegable
                       decoration: const BoxDecoration(
                         border: Border(
@@ -295,69 +538,120 @@ class _MapScreenState extends State<MapScreen> {
                         itemCount: filteredCoworkings.length,
                         itemBuilder: (context, index) {
                           final coworking = filteredCoworkings[index];
-
                           final query = _controller.text.toLowerCase();
-                          // Subtitulo variable
-                          String matchText = coworking
-                              .address; // Por defecto muestro la dirección
 
-                          if (query.isNotEmpty) {
-                            {
-                              final service = coworking.services.firstWhereOrNull(
-                                //uso firstWhereOrnull para verificar si es true y capturar la coincidencia en el mismo codigo, en vez de any y luego firstWhere.
-                                (s) => s.toLowerCase().contains(query),
-                              );
-                              if (service != null) {
-                                matchText = service;
-                              }
-                            }
-                            {
-                              final equip = coworking.equipment
-                                  .firstWhereOrNull(
-                                    (e) => e.toLowerCase().contains(query),
-                                  );
-                              if (equip != null) {
-                                matchText = equip;
-                              }
-                            }
-                            final roomCoincidente = coworking.rooms
-                                .firstWhereOrNull(
-                                  (r) => r.name.toLowerCase().contains(query),
-                                );
-                            if (roomCoincidente != null) {
-                              matchText = roomCoincidente.name;
+                          // Obtener coincidencias para este coworking
+                          final matches = _getMatchesForCoworking(
+                            coworking,
+                            query,
+                          );
+                          final bestMatch = matches.isNotEmpty
+                              ? matches.first
+                              : null;
+
+                          // Determinar icono y color según el tipo de coincidencia
+                          IconData matchIcon = Icons.location_on;
+                          Color matchColor = Colors.red;
+                          String matchText = coworking.address;
+                          String matchDetail = '';
+
+                          if (bestMatch != null) {
+                            switch (bestMatch.matchType) {
+                              case 'capacity':
+                                matchIcon = Icons.group;
+                                matchColor = Colors.teal;
+                                matchText = bestMatch.matchText;
+                                matchDetail = 'Capacidad';
+                                break;
+                              case 'name':
+                                matchIcon = Icons.business;
+                                matchColor = Colors.blue;
+                                matchText = bestMatch.matchText;
+                                matchDetail = 'Nombre';
+                                break;
+                              case 'service':
+                                matchIcon = Icons.room_service;
+                                matchColor = Colors.green;
+                                matchText = bestMatch.matchText;
+                                matchDetail = 'Servicio';
+                                break;
+                              case 'equipment':
+                                matchIcon = Icons.computer;
+                                matchColor = Colors.orange;
+                                matchText = bestMatch.matchText;
+                                matchDetail = 'Equipamiento';
+                                break;
+                              case 'room':
+                                matchIcon = Icons.meeting_room;
+                                matchColor = Colors.purple;
+                                matchText = bestMatch.matchText;
+                                matchDetail = 'Sala';
+                                break;
+                              case 'address':
+                                matchIcon = Icons.location_on;
+                                matchColor = Colors.red;
+                                matchText = bestMatch.matchText;
+                                matchDetail = 'Dirección';
+                                break;
                             }
                           }
 
                           return ListTile(
-                            leading: Icon(Icons.location_on, color: Colors.red),
+                            leading: Icon(matchIcon, color: matchColor),
                             title: Text(
                               coworking.name,
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            subtitle: Text(
-                              matchText, // Aquí mostramos dinámicamente la coincidencia
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight:
-                                    matchText.startsWith(coworking.address)
-                                    ? FontWeight.normal
-                                    : FontWeight.w500,
-                              ),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  matchText,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: matchColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                if (matchDetail.isNotEmpty)
+                                  Text(
+                                    matchDetail,
+                                    style: TextStyle(
+                                      color: Colors.grey[600],
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                              ],
                             ),
+                            trailing: matchDetail.isNotEmpty
+                                ? Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: matchColor.withValues(alpha: 0.1),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Text(
+                                      matchDetail,
+                                      style: TextStyle(
+                                        color: matchColor,
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  )
+                                : null,
                             onTap: () {
                               // Lo que pasa cuando tocan una sugerencia:
-
                               // 1. Ocultar el teclado
                               FocusScope.of(context).unfocus();
-
                               // 2. Borro el texto
                               _controller.text = "";
-
                               // 3. Abrir el Modal con los detalles
                               _showCoworkingSummary(context, coworking);
                             },
