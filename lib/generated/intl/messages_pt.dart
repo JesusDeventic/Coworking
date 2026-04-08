@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "Esta função requer que você faça login",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage("Salas disponíveis"),
     "back": MessageLookupByLibrary.simpleMessage("Voltar"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
@@ -64,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage(
       "Recarregar",
     ),
+    "capacity": MessageLookupByLibrary.simpleMessage("Capacidade"),
     "close": MessageLookupByLibrary.simpleMessage("Fechar"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "O código deve ter 6 dígitos",
@@ -74,6 +76,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "collapseMenu": MessageLookupByLibrary.simpleMessage("Recolher"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirmar"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirmar senha"),
+    "contact": MessageLookupByLibrary.simpleMessage("Contato"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage("Consulta sobre"),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
       "Política de cookies",
     ),
@@ -81,6 +85,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Link copiado",
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage("Copiar link"),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage(
+      "Não é possível abrir",
+    ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Versão atual",
     ),
@@ -92,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "Excluir todas as notificações",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Descrição"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "Tem certeza de que deseja sair do aplicativo?",
     ),
@@ -128,6 +136,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "Entrar sem utilizador",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("Equipamento"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Não foi possível excluir a conta. Tente novamente",
     ),
@@ -269,6 +278,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("Carregando..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Sair"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("Sala principal"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage(
       "Marcar tudo como lido",
     ),
@@ -324,6 +334,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage(
       "Escreva uma mensagem...",
     ),
+    "moreServices": MessageLookupByLibrary.simpleMessage("mais serviços"),
     "newPassword": MessageLookupByLibrary.simpleMessage("Nova senha"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage(
       "Não há mais registros",
@@ -378,6 +389,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "As senhas não coincidem",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("pessoas"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "Política de privacidade",
     ),
@@ -414,10 +426,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage(
       "Tentar novamente",
     ),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "Pesquisar por nome ou serviço",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage(
+      "Ver todos os detalhes",
+    ),
     "sendCode": MessageLookupByLibrary.simpleMessage("Enviar código"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Enviar mensagem",
     ),
+    "services": MessageLookupByLibrary.simpleMessage("Serviços"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Configurações"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Compartilhar"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("Compartilhar"),
@@ -441,6 +460,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "Contato VACoworking",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("Tel:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Termos e condições",
     ),
@@ -463,6 +483,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("Tema"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Modo escuro"),
     "themeLight": MessageLookupByLibrary.simpleMessage("Modo claro"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "Coworking em Valladolid",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Descrição"),
     "userEmail": MessageLookupByLibrary.simpleMessage("E-mail"),

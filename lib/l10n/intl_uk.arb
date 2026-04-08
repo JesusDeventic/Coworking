@@ -218,6 +218,22 @@
     "notificationsNewBadge": "Нове",
     "homeHeroTitle": "Знайдіть гарне місце для роботи",
     "homeSearchCoworkingButton": "Шукати коворкінги",
-    "enterWithoutUser":  "Увійти без користувача"
+    "enterWithoutUser":  "Увійти без користувача",
+    "titleAppBar": "Коворкінг у Валладоліді",
+    "searchByKeyWord": "Пошук за ім'ям або послугою",
+    "total": "Всього",
+    "mainRoom": "Головний зал",
+    "services": "Послуги",
+    "moreServices": "більше послуг",
+    "seeAllDetails": "Переглянути всі деталі",
+    "couldNotOpenContact": "Не вдається відкрити",
+    "description": "Опис",
+    "equipment": "Обладнання",
+    "availableRooms": "Доступні кімнати",
+    "capacity": "Вмістимість",
+    "people": "люди",
+    "contact": "Контакт",
+    "tel": "Тел:",
+    "contactSubject": "Консультація про"
 }
 

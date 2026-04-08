@@ -218,6 +218,22 @@
     "notificationsNewBadge": "Новое",
     "homeHeroTitle": "Найдите хорошее место для работы",
     "homeSearchCoworkingButton": "Искать коворкинги",
-    "enterWithoutUser":  "Войти без пользователя"
+    "enterWithoutUser":  "Войти без пользователя",
+    "titleAppBar": "Коворкинг в Валладолиде",
+    "searchByKeyWord": "Поиск по имени или услуге",
+    "total": "Всего",
+    "mainRoom": "Главный зал",
+    "services": "Услуги",
+    "moreServices": "больше услуг",
+    "seeAllDetails": "Посмотреть все детали",
+    "couldNotOpenContact": "Не удается открыть",
+    "description": "Описание",
+    "equipment": "Оборудование",
+    "availableRooms": "Доступные комнаты",
+    "capacity": "Вместимость",
+    "people": "люди",
+    "contact": "Контакт",
+    "tel": "Тел:",
+    "contactSubject": "Консультация по"
 }
 

@@ -218,6 +218,22 @@
     "notificationsNewBadge": "Yeni",
     "homeHeroTitle": "Çalışmak için iyi bir yer bulun",
     "homeSearchCoworkingButton": "Coworking alanlarını ara",
-    "enterWithoutUser":  "Kullanıcı olmadan giriş yap"
+    "enterWithoutUser":  "Kullanıcı olmadan giriş yap",
+    "titleAppBar": "Coworking Valladolid'de",
+    "searchByKeyWord": "İsme veya hizmete göre ara",
+    "total": "Toplam",
+    "mainRoom": "Ana odası",
+    "services": "Hizmetler",
+    "moreServices": "daha fazla hizmet",
+    "seeAllDetails": "Tüm detayları gör",
+    "couldNotOpenContact": "Açılamıyor",
+    "description": "Açıklama",
+    "equipment": "Ekipman",
+    "availableRooms": "Müsait odalar",
+    "capacity": "Kapasite",
+    "people": "kişi",
+    "contact": "İletişim",
+    "tel": "Tel:",
+    "contactSubject": "Danışma hakkında"
 }
 

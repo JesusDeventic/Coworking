@@ -218,6 +218,22 @@
     "notificationsNewBadge": "Novo",
     "homeHeroTitle": "Encontre um bom lugar para trabalhar",
     "homeSearchCoworkingButton": "Pesquisar espaços de coworking",
-    "enterWithoutUser":  "Entrar sem utilizador"
+    "enterWithoutUser":  "Entrar sem utilizador",
+    "titleAppBar": "Coworking em Valladolid",
+    "searchByKeyWord": "Pesquisar por nome ou serviço",
+    "total": "Total",
+    "mainRoom": "Sala principal",
+    "services": "Serviços",
+    "moreServices": "mais serviços",
+    "seeAllDetails": "Ver todos os detalhes",
+    "couldNotOpenContact": "Não é possível abrir",
+    "description": "Descrição",
+    "equipment": "Equipamento",
+    "availableRooms": "Salas disponíveis",
+    "capacity": "Capacidade",
+    "people": "pessoas",
+    "contact": "Contato",
+    "tel": "Tel:",
+    "contactSubject": "Consulta sobre"
 }
 

@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "Aquesta funció requereix iniciar sessió",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage("Sales disponibles"),
     "back": MessageLookupByLibrary.simpleMessage("Enrere"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Cancel·la"),
@@ -64,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage(
       "Recarrega",
     ),
+    "capacity": MessageLookupByLibrary.simpleMessage("Capacitat"),
     "close": MessageLookupByLibrary.simpleMessage("Tanca"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "El codi ha de tenir 6 dígits",
@@ -76,6 +78,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "Confirma la contrasenya",
     ),
+    "contact": MessageLookupByLibrary.simpleMessage("Contacte"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage("Consulta sobre"),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
       "Política de galetes",
     ),
@@ -83,6 +87,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enllaç copiat",
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage("Copia l\'enllaç"),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage(
+      "No s\'ha pogut obrir",
+    ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Versió actual",
     ),
@@ -96,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "Elimina totes les notificacions",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Descripció"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "Segur que vols sortir de l\'aplicació?",
     ),
@@ -132,6 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "Entrar sense usuari",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("Equipament"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "No s\'ha pogut eliminar el compte. Torna-ho a intentar.",
     ),
@@ -273,6 +282,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("Carregant..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Tanca la sessió"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("Sala principal"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage(
       "Marca-ho tot com a llegit",
     ),
@@ -328,6 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage(
       "Escriu un missatge...",
     ),
+    "moreServices": MessageLookupByLibrary.simpleMessage("més serveis"),
     "newPassword": MessageLookupByLibrary.simpleMessage("Contrasenya nova"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage(
       "No hi ha més registres.",
@@ -382,6 +393,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "Les contrasenyes no coincideixen",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("persones"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "Política de privacitat",
     ),
@@ -420,10 +432,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage(
       "Torna-ho a intentar",
     ),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "Cerca per nom o servei",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage(
+      "Veure tots els detalls",
+    ),
     "sendCode": MessageLookupByLibrary.simpleMessage("Envia el codi"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Envia un missatge",
     ),
+    "services": MessageLookupByLibrary.simpleMessage("Serveis"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Ajustos"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Comparteix"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("Comparteix"),
@@ -449,6 +468,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "Contacte VACoworking",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("Tel:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Termes i condicions",
     ),
@@ -471,6 +491,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("Tema"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Mode fosc"),
     "themeLight": MessageLookupByLibrary.simpleMessage("Mode clar"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "Coworking a Valladolid",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Descripció"),
     "userEmail": MessageLookupByLibrary.simpleMessage("Correu electrònic"),

@@ -218,6 +218,22 @@
     "notificationsNewBadge": "Baru",
     "homeHeroTitle": "Temukan tempat yang baik untuk bekerja",
     "homeSearchCoworkingButton": "Cari ruang coworking",
-    "enterWithoutUser":  "Masuk tanpa pengguna"
+    "enterWithoutUser":  "Masuk tanpa pengguna",
+    "titleAppBar": "Coworking di Valladolid",
+    "searchByKeyWord": "Cari berdasarkan nama atau layanan",
+    "total": "Total",
+    "mainRoom": "Ruang utama",
+    "services": "Layanan",
+    "moreServices": "lebih layanan",
+    "seeAllDetails": "Lihat semua detail",
+    "couldNotOpenContact": "Tidak dapat membuka",
+    "description": "Deskripsi",
+    "equipment": "Peralatan",
+    "availableRooms": "Ruang yang tersedia",
+    "capacity": "Kapasitas",
+    "people": "orang",
+    "contact": "Kontak",
+    "tel": "Tel:",
+    "contactSubject": "Konsultasi tentang"
 }
 

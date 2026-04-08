@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "Bu özellik oturum açmanızı gerektirir",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage("Müsait odalar"),
     "back": MessageLookupByLibrary.simpleMessage("Geri"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Biyografi"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("İptal"),
@@ -58,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Avatarı kaldır",
     ),
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage("Yenile"),
+    "capacity": MessageLookupByLibrary.simpleMessage("Kapasite"),
     "close": MessageLookupByLibrary.simpleMessage("Kapat"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "Kod 6 haneli olmalıdır",
@@ -68,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "collapseMenu": MessageLookupByLibrary.simpleMessage("Daralt"),
     "confirm": MessageLookupByLibrary.simpleMessage("Onayla"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Şifreyi onayla"),
+    "contact": MessageLookupByLibrary.simpleMessage("İletişim"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage("Danışma hakkında"),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
       "Çerez politikası",
     ),
@@ -77,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "copyProfileLink": MessageLookupByLibrary.simpleMessage(
       "Bağlantıyı kopyala",
     ),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage("Açılamıyor"),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Mevcut sürüm",
     ),
@@ -88,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "Tüm bildirimleri sil",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Açıklama"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "Uygulamadan çıkmak istediğinizden emin misiniz?",
     ),
@@ -124,6 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "Kullanıcı olmadan giriş yap",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("Ekipman"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Hesap silinemedi. Tekrar deneyin",
     ),
@@ -257,6 +264,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("Yükleniyor..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Çıkış yap"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("Ana odası"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage(
       "Tümünü okundu işaretle",
     ),
@@ -308,6 +316,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesSend": MessageLookupByLibrary.simpleMessage("Gönder"),
     "messagesSent": MessageLookupByLibrary.simpleMessage("Gönderildi"),
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage("Mesaj yazın..."),
+    "moreServices": MessageLookupByLibrary.simpleMessage("daha fazla hizmet"),
     "newPassword": MessageLookupByLibrary.simpleMessage("Yeni şifre"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage("Başka kayıt yok"),
     "notificationDeleteAllAsk": MessageLookupByLibrary.simpleMessage(
@@ -360,6 +369,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "Şifreler eşleşmiyor",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("kişi"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "Gizlilik politikası",
     ),
@@ -392,8 +402,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Ülkeyi kaldır",
     ),
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage("Yeniden dene"),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "İsme veya hizmete göre ara",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage("Tüm detayları gör"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Kod gönder"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("Mesaj gönder"),
+    "services": MessageLookupByLibrary.simpleMessage("Hizmetler"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Ayarlar"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Paylaş"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("Paylaş"),
@@ -417,6 +432,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "VACoworking iletişim",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("Tel:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Şartlar ve koşullar",
     ),
@@ -439,6 +455,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("Tema"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Koyu tema"),
     "themeLight": MessageLookupByLibrary.simpleMessage("Açık tema"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "Coworking Valladolid\'de",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("Toplam"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Açıklama"),
     "userEmail": MessageLookupByLibrary.simpleMessage("E-posta"),

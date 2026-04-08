@@ -47,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "Deze functie vereist dat je inlogt",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage(
+      "Beschikbare kamers",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Terug"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Annuleren"),
@@ -64,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage(
       "Vernieuwen",
     ),
+    "capacity": MessageLookupByLibrary.simpleMessage("Capaciteit"),
     "close": MessageLookupByLibrary.simpleMessage("Sluiten"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "De code moet 6 cijfers hebben",
@@ -76,11 +80,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "Wachtwoord bevestigen",
     ),
+    "contact": MessageLookupByLibrary.simpleMessage("Contact"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage("Consultatie over"),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage("Cookiebeleid"),
     "copiedProfileLinkSnackbar": MessageLookupByLibrary.simpleMessage(
       "Link gekopieerd",
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage("Link kopiëren"),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage(
+      "Kan niet openen",
+    ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Huidige versie",
     ),
@@ -94,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "Alle meldingen verwijderen",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Beschrijving"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "Weet je zeker dat je de app wilt afsluiten?",
     ),
@@ -130,6 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "Inloggen zonder gebruiker",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("Uitrusting"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Account kon niet worden verwijderd. Probeer het opnieuw",
     ),
@@ -271,6 +282,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("Laden..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Uitloggen"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("Hoofdkamer"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage(
       "Alles als gelezen markeren",
     ),
@@ -326,6 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage(
       "Schrijf een bericht...",
     ),
+    "moreServices": MessageLookupByLibrary.simpleMessage("meer diensten"),
     "newPassword": MessageLookupByLibrary.simpleMessage("Nieuw wachtwoord"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage("Geen records meer"),
     "notificationDeleteAllAsk": MessageLookupByLibrary.simpleMessage(
@@ -378,6 +391,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "Wachtwoorden komen niet overeen",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("personen"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "Privacybeleid",
     ),
@@ -412,10 +426,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage(
       "Opnieuw proberen",
     ),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "Zoek op naam of dienst",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage(
+      "Bekijk alle details",
+    ),
     "sendCode": MessageLookupByLibrary.simpleMessage("Code verzenden"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Bericht sturen",
     ),
+    "services": MessageLookupByLibrary.simpleMessage("Diensten"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Instellingen"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Delen"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("Delen"),
@@ -441,6 +462,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "VACoworking-contact",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("Tel:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Algemene voorwaarden",
     ),
@@ -463,6 +485,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("Thema"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Donkere modus"),
     "themeLight": MessageLookupByLibrary.simpleMessage("Lichte modus"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "Coworking in Valladolid",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("Totaal"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Beschrijving"),
     "userEmail": MessageLookupByLibrary.simpleMessage("E-mail"),

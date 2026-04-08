@@ -218,6 +218,22 @@
     "notificationsNewBadge": "Nieuw",
     "homeHeroTitle": "Vind een goede plek om te werken",
     "homeSearchCoworkingButton": "Zoek coworkingruimtes",
-    "enterWithoutUser":  "Inloggen zonder gebruiker"
+    "enterWithoutUser":  "Inloggen zonder gebruiker",
+    "titleAppBar": "Coworking in Valladolid",
+    "searchByKeyWord": "Zoek op naam of dienst",
+    "total": "Totaal",
+    "mainRoom": "Hoofdkamer",
+    "services": "Diensten",
+    "moreServices": "meer diensten",
+    "seeAllDetails": "Bekijk alle details",
+    "couldNotOpenContact": "Kan niet openen",
+    "description": "Beschrijving",
+    "equipment": "Uitrusting",
+    "availableRooms": "Beschikbare kamers",
+    "capacity": "Capaciteit",
+    "people": "personen",
+    "contact": "Contact",
+    "tel": "Tel:",
+    "contactSubject": "Consultatie over"
 }
 

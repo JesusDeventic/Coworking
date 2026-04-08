@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "Această funcție necesită autentificare",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage("Săli disponibile"),
     "back": MessageLookupByLibrary.simpleMessage("Înapoi"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Anulează"),
@@ -62,6 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage(
       "Reîncarcă",
     ),
+    "capacity": MessageLookupByLibrary.simpleMessage("Capacitate"),
     "close": MessageLookupByLibrary.simpleMessage("Închide"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "Codul trebuie să aibă 6 cifre",
@@ -72,6 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "collapseMenu": MessageLookupByLibrary.simpleMessage("Restrânge"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirmă"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirmă parola"),
+    "contact": MessageLookupByLibrary.simpleMessage("Contact"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage(
+      "Consultație despre",
+    ),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
       "Politica cookie",
     ),
@@ -79,6 +85,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Link copiat",
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage("Copiază linkul"),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage(
+      "Nu se poate deschide",
+    ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Versiunea curentă",
     ),
@@ -90,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "Șterge toate notificările",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Descriere"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "Sigur vrei să ieși din aplicație?",
     ),
@@ -126,6 +136,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "Autentificare fără utilizator",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("Echipament"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Contul nu s-a putut șterge. Încearcă din nou",
     ),
@@ -265,6 +276,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("Se încarcă..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Deconectare"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("Sala principală"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage(
       "Marchează tot ca citit",
     ),
@@ -318,6 +330,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage(
       "Scrie un mesaj...",
     ),
+    "moreServices": MessageLookupByLibrary.simpleMessage("mai multe servicii"),
     "newPassword": MessageLookupByLibrary.simpleMessage("Parolă nouă"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage(
       "Nu mai sunt înregistrări",
@@ -372,6 +385,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "Parolele nu coincid",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("persoane"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "Politica de confidențialitate",
     ),
@@ -406,8 +420,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Elimină țara",
     ),
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage("Reîncearcă"),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "Caută după nume sau serviciu",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage(
+      "Vezi toate detaliile",
+    ),
     "sendCode": MessageLookupByLibrary.simpleMessage("Trimite codul"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("Trimite mesaj"),
+    "services": MessageLookupByLibrary.simpleMessage("Servicii"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Setări"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Partajează"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("Partajează"),
@@ -431,6 +452,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "Contact VACoworking",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("Tel:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Termeni și condiții",
     ),
@@ -453,6 +475,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("Temă"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Mod întunecat"),
     "themeLight": MessageLookupByLibrary.simpleMessage("Mod luminos"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "Coworking în Valladolid",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Descriere"),
     "userEmail": MessageLookupByLibrary.simpleMessage("E-mail"),

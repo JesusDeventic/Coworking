@@ -1909,20 +1909,20 @@ class S {
     );
   }
 
-  /// `Coworking en Valladolid`
+  /// `Coworking in Valladolid`
   String get titleAppBar {
     return Intl.message(
-      'Coworking en Valladolid',
+      'Coworking in Valladolid',
       name: 'titleAppBar',
       desc: '',
       args: [],
     );
   }
 
-  /// `Buscar por nombre ó servicio`
+  /// `Search by name or service`
   String get searchByKeyWord {
     return Intl.message(
-      'Buscar por nombre ó servicio',
+      'Search by name or service',
       name: 'searchByKeyWord',
       desc: '',
       args: [],
@@ -1934,79 +1934,79 @@ class S {
     return Intl.message('Total', name: 'total', desc: '', args: []);
   }
 
-  /// `Sala principal`
+  /// `Main room`
   String get mainRoom {
-    return Intl.message('Sala principal', name: 'mainRoom', desc: '', args: []);
+    return Intl.message('Main room', name: 'mainRoom', desc: '', args: []);
   }
 
-  /// `Servicios`
+  /// `Services`
   String get services {
-    return Intl.message('Servicios', name: 'services', desc: '', args: []);
+    return Intl.message('Services', name: 'services', desc: '', args: []);
   }
 
-  /// `servicios más`
+  /// `more services`
   String get moreServices {
     return Intl.message(
-      'servicios más',
+      'more services',
       name: 'moreServices',
       desc: '',
       args: [],
     );
   }
 
-  /// `Ver todos los detalles`
+  /// `See all details`
   String get seeAllDetails {
     return Intl.message(
-      'Ver todos los detalles',
+      'See all details',
       name: 'seeAllDetails',
       desc: '',
       args: [],
     );
   }
 
-  /// `No se pudo abrir`
+  /// `Could not open`
   String get couldNotOpenContact {
     return Intl.message(
-      'No se pudo abrir',
+      'Could not open',
       name: 'couldNotOpenContact',
       desc: '',
       args: [],
     );
   }
 
-  /// `Descripción`
+  /// `Description`
   String get description {
-    return Intl.message('Descripción', name: 'description', desc: '', args: []);
+    return Intl.message('Description', name: 'description', desc: '', args: []);
   }
 
-  /// `Equipamiento`
+  /// `Equipment`
   String get equipment {
-    return Intl.message('Equipamiento', name: 'equipment', desc: '', args: []);
+    return Intl.message('Equipment', name: 'equipment', desc: '', args: []);
   }
 
-  /// `Salas disponibles`
+  /// `Available rooms`
   String get availableRooms {
     return Intl.message(
-      'Salas disponibles',
+      'Available rooms',
       name: 'availableRooms',
       desc: '',
       args: [],
     );
   }
 
-  /// `Capacidad`
+  /// `Capacity`
   String get capacity {
-    return Intl.message('Capacidad', name: 'capacity', desc: '', args: []);
+    return Intl.message('Capacity', name: 'capacity', desc: '', args: []);
   }
 
-  /// `personas`
+  /// `people`
   String get people {
-    return Intl.message('personas', name: 'people', desc: '', args: []);
+    return Intl.message('people', name: 'people', desc: '', args: []);
   }
 
-  /// `Contacto`
+  /// `Contact`
   String get contact {
-    return Intl.message('Contacto', name: 'contact', desc: '', args: []);
+    return Intl.message('Contact', name: 'contact', desc: '', args: []);
   }
 
   /// `Tel:`
@@ -2014,10 +2014,10 @@ class S {
     return Intl.message('Tel:', name: 'tel', desc: '', args: []);
   }
 
-  /// `Consulta sobre`
+  /// `Consultation about`
   String get contactSubject {
     return Intl.message(
-      'Consulta sobre',
+      'Consultation about',
       name: 'contactSubject',
       desc: '',
       args: [],

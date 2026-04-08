@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "Эта функция требует входа в систему",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage("Доступные комнаты"),
     "back": MessageLookupByLibrary.simpleMessage("Назад"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("О себе"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Отмена"),
@@ -64,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage(
       "Обновить",
     ),
+    "capacity": MessageLookupByLibrary.simpleMessage("Вместимость"),
     "close": MessageLookupByLibrary.simpleMessage("Закрыть"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "Код должен состоять из 6 цифр",
@@ -76,6 +78,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "Подтвердите пароль",
     ),
+    "contact": MessageLookupByLibrary.simpleMessage("Контакт"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage("Консультация по"),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
       "Политика cookie",
     ),
@@ -84,6 +88,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage(
       "Копировать ссылку",
+    ),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage(
+      "Не удается открыть",
     ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Текущая версия",
@@ -96,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "Удалить все уведомления",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Описание"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "Действительно выйти из приложения?",
     ),
@@ -132,6 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "Войти без пользователя",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("Оборудование"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Не удалось удалить аккаунт. Попробуйте снова",
     ),
@@ -271,6 +280,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("Загрузка..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Выйти"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("Главный зал"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage(
       "Отметить всё как прочитанное",
     ),
@@ -324,6 +334,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage(
       "Напишите сообщение...",
     ),
+    "moreServices": MessageLookupByLibrary.simpleMessage("больше услуг"),
     "newPassword": MessageLookupByLibrary.simpleMessage("Новый пароль"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage("Больше записей нет"),
     "notificationDeleteAllAsk": MessageLookupByLibrary.simpleMessage(
@@ -376,6 +387,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "Пароли не совпадают",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("люди"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "Политика конфиденциальности",
     ),
@@ -408,10 +420,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "Убрать страну",
     ),
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage("Повторить"),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "Поиск по имени или услуге",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage(
+      "Посмотреть все детали",
+    ),
     "sendCode": MessageLookupByLibrary.simpleMessage("Отправить код"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Отправить сообщение",
     ),
+    "services": MessageLookupByLibrary.simpleMessage("Услуги"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Настройки"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Поделиться"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("Поделиться"),
@@ -437,6 +456,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "Связь с VACoworking",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("Тел:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Условия использования",
     ),
@@ -459,6 +479,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("Тема"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Тёмная тема"),
     "themeLight": MessageLookupByLibrary.simpleMessage("Светлая тема"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "Коворкинг в Валладолиде",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("Всего"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Аватар"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Описание"),
     "userEmail": MessageLookupByLibrary.simpleMessage("Электронная почта"),

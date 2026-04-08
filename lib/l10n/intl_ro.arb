@@ -218,6 +218,22 @@
     "notificationsNewBadge": "Nou",
     "homeHeroTitle": "Găsește un loc bun pentru a lucra",
     "homeSearchCoworkingButton": "Caută spații coworking",
-    "enterWithoutUser":  "Autentificare fără utilizator"
+    "enterWithoutUser":  "Autentificare fără utilizator",
+    "titleAppBar": "Coworking în Valladolid",
+    "searchByKeyWord": "Caută după nume sau serviciu",
+    "total": "Total",
+    "mainRoom": "Sala principală",
+    "services": "Servicii",
+    "moreServices": "mai multe servicii",
+    "seeAllDetails": "Vezi toate detaliile",
+    "couldNotOpenContact": "Nu se poate deschide",
+    "description": "Descriere",
+    "equipment": "Echipament",
+    "availableRooms": "Săli disponibile",
+    "capacity": "Capacitate",
+    "people": "persoane",
+    "contact": "Contact",
+    "tel": "Tel:",
+    "contactSubject": "Consultație despre"
 }
 

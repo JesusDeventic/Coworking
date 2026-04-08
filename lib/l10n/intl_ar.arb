@@ -218,6 +218,22 @@
     "notificationsNewBadge": "جديد",
     "homeHeroTitle": "اعثر على مكان جيد للعمل",
     "homeSearchCoworkingButton": "ابحث عن مساحات عمل مشتركة",
-    "enterWithoutUser":  "الدخول بدون مستخدم"
+    "enterWithoutUser":  "الدخول بدون مستخدم",
+    "titleAppBar": "مساحات العمل المشتركة في بلد الوليد",
+    "searchByKeyWord": "البحث حسب الاسم أو الخدمة",
+    "total": "الإجمالي",
+    "mainRoom": "الغرفة الرئيسية",
+    "services": "الخدمات",
+    "moreServices": "المزيد من الخدمات",
+    "seeAllDetails": "عرض كافة التفاصيل",
+    "couldNotOpenContact": "تعذر الفتح",
+    "description": "الوصف",
+    "equipment": "التجهيزات",
+    "availableRooms": "الغرف المتاحة",
+    "capacity": "السعة",
+    "people": "أشخاص",
+    "contact": "اتصال",
+    "tel": "هاتف:",
+    "contactSubject": "استفسار بخصوص"
 }
 

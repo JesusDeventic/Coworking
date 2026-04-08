@@ -218,6 +218,22 @@
     "notificationsNewBadge": "Ny",
     "homeHeroTitle": "Hitta en bra plats att arbeta på",
     "homeSearchCoworkingButton": "Sök coworking-platser",
-    "enterWithoutUser":  "Logga in utan användare"
+    "enterWithoutUser":  "Logga in utan användare",
+    "titleAppBar": "Coworking i Valladolid",
+    "searchByKeyWord": "Sök efter namn eller tjänst",
+    "total": "Totalt",
+    "mainRoom": "Huvudrum",
+    "services": "Tjänster",
+    "moreServices": "fler tjänster",
+    "seeAllDetails": "Se alla detaljer",
+    "couldNotOpenContact": "Kan inte öppna",
+    "description": "Beskrivning",
+    "equipment": "Utrustning",
+    "availableRooms": "Tillgängliga rum",
+    "capacity": "Kapacitet",
+    "people": "personer",
+    "contact": "Kontakt",
+    "tel": "Tel:",
+    "contactSubject": "Konsultation om"
 }
 

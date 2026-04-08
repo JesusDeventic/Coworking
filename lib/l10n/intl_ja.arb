@@ -218,6 +218,22 @@
     "notificationsNewBadge": "新着",
     "homeHeroTitle": "働くのに最適な場所を見つけよう",
     "homeSearchCoworkingButton": "コワーキングスペースを探す",
-    "enterWithoutUser":  "ユーザーなしで入る"
+    "enterWithoutUser":  "ユーザーなしで入る",
+    "titleAppBar": "バラドリードのコワーキング",
+    "searchByKeyWord": "名前またはサービスで検索",
+    "total": "合計",
+    "mainRoom": "メインルーム",
+    "services": "サービス",
+    "moreServices": "より多くのサービス",
+    "seeAllDetails": "すべての詳細を表示",
+    "couldNotOpenContact": "開くことができません",
+    "description": "説明",
+    "equipment": "設備",
+    "availableRooms": "利用可能な部屋",
+    "capacity": "容量",
+    "people": "人",
+    "contact": "連絡先",
+    "tel": "電話:",
+    "contactSubject": "相談について"
 }
 

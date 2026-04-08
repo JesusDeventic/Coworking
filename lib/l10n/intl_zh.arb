@@ -218,6 +218,22 @@
     "notificationsNewBadge": "新",
     "homeHeroTitle": "找到一个适合工作的好地方",
     "homeSearchCoworkingButton": "搜索联合办公空间",
-    "enterWithoutUser":  "无需用户登录"
+    "enterWithoutUser":  "无需用户登录",
+    "titleAppBar": "瓦拉多利德的联合办公空间",
+    "searchByKeyWord": "按名称或服务搜索",
+    "total": "总计",
+    "mainRoom": "主厅",
+    "services": "服务",
+    "moreServices": "更多服务",
+    "seeAllDetails": "查看所有详情",
+    "couldNotOpenContact": "无法打开",
+    "description": "描述",
+    "equipment": "设备",
+    "availableRooms": "可用房间",
+    "capacity": "容量",
+    "people": "人",
+    "contact": "联系",
+    "tel": "电话:",
+    "contactSubject": "关于咨询"
 }
 

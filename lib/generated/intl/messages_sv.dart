@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "Den här funktionen kräver att du loggar in",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage("Tillgängliga rum"),
     "back": MessageLookupByLibrary.simpleMessage("Tillbaka"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Avbryt"),
@@ -64,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage(
       "Uppdatera",
     ),
+    "capacity": MessageLookupByLibrary.simpleMessage("Kapacitet"),
     "close": MessageLookupByLibrary.simpleMessage("Stäng"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "Koden måste ha 6 siffror",
@@ -76,11 +78,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "Bekräfta lösenord",
     ),
+    "contact": MessageLookupByLibrary.simpleMessage("Kontakt"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage("Konsultation om"),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage("Cookiepolicy"),
     "copiedProfileLinkSnackbar": MessageLookupByLibrary.simpleMessage(
       "Länk kopierad",
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage("Kopiera länk"),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage(
+      "Kan inte öppna",
+    ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Aktuell version",
     ),
@@ -94,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "Ta bort alla aviseringar",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Beskrivning"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "Vill du verkligen avsluta appen?",
     ),
@@ -130,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "Logga in utan användare",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("Utrustning"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Kunde inte ta bort kontot. Försök igen",
     ),
@@ -269,6 +278,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("Laddar..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Logga ut"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("Huvudrum"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage(
       "Markera allt som läst",
     ),
@@ -324,6 +334,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage(
       "Skriv ett meddelande...",
     ),
+    "moreServices": MessageLookupByLibrary.simpleMessage("fler tjänster"),
     "newPassword": MessageLookupByLibrary.simpleMessage("Nytt lösenord"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage("Inga fler poster"),
     "notificationDeleteAllAsk": MessageLookupByLibrary.simpleMessage(
@@ -374,6 +385,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "Lösenorden matchar inte",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("personer"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "Integritetspolicy",
     ),
@@ -408,10 +420,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Ta bort land",
     ),
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage("Försök igen"),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "Sök efter namn eller tjänst",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage("Se alla detaljer"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Skicka kod"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Skicka meddelande",
     ),
+    "services": MessageLookupByLibrary.simpleMessage("Tjänster"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Inställningar"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Dela"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("Dela"),
@@ -435,6 +452,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "Kontakt VACoworking",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("Tel:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Användarvillkor",
     ),
@@ -455,6 +473,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("Tema"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Mörkt läge"),
     "themeLight": MessageLookupByLibrary.simpleMessage("Ljust läge"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "Coworking i Valladolid",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("Totalt"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Beskrivning"),
     "userEmail": MessageLookupByLibrary.simpleMessage("E-post"),

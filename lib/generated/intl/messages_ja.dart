@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "この機能にはログインが必要です。",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage("利用可能な部屋"),
     "back": MessageLookupByLibrary.simpleMessage("戻る"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("自己紹介"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("キャンセル"),
@@ -52,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "buttonDeleteAccount": MessageLookupByLibrary.simpleMessage("アカウントを削除"),
     "buttonDeleteAvatar": MessageLookupByLibrary.simpleMessage("アバターを削除"),
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage("更新"),
+    "capacity": MessageLookupByLibrary.simpleMessage("容量"),
     "close": MessageLookupByLibrary.simpleMessage("閉じる"),
     "code6Digits": MessageLookupByLibrary.simpleMessage("コードは6桁である必要があります"),
     "codeSent": MessageLookupByLibrary.simpleMessage(
@@ -60,11 +62,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "collapseMenu": MessageLookupByLibrary.simpleMessage("折りたたむ"),
     "confirm": MessageLookupByLibrary.simpleMessage("確認"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("パスワード確認"),
+    "contact": MessageLookupByLibrary.simpleMessage("連絡先"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage("相談について"),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage("Cookie ポリシー"),
     "copiedProfileLinkSnackbar": MessageLookupByLibrary.simpleMessage(
       "リンクをコピーしました",
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage("リンクをコピー"),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage("開くことができません"),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage("現在のバージョン"),
     "currentPassword": MessageLookupByLibrary.simpleMessage("現在のパスワード"),
     "currentServerVersionText": MessageLookupByLibrary.simpleMessage(
@@ -72,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dateFormat": MessageLookupByLibrary.simpleMessage("日付形式"),
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage("すべての通知を削除"),
+    "description": MessageLookupByLibrary.simpleMessage("説明"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "アプリを終了しますか？",
     ),
@@ -100,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "displayName": MessageLookupByLibrary.simpleMessage("表示名（任意）"),
     "email": MessageLookupByLibrary.simpleMessage("メール"),
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage("ユーザーなしで入る"),
+    "equipment": MessageLookupByLibrary.simpleMessage("設備"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "アカウントを削除できませんでした。再試行してください",
     ),
@@ -217,6 +224,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("読み込み中…"),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("ログアウト"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("メインルーム"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage("すべて既読にする"),
     "menuBarSectionSocial": MessageLookupByLibrary.simpleMessage("ソーシャル"),
     "menuHome": MessageLookupByLibrary.simpleMessage("ホーム"),
@@ -260,6 +268,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesSend": MessageLookupByLibrary.simpleMessage("送信"),
     "messagesSent": MessageLookupByLibrary.simpleMessage("送信済み"),
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage("メッセージを入力…"),
+    "moreServices": MessageLookupByLibrary.simpleMessage("より多くのサービス"),
     "newPassword": MessageLookupByLibrary.simpleMessage("新しいパスワード"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage("これ以上のレコードはありません"),
     "notificationDeleteAllAsk": MessageLookupByLibrary.simpleMessage(
@@ -302,6 +311,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordChanged": MessageLookupByLibrary.simpleMessage("パスワードをリセットしました"),
     "passwordMinLength": MessageLookupByLibrary.simpleMessage("6文字以上"),
     "passwordMismatch": MessageLookupByLibrary.simpleMessage("パスワードが一致しません"),
+    "people": MessageLookupByLibrary.simpleMessage("人"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage("プライバシーポリシー"),
     "privateMessages": MessageLookupByLibrary.simpleMessage("プライベートメッセージ"),
     "profileShareSubject": m1,
@@ -326,8 +336,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "removeBirthdateTooltip": MessageLookupByLibrary.simpleMessage("日付を削除"),
     "removeCountryTooltip": MessageLookupByLibrary.simpleMessage("国を削除"),
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage("再試行"),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage("名前またはサービスで検索"),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage("すべての詳細を表示"),
     "sendCode": MessageLookupByLibrary.simpleMessage("コードを送信"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("メッセージを送る"),
+    "services": MessageLookupByLibrary.simpleMessage("サービス"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("設定"),
     "shareOption": MessageLookupByLibrary.simpleMessage("共有"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("共有"),
@@ -349,6 +362,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "VACoworking お問い合わせ",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("電話:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage("利用規約"),
     "textUserSupportDescription": MessageLookupByLibrary.simpleMessage(
       "お困りですか？各チャネルからお問い合わせください。できるだけ早く返信します。",
@@ -361,6 +375,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("テーマ"),
     "themeDark": MessageLookupByLibrary.simpleMessage("ダークモード"),
     "themeLight": MessageLookupByLibrary.simpleMessage("ライトモード"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage("バラドリードのコワーキング"),
+    "total": MessageLookupByLibrary.simpleMessage("合計"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("アバター"),
     "userDescription": MessageLookupByLibrary.simpleMessage("自己紹介"),
     "userEmail": MessageLookupByLibrary.simpleMessage("メール"),

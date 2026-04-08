@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "इस सुविधा के लिए साइन इन करना आवश्यक है।",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage("उपलब्ध कक्ष"),
     "back": MessageLookupByLibrary.simpleMessage("वापस"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("परिचय"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("रद्द करें"),
@@ -58,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage(
       "रीफ़्रेश करें",
     ),
+    "capacity": MessageLookupByLibrary.simpleMessage("क्षमता"),
     "close": MessageLookupByLibrary.simpleMessage("बंद करें"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "कोड में 6 अंक होने चाहिए",
@@ -70,11 +72,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "पासवर्ड की पुष्टि करें",
     ),
+    "contact": MessageLookupByLibrary.simpleMessage("संपर्क"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage(
+      "संसाधन से संपर्क करें",
+    ),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage("कुकी नीति"),
     "copiedProfileLinkSnackbar": MessageLookupByLibrary.simpleMessage(
       "लिंक कॉपी हो गया",
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage("लिंक कॉपी करें"),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage(
+      "खोल नहीं सकते",
+    ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "वर्तमान संस्करण",
     ),
@@ -86,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "सभी सूचनाएँ हटाएँ",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("विवरण"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "क्या आप वाकई ऐप बंद करना चाहते हैं?",
     ),
@@ -120,6 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "बिना उपयोगकर्ता के प्रवेश करें",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("सुविधाएँ"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "खाता नहीं हटाया जा सका। पुनः प्रयास करें",
     ),
@@ -257,6 +268,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("लोड हो रहा है..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("साइन आउट"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("मुख्य कक्ष"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage(
       "सभी को पढ़ा हुआ चिह्नित करें",
     ),
@@ -306,6 +318,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesSend": MessageLookupByLibrary.simpleMessage("भेजें"),
     "messagesSent": MessageLookupByLibrary.simpleMessage("भेजा गया"),
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage("संदेश लिखें..."),
+    "moreServices": MessageLookupByLibrary.simpleMessage("अधिक सेवाएँ"),
     "newPassword": MessageLookupByLibrary.simpleMessage("नया पासवर्ड"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage(
       "और कोई रिकॉर्ड नहीं",
@@ -360,6 +373,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "पासवर्ड मेल नहीं खाते",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("लोग"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "गोपनीयता नीति",
     ),
@@ -392,8 +406,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage(
       "पुनः प्रयास करें",
     ),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "नाम या सेवा द्वारा खोजें",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage("सभी विवरण देखें"),
     "sendCode": MessageLookupByLibrary.simpleMessage("कोड भेजें"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("संदेश भेजें"),
+    "services": MessageLookupByLibrary.simpleMessage("सेवाएँ"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("सेटिंग्स"),
     "shareOption": MessageLookupByLibrary.simpleMessage("साझा करें"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("साझा करें"),
@@ -419,6 +438,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "VACoworking संपर्क",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("टेल:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "नियम व शर्तें",
     ),
@@ -441,6 +461,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("थीम"),
     "themeDark": MessageLookupByLibrary.simpleMessage("डार्क मोड"),
     "themeLight": MessageLookupByLibrary.simpleMessage("लाइट मोड"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "वलाडोलिड में कोवर्किंग",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("कुल"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("अवतार"),
     "userDescription": MessageLookupByLibrary.simpleMessage("विवरण"),
     "userEmail": MessageLookupByLibrary.simpleMessage("ईमेल"),

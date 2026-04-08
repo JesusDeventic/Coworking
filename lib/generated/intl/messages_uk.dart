@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "Ця функція потребує входу в систему",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage("Доступні кімнати"),
     "back": MessageLookupByLibrary.simpleMessage("Назад"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Про себе"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Скасувати"),
@@ -66,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage(
       "Оновити",
     ),
+    "capacity": MessageLookupByLibrary.simpleMessage("Вмістимість"),
     "close": MessageLookupByLibrary.simpleMessage("Закрити"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "Код має містити 6 цифр",
@@ -78,6 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "Підтвердіть пароль",
     ),
+    "contact": MessageLookupByLibrary.simpleMessage("Контакт"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage("Консультація про"),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
       "Політика cookie",
     ),
@@ -86,6 +90,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage(
       "Копіювати посилання",
+    ),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage(
+      "Не вдається відкрити",
     ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Поточна версія",
@@ -98,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "Видалити всі сповіщення",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Опис"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "Дійсно вийти з додатка?",
     ),
@@ -134,6 +142,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "Увійти без користувача",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("Обладнання"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Не вдалося видалити обліковий запис. Спробуйте ще раз",
     ),
@@ -275,6 +284,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("Завантаження..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Вийти"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("Головний зал"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage(
       "Позначити все як прочитане",
     ),
@@ -328,6 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage(
       "Напишіть повідомлення...",
     ),
+    "moreServices": MessageLookupByLibrary.simpleMessage("більше послуг"),
     "newPassword": MessageLookupByLibrary.simpleMessage("Новий пароль"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage(
       "Більше записів немає",
@@ -382,6 +393,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "Паролі не збігаються",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("люди"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "Політика конфіденційності",
     ),
@@ -416,10 +428,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "Прибрати країну",
     ),
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage("Повторити"),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "Пошук за ім\'ям або послугою",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage(
+      "Переглянути всі деталі",
+    ),
     "sendCode": MessageLookupByLibrary.simpleMessage("Надіслати код"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Надіслати повідомлення",
     ),
+    "services": MessageLookupByLibrary.simpleMessage("Послуги"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Налаштування"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Поділитися"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("Поділитися"),
@@ -443,6 +462,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "Зв\'язок з VACoworking",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("Тел:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Умови використання",
     ),
@@ -465,6 +485,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("Тема"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Темна тема"),
     "themeLight": MessageLookupByLibrary.simpleMessage("Світла тема"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "Коворкінг у Валладоліді",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("Всього"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Аватар"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Опис"),
     "userEmail": MessageLookupByLibrary.simpleMessage("Електронна пошта"),

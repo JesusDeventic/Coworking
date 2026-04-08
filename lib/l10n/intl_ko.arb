@@ -218,6 +218,22 @@
     "notificationsNewBadge": "신규",
     "homeHeroTitle": "일하기 좋은 곳을 찾아보세요",
     "homeSearchCoworkingButton": "코워킹 공간 찾기",
-    "enterWithoutUser":  "사용자 없이 로그인"
+    "enterWithoutUser":  "사용자 없이 로그인",
+    "titleAppBar": "바랄도리드 코워킹",
+    "searchByKeyWord": "이름 또는 서비스로 검색",
+    "total": "총계",
+    "mainRoom": "메인 룸",
+    "services": "서비스",
+    "moreServices": "더 많은 서비스",
+    "seeAllDetails": "모든 세부정보 보기",
+    "couldNotOpenContact": "열 수 없습니다",
+    "description": "설명",
+    "equipment": "장비",
+    "availableRooms": "사용 가능한 방",
+    "capacity": "용량",
+    "people": "사람",
+    "contact": "연락처",
+    "tel": "전화:",
+    "contactSubject": "상담에 대해"
 }
 

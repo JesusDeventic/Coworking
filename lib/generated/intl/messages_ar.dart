@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "تتطلب هذه الميزة تسجيل الدخول",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage("الغرف المتاحة"),
     "back": MessageLookupByLibrary.simpleMessage("رجوع"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("نبذة"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
@@ -58,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "إزالة الصورة الرمزية",
     ),
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage("تحديث"),
+    "capacity": MessageLookupByLibrary.simpleMessage("السعة"),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "يجب أن يتكون الرمز من 6 أرقام",
@@ -70,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
+    "contact": MessageLookupByLibrary.simpleMessage("اتصال"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage("استفسار بخصوص"),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
       "سياسة ملفات تعريف الارتباط",
     ),
@@ -77,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم نسخ الرابط",
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage("نسخ الرابط"),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage("تعذر الفتح"),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "الإصدار الحالي",
     ),
@@ -90,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "حذف جميع الإشعارات",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "هل أنت متأكد أنك تريد إغلاق التطبيق؟",
     ),
@@ -126,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "الدخول بدون مستخدم",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("التجهيزات"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "تعذر حذف الحساب. حاول مرة أخرى",
     ),
@@ -255,6 +262,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("جاري التحميل..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("الغرفة الرئيسية"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage("تعليم الكل كمقروء"),
     "menuBarSectionSocial": MessageLookupByLibrary.simpleMessage(
       "وسائل التواصل",
@@ -302,6 +310,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesSend": MessageLookupByLibrary.simpleMessage("إرسال"),
     "messagesSent": MessageLookupByLibrary.simpleMessage("مرسل"),
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage("اكتب رسالة..."),
+    "moreServices": MessageLookupByLibrary.simpleMessage("المزيد من الخدمات"),
     "newPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage("لا مزيد من السجلات"),
     "notificationDeleteAllAsk": MessageLookupByLibrary.simpleMessage(
@@ -354,6 +363,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "كلمتا المرور غير متطابقتين",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("أشخاص"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "سياسة الخصوصية",
     ),
@@ -386,8 +396,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage(
       "إعادة المحاولة",
     ),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "البحث حسب الاسم أو الخدمة",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage("عرض كافة التفاصيل"),
     "sendCode": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("إرسال رسالة"),
+    "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "shareOption": MessageLookupByLibrary.simpleMessage("مشاركة"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("مشاركة"),
@@ -409,6 +424,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "socialWhatsappLabel": MessageLookupByLibrary.simpleMessage("واتساب"),
     "statusLabel": MessageLookupByLibrary.simpleMessage("الحالة"),
     "subjectSupport": MessageLookupByLibrary.simpleMessage("اتصال VACoworking"),
+    "tel": MessageLookupByLibrary.simpleMessage("هاتف:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "الشروط والأحكام",
     ),
@@ -431,6 +447,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("المظهر"),
     "themeDark": MessageLookupByLibrary.simpleMessage("الوضع الداكن"),
     "themeLight": MessageLookupByLibrary.simpleMessage("الوضع الفاتح"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "مساحات العمل المشتركة في بلد الوليد",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("الصورة الرمزية"),
     "userDescription": MessageLookupByLibrary.simpleMessage("الوصف"),
     "userEmail": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),

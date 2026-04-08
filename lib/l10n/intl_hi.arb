@@ -218,6 +218,22 @@
     "notificationsNewBadge": "नया",
     "homeHeroTitle": "काम करने के लिए अच्छी जगह खोजें",
     "homeSearchCoworkingButton": "कोवर्किंग स्पेस खोजें",
-    "enterWithoutUser":  "बिना उपयोगकर्ता के प्रवेश करें"
+    "enterWithoutUser":  "बिना उपयोगकर्ता के प्रवेश करें",
+    "titleAppBar": "वलाडोलिड में कोवर्किंग",
+    "searchByKeyWord": "नाम या सेवा द्वारा खोजें",
+    "total": "कुल",
+    "mainRoom": "मुख्य कक्ष",
+    "services": "सेवाएँ",
+    "moreServices": "अधिक सेवाएँ",
+    "seeAllDetails": "सभी विवरण देखें",
+    "couldNotOpenContact": "खोल नहीं सकते",
+    "description": "विवरण",
+    "equipment": "सुविधाएँ",
+    "availableRooms": "उपलब्ध कक्ष",
+    "capacity": "क्षमता",
+    "people": "लोग",
+    "contact": "संपर्क",
+    "tel": "टेल:",
+    "contactSubject": "संसाधन से संपर्क करें"
 }
 

@@ -45,6 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "authRequiredFunctionMessage": MessageLookupByLibrary.simpleMessage(
       "Fitur ini memerlukan Anda untuk masuk",
     ),
+    "availableRooms": MessageLookupByLibrary.simpleMessage(
+      "Ruang yang tersedia",
+    ),
     "back": MessageLookupByLibrary.simpleMessage("Kembali"),
     "bioLabel": MessageLookupByLibrary.simpleMessage("Bio"),
     "buttonCancel": MessageLookupByLibrary.simpleMessage("Batal"),
@@ -58,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "buttonReloadNotifications": MessageLookupByLibrary.simpleMessage(
       "Muat ulang",
     ),
+    "capacity": MessageLookupByLibrary.simpleMessage("Kapasitas"),
     "close": MessageLookupByLibrary.simpleMessage("Tutup"),
     "code6Digits": MessageLookupByLibrary.simpleMessage(
       "Kode harus berisi 6 digit",
@@ -70,6 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "Konfirmasi kata sandi",
     ),
+    "contact": MessageLookupByLibrary.simpleMessage("Kontak"),
+    "contactSubject": MessageLookupByLibrary.simpleMessage(
+      "Konsultasi tentang",
+    ),
     "cookiePolicyLabel": MessageLookupByLibrary.simpleMessage(
       "Kebijakan cookie",
     ),
@@ -77,6 +85,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Tautan disalin",
     ),
     "copyProfileLink": MessageLookupByLibrary.simpleMessage("Salin tautan"),
+    "couldNotOpenContact": MessageLookupByLibrary.simpleMessage(
+      "Tidak dapat membuka",
+    ),
     "currentAppVersionText": MessageLookupByLibrary.simpleMessage(
       "Versi saat ini",
     ),
@@ -90,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "deleteAllNotifications": MessageLookupByLibrary.simpleMessage(
       "Hapus semua notifikasi",
     ),
+    "description": MessageLookupByLibrary.simpleMessage("Deskripsi"),
     "dialogCloseAppContent": MessageLookupByLibrary.simpleMessage(
       "Yakin ingin keluar dari aplikasi?",
     ),
@@ -126,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage(
       "Masuk tanpa pengguna",
     ),
+    "equipment": MessageLookupByLibrary.simpleMessage("Peralatan"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Tidak dapat menghapus akun. Coba lagi",
     ),
@@ -265,6 +278,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("Memuat..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Keluar"),
+    "mainRoom": MessageLookupByLibrary.simpleMessage("Ruang utama"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage(
       "Tandai semua sebagai dibaca",
     ),
@@ -316,6 +330,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "messagesSend": MessageLookupByLibrary.simpleMessage("Kirim"),
     "messagesSent": MessageLookupByLibrary.simpleMessage("Terkirim"),
     "messagesTypeHint": MessageLookupByLibrary.simpleMessage("Tulis pesan..."),
+    "moreServices": MessageLookupByLibrary.simpleMessage("lebih layanan"),
     "newPassword": MessageLookupByLibrary.simpleMessage("Kata sandi baru"),
     "noMoreRecords": MessageLookupByLibrary.simpleMessage(
       "Tidak ada lagi data",
@@ -370,6 +385,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordMismatch": MessageLookupByLibrary.simpleMessage(
       "Kata sandi tidak cocok",
     ),
+    "people": MessageLookupByLibrary.simpleMessage("orang"),
     "privacyPoliciesLabel": MessageLookupByLibrary.simpleMessage(
       "Kebijakan privasi",
     ),
@@ -404,8 +420,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Hapus negara",
     ),
     "retryPublicProfile": MessageLookupByLibrary.simpleMessage("Coba lagi"),
+    "searchByKeyWord": MessageLookupByLibrary.simpleMessage(
+      "Cari berdasarkan nama atau layanan",
+    ),
+    "seeAllDetails": MessageLookupByLibrary.simpleMessage("Lihat semua detail"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Kirim kode"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("Kirim pesan"),
+    "services": MessageLookupByLibrary.simpleMessage("Layanan"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Pengaturan"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Bagikan"),
     "shareTooltip": MessageLookupByLibrary.simpleMessage("Bagikan"),
@@ -429,6 +450,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "subjectSupport": MessageLookupByLibrary.simpleMessage(
       "Kontak VACoworking",
     ),
+    "tel": MessageLookupByLibrary.simpleMessage("Tel:"),
     "termsAndConditionsLabel": MessageLookupByLibrary.simpleMessage(
       "Syarat dan ketentuan",
     ),
@@ -451,6 +473,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("Tema"),
     "themeDark": MessageLookupByLibrary.simpleMessage("Mode gelap"),
     "themeLight": MessageLookupByLibrary.simpleMessage("Mode terang"),
+    "titleAppBar": MessageLookupByLibrary.simpleMessage(
+      "Coworking di Valladolid",
+    ),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Deskripsi"),
     "userEmail": MessageLookupByLibrary.simpleMessage("Email"),
