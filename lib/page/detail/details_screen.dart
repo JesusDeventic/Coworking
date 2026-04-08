@@ -8,6 +8,15 @@ class DetailsScreen extends StatelessWidget {
 
   const DetailsScreen({super.key, required this.coworking});
 
+  // Función para limpiar el formato de la descripción
+  String _cleanString(String description) {
+    // Busca el texto literal <P> sin importar mayúsculas/minúsculas y lo borra
+    return description
+      .replaceAll(RegExp(r'<P>', caseSensitive: false), '') // Borra <P>
+      .replaceAll(RegExp(r'</P>', caseSensitive: false), '') // Borra </P>
+      .trim(); // Elimina espacios sobrantes que puedan quedar a los lados
+  }
+
   //funcion para los Ontap de contacto
   Future<void> _contact(String contactText) async {
     final Uri url = Uri.parse(
@@ -68,7 +77,7 @@ class DetailsScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Text(coworking.description),
+                  Text(_cleanString(coworking.description)),
                   const SizedBox(height: 20),
 
                   Text(
