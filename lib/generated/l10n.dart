@@ -2023,6 +2023,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Coffee / beverages`
+  String get service_coffeedrinks {
+    return Intl.message(
+      'Coffee / beverages',
+      name: 'service_coffeedrinks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `24h Security`
+  String get service_security {
+    return Intl.message(
+      '24h Security',
+      name: 'service_security',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `24/7 Access`
+  String get service_access {
+    return Intl.message(
+      '24/7 Access',
+      name: 'service_access',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

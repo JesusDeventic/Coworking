@@ -408,6 +408,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "seeAllDetails": MessageLookupByLibrary.simpleMessage("See all details"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Send code"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("Send message"),
+    "service_access": MessageLookupByLibrary.simpleMessage("24/7 Access"),
+    "service_coffeedrinks": MessageLookupByLibrary.simpleMessage(
+      "Coffee / beverages",
+    ),
+    "service_security": MessageLookupByLibrary.simpleMessage("24h Security"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Settings"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Share"),

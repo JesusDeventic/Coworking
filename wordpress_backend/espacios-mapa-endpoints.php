@@ -31,8 +31,10 @@ function VACoworking_map_register_routes() { //crea 2 endpoints
     ));
 }
 
-//funcion que obtiene los espacios coworking
+//funcion que obtiene los espacios coworking de la base de datos
 function VACoworking_map_get_spaces(WP_REST_Request $request) { 
+
+   //Captura y limpieza de filtros
     $search = trim((string) $request->get_param('search')); //busca por nombre o dirección
 
     $servicio_ids = VACoworking_map_parse_term_filter($request->get_param('servicios'), 'servicio_coworking'); //filtra por servicios
@@ -43,6 +45,8 @@ function VACoworking_map_get_spaces(WP_REST_Request $request) {
     $sala_cap_min = VACoworking_map_parse_int_or_null($request->get_param('sala_cap_min')); //filtra por capacidad de sala mínima
     $sala_cap_max = VACoworking_map_parse_int_or_null($request->get_param('sala_cap_max')); //filtra por capacidad de sala máxima
 
+
+    //Paginacion, control de cantidad de elementos por página
     $page = max(1, (int) $request->get_param('page'));  //página actual
     $per_page = (int) $request->get_param('per_page');  //número de elementos por página
     if ($per_page <= 0) {
@@ -51,7 +55,7 @@ function VACoworking_map_get_spaces(WP_REST_Request $request) {
     $per_page = min(200, $per_page);  //límite máximo
     
 
-    //guarda datos de filtros en dos tablas: taxonomías y metadatos
+    //guarda datos de filtros en dos tablas: taxonomías y metadatos, logica de consultas
 
     $tax_query = array();      //consulta taxonomías, como servicios o equipamientos
     if (!empty($servicio_ids)) {
@@ -90,7 +94,9 @@ function VACoworking_map_get_spaces(WP_REST_Request $request) {
         $meta_query['relation'] = 'AND';
     }
 
-    $args = array(
+    //Pedido a la base de Datos
+
+    $args = array(              //Lista de instrucciones para WP_Query
         'post_type'      => 'espacio_coworking',
         'post_status'    => 'publish',
         'posts_per_page' => $per_page,
@@ -110,6 +116,9 @@ function VACoworking_map_get_spaces(WP_REST_Request $request) {
     //Ir a la base de datos y obtener los espacios
     $q = new WP_Query($args);
 
+
+    //Procesamiento de resultados
+
     $items = array();  //array de espacios
     foreach ($q->posts as $post) {
         $item = VACoworking_map_build_space_item($post); //convierte el post en un array
@@ -122,7 +131,7 @@ function VACoworking_map_get_spaces(WP_REST_Request $request) {
         $items[] = $item; //agrega el espacio al array
     }
 
-    //devuelve la respuesta
+    //devuelve la respuesta, la convierte en JSON
     return rest_ensure_response(array( 
         'success' => true, 
         'page' => $page,

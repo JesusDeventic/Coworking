@@ -234,6 +234,9 @@
     "people": "personnes",
     "contact": "Contact",
     "tel": "Tel:",
-    "contactSubject": "Consultation sur"
+    "contactSubject": "Consultation sur",
+    "service_coffeedrinks": "Café / boissons",
+    "service_security": "Sécurité 24h",
+    "service_access": "Accès 24/7"
 }
 
