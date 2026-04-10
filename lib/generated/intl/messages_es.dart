@@ -440,6 +440,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Enviar mensaje",
     ),
+    "service_access": MessageLookupByLibrary.simpleMessage("Acceso 24/7"),
+    "service_coffeedrinks": MessageLookupByLibrary.simpleMessage(
+      "Café / bebidas",
+    ),
+    "service_security": MessageLookupByLibrary.simpleMessage("Seguridad 24h"),
     "services": MessageLookupByLibrary.simpleMessage("Servicios"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Ajustes"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Compartir"),
