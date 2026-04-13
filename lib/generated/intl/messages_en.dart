@@ -409,10 +409,37 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendCode": MessageLookupByLibrary.simpleMessage("Send code"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("Send message"),
     "service_access": MessageLookupByLibrary.simpleMessage("24/7 Access"),
-    "service_coffeedrinks": MessageLookupByLibrary.simpleMessage(
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Administrative management",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Autonomous access",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Catering"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Cleaning"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
       "Coffee / beverages",
     ),
-    "service_security": MessageLookupByLibrary.simpleMessage("24h Security"),
+    "service_events": MessageLookupByLibrary.simpleMessage("Events"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Fiscal domiciliation",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Mail reception",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("Networking"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Phone support",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Reception"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage("Relax zone"),
+    "service_security": MessageLookupByLibrary.simpleMessage("Security 24h"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Social domiciliation",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Training"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Workshops"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Settings"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Share"),

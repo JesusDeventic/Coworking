@@ -426,6 +426,38 @@ class MessageLookup extends MessageLookupByLibrary {
     "seeAllDetails": MessageLookupByLibrary.simpleMessage("Lihat semua detail"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Kirim kode"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("Kirim pesan"),
+    "service_access": MessageLookupByLibrary.simpleMessage("Akses 24/7"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Manajemen Administratif",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Akses Mandiri",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Katering"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Pembersihan"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "Kopi / Minuman",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("Acara"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Domisili Fiskal",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Penerimaan Surat",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("Jaringan"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Dukungan Telepon",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Resepsionis"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage("Zona Relaks"),
+    "service_security": MessageLookupByLibrary.simpleMessage("Keamanan 24 Jam"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Domisili Sosial",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Pelatihan"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Workshop"),
     "services": MessageLookupByLibrary.simpleMessage("Layanan"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Pengaturan"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Bagikan"),

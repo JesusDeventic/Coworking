@@ -441,10 +441,37 @@ class MessageLookup extends MessageLookupByLibrary {
       "Envoyer un message",
     ),
     "service_access": MessageLookupByLibrary.simpleMessage("Accès 24/7"),
-    "service_coffeedrinks": MessageLookupByLibrary.simpleMessage(
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Gestion administrative",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Accès autonome",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Catering"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Nettoyage"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
       "Café / boissons",
     ),
+    "service_events": MessageLookupByLibrary.simpleMessage("Événements"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Domiciliation fiscale",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Réception de courrier",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("Réseautage"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Support téléphonique",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Réception"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage("Zone détente"),
     "service_security": MessageLookupByLibrary.simpleMessage("Sécurité 24h"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Domiciliation sociale",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Formation"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Ateliers"),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Paramètres"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Partager"),

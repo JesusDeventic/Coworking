@@ -234,6 +234,24 @@
     "people": "personen",
     "contact": "Contact",
     "tel": "Tel:",
-    "contactSubject": "Consultatie over"
+    "contactSubject": "Consultatie over",
+    "service_access": "24/7 toegang",
+    "service_fiscal_domiciliation": "Fiscaal adres",
+    "service_cleaning": "Schoonmaak",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "Autonome toegang",
+    "service_social_domiciliation": "Sociaal adres",
+    "service_networking": "Netwerken",
+    "service_workshops": "Workshops",
+    "service_phone_support": "Telefoonondersteuning",
+    "service_events": "Evenementen",
+    "service_reception": "Receptie",
+    "service_relax_zone": "Ontspanningszone",
+    "service_coffee_beverages": "Koffie / dranken",
+    "service_training": "Training",
+    "service_mail_reception": "Postontvangst",
+    "service_catering": "Catering",
+    "service_administrative_management": "Administratieve beheer",
+    "service_security": "Beveiliging 24u"
 }
 

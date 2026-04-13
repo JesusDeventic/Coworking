@@ -412,6 +412,38 @@ class MessageLookup extends MessageLookupByLibrary {
     "seeAllDetails": MessageLookupByLibrary.simpleMessage("सभी विवरण देखें"),
     "sendCode": MessageLookupByLibrary.simpleMessage("कोड भेजें"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("संदेश भेजें"),
+    "service_access": MessageLookupByLibrary.simpleMessage("24/7 पहुँच"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "प्रशासन प्रबंधन",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "स्वतंत्र पहुँच",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("कैटरिंग"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("सफाई"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "कॉफ़ी / बेवरेज़",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("कार्यक्रम"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "कर निवास",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "मेल प्राप्ति",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("नेटवर्किंग"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "फ़ोन सहायता",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("प्रवेश"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage("आराम क्षेत्र"),
+    "service_security": MessageLookupByLibrary.simpleMessage("सुरक्षा 24 घंटे"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "सामाजिक निवास",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("प्रशिक्षण"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("वाई-फ़ाई"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("कार्यशालाएँ"),
     "services": MessageLookupByLibrary.simpleMessage("सेवाएँ"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("सेटिंग्स"),
     "shareOption": MessageLookupByLibrary.simpleMessage("साझा करें"),

@@ -234,6 +234,24 @@
     "people": "orang",
     "contact": "Kontak",
     "tel": "Tel:",
-    "contactSubject": "Konsultasi tentang"
+    "contactSubject": "Konsultasi tentang",
+    "service_access": "Akses 24/7",
+    "service_fiscal_domiciliation": "Domisili Fiskal",
+    "service_cleaning": "Pembersihan",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "Akses Mandiri",
+    "service_social_domiciliation": "Domisili Sosial",
+    "service_networking": "Jaringan",
+    "service_workshops": "Workshop",
+    "service_phone_support": "Dukungan Telepon",
+    "service_events": "Acara",
+    "service_reception": "Resepsionis",
+    "service_relax_zone": "Zona Relaks",
+    "service_coffee_beverages": "Kopi / Minuman",
+    "service_training": "Pelatihan",
+    "service_mail_reception": "Penerimaan Surat",
+    "service_catering": "Katering",
+    "service_administrative_management": "Manajemen Administratif",
+    "service_security": "Keamanan 24 Jam"
 }
 

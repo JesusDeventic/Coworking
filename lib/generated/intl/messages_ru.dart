@@ -430,6 +430,42 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Отправить сообщение",
     ),
+    "service_access": MessageLookupByLibrary.simpleMessage("Доступ 24/7"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Административное управление",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Автономный доступ",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Кейтеринг"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Уборка"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "Кофе / Напитки",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("События"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Фискальная регистрация",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Прием почты",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage(
+      "Сетевое взаимодействие",
+    ),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Телефонная поддержка",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Ресепшн"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage("Зона отдыха"),
+    "service_security": MessageLookupByLibrary.simpleMessage(
+      "Безопасность 24ч",
+    ),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Социальная регистрация",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Обучение"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Мастер-классы"),
     "services": MessageLookupByLibrary.simpleMessage("Услуги"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Настройки"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Поделиться"),

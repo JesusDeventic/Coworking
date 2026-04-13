@@ -234,6 +234,24 @@
     "people": "Personen",
     "contact": "Kontakt",
     "tel": "Tel:",
-    "contactSubject": "Anfrage zu"
+    "contactSubject": "Anfrage zu",
+    "service_access": "24/7-Zugang",
+    "service_fiscal_domiciliation": "Fiskalische Anschrift",
+    "service_cleaning": "Reinigung",
+    "service_wifi": "WLAN",
+    "service_autonomous_access": "Autonomer Zugang",
+    "service_social_domiciliation": "Soziale Anschrift",
+    "service_networking": "Networking",
+    "service_workshops": "Workshops",
+    "service_phone_support": "Telefonischer Support",
+    "service_events": "Veranstaltungen",
+    "service_reception": "Rezeption",
+    "service_relax_zone": "Entspannungsbereich",
+    "service_coffee_beverages": "Kaffee / Getränke",
+    "service_training": "Schulungen",
+    "service_mail_reception": "Postannahme",
+    "service_catering": "Catering",
+    "service_administrative_management": "Administrative Verwaltung",
+    "service_security": "Sicherheit 24h"
 }
 

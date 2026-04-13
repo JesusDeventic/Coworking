@@ -234,7 +234,25 @@
     "people": "persones",
     "contact": "Contacte",
     "tel": "Tel:",
-    "contactSubject": "Consulta sobre"
+    "contactSubject": "Consulta sobre",
+    "service_access": "Accés 24/7",
+    "service_fiscal_domiciliation": "Domiciliació fiscal",
+    "service_cleaning": "Neteja",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "Accés autònom",
+    "service_social_domiciliation": "Domiciliació social",
+    "service_networking": "Xarxa",
+    "service_workshops": "Tallers",
+    "service_phone_support": "Suport telefònic",
+    "service_events": "Esdeveniments",
+    "service_reception": "Recepció",
+    "service_relax_zone": "Zona relax",
+    "service_coffee_beverages": "Cafè / begudes",
+    "service_training": "Formació",
+    "service_mail_reception": "Recepció de correu",
+    "service_catering": "Catering",
+    "service_administrative_management": "Gestió administrativa",
+    "service_security": "Seguretat 24h"
 }
 
 

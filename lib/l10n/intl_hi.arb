@@ -234,6 +234,24 @@
     "people": "लोग",
     "contact": "संपर्क",
     "tel": "टेल:",
-    "contactSubject": "संसाधन से संपर्क करें"
+    "contactSubject": "संसाधन से संपर्क करें",
+    "service_access": "24/7 पहुँच",
+    "service_fiscal_domiciliation": "कर निवास",
+    "service_cleaning": "सफाई",
+    "service_wifi": "वाई-फ़ाई",
+    "service_autonomous_access": "स्वतंत्र पहुँच",
+    "service_social_domiciliation": "सामाजिक निवास",
+    "service_networking": "नेटवर्किंग",
+    "service_workshops": "कार्यशालाएँ",
+    "service_phone_support": "फ़ोन सहायता",
+    "service_events": "कार्यक्रम",
+    "service_reception": "प्रवेश",
+    "service_relax_zone": "आराम क्षेत्र",
+    "service_coffee_beverages": "कॉफ़ी / बेवरेज़",
+    "service_training": "प्रशिक्षण",
+    "service_mail_reception": "मेल प्राप्ति",
+    "service_catering": "कैटरिंग",
+    "service_administrative_management": "प्रशासन प्रबंधन",
+    "service_security": "सुरक्षा 24 घंटे"
 }
 

@@ -408,6 +408,40 @@ class MessageLookup extends MessageLookupByLibrary {
     "seeAllDetails": MessageLookupByLibrary.simpleMessage("Tüm detayları gör"),
     "sendCode": MessageLookupByLibrary.simpleMessage("Kod gönder"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("Mesaj gönder"),
+    "service_access": MessageLookupByLibrary.simpleMessage("24/7 erişim"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Yönetim",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Özgür erişim",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Katering"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Temizlik"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "Kahve / İçecekler",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("Etkinlikler"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Fiskal kayıt",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Posta alma",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("Ağ kurma"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Telefon desteği",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Resepsiyon"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage(
+      "Rahatlatma alanı",
+    ),
+    "service_security": MessageLookupByLibrary.simpleMessage("Güvenlik 24s"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Sosyal kayıt",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Eğitim"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Atölyalar"),
     "services": MessageLookupByLibrary.simpleMessage("Hizmetler"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Ayarlar"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Paylaş"),

@@ -235,8 +235,23 @@
     "contact": "Contact",
     "tel": "Tel:",
     "contactSubject": "Consultation sur",
-    "service_coffeedrinks": "Café / boissons",
-    "service_security": "Sécurité 24h",
-    "service_access": "Accès 24/7"
+    "service_access": "Accès 24/7",
+    "service_fiscal_domiciliation": "Domiciliation fiscale",
+    "service_cleaning": "Nettoyage",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "Accès autonome",
+    "service_social_domiciliation": "Domiciliation sociale",
+    "service_networking": "Réseautage",
+    "service_workshops": "Ateliers",
+    "service_phone_support": "Support téléphonique",
+    "service_events": "Événements",
+    "service_reception": "Réception",
+    "service_relax_zone": "Zone détente",
+    "service_coffee_beverages": "Café / boissons",
+    "service_training": "Formation",
+    "service_mail_reception": "Réception de courrier",
+    "service_catering": "Catering",
+    "service_administrative_management": "Gestion administrative",
+    "service_security": "Sécurité 24h"
 }
 

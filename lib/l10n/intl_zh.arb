@@ -234,6 +234,24 @@
     "people": "人",
     "contact": "联系",
     "tel": "电话:",
-    "contactSubject": "关于咨询"
+    "contactSubject": "关于咨询",
+    "service_access": "24/7访问",
+    "service_fiscal_domiciliation": "财政注册",
+    "service_cleaning": "清洁",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "自主访问",
+    "service_social_domiciliation": "社会注册",
+    "service_networking": "社交",
+    "service_workshops": "研讨会",
+    "service_phone_support": "电话支持",
+    "service_events": "活动",
+    "service_reception": "接待",
+    "service_relax_zone": "放松区",
+    "service_coffee_beverages": "咖啡/饮料",
+    "service_training": "培训",
+    "service_mail_reception": "邮件接收",
+    "service_catering": "餐饮",
+    "service_administrative_management": "行政管理",
+    "service_security": "24小时安全"
 }
 

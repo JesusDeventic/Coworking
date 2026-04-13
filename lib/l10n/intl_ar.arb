@@ -234,6 +234,24 @@
     "people": "أشخاص",
     "contact": "اتصال",
     "tel": "هاتف:",
-    "contactSubject": "استفسار بخصوص"
+    "contactSubject": "استفسار بخصوص",
+    "service_access": "الوصول 24/7",
+    "service_fiscal_domiciliation": "الإقامة الضريبية",
+    "service_cleaning": "التنظيف",
+    "service_wifi": "الواي فاي",
+    "service_autonomous_access": "الوصول المستقل",
+    "service_social_domiciliation": "الإقامة الاجتماعية",
+    "service_networking": "الشبكات",
+    "service_workshops": "الورش",
+    "service_phone_support": "الدعم الهاتفي",
+    "service_events": "الفعاليات",
+    "service_reception": "الاستقبال",
+    "service_relax_zone": "منطقة الاسترخاء",
+    "service_coffee_beverages": "القهوة / المشروبات",
+    "service_training": "التدريب",
+    "service_mail_reception": "استقبال البريد",
+    "service_catering": "التقديم",
+    "service_administrative_management": "الإدارة الإدارية",
+    "service_security": "الأمان 24 ساعة"
 }
 

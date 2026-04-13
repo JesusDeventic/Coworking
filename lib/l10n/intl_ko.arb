@@ -234,6 +234,24 @@
     "people": "사람",
     "contact": "연락처",
     "tel": "전화:",
-    "contactSubject": "상담에 대해"
+    "contactSubject": "상담에 대해",
+    "service_access": "24/7 접근",
+    "service_fiscal_domiciliation": "세무 등록",
+    "service_cleaning": "청소",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "자율 접근",
+    "service_social_domiciliation": "사회적 등록",
+    "service_networking": "네트워킹",
+    "service_workshops": "워크숍",
+    "service_phone_support": "전화 지원",
+    "service_events": "이벤트",
+    "service_reception": "접수",
+    "service_relax_zone": "릴랙스 존",
+    "service_coffee_beverages": "커피/음료",
+    "service_training": "트레이닝",
+    "service_mail_reception": "메일 수령",
+    "service_catering": "케이터링",
+    "service_administrative_management": "관리 업무",
+    "service_security": "24시간 보안"
 }
 

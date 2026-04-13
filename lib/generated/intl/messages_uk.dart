@@ -438,6 +438,40 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Надіслати повідомлення",
     ),
+    "service_access": MessageLookupByLibrary.simpleMessage("Доступ 24/7"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Адміністративне управління",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Автономний доступ",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Кейтеринг"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Прибирання"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "Кава / Напої",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("Події"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Фіскальна реєстрація",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Отримання пошти",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("Мережування"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Телефонна підтримка",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Ресепшн"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage(
+      "Зона відпочинку",
+    ),
+    "service_security": MessageLookupByLibrary.simpleMessage("Безпека 24г"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Соціальна реєстрація",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Навчання"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Майстер-класи"),
     "services": MessageLookupByLibrary.simpleMessage("Послуги"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Налаштування"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Поділитися"),

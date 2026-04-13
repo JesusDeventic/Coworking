@@ -2024,31 +2024,171 @@ class S {
     );
   }
 
-  /// `Coffee / beverages`
-  String get service_coffeedrinks {
-    return Intl.message(
-      'Coffee / beverages',
-      name: 'service_coffeedrinks',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `24h Security`
-  String get service_security {
-    return Intl.message(
-      '24h Security',
-      name: 'service_security',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `24/7 Access`
   String get service_access {
     return Intl.message(
       '24/7 Access',
       name: 'service_access',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fiscal domiciliation`
+  String get service_fiscal_domiciliation {
+    return Intl.message(
+      'Fiscal domiciliation',
+      name: 'service_fiscal_domiciliation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cleaning`
+  String get service_cleaning {
+    return Intl.message(
+      'Cleaning',
+      name: 'service_cleaning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `WiFi`
+  String get service_wifi {
+    return Intl.message('WiFi', name: 'service_wifi', desc: '', args: []);
+  }
+
+  /// `Autonomous access`
+  String get service_autonomous_access {
+    return Intl.message(
+      'Autonomous access',
+      name: 'service_autonomous_access',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Social domiciliation`
+  String get service_social_domiciliation {
+    return Intl.message(
+      'Social domiciliation',
+      name: 'service_social_domiciliation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Networking`
+  String get service_networking {
+    return Intl.message(
+      'Networking',
+      name: 'service_networking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Workshops`
+  String get service_workshops {
+    return Intl.message(
+      'Workshops',
+      name: 'service_workshops',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone support`
+  String get service_phone_support {
+    return Intl.message(
+      'Phone support',
+      name: 'service_phone_support',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Events`
+  String get service_events {
+    return Intl.message('Events', name: 'service_events', desc: '', args: []);
+  }
+
+  /// `Reception`
+  String get service_reception {
+    return Intl.message(
+      'Reception',
+      name: 'service_reception',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Relax zone`
+  String get service_relax_zone {
+    return Intl.message(
+      'Relax zone',
+      name: 'service_relax_zone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coffee / beverages`
+  String get service_coffee_beverages {
+    return Intl.message(
+      'Coffee / beverages',
+      name: 'service_coffee_beverages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Training`
+  String get service_training {
+    return Intl.message(
+      'Training',
+      name: 'service_training',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mail reception`
+  String get service_mail_reception {
+    return Intl.message(
+      'Mail reception',
+      name: 'service_mail_reception',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Catering`
+  String get service_catering {
+    return Intl.message(
+      'Catering',
+      name: 'service_catering',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Administrative management`
+  String get service_administrative_management {
+    return Intl.message(
+      'Administrative management',
+      name: 'service_administrative_management',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Security 24h`
+  String get service_security {
+    return Intl.message(
+      'Security 24h',
+      name: 'service_security',
       desc: '',
       args: [],
     );

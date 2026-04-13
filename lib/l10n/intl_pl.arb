@@ -234,6 +234,24 @@
     "people": "osoby",
     "contact": "Kontakt",
     "tel": "Tel:",
-    "contactSubject": "Konsultacja dotycząca"
+    "contactSubject": "Konsultacja dotycząca",
+    "service_access": "Dostęp 24/7",
+    "service_fiscal_domiciliation": "Domiciliacja fiskalna",
+    "service_cleaning": "Czyszczenie",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "Dostęp autonomiczny",
+    "service_social_domiciliation": "Domiciliacja społeczna",
+    "service_networking": "Sieciowanie",
+    "service_workshops": "Warsztaty",
+    "service_phone_support": "Wsparcie telefoniczne",
+    "service_events": "Wydarzenia",
+    "service_reception": "Recepcja",
+    "service_relax_zone": "Strefa relaksu",
+    "service_coffee_beverages": "Kawa / napoje",
+    "service_training": "Szkolenia",
+    "service_mail_reception": "Odbiór poczty",
+    "service_catering": "Catering",
+    "service_administrative_management": "Zarządzanie administracyjne",
+    "service_security": "Bezpieczeństwo 24h"
 }
 

@@ -234,6 +234,24 @@
     "people": "kişi",
     "contact": "İletişim",
     "tel": "Tel:",
-    "contactSubject": "Danışma hakkında"
+    "contactSubject": "Danışma hakkında",
+    "service_access": "24/7 erişim",
+    "service_fiscal_domiciliation": "Fiskal kayıt",
+    "service_cleaning": "Temizlik",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "Özgür erişim",
+    "service_social_domiciliation": "Sosyal kayıt",
+    "service_networking": "Ağ kurma",
+    "service_workshops": "Atölyalar",
+    "service_phone_support": "Telefon desteği",
+    "service_events": "Etkinlikler",
+    "service_reception": "Resepsiyon",
+    "service_relax_zone": "Rahatlatma alanı",
+    "service_coffee_beverages": "Kahve / İçecekler",
+    "service_training": "Eğitim",
+    "service_mail_reception": "Posta alma",
+    "service_catering": "Katering",
+    "service_administrative_management": "Yönetim",
+    "service_security": "Güvenlik 24s"
 }
 

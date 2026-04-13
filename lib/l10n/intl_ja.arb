@@ -234,6 +234,24 @@
     "people": "人",
     "contact": "連絡先",
     "tel": "電話:",
-    "contactSubject": "相談について"
+    "contactSubject": "相談について",
+    "service_access": "24/7アクセス",
+    "service_fiscal_domiciliation": "法人登記",
+    "service_cleaning": "清掃",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "自主アクセス",
+    "service_social_domiciliation": "社会的登記",
+    "service_networking": "ネットワーキング",
+    "service_workshops": "ワークショップ",
+    "service_phone_support": "電話サポート",
+    "service_events": "イベント",
+    "service_reception": "受付",
+    "service_relax_zone": "リラックスゾーン",
+    "service_coffee_beverages": "コーヒー/飲料",
+    "service_training": "トレーニング",
+    "service_mail_reception": "メール受付",
+    "service_catering": "ケータリング",
+    "service_administrative_management": "管理業務",
+    "service_security": "24時間セキュリティ"
 }
 

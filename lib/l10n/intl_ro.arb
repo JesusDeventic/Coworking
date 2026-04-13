@@ -234,6 +234,24 @@
     "people": "persoane",
     "contact": "Contact",
     "tel": "Tel:",
-    "contactSubject": "Consultație despre"
+    "contactSubject": "Consultație despre",
+    "service_access": "Acces 24/7",
+    "service_fiscal_domiciliation": "Domiciliu fiscal",
+    "service_cleaning": "Curățare",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "Acces autonom",
+    "service_social_domiciliation": "Domiciliu social",
+    "service_networking": "Networking",
+    "service_workshops": "Workshop-uri",
+    "service_phone_support": "Suport telefonic",
+    "service_events": "Evenimente",
+    "service_reception": "Recepție",
+    "service_relax_zone": "Zonă relaxare",
+    "service_coffee_beverages": "Cafea / Băuturi",
+    "service_training": "Antrenamente",
+    "service_mail_reception": "Primire colete",
+    "service_catering": "Catering",
+    "service_administrative_management": "Gestionare administrativă",
+    "service_security": "Securitate 24h"
 }
 

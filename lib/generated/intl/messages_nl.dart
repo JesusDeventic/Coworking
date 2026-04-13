@@ -436,6 +436,40 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Bericht sturen",
     ),
+    "service_access": MessageLookupByLibrary.simpleMessage("24/7 toegang"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Administratieve beheer",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Autonome toegang",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Catering"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Schoonmaak"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "Koffie / dranken",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("Evenementen"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Fiscaal adres",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Postontvangst",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("Netwerken"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Telefoonondersteuning",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Receptie"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage(
+      "Ontspanningszone",
+    ),
+    "service_security": MessageLookupByLibrary.simpleMessage("Beveiliging 24u"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Sociaal adres",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Training"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Workshops"),
     "services": MessageLookupByLibrary.simpleMessage("Diensten"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Instellingen"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Delen"),

@@ -234,6 +234,24 @@
     "people": "personer",
     "contact": "Kontakt",
     "tel": "Tel:",
-    "contactSubject": "Konsultation om"
+    "contactSubject": "Konsultation om",
+    "service_access": "24/7 tillgång",
+    "service_fiscal_domiciliation": "Fiskal registrering",
+    "service_cleaning": "Städning",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "Autonom tillgång",
+    "service_social_domiciliation": "Social registrering",
+    "service_networking": "Nätverkande",
+    "service_workshops": "Workshopar",
+    "service_phone_support": "Telefonsupport",
+    "service_events": "Evenemang",
+    "service_reception": "Reception",
+    "service_relax_zone": "Relaxzon",
+    "service_coffee_beverages": "Kaffe / Drycker",
+    "service_training": "Träning",
+    "service_mail_reception": "Postmottagning",
+    "service_catering": "Catering",
+    "service_administrative_management": "Administrativ hantering",
+    "service_security": "Säkerhet 24h"
 }
 

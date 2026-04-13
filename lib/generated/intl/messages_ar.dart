@@ -402,6 +402,40 @@ class MessageLookup extends MessageLookupByLibrary {
     "seeAllDetails": MessageLookupByLibrary.simpleMessage("عرض كافة التفاصيل"),
     "sendCode": MessageLookupByLibrary.simpleMessage("إرسال الرمز"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("إرسال رسالة"),
+    "service_access": MessageLookupByLibrary.simpleMessage("الوصول 24/7"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "الإدارة الإدارية",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "الوصول المستقل",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("التقديم"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("التنظيف"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "القهوة / المشروبات",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("الفعاليات"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "الإقامة الضريبية",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "استقبال البريد",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("الشبكات"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "الدعم الهاتفي",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("الاستقبال"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage(
+      "منطقة الاسترخاء",
+    ),
+    "service_security": MessageLookupByLibrary.simpleMessage("الأمان 24 ساعة"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "الإقامة الاجتماعية",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("التدريب"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("الواي فاي"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("الورش"),
     "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "shareOption": MessageLookupByLibrary.simpleMessage("مشاركة"),

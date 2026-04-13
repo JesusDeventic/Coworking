@@ -442,6 +442,38 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Envia un missatge",
     ),
+    "service_access": MessageLookupByLibrary.simpleMessage("Accés 24/7"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Gestió administrativa",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Accés autònom",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Catering"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Neteja"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "Cafè / begudes",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("Esdeveniments"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Domiciliació fiscal",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Recepció de correu",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("Xarxa"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Suport telefònic",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Recepció"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage("Zona relax"),
+    "service_security": MessageLookupByLibrary.simpleMessage("Seguretat 24h"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Domiciliació social",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Formació"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Tallers"),
     "services": MessageLookupByLibrary.simpleMessage("Serveis"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Ajustos"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Comparteix"),

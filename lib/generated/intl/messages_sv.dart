@@ -428,6 +428,38 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Skicka meddelande",
     ),
+    "service_access": MessageLookupByLibrary.simpleMessage("24/7 tillgång"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Administrativ hantering",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Autonom tillgång",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Catering"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Städning"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "Kaffe / Drycker",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("Evenemang"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Fiskal registrering",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Postmottagning",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("Nätverkande"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Telefonsupport",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Reception"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage("Relaxzon"),
+    "service_security": MessageLookupByLibrary.simpleMessage("Säkerhet 24h"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Social registrering",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Träning"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Workshopar"),
     "services": MessageLookupByLibrary.simpleMessage("Tjänster"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Inställningar"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Dela"),

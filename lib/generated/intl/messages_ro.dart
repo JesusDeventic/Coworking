@@ -428,6 +428,38 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "sendCode": MessageLookupByLibrary.simpleMessage("Trimite codul"),
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage("Trimite mesaj"),
+    "service_access": MessageLookupByLibrary.simpleMessage("Acces 24/7"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Gestionare administrativă",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Acces autonom",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Catering"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Curățare"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "Cafea / Băuturi",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("Evenimente"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Domiciliu fiscal",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Primire colete",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("Networking"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Suport telefonic",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Recepție"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage("Zonă relaxare"),
+    "service_security": MessageLookupByLibrary.simpleMessage("Securitate 24h"),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Domiciliu social",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Antrenamente"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Workshop-uri"),
     "services": MessageLookupByLibrary.simpleMessage("Servicii"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Setări"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Partajează"),

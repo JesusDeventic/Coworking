@@ -234,6 +234,24 @@
     "people": "люди",
     "contact": "Контакт",
     "tel": "Тел:",
-    "contactSubject": "Консультація про"
+    "contactSubject": "Консультація про",
+    "service_access": "Доступ 24/7",
+    "service_fiscal_domiciliation": "Фіскальна реєстрація",
+    "service_cleaning": "Прибирання",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "Автономний доступ",
+    "service_social_domiciliation": "Соціальна реєстрація",
+    "service_networking": "Мережування",
+    "service_workshops": "Майстер-класи",
+    "service_phone_support": "Телефонна підтримка",
+    "service_events": "Події",
+    "service_reception": "Ресепшн",
+    "service_relax_zone": "Зона відпочинку",
+    "service_coffee_beverages": "Кава / Напої",
+    "service_training": "Навчання",
+    "service_mail_reception": "Отримання пошти",
+    "service_catering": "Кейтеринг",
+    "service_administrative_management": "Адміністративне управління",
+    "service_security": "Безпека 24г"
 }
 

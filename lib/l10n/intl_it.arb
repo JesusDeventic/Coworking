@@ -234,6 +234,24 @@
     "people": "persone",
     "contact": "Contatto",
     "tel": "Tel:",
-    "contactSubject": "Consulta su"
+    "contactSubject": "Consulta su",
+    "service_access": "Accesso 24/7",
+    "service_fiscal_domiciliation": "Domiciliazione fiscale",
+    "service_cleaning": "Pulizia",
+    "service_wifi": "WiFi",
+    "service_autonomous_access": "Accesso autonomo",
+    "service_social_domiciliation": "Domiciliazione sociale",
+    "service_networking": "Networking",
+    "service_workshops": "Workshop",
+    "service_phone_support": "Supporto telefonico",
+    "service_events": "Eventi",
+    "service_reception": "Reception",
+    "service_relax_zone": "Zona relax",
+    "service_coffee_beverages": "Caffè / bevande",
+    "service_training": "Formazione",
+    "service_mail_reception": "Ricezione mail",
+    "service_catering": "Catering",
+    "service_administrative_management": "Gestione amministrativa",
+    "service_security": "Sicurezza 24h"
 }
 

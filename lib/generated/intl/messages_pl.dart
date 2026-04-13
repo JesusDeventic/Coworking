@@ -430,6 +430,42 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendMessageTooltip": MessageLookupByLibrary.simpleMessage(
       "Wyślij wiadomość",
     ),
+    "service_access": MessageLookupByLibrary.simpleMessage("Dostęp 24/7"),
+    "service_administrative_management": MessageLookupByLibrary.simpleMessage(
+      "Zarządzanie administracyjne",
+    ),
+    "service_autonomous_access": MessageLookupByLibrary.simpleMessage(
+      "Dostęp autonomiczny",
+    ),
+    "service_catering": MessageLookupByLibrary.simpleMessage("Catering"),
+    "service_cleaning": MessageLookupByLibrary.simpleMessage("Czyszczenie"),
+    "service_coffee_beverages": MessageLookupByLibrary.simpleMessage(
+      "Kawa / napoje",
+    ),
+    "service_events": MessageLookupByLibrary.simpleMessage("Wydarzenia"),
+    "service_fiscal_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Domiciliacja fiskalna",
+    ),
+    "service_mail_reception": MessageLookupByLibrary.simpleMessage(
+      "Odbiór poczty",
+    ),
+    "service_networking": MessageLookupByLibrary.simpleMessage("Sieciowanie"),
+    "service_phone_support": MessageLookupByLibrary.simpleMessage(
+      "Wsparcie telefoniczne",
+    ),
+    "service_reception": MessageLookupByLibrary.simpleMessage("Recepcja"),
+    "service_relax_zone": MessageLookupByLibrary.simpleMessage(
+      "Strefa relaksu",
+    ),
+    "service_security": MessageLookupByLibrary.simpleMessage(
+      "Bezpieczeństwo 24h",
+    ),
+    "service_social_domiciliation": MessageLookupByLibrary.simpleMessage(
+      "Domiciliacja społeczna",
+    ),
+    "service_training": MessageLookupByLibrary.simpleMessage("Szkolenia"),
+    "service_wifi": MessageLookupByLibrary.simpleMessage("WiFi"),
+    "service_workshops": MessageLookupByLibrary.simpleMessage("Warsztaty"),
     "services": MessageLookupByLibrary.simpleMessage("Usługi"),
     "settingsLabel": MessageLookupByLibrary.simpleMessage("Ustawienia"),
     "shareOption": MessageLookupByLibrary.simpleMessage("Udostępnij"),
