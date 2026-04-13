@@ -143,6 +143,54 @@ class MessageLookup extends MessageLookupByLibrary {
       "Увійти без користувача",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("Обладнання"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage(
+      "Кондиціонер",
+    ),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "Паркування велосипедів",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("Шафи"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage(
+      "Копіювальна машина",
+    ),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "Ергономічні стільці",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "Оптоволоконна зв\'язок",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage(
+      "Ігрова кімната",
+    ),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("Сад"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("Опалення"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "Індивідуальні столи",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("Кухня"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("Шафи"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "Шафи з ключами",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "Переговорні кімнати",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("Паркування"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("Принтер"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "Приватний офіс",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("Проектор"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("Сканер"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "Екрани / Монітори",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("Телевізор"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("Тераса"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage("Білі дошки"),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "Провідна мережа",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Не вдалося видалити обліковий запис. Спробуйте ще раз",
     ),

@@ -141,6 +141,56 @@ class MessageLookup extends MessageLookupByLibrary {
       "Войти без пользователя",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("Оборудование"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage(
+      "Кондиционер",
+    ),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "Парковка велосипедов",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("Шкафы"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage(
+      "Копировальная машина",
+    ),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "Эргономичные стулья",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "Оптоволоконная связь",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage(
+      "Игровая комната",
+    ),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("Сад"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("Отопление"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "Индивидуальные столы",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("Кухня"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("Шкафчики"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "Шкафчики с ключами",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "Переговорные комнаты",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("Парковка"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("Принтер"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "Частный офис",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("Проектор"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("Сканер"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "Экраны / Мониторы",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("Телевизор"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("Терраса"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage(
+      "Белые доски",
+    ),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "Проводная сеть",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Не удалось удалить аккаунт. Попробуйте снова",
     ),

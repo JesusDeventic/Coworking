@@ -137,6 +137,54 @@ class MessageLookup extends MessageLookupByLibrary {
       "Autentificare fără utilizator",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("Echipament"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage(
+      "Aer condiționat",
+    ),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "Parcare biciclete",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("Scafandre"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("Copiator"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "Scaune ergonomice",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "Fibră optică",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage(
+      "Sala de jocuri",
+    ),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("Grădină"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("Încălzire"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "Mese individuale",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("Bucătărie"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("Scafandre"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "Scafandre cu chei",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "Săli de întâlnire",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("Parcare"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("Imprimantă"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "Birou privat",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("Proiector"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("Scaner"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "Ecrane / Monitoare",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("Televizor"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("Terasă"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage(
+      "Tablouri albe",
+    ),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "Rețea cu fir",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Contul nu s-a putut șterge. Încearcă din nou",
     ),

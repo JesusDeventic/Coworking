@@ -115,7 +115,7 @@ class DetailsScreen extends StatelessWidget {
                                     ),
                                   ),
                                   child: Text(
-                                    e,
+                                    AppTranslator.translateEquipment(context, e),
                                     style: const TextStyle(
                                       fontSize: 13,
                                       color: Colors.indigo,

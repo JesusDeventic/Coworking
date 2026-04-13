@@ -141,6 +141,50 @@ class MessageLookup extends MessageLookupByLibrary {
       "Inloggen zonder gebruiker",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("Uitrusting"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage("Airco"),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "Fietsenparkeerplaats",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("Kasten"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("Kopieermachine"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "Ergonomische stoelen",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "Fiber optic",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage("Speelkamer"),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("Tuin"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("Verwarming"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "Individuele tafels",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("Keuken"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("Kluizen"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "Kluizen met sleutels",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "Vergaderkamers",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("Parkeerplaats"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("Printer"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "Privékantoor",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("Projector"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("Scanner"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "Schermen / Monitors",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("Televisie"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("Terras"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage(
+      "Whiteboards",
+    ),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "Gekabeld netwerk",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Account kon niet worden verwijderd. Probeer het opnieuw",
     ),

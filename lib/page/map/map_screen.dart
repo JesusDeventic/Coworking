@@ -1,3 +1,4 @@
+import 'package:vacoworking/core/utils/app_translator.dart';
 import 'package:vacoworking/generated/l10n.dart';
 import 'package:vacoworking/page/detail/details_screen.dart'; //Pantalla detalles importada
 import 'package:flutter/material.dart';
@@ -689,6 +690,7 @@ class _MapScreenState extends State<MapScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
+                
                 // Header con imagen y nombre
                 Row(
                   children: [
@@ -823,7 +825,7 @@ class _MapScreenState extends State<MapScreen> {
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
-                    children: coworking.services.take(6).map((service) {
+                    children: coworking.services.take(6).map((service) => AppTranslator.translateService(context, service)).map((service) {
                       return Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,

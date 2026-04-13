@@ -252,6 +252,32 @@
     "service_mail_reception": "Recepción de correo",
     "service_catering": "Catering",
     "service_administrative_management": "Gestión administrativa",
-    "service_security": "Seguridad 24h"
+    "service_security": "Seguridad 24h",
+    "equipment_air_conditioning": "Aire acondicionado",
+    "equipment_private_office": "Oficina privada",
+    "equipment_garden": "Jardín",
+    "equipment_whiteboards": "Pizarras",
+    "equipment_ergonomic_chairs": "Sillas ergonómicas",
+    "equipment_closets": "Armarios",
+    "equipment_scanner": "Escáner",
+    "equipment_individual_tables": "Mesas individuales",
+    "equipment_projector": "Proyector",
+    "equipment_lockers": "Casilleros",
+    "equipment_lockers_with_keys": "Casilleros con llaves",
+    "equipment_fiber_optic": "Fibra óptica",
+    "equipment_screens_monitors": "Pantallas / Monitores",
+    "equipment_wired_network": "Red con cable",
+    "equipment_television": "Televisión",
+    "equipment_heating": "Calefacción",
+    "equipment_copier": "Copiadora",
+    "equipment_parking": "Aparcamiento",
+    "equipment_game_room": "Sala de juegos",
+    "equipment_terrace": "Terraza",
+    "equipment_kitchen": "Cocina",
+    "equipment_printer": "Impresora",
+    "equipment_bike_parking": "Aparcamiento de bicicletas",
+    "equipment_meeting_rooms": "Salas de reuniones"
+    
+    
 }
 

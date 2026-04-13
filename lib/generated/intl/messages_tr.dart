@@ -131,6 +131,50 @@ class MessageLookup extends MessageLookupByLibrary {
       "Kullanıcı olmadan giriş yap",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("Ekipman"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage("Klima"),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "Bisiklet otoparkı",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("Dolaplar"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("Kopyalayıcı"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "Ergonomik koltuklar",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "Fiber optic",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage("Oyun odası"),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("Bahçe"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("Isıtma"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "Bireysel masa",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("Mutfak"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("Dolaplar"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "Anahtarlı dolaplar",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "Toplantı odaları",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("Otopark"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("Yazıcı"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "Özel ofis",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("Projektör"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("Tarayıcı"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "Ekranlar / Monitörler",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("Televizyon"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("Teras"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage(
+      "Whiteboards",
+    ),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "Kablolu ağ",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Hesap silinemedi. Tekrar deneyin",
     ),

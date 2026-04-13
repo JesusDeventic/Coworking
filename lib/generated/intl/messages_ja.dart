@@ -107,6 +107,42 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("メール"),
     "enterWithoutUser": MessageLookupByLibrary.simpleMessage("ユーザーなしで入る"),
     "equipment": MessageLookupByLibrary.simpleMessage("設備"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage("エアコン"),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage("自転車駐車場"),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("クローゼット"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("複写機"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "エゴノミック椅子",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "ファイバーオプティック",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage("ゲームルーム"),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("ガーデン"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("暖房"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "個室テーブル",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("キッチン"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("ロッカー"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "鍵付きロッカー",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage("会議室"),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("駐車場"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("プリンター"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "プライベートオフィス",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("プロジェクター"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("スキャナー"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "スクリーン/モニター",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("テレビ"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("テラス"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage("ホワイトボード"),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage("有線ネットワーク"),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "アカウントを削除できませんでした。再試行してください",
     ),

@@ -143,6 +143,54 @@ class MessageLookup extends MessageLookupByLibrary {
       "Se connecter sans utilisateur",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("Équipement"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage(
+      "Climatisation",
+    ),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "Parking vélo",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("Armoires"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("Copieur"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "Chaises ergonomiques",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "Fibre optique",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage(
+      "Salle de jeux",
+    ),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("Jardin"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("Chauffage"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "Tables individuelles",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("Cuisine"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("Casiers"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "Casiers avec clés",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "Salles de réunion",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("Parking"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("Imprimante"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "Bureau privé",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("Projecteur"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("Scanner"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "Écrans / Moniteurs",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("Télévision"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("Terrasse"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage(
+      "Tableaux blancs",
+    ),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "Réseau filaire",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Impossible de supprimer le compte. Réessayez",
     ),

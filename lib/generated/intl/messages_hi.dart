@@ -131,6 +131,52 @@ class MessageLookup extends MessageLookupByLibrary {
       "बिना उपयोगकर्ता के प्रवेश करें",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("सुविधाएँ"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage(
+      "एयर कंडीशनिंग",
+    ),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "साइकिल पार्किंग",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("कपड़ों के अंदर"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("कॉपी मशीन"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "एर्गोनॉमिक सीटें",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "फाइबर ऑप्टिक",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage("खेल कक्ष"),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("बाग"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("गर्मी"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "व्यक्तिगत टेबल",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("रसोई"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("लॉकर"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "कुंजी वाले लॉकर",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "मीटिंग कक्ष",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("पार्किंग"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("प्रिंटर"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "निजी कार्यालय",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("प्रोजेक्टर"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("स्कैनर"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "स्क्रीन / मॉनिटर",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("टेलीविजन"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("टेरेस"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage(
+      "व्हाइटबोर्ड",
+    ),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "तार वाला नेटवर्क",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "खाता नहीं हटाया जा सका। पुनः प्रयास करें",
     ),

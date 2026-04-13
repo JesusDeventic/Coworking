@@ -141,6 +141,50 @@ class MessageLookup extends MessageLookupByLibrary {
       "Entrar sense usuari",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("Equipament"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage(
+      "Aire condicionat",
+    ),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "Aparcament de bicicletes",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("Armaris"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("Copiadora"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "Cadires ergonòmiques",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "Fibra òptica",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage("Sala de jocs"),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("Jardí"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("Calefacció"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "Taules individuals",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("Cuina"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("Caselles"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "Caselles amb claus",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "Sales de reunions",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("Aparcament"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("Impressora"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "Oficina privada",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("Projector"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("Escàner"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "Pantalles / Monitors",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("Televisió"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("Terrassa"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage("Pissarres"),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "Xarxa amb cable",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "No s\'ha pogut eliminar el compte. Torna-ho a intentar.",
     ),

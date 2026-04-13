@@ -252,7 +252,31 @@
     "service_mail_reception": "Recepció de correu",
     "service_catering": "Catering",
     "service_administrative_management": "Gestió administrativa",
-    "service_security": "Seguretat 24h"
+    "service_security": "Seguretat 24h",
+    "equipment_air_conditioning": "Aire condicionat",
+    "equipment_private_office": "Oficina privada",
+    "equipment_garden": "Jardí",
+    "equipment_whiteboards": "Pissarres",
+    "equipment_ergonomic_chairs": "Cadires ergonòmiques",
+    "equipment_closets": "Armaris",
+    "equipment_scanner": "Escàner",
+    "equipment_individual_tables": "Taules individuals",
+    "equipment_projector": "Projector",
+    "equipment_lockers": "Caselles",
+    "equipment_lockers_with_keys": "Caselles amb claus",
+    "equipment_fiber_optic": "Fibra òptica",
+    "equipment_screens_monitors": "Pantalles / Monitors",
+    "equipment_wired_network": "Xarxa amb cable",
+    "equipment_television": "Televisió",
+    "equipment_heating": "Calefacció",
+    "equipment_copier": "Copiadora",
+    "equipment_parking": "Aparcament",
+    "equipment_game_room": "Sala de jocs",
+    "equipment_terrace": "Terrassa",
+    "equipment_kitchen": "Cuina",
+    "equipment_printer": "Impressora",
+    "equipment_bike_parking": "Aparcament de bicicletes",
+    "equipment_meeting_rooms": "Sales de reunions"
 }
 
 

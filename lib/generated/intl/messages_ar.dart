@@ -133,6 +133,52 @@ class MessageLookup extends MessageLookupByLibrary {
       "الدخول بدون مستخدم",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("التجهيزات"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage(
+      "التكييف",
+    ),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "موقف الدراجات",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("خزانات"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("ماكينة النسخ"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "كراسي إيرغونومية",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "الشبكة البصرية",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage("غرفة الألعاب"),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("حديقة"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("التدفئة"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "طاولات فردية",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("مطبخ"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("خزائن"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "خزائن مع مفاتيح",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "غرف الاجتماعات",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("موقف سيارات"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("طابعة"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "مكتب خاص",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("مُشغّل عرض"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("ماسح ضوئي"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "شاشات / شاشات",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("التلفاز"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("شرفة"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage(
+      "لوحات سوداء",
+    ),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "شبكة مُوصَّلة",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "تعذر حذف الحساب. حاول مرة أخرى",
     ),

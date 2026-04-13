@@ -139,6 +139,50 @@ class MessageLookup extends MessageLookupByLibrary {
       "Logga in utan användare",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("Utrustning"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage(
+      "Klimat",
+    ),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "Cykelparkering",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("Skåp"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("Kopiator"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "Ergonomiska stolar",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "Fiber optic",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage("Spelrum"),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("Trädgård"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("Värme"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "Individuella bord",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("Kök"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("Skåp"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "Skåp med nycklar",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage("Mötesrum"),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("Parkering"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("Skrivare"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "Privat kontor",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("Projektor"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("Skanner"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "Skärmar / Monitors",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("TV"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("Terrass"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage(
+      "Whiteboards",
+    ),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "Kabelanslutning",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Kunde inte ta bort kontot. Försök igen",
     ),

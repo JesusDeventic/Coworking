@@ -139,6 +139,52 @@ class MessageLookup extends MessageLookupByLibrary {
       "Masuk tanpa pengguna",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("Peralatan"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage("AC"),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "Parkir Sepeda",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("Lemari"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("Kopi"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "Kursi Ergonomis",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "Fiber Optik",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage(
+      "Ruang Bermain",
+    ),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("Taman"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("Pemanas"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "Meja Individual",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("Dapur"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("Loker"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "Loker dengan Kunci",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "Ruang Rapat",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("Parkir"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("Printer"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "Kantor Pribadi",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("Proyektor"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("Scanner"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "Layar / Monitor",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("Televisi"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("Terras"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage(
+      "Papan Tulis",
+    ),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "Jaringan Kabel",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Tidak dapat menghapus akun. Coba lagi",
     ),

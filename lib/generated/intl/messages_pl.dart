@@ -131,6 +131,52 @@ class MessageLookup extends MessageLookupByLibrary {
       "Zaloguj się bez użytkownika",
     ),
     "equipment": MessageLookupByLibrary.simpleMessage("Sprzęt"),
+    "equipment_air_conditioning": MessageLookupByLibrary.simpleMessage(
+      "Klimatyzacja",
+    ),
+    "equipment_bike_parking": MessageLookupByLibrary.simpleMessage(
+      "Parking rowerów",
+    ),
+    "equipment_closets": MessageLookupByLibrary.simpleMessage("Szafy"),
+    "equipment_copier": MessageLookupByLibrary.simpleMessage("Kopiarka"),
+    "equipment_ergonomic_chairs": MessageLookupByLibrary.simpleMessage(
+      "Krzesła ergonomiczne",
+    ),
+    "equipment_fiber_optic": MessageLookupByLibrary.simpleMessage(
+      "Fiber optic",
+    ),
+    "equipment_game_room": MessageLookupByLibrary.simpleMessage(
+      "Pokój do gier",
+    ),
+    "equipment_garden": MessageLookupByLibrary.simpleMessage("Ogród"),
+    "equipment_heating": MessageLookupByLibrary.simpleMessage("Ogrzewanie"),
+    "equipment_individual_tables": MessageLookupByLibrary.simpleMessage(
+      "Stoły indywidualne",
+    ),
+    "equipment_kitchen": MessageLookupByLibrary.simpleMessage("Kuchnia"),
+    "equipment_lockers": MessageLookupByLibrary.simpleMessage("Szafki"),
+    "equipment_lockers_with_keys": MessageLookupByLibrary.simpleMessage(
+      "Szafki z kluczami",
+    ),
+    "equipment_meeting_rooms": MessageLookupByLibrary.simpleMessage(
+      "Sale spotkań",
+    ),
+    "equipment_parking": MessageLookupByLibrary.simpleMessage("Parking"),
+    "equipment_printer": MessageLookupByLibrary.simpleMessage("Drukarka"),
+    "equipment_private_office": MessageLookupByLibrary.simpleMessage(
+      "Prywatny kancelaria",
+    ),
+    "equipment_projector": MessageLookupByLibrary.simpleMessage("Projektor"),
+    "equipment_scanner": MessageLookupByLibrary.simpleMessage("Skaner"),
+    "equipment_screens_monitors": MessageLookupByLibrary.simpleMessage(
+      "Ekrany / Monitory",
+    ),
+    "equipment_television": MessageLookupByLibrary.simpleMessage("Telewizja"),
+    "equipment_terrace": MessageLookupByLibrary.simpleMessage("Taras"),
+    "equipment_whiteboards": MessageLookupByLibrary.simpleMessage("Tablice"),
+    "equipment_wired_network": MessageLookupByLibrary.simpleMessage(
+      "Sieć przewodowa",
+    ),
     "errorAuthDeleteAccountFailed": MessageLookupByLibrary.simpleMessage(
       "Nie udało się usunąć konta. Spróbuj ponownie",
     ),

@@ -2193,6 +2193,236 @@ class S {
       args: [],
     );
   }
+
+  /// `Air conditioning`
+  String get equipment_air_conditioning {
+    return Intl.message(
+      'Air conditioning',
+      name: 'equipment_air_conditioning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Private office`
+  String get equipment_private_office {
+    return Intl.message(
+      'Private office',
+      name: 'equipment_private_office',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Garden`
+  String get equipment_garden {
+    return Intl.message('Garden', name: 'equipment_garden', desc: '', args: []);
+  }
+
+  /// `Whiteboards`
+  String get equipment_whiteboards {
+    return Intl.message(
+      'Whiteboards',
+      name: 'equipment_whiteboards',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ergonomic chairs`
+  String get equipment_ergonomic_chairs {
+    return Intl.message(
+      'Ergonomic chairs',
+      name: 'equipment_ergonomic_chairs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Closets`
+  String get equipment_closets {
+    return Intl.message(
+      'Closets',
+      name: 'equipment_closets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scanner`
+  String get equipment_scanner {
+    return Intl.message(
+      'Scanner',
+      name: 'equipment_scanner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Individual tables`
+  String get equipment_individual_tables {
+    return Intl.message(
+      'Individual tables',
+      name: 'equipment_individual_tables',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Projector`
+  String get equipment_projector {
+    return Intl.message(
+      'Projector',
+      name: 'equipment_projector',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lockers`
+  String get equipment_lockers {
+    return Intl.message(
+      'Lockers',
+      name: 'equipment_lockers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lockers with keys`
+  String get equipment_lockers_with_keys {
+    return Intl.message(
+      'Lockers with keys',
+      name: 'equipment_lockers_with_keys',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fiber optic`
+  String get equipment_fiber_optic {
+    return Intl.message(
+      'Fiber optic',
+      name: 'equipment_fiber_optic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Screens / Monitors`
+  String get equipment_screens_monitors {
+    return Intl.message(
+      'Screens / Monitors',
+      name: 'equipment_screens_monitors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wired network`
+  String get equipment_wired_network {
+    return Intl.message(
+      'Wired network',
+      name: 'equipment_wired_network',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Television`
+  String get equipment_television {
+    return Intl.message(
+      'Television',
+      name: 'equipment_television',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Heating`
+  String get equipment_heating {
+    return Intl.message(
+      'Heating',
+      name: 'equipment_heating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Copier`
+  String get equipment_copier {
+    return Intl.message('Copier', name: 'equipment_copier', desc: '', args: []);
+  }
+
+  /// `Parking`
+  String get equipment_parking {
+    return Intl.message(
+      'Parking',
+      name: 'equipment_parking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Game room`
+  String get equipment_game_room {
+    return Intl.message(
+      'Game room',
+      name: 'equipment_game_room',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terrace`
+  String get equipment_terrace {
+    return Intl.message(
+      'Terrace',
+      name: 'equipment_terrace',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kitchen`
+  String get equipment_kitchen {
+    return Intl.message(
+      'Kitchen',
+      name: 'equipment_kitchen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Printer`
+  String get equipment_printer {
+    return Intl.message(
+      'Printer',
+      name: 'equipment_printer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bike parking`
+  String get equipment_bike_parking {
+    return Intl.message(
+      'Bike parking',
+      name: 'equipment_bike_parking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Meeting rooms`
+  String get equipment_meeting_rooms {
+    return Intl.message(
+      'Meeting rooms',
+      name: 'equipment_meeting_rooms',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
