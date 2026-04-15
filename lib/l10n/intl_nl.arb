@@ -276,6 +276,7 @@
     "equipment_kitchen": "Keuken",
     "equipment_printer": "Printer",
     "equipment_bike_parking": "Fietsenparkeerplaats",
-    "equipment_meeting_rooms": "Vergaderkamers"
+    "equipment_meeting_rooms": "Vergaderkamers",
+    "tryAgain": "Opnieuw proberen"
 }
 

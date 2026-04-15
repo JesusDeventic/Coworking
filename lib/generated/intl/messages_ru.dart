@@ -569,6 +569,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Коворкинг в Валладолиде",
     ),
     "total": MessageLookupByLibrary.simpleMessage("Всего"),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("Попробуйте снова"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Аватар"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Описание"),
     "userEmail": MessageLookupByLibrary.simpleMessage("Электронная почта"),

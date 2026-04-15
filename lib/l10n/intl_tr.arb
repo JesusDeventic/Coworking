@@ -276,6 +276,7 @@
     "equipment_kitchen": "Mutfak",
     "equipment_printer": "Yazıcı",
     "equipment_bike_parking": "Bisiklet otoparkı",
-    "equipment_meeting_rooms": "Toplantı odaları"
+    "equipment_meeting_rooms": "Toplantı odaları",
+    "tryAgain": "Tekrar dene"
 }
 

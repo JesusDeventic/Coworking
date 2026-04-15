@@ -567,6 +567,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Coworking in Valladolid",
     ),
     "total": MessageLookupByLibrary.simpleMessage("Totaal"),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("Opnieuw proberen"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Beschrijving"),
     "userEmail": MessageLookupByLibrary.simpleMessage("E-mail"),

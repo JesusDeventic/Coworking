@@ -543,6 +543,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "वलाडोलिड में कोवर्किंग",
     ),
     "total": MessageLookupByLibrary.simpleMessage("कुल"),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("पुनः प्रयास करें"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("अवतार"),
     "userDescription": MessageLookupByLibrary.simpleMessage("विवरण"),
     "userEmail": MessageLookupByLibrary.simpleMessage("ईमेल"),

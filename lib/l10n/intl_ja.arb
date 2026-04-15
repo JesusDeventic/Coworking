@@ -276,6 +276,7 @@
     "equipment_kitchen": "キッチン",
     "equipment_printer": "プリンター",
     "equipment_bike_parking": "自転車駐車場",
-    "equipment_meeting_rooms": "会議室"
+    "equipment_meeting_rooms": "会議室",
+    "tryAgain": "再試行"
 }
 

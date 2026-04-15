@@ -531,6 +531,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "مساحات العمل المشتركة في بلد الوليد",
     ),
     "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("الصورة الرمزية"),
     "userDescription": MessageLookupByLibrary.simpleMessage("الوصف"),
     "userEmail": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),

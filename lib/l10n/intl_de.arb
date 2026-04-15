@@ -276,6 +276,7 @@
     "equipment_kitchen": "Küche",
     "equipment_printer": "Drucker",
     "equipment_bike_parking": "Fahrradparkplatz",
-    "equipment_meeting_rooms": "Besprechungsräume"
+    "equipment_meeting_rooms": "Besprechungsräume",
+    "tryAgain": "Erneut versuchen"
 }
 

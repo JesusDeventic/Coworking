@@ -571,6 +571,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Коворкінг у Валладоліді",
     ),
     "total": MessageLookupByLibrary.simpleMessage("Всього"),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("Спробуйте знову"),
     "userAvatar": MessageLookupByLibrary.simpleMessage("Аватар"),
     "userDescription": MessageLookupByLibrary.simpleMessage("Опис"),
     "userEmail": MessageLookupByLibrary.simpleMessage("Електронна пошта"),
