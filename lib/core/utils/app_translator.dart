@@ -66,4 +66,5 @@ class AppTranslator {
     final result = equipment[key] ?? key;
     return result;
   }
+
 }

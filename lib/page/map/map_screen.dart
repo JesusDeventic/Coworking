@@ -476,6 +476,10 @@ class _MapScreenState extends State<MapScreen> {
             right: 15,
             child: Card(
               elevation: 7,
+              clipBehavior: Clip.antiAlias, 
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize
                     .min, // Hace que la tarjeta solo crezca lo necesario
