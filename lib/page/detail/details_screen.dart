@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:vacoworking/core/utils/app_translator.dart';
 import 'package:vacoworking/generated/l10n.dart';
 import 'package:vacoworking/providers/language_provider.dart';
+import 'package:vacoworking/widget/components_widgets.dart';
 import '../../model/coworking.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -80,55 +81,68 @@ class DetailsScreen extends StatelessWidget {
 
                       Text(
                         S.current.services,
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Wrap(
                         spacing: 8,
                         children: coworking.services
-                            .map((s) => Chip(
-                                  label: Text(
-                                    AppTranslator.translateService(context, s),
-                                  ),
-                                ))
+                            .map(
+                              (s) => Chip(
+                                label: Text(
+                                  AppTranslator.translateService(context, s),
+                                ),
+                              ),
+                            )
                             .toList(),
                       ),
                       const SizedBox(height: 10),
                       Text(
                         S.current.equipment,
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       const SizedBox(height: 10),
                       Wrap(
                         spacing: 8,
                         runSpacing: 8,
                         children: coworking.equipment
-                            .map((e) => Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12,
-                                    vertical: 6,
+                            .map(
+                              (e) => Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 6,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.indigo.withValues(alpha: 0.05),
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(
+                                    color: Colors.indigo.withValues(alpha: 0.2),
                                   ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.indigo.withValues(alpha: 0.05),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                      color: Colors.indigo.withValues(alpha: 0.2),
-                                    ),
+                                ),
+                                child: Text(
+                                  AppTranslator.translateEquipment(context, e),
+                                  style: const TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.indigo,
                                   ),
-                                  child: Text(
-                                    AppTranslator.translateEquipment(context, e),
-                                    style: const TextStyle(
-                                      fontSize: 13,
-                                      color: Colors.indigo,
-                                    ),
-                                  ),
-                                ))
+                                ),
+                              ),
+                            )
                             .toList(),
                       ),
 
                       const SizedBox(height: 20),
                       Text(
                         S.current.availableRooms,
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       ...coworking.rooms.map(
                         (room) => ListTile(
@@ -165,7 +179,10 @@ class DetailsScreen extends StatelessWidget {
                         },
                       ),
                       ListTile(
-                        leading: const Icon(Icons.language, color: Colors.indigo),
+                        leading: const Icon(
+                          Icons.language,
+                          color: Colors.indigo,
+                        ),
                         title: Text(
                           coworking.website,
                           style: const TextStyle(

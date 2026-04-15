@@ -254,10 +254,15 @@ class _MapScreenState extends State<MapScreen> {
       });
     } catch (e) {
       setState(() {
-        errorMessage = '${S.current.dialogErrorServerConnection}: $e';
         isLoading = false;
         filteredCoworkings = List.from(allCoworkings);
       });
+
+      // Mensaje de error de búsqueda
+      showCustomSnackBar(
+        '${S.current.dialogErrorServerConnection}: $e',
+        type: -1,
+      );
     }
   }
 
@@ -393,11 +398,7 @@ class _MapScreenState extends State<MapScreen> {
             const Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircularProgressIndicator(),
-                  SizedBox(height: 16),
-                  Text('Cargando espacios de coworking...'),
-                ],
+                children: [CircularProgressIndicator(), SizedBox(height: 16)],
               ),
             )
           else if (errorMessage != null && allCoworkings.isEmpty)
@@ -408,7 +409,7 @@ class _MapScreenState extends State<MapScreen> {
                   Icon(Icons.error_outline, size: 64, color: Colors.red),
                   const SizedBox(height: 16),
                   Text(
-                    S.of(context).dialogErrorServerConnection,
+                    S.current.dialogErrorServerConnection,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(height: 8),
@@ -522,7 +523,6 @@ class _MapScreenState extends State<MapScreen> {
                             child: CircularProgressIndicator(strokeWidth: 2),
                           ),
                           SizedBox(width: 8),
-                          Text('Buscando...'),
                         ],
                       ),
                     ),
@@ -568,37 +568,31 @@ class _MapScreenState extends State<MapScreen> {
                                 matchIcon = Icons.group;
                                 matchColor = Colors.teal;
                                 matchText = bestMatch.matchText;
-                                matchDetail = 'Capacidad';
                                 break;
                               case 'name':
                                 matchIcon = Icons.business;
                                 matchColor = Colors.blue;
                                 matchText = bestMatch.matchText;
-                                matchDetail = 'Nombre';
                                 break;
                               case 'service':
                                 matchIcon = Icons.room_service;
                                 matchColor = Colors.green;
                                 matchText = bestMatch.matchText;
-                                matchDetail = 'Servicio';
                                 break;
                               case 'equipment':
                                 matchIcon = Icons.computer;
                                 matchColor = Colors.orange;
                                 matchText = bestMatch.matchText;
-                                matchDetail = 'Equipamiento';
                                 break;
                               case 'room':
                                 matchIcon = Icons.meeting_room;
                                 matchColor = Colors.purple;
                                 matchText = bestMatch.matchText;
-                                matchDetail = 'Sala';
                                 break;
                               case 'address':
                                 matchIcon = Icons.location_on;
                                 matchColor = Colors.red;
                                 matchText = bestMatch.matchText;
-                                matchDetail = 'Dirección';
                                 break;
                             }
                           }
@@ -886,13 +880,21 @@ class _MapScreenState extends State<MapScreen> {
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.pop(context);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  DetailsScreen(coworking: coworking),
-                            ),
-                          );
+
+                          try {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailsScreen(coworking: coworking),
+                              ),
+                            );
+                          } catch (e) {
+                            showCustomSnackBar(
+                              S.current.dialogErrorServerConnection,
+                              type: -1,
+                            );
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue,
