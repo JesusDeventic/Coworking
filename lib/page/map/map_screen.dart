@@ -209,19 +209,13 @@ class _MapScreenState extends State<MapScreen> {
           errorMessage = "";
           isLoading = false;
         });
-        showCustomSnackBar(
-          result['message'] as String? ?? 'Error al cargar los datos', 
-          type: -1,
-        );
+        showCustomSnackBar(S.current.errorAuthGeneric, type: -1);
       }
     } catch (e) {
       setState(() {
         isLoading = false;
       });
-      showCustomSnackBar(
-      'No se pudo conectar con el servidor: $e',
-      type: -1
-    );
+      showCustomSnackBar("${S.current.errorAuthGeneric} $e", type: -1);
     }
   }
 
@@ -260,7 +254,7 @@ class _MapScreenState extends State<MapScreen> {
       });
     } catch (e) {
       setState(() {
-        errorMessage = 'Error de conexión: $e';
+        errorMessage = '${S.current.dialogErrorServerConnection}: $e';
         isLoading = false;
         filteredCoworkings = List.from(allCoworkings);
       });
@@ -387,7 +381,7 @@ class _MapScreenState extends State<MapScreen> {
             IconButton(
               icon: const Icon(Icons.refresh),
               onPressed: _loadCoworkings,
-              tooltip: 'Reintentar',
+              tooltip: S.current.tryAgain,
             ),
         ],
       ),
@@ -414,7 +408,7 @@ class _MapScreenState extends State<MapScreen> {
                   Icon(Icons.error_outline, size: 64, color: Colors.red),
                   const SizedBox(height: 16),
                   Text(
-                    'Error al cargar los datos',
+                    S.of(context).dialogErrorServerConnection,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(height: 8),
@@ -422,7 +416,7 @@ class _MapScreenState extends State<MapScreen> {
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: _loadCoworkings,
-                    child: const Text('Reintentar'),
+                    child: Text(S.current.tryAgain),
                   ),
                 ],
               ),
@@ -476,7 +470,7 @@ class _MapScreenState extends State<MapScreen> {
             right: 15,
             child: Card(
               elevation: 7,
-              clipBehavior: Clip.antiAlias, 
+              clipBehavior: Clip.antiAlias,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
