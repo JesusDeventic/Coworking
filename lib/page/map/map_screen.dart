@@ -7,6 +7,7 @@ import 'package:flutter_map/flutter_map.dart'; // El paquete del mapa
 import 'package:latlong2/latlong.dart'; // Para manejar coordenadas
 import 'package:vacoworking/model/coworking.dart'; //Modelo importado
 import 'package:vacoworking/api/vacoworking_api.dart';
+import 'package:vacoworking/widget/components_widgets.dart';
 
 // Clase para representar coincidencias de búsqueda
 class SearchResult {
@@ -205,16 +206,22 @@ class _MapScreenState extends State<MapScreen> {
         });
       } else {
         setState(() {
-          errorMessage =
-              result['message'] as String? ?? 'Error al cargar los datos';
+          errorMessage = "";
           isLoading = false;
         });
+        showCustomSnackBar(
+          result['message'] as String? ?? 'Error al cargar los datos', 
+          type: -1,
+        );
       }
     } catch (e) {
       setState(() {
-        errorMessage = 'Error de conexión: $e';
         isLoading = false;
       });
+      showCustomSnackBar(
+      'No se pudo conectar con el servidor: $e',
+      type: -1
+    );
     }
   }
 
@@ -690,7 +697,6 @@ class _MapScreenState extends State<MapScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                
                 // Header con imagen y nombre
                 Row(
                   children: [
@@ -825,26 +831,33 @@ class _MapScreenState extends State<MapScreen> {
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
-                    children: coworking.services.take(6).map((service) => AppTranslator.translateService(context, service)).map((service) {
-                      return Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 6,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.green.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Text(
-                          service,
-                          style: const TextStyle(
-                            fontSize: 12,
-                            color: Colors.green,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      );
-                    }).toList(),
+                    children: coworking.services
+                        .take(6)
+                        .map(
+                          (service) =>
+                              AppTranslator.translateService(context, service),
+                        )
+                        .map((service) {
+                          return Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.green.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              service,
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.green,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          );
+                        })
+                        .toList(),
                   ),
                   if (coworking.services.length > 6)
                     Text(
