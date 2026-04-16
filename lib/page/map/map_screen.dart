@@ -32,6 +32,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
+  final MapController _mapController = MapController(); // Para que el tamaño del mapa se ajuste automaticamente a la cantidad de coworkings que haya, necesito colocar este controller
   List<Coworking> filteredCoworkings = []; // Lista que se muestra actualmente
   List<Coworking> allCoworkings = []; // Todos los coworkings del backend
   bool isLoading = true;
@@ -203,6 +204,9 @@ class _MapScreenState extends State<MapScreen> {
           allCoworkings = coworkings;
           filteredCoworkings = List.from(coworkings);
           isLoading = false;
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _fitMapToMarkers();
+          });
         });
       } else {
         setState(() {
@@ -218,6 +222,7 @@ class _MapScreenState extends State<MapScreen> {
       showCustomSnackBar("${S.current.errorAuthGeneric} $e", type: -1);
     }
   }
+  
 
   // Función de búsqueda con filtrado local completo
   Future<void> _searchResults(String query) async {
@@ -252,6 +257,7 @@ class _MapScreenState extends State<MapScreen> {
         filteredCoworkings = filtered;
         isLoading = false;
       });
+      _fitMapToMarkers(); //ajusta el mapa segun los coworking filtrados en la busqueda.
     } catch (e) {
       setState(() {
         isLoading = false;
@@ -428,6 +434,7 @@ class _MapScreenState extends State<MapScreen> {
                 width: MediaQuery.of(context).size.width, //ocupa todo el ancho
                 height: MediaQuery.of(context).size.height, //ocupa todo el alto
                 child: FlutterMap(
+                  mapController: _mapController, //controller para ajustar tamaño de mapa segun cantidad de coworkings
                   options: MapOptions(
                     // 1. Centro el mapa en Valladolid
                     initialCenter: const LatLng(41.6523, -4.7245),
@@ -923,4 +930,22 @@ class _MapScreenState extends State<MapScreen> {
       ),
     );
   }
+
+  //Funcion para ajustar automaticamente el mapa segun cantidad de coworkings
+  void _fitMapToMarkers() {
+  if (filteredCoworkings.isEmpty) return;
+
+  // Calculo los límites (norte, sur, este, oeste) de todos los puntos
+  final bounds = LatLngBounds.fromPoints(
+    filteredCoworkings.map((c) => LatLng(c.latitude, c.longitude)).toList(),
+  );
+
+  // Le digo al controlador que ajuste la cámara a esos límites
+  _mapController.fitCamera(
+    CameraFit.bounds(
+      bounds: bounds,
+      padding: const EdgeInsets.all(50.0), // Margen para que los iconos no toquen los bordes
+    ),
+  );
+}
 }
