@@ -390,7 +390,8 @@ class _MapScreenState extends State<MapScreen> {
             ),
         ],
       ),
-      body: Stack(
+      body: SafeArea(
+      child: Stack(
         //uso stack para poner el buscador encima del mapa
         children: [
           // Mostrar loading o error
@@ -665,6 +666,7 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ],
       ),
+      ),
     );
   }
 
@@ -673,6 +675,7 @@ class _MapScreenState extends State<MapScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
+      useSafeArea: true,
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
         decoration: const BoxDecoration(
@@ -684,7 +687,12 @@ class _MapScreenState extends State<MapScreen> {
         ),
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.of(context).padding.bottom + 10, // Altura del sistema + margen extra
+              left: 16,
+              right: 16,
+              top: 10,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
