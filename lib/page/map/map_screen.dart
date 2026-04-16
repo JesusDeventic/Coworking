@@ -432,6 +432,9 @@ class _MapScreenState extends State<MapScreen> {
                     // 1. Centro el mapa en Valladolid
                     initialCenter: const LatLng(41.6523, -4.7245),
                     initialZoom: 14.0,
+                    interactionOptions: const InteractionOptions(
+                      flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
+                    ),
                   ),
                   children: [
                     // 2. La capa del mapa (el dibujo de las calles)
