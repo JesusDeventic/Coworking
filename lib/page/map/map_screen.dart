@@ -564,48 +564,33 @@ class _MapScreenState extends State<MapScreen> {
                                 : null;
 
                             // Determinar icono y color según el tipo de coincidencia
-                            IconData matchIcon = Icons.location_on;
-                            Color matchColor = Colors.red;
+                            Color matchColor = Colors.blueGrey;
                             String matchText = coworking.address;
                             String matchDetail = '';
 
                             if (bestMatch != null) {
                               switch (bestMatch.matchType) {
                                 case 'capacity':
-                                  matchIcon = Icons.group;
-                                  matchColor = Colors.teal;
                                   matchText = bestMatch.matchText;
                                   break;
                                 case 'name':
-                                  matchIcon = Icons.business;
-                                  matchColor = Colors.blue;
-                                  matchText = bestMatch.matchText;
                                   break;
                                 case 'service':
-                                  matchIcon = Icons.room_service;
-                                  matchColor = Colors.green;
                                   matchText = bestMatch.matchText;
                                   break;
                                 case 'equipment':
-                                  matchIcon = Icons.computer;
-                                  matchColor = Colors.orange;
                                   matchText = bestMatch.matchText;
                                   break;
                                 case 'room':
-                                  matchIcon = Icons.meeting_room;
-                                  matchColor = Colors.purple;
                                   matchText = bestMatch.matchText;
                                   break;
                                 case 'address':
-                                  matchIcon = Icons.location_on;
-                                  matchColor = Colors.red;
-                                  matchText = bestMatch.matchText;
                                   break;
                               }
                             }
 
                             return ListTile(
-                              leading: Icon(matchIcon, color: matchColor),
+                              leading: Icon(Icons.location_on, color: matchColor),
                               title: Text(
                                 coworking.name,
                                 style: const TextStyle(
