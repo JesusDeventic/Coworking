@@ -32,7 +32,8 @@ class DetailsScreen extends StatelessWidget {
       builder: (context, languageProvider, child) {
         return Scaffold(
           appBar: AppBar(title: Text(coworking.name)),
-          body: SingleChildScrollView(
+          body: 
+          SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

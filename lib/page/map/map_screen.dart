@@ -482,6 +482,7 @@ class _MapScreenState extends State<MapScreen> {
                 children: [
                   TextField(
                     controller: _controller,
+                    onTapOutside: (_) => FocusScope.of(context).unfocus(),
                     decoration: InputDecoration(
                       hintText: S.current.searchByKeyWord,
                       prefixIcon: isLoading && _controller.text.isNotEmpty
