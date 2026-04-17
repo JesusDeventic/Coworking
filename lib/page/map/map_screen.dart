@@ -442,7 +442,11 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
                     initialCenter: const LatLng(41.6523, -4.7245),
                     initialZoom: 14.0,
                     interactionOptions: const InteractionOptions(
-                      flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
+                      //Rotacion de mapa desabilitada
+                      flags:
+                          InteractiveFlag.all &
+                          ~InteractiveFlag
+                              .rotate, //habilita todas las interacciones except rotacion
                     ),
                   ),
                   children: [
@@ -461,16 +465,64 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
                             coworking.latitude,
                             coworking.longitude,
                           ),
-                          width: 40,
-                          height: 40,
+                          width: 45,
+                          height: 45,
                           child: GestureDetector(
                             onTap: () {
                               _showCoworkingSummary(context, coworking);
                             },
-                            child: const Icon(
-                              Icons.location_on,
-                              size: 40,
-                              color: Colors.red,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withAlpha(50),
+                                    blurRadius: 6,
+                                    offset: const Offset(0, 3),
+                                  ),
+                                ],
+                                border: Border.all(
+                                  color: Theme.of(context).primaryColor,
+                                  width: 3,
+                                ), // Color borde
+                              ),
+                              child: ClipOval(
+                                child: coworking.featuredThumb.isNotEmpty
+                                    ? Image.network(
+                                        coworking.featuredThumb,
+                                        fit: BoxFit.cover,
+                                        // Mientras carga la imagen real
+                                        loadingBuilder:
+                                            (context, child, loadingProgress) {
+                                              if (loadingProgress == null)
+                                                return child;
+                                              return const Center(
+                                                child: SizedBox( 
+                                                  width: 15,
+                                                  height: 15,
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                        strokeWidth: 2,
+                                                      ),
+                                                ),
+                                              );
+                                            },
+                                        // Si falla la carga de la imagen del backend
+                                        errorBuilder:
+                                            (context, error, stackTrace) =>
+                                                const Icon(
+                                                  Icons.business,
+                                                  size: 25,
+                                                  color: Colors.blue,
+                                                ),
+                                      )
+                                    : const Icon(
+                                        Icons.business,
+                                        size: 25,
+                                        color: Colors.grey,
+                                      ),
+                              ),
                             ),
                           ),
                         );
