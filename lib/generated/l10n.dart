@@ -2428,6 +2428,16 @@ class S {
   String get tryAgain {
     return Intl.message('Try again', name: 'tryAgain', desc: '', args: []);
   }
+
+  /// `Map`
+  String get mapTab {
+    return Intl.message('Map', name: 'mapTab', desc: '', args: []);
+  }
+
+  /// `List`
+  String get listTab {
+    return Intl.message('List', name: 'listTab', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

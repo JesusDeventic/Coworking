@@ -307,10 +307,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "languageUkrainian": MessageLookupByLibrary.simpleMessage("Ukrainian"),
     "lastAccessChipPrefix": MessageLookupByLibrary.simpleMessage("Last seen"),
     "legalNoticeLabel": MessageLookupByLibrary.simpleMessage("Legal notice"),
+    "listTab": MessageLookupByLibrary.simpleMessage("List"),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
     "loginCountdownMessage": m0,
     "logout": MessageLookupByLibrary.simpleMessage("Log out"),
     "mainRoom": MessageLookupByLibrary.simpleMessage("Main room"),
+    "mapTab": MessageLookupByLibrary.simpleMessage("Map"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage("Mark all as read"),
     "menuBarSectionSocial": MessageLookupByLibrary.simpleMessage(
       "Social media",

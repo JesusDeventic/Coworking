@@ -382,351 +382,362 @@ class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Text(S.current.titleAppBar),
-        ),
-        actions: [
-          if (errorMessage != null)
-            IconButton(
-              icon: const Icon(Icons.refresh),
-              onPressed: _loadCoworkings,
-              tooltip: S.current.tryAgain,
-            ),
-        ],
-      ),
-      body: SafeArea(
-        child: Stack(
-          //uso stack para poner el buscador encima del mapa
-          children: [
-            // Mostrar loading o error
-            if (isLoading && allCoworkings.isEmpty)
-              const Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [CircularProgressIndicator(), SizedBox(height: 16)],
-                ),
-              )
-            else if (errorMessage != null && allCoworkings.isEmpty)
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.error_outline, size: 64, color: Colors.red),
-                    const SizedBox(height: 16),
-                    Text(
-                      S.current.dialogErrorServerConnection,
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(errorMessage!),
-                    const SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: _loadCoworkings,
-                      child: Text(S.current.tryAgain),
-                    ),
-                  ],
-                ),
-              )
-            else
-              SizedBox(
-                width: MediaQuery.of(context).size.width, //ocupa todo el ancho
-                height: MediaQuery.of(context).size.height, //ocupa todo el alto
-                child: FlutterMap(
-                  mapController:
-                      _mapController, //controller para ajustar tamaño de mapa segun cantidad de coworkings
-                  options: MapOptions(
-                    // 1. Centro el mapa en Valladolid
-                    initialCenter: const LatLng(41.6523, -4.7245),
-                    initialZoom: 14.0,
-                    interactionOptions: const InteractionOptions(
-                      //Rotacion de mapa desabilitada
-                      flags:
-                          InteractiveFlag.all &
-                          ~InteractiveFlag
-                              .rotate, //habilita todas las interacciones except rotacion
-                    ),
-                  ),
-                  children: [
-                    // 2. La capa del mapa (el dibujo de las calles)
-                    TileLayer(
-                      urlTemplate:
-                          'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                      userAgentPackageName: 'com.deventic.app_coworking',
-                    ),
-                    // 3. La capa de los marcadores, recorro la lista para crear los marcadores
-                    MarkerLayer(
-                      markers: filteredCoworkings.map((coworking) {
-                        //uso la lista filtrada
-                        return Marker(
-                          point: LatLng(
-                            coworking.latitude,
-                            coworking.longitude,
-                          ),
-                          width: 45,
-                          height: 45,
-                          child: GestureDetector(
-                            onTap: () {
-                              _showCoworkingSummary(context, coworking);
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                shape: BoxShape.circle,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withAlpha(50),
-                                    blurRadius: 6,
-                                    offset: const Offset(0, 3),
-                                  ),
-                                ],
-                                border: Border.all(
-                                  color: Theme.of(context).primaryColor,
-                                  width: 3,
-                                ), // Color borde
-                              ),
-                              child: ClipOval(
-                                child: coworking.featuredThumb.isNotEmpty
-                                    ? Image.network(
-                                        coworking.featuredThumb,
-                                        fit: BoxFit.cover,
-                                        // Mientras carga la imagen real
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                              if (loadingProgress == null)
-                                                return child;
-                                              return const Center(
-                                                child: SizedBox( 
-                                                  width: 15,
-                                                  height: 15,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                        strokeWidth: 2,
-                                                      ),
-                                                ),
-                                              );
-                                            },
-                                        // Si falla la carga de la imagen del backend
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                                const Icon(
-                                                  Icons.business,
-                                                  size: 25,
-                                                  color: Colors.blue,
-                                                ),
-                                      )
-                                    : const Icon(
-                                        Icons.business,
-                                        size: 25,
-                                        color: Colors.grey,
-                                      ),
-                              ),
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ],
-                ),
+    return DefaultTabController(
+      length: 2, //numero de pestañas: Mapa y Lista
+      child: Scaffold(
+        appBar: AppBar(
+          title: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Text(S.current.titleAppBar),
+          ),
+          bottom: TabBar(
+            indicatorColor: Theme.of(context).secondaryHeaderColor, //color de la
+            indicatorWeight: 4,
+            tabs: [
+              Tab(icon: Icon(Icons.map_sharp), text: S.current.mapTab),
+              Tab(icon: Icon(Icons.list), text: S.current.listTab),
+            ],
+          ),
+          actions: [
+            if (errorMessage != null)
+              IconButton(
+                icon: const Icon(Icons.refresh),
+                onPressed: _loadCoworkings,
+                tooltip: S.current.tryAgain,
               ),
-
-            // --- BARRA DE BÚSQUEDA ---
-            Positioned(
-              top: 10,
-              left: 15,
-              right: 15,
-              child: Card(
-                elevation: 7,
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize
-                      .min, // Hace que la tarjeta solo crezca lo necesario
-                  children: [
-                    TextField(
-                      controller: _controller,
-                      onTapOutside: (_) => FocusScope.of(context).unfocus(),
-                      decoration: InputDecoration(
-                        hintText: S.current.searchByKeyWord,
-                        prefixIcon: isLoading && _controller.text.isNotEmpty
-                            ? const SizedBox(
-                                width: 20,
-                                height: 20,
-                                child: Padding(
-                                  padding: EdgeInsets.all(12.0),
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                  ),
-                                ),
-                              )
-                            : const Icon(Icons.search),
-                        border: InputBorder.none,
-                        contentPadding: const EdgeInsets.all(15),
-                        suffixIcon: IconButton(
-                          icon: const Icon(Icons.clear),
-                          onPressed: () {
-                            _controller.clear();
-                            _searchResults(''); // Restaura la lista al borrar
-                            FocusScope.of(context).unfocus();
-                          },
-                        ),
+          ],
+        ),
+        body: SafeArea(
+          child: Stack(
+            //uso stack para poner el buscador encima del mapa
+            children: [
+              // Mostrar loading o error
+              if (isLoading && allCoworkings.isEmpty)
+                const Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [CircularProgressIndicator(), SizedBox(height: 16)],
+                  ),
+                )
+              else if (errorMessage != null && allCoworkings.isEmpty)
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.error_outline, size: 64, color: Colors.red),
+                      const SizedBox(height: 16),
+                      Text(
+                        S.current.dialogErrorServerConnection,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
-                      // onChanged: (query) => _searchResults(query), // Ahora manejado por debounce
+                      const SizedBox(height: 8),
+                      Text(errorMessage!),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: _loadCoworkings,
+                        child: Text(S.current.tryAgain),
+                      ),
+                    ],
+                  ),
+                )
+              else
+                SizedBox(
+                  width: MediaQuery.of(context).size.width, //ocupa todo el ancho
+                  height: MediaQuery.of(context).size.height, //ocupa todo el alto
+                  child: FlutterMap(
+                    mapController:
+                        _mapController, //controller para ajustar tamaño de mapa segun cantidad de coworkings
+                    options: MapOptions(
+                      // 1. Centro el mapa en Valladolid
+                      initialCenter: const LatLng(41.6523, -4.7245),
+                      initialZoom: 14.0,
+                      interactionOptions: const InteractionOptions(
+                        //Rotacion de mapa desabilitada
+                        flags:
+                            InteractiveFlag.all &
+                            ~InteractiveFlag
+                                .rotate, //habilita todas las interacciones except rotacion
+                      ),
                     ),
-
-                    // Indicador de carga durante búsqueda
-                    if (isLoading &&
-                        _controller.text.isNotEmpty &&
-                        allCoworkings.isNotEmpty)
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 16,
-                              height: 16,
-                              child: CircularProgressIndicator(strokeWidth: 2),
-                            ),
-                            SizedBox(width: 8),
-                          ],
-                        ),
+                    children: [
+                      // 2. La capa del mapa (el dibujo de las calles)
+                      TileLayer(
+                        urlTemplate:
+                            'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                        userAgentPackageName: 'com.deventic.app_coworking',
                       ),
-
-                    // Solo aparece si hay texto y si hay resultados
-                    if (_controller.text.isNotEmpty &&
-                        filteredCoworkings.isNotEmpty &&
-                        !isLoading)
-                      Container(
-                        constraints: const BoxConstraints(
-                          maxHeight: 300,
-                        ), // Límite de altura del desplegable
-                        decoration: const BoxDecoration(
-                          border: Border(
-                            top: BorderSide(color: Colors.black12),
-                          ), // Una rayita separadora
-                        ),
-                        child: ListView.builder(
-                          shrinkWrap:
-                              true, // Para que no ocupe toda la pantalla
-                          itemCount: filteredCoworkings.length,
-                          itemBuilder: (context, index) {
-                            final coworking = filteredCoworkings[index];
-                            final query = _controller.text.toLowerCase();
-
-                            // Obtener coincidencias para este coworking
-                            final matches = _getMatchesForCoworking(
-                              coworking,
-                              query,
-                            );
-                            final bestMatch = matches.isNotEmpty
-                                ? matches.first
-                                : null;
-
-                            // Determinar icono y color según el tipo de coincidencia
-                            Color matchColor = Colors.blueGrey;
-                            String matchText = coworking.address;
-                            String matchDetail = '';
-
-                            if (bestMatch != null) {
-                              switch (bestMatch.matchType) {
-                                case 'capacity':
-                                  matchText = bestMatch.matchText;
-                                  break;
-                                case 'name':
-                                  break;
-                                case 'service':
-                                  matchText = bestMatch.matchText;
-                                  break;
-                                case 'equipment':
-                                  matchText = bestMatch.matchText;
-                                  break;
-                                case 'room':
-                                  matchText = bestMatch.matchText;
-                                  break;
-                                case 'address':
-                                  break;
-                              }
-                            }
-
-                            return ListTile(
-                              leading: Icon(
-                                Icons.location_on,
-                                color: matchColor,
-                              ),
-                              title: Text(
-                                coworking.name,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              subtitle: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    matchText,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      color: matchColor,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  if (matchDetail.isNotEmpty)
-                                    Text(
-                                      matchDetail,
-                                      style: TextStyle(
-                                        color: Colors.grey[600],
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                ],
-                              ),
-                              trailing: matchDetail.isNotEmpty
-                                  ? Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 8,
-                                        vertical: 4,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: matchColor.withValues(
-                                          alpha: 0.1,
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: Text(
-                                        matchDetail,
-                                        style: TextStyle(
-                                          color: matchColor,
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    )
-                                  : null,
+                      // 3. La capa de los marcadores, recorro la lista para crear los marcadores
+                      MarkerLayer(
+                        markers: filteredCoworkings.map((coworking) {
+                          //uso la lista filtrada
+                          return Marker(
+                            point: LatLng(
+                              coworking.latitude,
+                              coworking.longitude,
+                            ),
+                            width: 45,
+                            height: 45,
+                            child: GestureDetector(
                               onTap: () {
-                                // 1. Limpiar el buscador
-                                _controller.clear();
-                                _searchResults(
-                                  '',
-                                ); // Restaura la lista completa
-
-                                // 2. Mostrar directamente el modal completo
                                 _showCoworkingSummary(context, coworking);
                               },
-                            );
-                          },
-                        ),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withAlpha(50),
+                                      blurRadius: 6,
+                                      offset: const Offset(0, 3),
+                                    ),
+                                  ],
+                                  border: Border.all(
+                                    color: Theme.of(context).primaryColor,
+                                    width: 3,
+                                  ), // Color borde
+                                ),
+                                child: ClipOval(
+                                  child: coworking.featuredThumb.isNotEmpty
+                                      ? Image.network(
+                                          coworking.featuredThumb,
+                                          fit: BoxFit.cover,
+                                          // Mientras carga la imagen real
+                                          loadingBuilder:
+                                              (context, child, loadingProgress) {
+                                                if (loadingProgress == null)
+                                                  return child;
+                                                return const Center(
+                                                  child: SizedBox( 
+                                                    width: 15,
+                                                    height: 15,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                          strokeWidth: 2,
+                                                        ),
+                                                  ),
+                                                );
+                                              },
+                                          // Si falla la carga de la imagen del backend
+                                          errorBuilder:
+                                              (context, error, stackTrace) =>
+                                                  const Icon(
+                                                    Icons.business,
+                                                    size: 25,
+                                                    color: Colors.blue,
+                                                  ),
+                                        )
+                                      : const Icon(
+                                          Icons.business,
+                                          size: 25,
+                                          color: Colors.grey,
+                                        ),
+                                ),
+                              ),
+                            ),
+                          );
+                        }).toList(),
                       ),
-                  ],
+                    ],
+                  ),
+                ),
+      
+              // --- BARRA DE BÚSQUEDA ---
+              Positioned(
+                top: 10,
+                left: 15,
+                right: 15,
+                child: Card(
+                  elevation: 7,
+                  clipBehavior: Clip.antiAlias,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize
+                        .min, // Hace que la tarjeta solo crezca lo necesario
+                    children: [
+                      TextField(
+                        controller: _controller,
+                        onTapOutside: (_) => FocusScope.of(context).unfocus(),
+                        decoration: InputDecoration(
+                          hintText: S.current.searchByKeyWord,
+                          prefixIcon: isLoading && _controller.text.isNotEmpty
+                              ? const SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(12.0),
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                    ),
+                                  ),
+                                )
+                              : const Icon(Icons.search),
+                          border: InputBorder.none,
+                          contentPadding: const EdgeInsets.all(15),
+                          suffixIcon: IconButton(
+                            icon: const Icon(Icons.clear),
+                            onPressed: () {
+                              _controller.clear();
+                              _searchResults(''); // Restaura la lista al borrar
+                              FocusScope.of(context).unfocus();
+                            },
+                          ),
+                        ),
+                        // onChanged: (query) => _searchResults(query), // Ahora manejado por debounce
+                      ),
+      
+                      // Indicador de carga durante búsqueda
+                      if (isLoading &&
+                          _controller.text.isNotEmpty &&
+                          allCoworkings.isNotEmpty)
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: 16,
+                                height: 16,
+                                child: CircularProgressIndicator(strokeWidth: 2),
+                              ),
+                              SizedBox(width: 8),
+                            ],
+                          ),
+                        ),
+      
+                      // Solo aparece si hay texto y si hay resultados
+                      if (_controller.text.isNotEmpty &&
+                          filteredCoworkings.isNotEmpty &&
+                          !isLoading)
+                        Container(
+                          constraints: const BoxConstraints(
+                            maxHeight: 300,
+                          ), // Límite de altura del desplegable
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              top: BorderSide(color: Colors.black12),
+                            ), // Una rayita separadora
+                          ),
+                          child: ListView.builder(
+                            shrinkWrap:
+                                true, // Para que no ocupe toda la pantalla
+                            itemCount: filteredCoworkings.length,
+                            itemBuilder: (context, index) {
+                              final coworking = filteredCoworkings[index];
+                              final query = _controller.text.toLowerCase();
+      
+                              // Obtener coincidencias para este coworking
+                              final matches = _getMatchesForCoworking(
+                                coworking,
+                                query,
+                              );
+                              final bestMatch = matches.isNotEmpty
+                                  ? matches.first
+                                  : null;
+      
+                              // Determinar icono y color según el tipo de coincidencia
+                              Color matchColor = Colors.blueGrey;
+                              String matchText = coworking.address;
+                              String matchDetail = '';
+      
+                              if (bestMatch != null) {
+                                switch (bestMatch.matchType) {
+                                  case 'capacity':
+                                    matchText = bestMatch.matchText;
+                                    break;
+                                  case 'name':
+                                    break;
+                                  case 'service':
+                                    matchText = bestMatch.matchText;
+                                    break;
+                                  case 'equipment':
+                                    matchText = bestMatch.matchText;
+                                    break;
+                                  case 'room':
+                                    matchText = bestMatch.matchText;
+                                    break;
+                                  case 'address':
+                                    break;
+                                }
+                              }
+      
+                              return ListTile(
+                                leading: Icon(
+                                  Icons.location_on,
+                                  color: matchColor,
+                                ),
+                                title: Text(
+                                  coworking.name,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                subtitle: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      matchText,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        color: matchColor,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    if (matchDetail.isNotEmpty)
+                                      Text(
+                                        matchDetail,
+                                        style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                                trailing: matchDetail.isNotEmpty
+                                    ? Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 8,
+                                          vertical: 4,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: matchColor.withValues(
+                                            alpha: 0.1,
+                                          ),
+                                          borderRadius: BorderRadius.circular(12),
+                                        ),
+                                        child: Text(
+                                          matchDetail,
+                                          style: TextStyle(
+                                            color: matchColor,
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      )
+                                    : null,
+                                onTap: () {
+                                  // 1. Limpiar el buscador
+                                  _controller.clear();
+                                  _searchResults(
+                                    '',
+                                  ); // Restaura la lista completa
+      
+                                  // 2. Mostrar directamente el modal completo
+                                  _showCoworkingSummary(context, coworking);
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

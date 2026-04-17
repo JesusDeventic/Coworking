@@ -277,6 +277,8 @@
     "equipment_printer": "Printer",
     "equipment_bike_parking": "Bike parking",
     "equipment_meeting_rooms": "Meeting rooms",
-    "tryAgain": "Try again"
+    "tryAgain": "Try again",
+    "mapTab": "Map",
+    "listTab": "List"
 }
 
