@@ -204,8 +204,8 @@ class _MapScreenState extends State<MapScreen> {
           allCoworkings = coworkings;
           filteredCoworkings = List.from(coworkings);
           isLoading = false;
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _fitMapToMarkers();
+          Future.delayed(const Duration(milliseconds: 200), () { //delay para que cargue el mapa bien antes de mostrar
+            if (mounted) _fitMapToMarkers();
           });
         });
       } else {
