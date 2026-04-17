@@ -31,8 +31,9 @@ class MapScreen extends StatefulWidget {
   State<MapScreen> createState() => _MapScreenState();
 }
 
-class _MapScreenState extends State<MapScreen> {
-  final MapController _mapController = MapController(); // Para que el tamaño del mapa se ajuste automaticamente a la cantidad de coworkings que haya, necesito colocar este controller
+class _MapScreenState extends State<MapScreen> with TickerProviderStateMixin {
+  final MapController _mapController =
+      MapController(); // Para que el tamaño del mapa se ajuste automaticamente a la cantidad de coworkings que haya, necesito colocar este controller
   List<Coworking> filteredCoworkings = []; // Lista que se muestra actualmente
   List<Coworking> allCoworkings = []; // Todos los coworkings del backend
   bool isLoading = true;
@@ -204,7 +205,8 @@ class _MapScreenState extends State<MapScreen> {
           allCoworkings = coworkings;
           filteredCoworkings = List.from(coworkings);
           isLoading = false;
-          Future.delayed(const Duration(milliseconds: 200), () { //delay para que cargue el mapa bien antes de mostrar
+          Future.delayed(const Duration(milliseconds: 200), () {
+            //delay para que cargue el mapa bien antes de mostrar
             if (mounted) _fitMapToMarkers();
           });
         });
@@ -222,7 +224,6 @@ class _MapScreenState extends State<MapScreen> {
       showCustomSnackBar("${S.current.errorAuthGeneric} $e", type: -1);
     }
   }
-  
 
   // Función de búsqueda con filtrado local completo
   Future<void> _searchResults(String query) async {
@@ -434,7 +435,8 @@ class _MapScreenState extends State<MapScreen> {
                 width: MediaQuery.of(context).size.width, //ocupa todo el ancho
                 height: MediaQuery.of(context).size.height, //ocupa todo el alto
                 child: FlutterMap(
-                  mapController: _mapController, //controller para ajustar tamaño de mapa segun cantidad de coworkings
+                  mapController:
+                      _mapController, //controller para ajustar tamaño de mapa segun cantidad de coworkings
                   options: MapOptions(
                     // 1. Centro el mapa en Valladolid
                     initialCenter: const LatLng(41.6523, -4.7245),
@@ -600,7 +602,10 @@ class _MapScreenState extends State<MapScreen> {
                             }
 
                             return ListTile(
-                              leading: Icon(Icons.location_on, color: matchColor),
+                              leading: Icon(
+                                Icons.location_on,
+                                color: matchColor,
+                              ),
                               title: Text(
                                 coworking.name,
                                 style: const TextStyle(
@@ -933,19 +938,62 @@ class _MapScreenState extends State<MapScreen> {
 
   //Funcion para ajustar automaticamente el mapa segun cantidad de coworkings
   void _fitMapToMarkers() {
-  if (filteredCoworkings.isEmpty) return;
+    if (filteredCoworkings.isEmpty) return;
 
-  // Calculo los límites (norte, sur, este, oeste) de todos los puntos
-  final bounds = LatLngBounds.fromPoints(
-    filteredCoworkings.map((c) => LatLng(c.latitude, c.longitude)).toList(),
-  );
+    // Calculo los límites (norte, sur, este, oeste) de todos los puntos
+    final bounds = LatLngBounds.fromPoints(
+      filteredCoworkings.map((c) => LatLng(c.latitude, c.longitude)).toList(),
+    );
 
-  // Le digo al controlador que ajuste la cámara a esos límites
-  _mapController.fitCamera(
-    CameraFit.bounds(
-      bounds: bounds,
-      padding: const EdgeInsets.all(50.0), // Margen para que los iconos no toquen los bordes
-    ),
-  );
-}
+    // Le digo al controlador que ajuste la cámara a esos límites
+    _mapController.fitCamera(
+      CameraFit.bounds(bounds: bounds, padding: const EdgeInsets.all(50.0)),
+    ); // Margen para que los iconos no toquen los bordes
+    _animatedMapMove(_mapController.camera.center, _mapController.camera.zoom);
+  }
+
+  void _animatedMapMove(LatLng destLocation, double destZoom) {
+    // Creo las interpolaciones de latitud, longitud y zoom
+    final latTween = Tween<double>(
+      begin: _mapController.camera.center.latitude,
+      end: destLocation.latitude,
+    );
+    final lngTween = Tween<double>(
+      begin: _mapController.camera.center.longitude,
+      end: destLocation.longitude,
+    );
+    final zoomTween = Tween<double>(
+      begin: _mapController.camera.zoom,
+      end: destZoom,
+    );
+
+    // Creo un controlador de animación local
+    final controller = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+
+    // Curva de animación (easeOut es natural para mapas)
+    final Animation<double> animation = CurvedAnimation(
+      parent: controller,
+      curve: Curves.fastOutSlowIn,
+    );
+
+    controller.addListener(() {
+      _mapController.move(
+        LatLng(latTween.evaluate(animation), lngTween.evaluate(animation)),
+        zoomTween.evaluate(animation),
+      );
+    });
+
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        controller.dispose();
+      } else if (status == AnimationStatus.dismissed) {
+        controller.dispose();
+      }
+    });
+
+    controller.forward();
+  }
 }
